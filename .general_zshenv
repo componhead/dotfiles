@@ -22,7 +22,7 @@ alias gti="git"
 alias vi="nvim"
 alias emacs="emacs -nw"
 alias da="du -sch"
-alias l="ls -lahG "
+alias l="ls -lah --color "
 # Fast editing
 alias Evimrc="vi $DOTFILES/nvim/init.vim $DOTFILES/nvim/nvim_plugins.vim"
 alias Erc="vi $DOTFILES/.zshrc"
