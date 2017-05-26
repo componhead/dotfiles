@@ -16,15 +16,19 @@ echo "Installing Antigen..."
 rm -fr ${HOME}/.antigen
 git clone https://github.com/zsh-users/antigen.git ${HOME}/.antigen
 
+echo "Installing dein.vim..."
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ${HOME}
+
+echo "Installing zsh..."
+brew install zsh zsh-completions
+chsh -s $(which zsh)
+
 echo "Installing Oh-My-Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "Installing Neovim..."
 brew install neovim/neovim/neovim
-
-echo "Installing zsh..."
-brew install zsh zsh-completions
-chsh -s $(which zsh)
 
 echo "Installing generics dot configuration files"
 ln -sf ${PARENT_DIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme

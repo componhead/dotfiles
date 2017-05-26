@@ -14,8 +14,14 @@ echo "Installing Antigen..."
 rm -fr ${HOME}/.antigen
 git clone https://github.com/zsh-users/antigen.git ${HOME}/.antigen
 
-echo "Installing zsh and Oh-My-Zsh..."
+echo "Installing dein.vim..."
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ${HOME}
+
+echo "Installing zsh..."
 sudo apt-get install zsh
+
+echo "Installing Oh-My-Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s `which zsh`
 
