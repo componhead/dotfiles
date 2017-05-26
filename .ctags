@@ -1,0 +1,8 @@
+# Basic options
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+--exclude=project
+--exclude=target
+--exclude=log
+--exclude=bin

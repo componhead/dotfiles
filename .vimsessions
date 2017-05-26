@@ -1,0 +1,44 @@
+let s:sessions_dir = "~/.vim/sessions/"
+
+function! GetCurrentGitBranch()
+    return system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+    endfunction
+
+function! GetWorkingDirectory()
+    redir => current_dir
+    silent pwd
+    redir END
+    return current_dir
+    endfunction
+
+    function! GetSessionFile()
+let branch = GetCurrentGitBranch()
+    if branch == ""
+    echo "No git repository at " . GetWorkingDirectory()
+    else
+return s:sessions_dir . GetCurrentGitBranch()
+    endif
+    return ""
+    endfunction
+
+    function! GitSessionSave()
+let session_file = GetSessionFile()
+    if session_file != ""
+    execute "mksession! " . session_file
+    echo "Saved session to " . session_file
+    endif
+    endfunction
+
+    function! GitSessionRestore()
+let session_file = GetSessionFile()
+    if session_file != ""
+    execute "tabo"
+    execute "source " . session_file
+    echo "Restored session " . session_file
+    endif
+    endfunction
+
+    command! Gss call GitSessionSave()
+command! Gsr call GitSessionRestore()
+
+

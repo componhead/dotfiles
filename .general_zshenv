@@ -1,0 +1,96 @@
+#EXPORTS
+export PATH=$PATH:~/.local/bin:~/.nexustools
+export TERM=screen-256color
+export CLICOLOR=1
+export CLICOLOR_FORCE=1
+export LSCOLOR=Gxfxcxdxbxegedabagacad
+#export LESS='-imrFX'
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='3;33'
+export JEKYLL_GITHUB_TOKEN='c5826f89fba802f901cb846fbaf5e3f3059e51af'
+export EDITOR=nvim
+export DOCKERFILES="$DOTFILES/dockerFiles/"
+
+# User configuration
+export MANPATH="/usr/local/man:/opt/local/share/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+#ALIASES
+alias gti="git"
+alias vi="nvim"
+alias emacs="emacs -nw"
+alias da="du -sch"
+alias l="ls -lahG "
+# Fast editing
+alias Evimrc="vi $DOTFILES/nvim/init.vim $DOTFILES/nvim/nvim_plugins.vim"
+alias Erc="vi $DOTFILES/.zshrc"
+alias Src="source $DOTFILES/.zshrc"
+alias Eenv="vi $DOTFILES/.general_zshenv $SPECIFICDOTFILES/.zshenv"
+alias Senv="source $DOTFILES/.general_zshenv $SPECIFICDOTFILES/.zshenv"
+alias dotf="cd $DOTFILES"
+
+alias doslin="sed -i 's/\r$//g' "
+alias lindos="sed -i 's/$/\r/g' " 
+# for finding string in code = grep -rnw 'directory' -e "pattern"
+# system aliases
+alias tun="ssh -ND $1 localhost"
+alias ..="cd .."
+alias .2="cd ../../"
+alias .3="cd ../../../"
+alias .4="cd ../../../../"
+alias ..l="ls --color -la .."
+alias .2l="ls --color -la ../../"
+alias .3l="ls --color -la ../../../"
+alias .4l="ls --color -la ../../../../"
+alias ports="netstat -tulanp"
+alias fastping="ping -c 100 -s.2"
+alias backup="sudo tar -cvpjf /backup-'date+%d-%m-%Y'.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/backup-'date+%d-%m-%Y'.tar.bz2 --exclude=/mnt --exclude=/sys /"
+alias clean_activator="rm -r .activator && rm ~/Desktop/RUNNING_PID "
+alias reset="clear && printf '\e[3J'"
+
+alias sys=initialSession
+
+alias eclim="$ECLIPSE_HOME/eclimd"
+
+alias GG="function _grepThis(){ ps aux | grep $1; }; _grepThis();"
+alias getMyIp="curl ipecho.net/plain ; echo"
+alias scalaskel=scalaskel()
+
+#replace virtualenv2 by virtualenv if needed.
+#virtualenv2 just means i'm using python2 and have python3 as main interpreter)
+function! mkvenv() {
+    mkdir -p ~/.virtualenvs/$1
+    virtualenv --no-site-packages ~/.virtualenvs/$1
+    source ~/.virtualenvs/$1/bin/activate
+}
+function! rmvenv() {
+    rm -rf ~/.virtualenvs/$1
+}
+function! lsvenvs() {
+    ls ~/.virtualenvs
+}
+function! scalaskel() {
+    if [[ -z "$1" ]]
+      then
+        echo "No project name supplied"
+      else
+        mkdir $1
+        cd $1
+        mkdir -p src/{main,test}/{java,resources,scala}
+        mkdir lib project target
+        # create an initial build.sbt file
+        echo 'name := "'$1'"\nversion := "0.1"\nscalaVersion := "2.11.8"\n\nlibraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.8.5" % "test")\n\nscalacOptions in Test ++= Seq("-Yrangepos")' > build.sbt
+        echo 'sbt.version=0.13.12' > project/build.properties
+    fi
+}
+
+setopt inc_append_history
+
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'

@@ -1,0 +1,63 @@
+Messages are simple data structures that can’t be changed after they’ve been created, or in a single word, they’re immutable.
+Messages are sent to the actor’s `ActorRef`. Every actor has a `mailbox` —it’s a lot like a queue. Messages sent to the `ActorRef` will be temporarily stored in the `mailbox` to be processed later, one at a time, in the order they arrived.
+The messages that an actor can receive or send back on a request are bundled together in the actors’ companion object.
+
+Actors are invoked at some point by a `dispatcher`. The `dispatcher` pushes the messages in the `mailbox` through the actors.
+Akka actors take a lot less space than threads: around 2.7 million actors can fit in 1 GB of memory. That’s a big difference compared to 4096 threads for 1 GB of memory, which means that you can create different types of actors more freely than you would when using threads directly.
+`ActorRefs` are essentially addresses to actors, so all you need to change is how the addresses are linked to actors. If the toolkit takes care of the fact that an address can be local or remote, you can scale the solution just by configuring how the addresses are resolved.
+The only thing that has to change is how the reference to remote actors is looked up, which can be achieved solely through configuration.
+
+TestKit has `TestActorRef` extending the `LocalActorRef` class and sets the `dispatcher` to a `CallingThreadDispatcher` that’s built for testing only. (It invokes the actors on the calling thread instead of on a separate thread.)
+The `TestKit` exposes a system value, which can be accessed in the test to create actors and everything else you would like to do with the system.
+
+An actor is always created from a `Props` object. The `Props` object describes how the actor should be created.
+
+The `tell` (`!` symbol) method has an implicit sender reference and is a function `Unit => Any`.
+
+The `mailbox` for a crashed actor is suspended until the supervisor in the recovery flow has decided what to do with the exception. How does an actor become a supervisor? Akka has chosen to enforce parental supervision, meaning that any actor that creates actors automatically becomes the supervisor of those actors. A supervisor doesn’t “catch exceptions;” rather it decides what should happen with the crashed actors that it supervises based on the cause of the crash.
+The supervisor doesn’t try to fix the actor or its state. It simply renders a judgment on how to recover, and then triggers the corresponding strategy.
+
+Reprocessing corrupt files could end up in what’s called a poisoned `mailbox` —no other message will ever get processed because the corrupting message is failing over and over again.
+
+Communicating exceptions between threads isn’t a standard feature; you’ll have to build this yourself, which isn’t a trivial thing to do. Let’s look at the fault tolerance requirements to see if this approach even stands a chance:
+- *Fault isolation* A supervisor can decide to terminate an actor. The actor is removed from the actor system.
+- *Structure* The actor system hierarchy of actor references makes it possible to replace actor instances without other actors being affected.
+- *Redundancy* An actor can be replaced by another. In the example of the broken database connection, the fresh actor instance could connect to a different database. The supervisor could also decide to stop the faulty actor and create another type instead. Another option would be to route messages in a load-balanced fashion to many actors
+- *Replacement* An actor can always be re-created from its Props. A supervisor can decide to replace a faulty actor instance with a fresh one, without having to know any of the details for re-creating the actor.
+- *Reboot* This can be done through a restart.
+- *Component lifecycle* An actor is an active component. It can be started, stopped, and restarted. In the next section, we’ll go into the details of how the actor goes through its lifecycle.
+- *Suspend* When an actor crashes, its `mailbox` is suspended until the supervisor decides what should happen with the actor.
+- *Separation of concerns* The normal actor message-processing and supervision fault recovery flows are orthogonal, and can be defined and evolve completely independently of each other.
+
+Top-level actors are created with the `actorOf` method on the `ActorSystem`. A parent actor creates a child actor using the `actorOf` on its `ActorContext`.
+The `preStart` hook is called just before the actor is started.
+An actor can be stopped using the `stop` method on the `ActorSystem` and `ActorContext` objects, or by sending a `PoisonPill` message to an actor.
+The `postStop` hook is called just before the actor is terminated. When the actor is in the `Terminated` state, the actor doesn’t get any new messages to handle. The `postStop` method is the counterpart of the `preStart` hook.
+After the actor is stopped, the `ActorRef` is redirected to the `deadLettersActorRef` of the actor system, which is a special `ActorRef` that receives all messages that are sent to dead actors.
+The `preRestart` method can take two arguments: the reason for the restart and, optionally, the message that was being processed when the actor crashed. The supervisor can decide what should (or can) be stored to enable state restoration as part of restarting. This can’t be done using local variables, because after restarting, a fresh actor instance will take over processing. One solution for keeping state beyond the death of the crashed actor is for the supervisor to send a message to the actor—the message will go in its `mailbox`.
+When a restart occurs, the `preRestart` method of the crashed actor instance is called. In this hook, the crashed actor instance is able to store its current state, just before it’s replaced by the new actor instance.
+The default implementation of the `preRestart` method stops all the child actors of the actor and then calls the postStop hook. If you forget to call `super.preRestart`, this default behavior won’t occur.
+It’s important to note that there’s no delay between restarts; the actor will be restarted as fast as possible. If you require some form of delay between restarts, Akka provides a special `BackOffSupervisor` actor that you can pass the `Props` of your own actor to. This `BackOfSupervisor` creates the actor from the `Props` and supervises it, and does use a delay mechanism to prevent fast restarts.
+If the children of the crashed actor aren’t stopped, you could end up with increasingly more child actors when the parent actor is restarted.
+A crashed actor instance in a restart doesn’t cause a Terminated message to be sent for the crashed actor. The fresh actor instance, during restart, is connected to the same `ActorRef` the crashed actor was using before the fault. A stopped actor is disconnected from its `ActorRef` and redirected to the deadLettersActorRef as described by the stop event. What both the stopped actor and the crashed actor have in common is that by default, the postStop is called after they’ve been cut off from the actor system.
+The solution in that case could be to send the failed Row message to the self `ActorRef` so it would be processed by the fresh actor instance. One issue to note with this approach is that by sending a message back onto the `mailbox`, the order of the messages on the `mailbox` is changed. The failed message is pushed off the top of the `mailbox` and will be processed later than other messages that have been waiting in the `mailbox`.
+After the `preStart` hook is called, a new instance of the actor class is created and therefore the constructor of the actor is executed, through the Props object. After that, the `postRestart` hook is called on this fresh actor instance.
+`preStart` and `postStop` are called by default during a restart, and they’re called during the start and stop events in the lifecycle, so it makes sense to add code there for initialization and cleanup, respectively all the different events together.
+An actor is terminated if the supervisor decides to stop the actor, if the stop method is used to stop the actor, or if a PoisonPill message is sent to the actor, which indirectly causes the stop method to be called. Since the default implementation of the `preRestart` method stops all the actor’s children with the stop methods, these children are also terminated in the case of a restart.
+
+The `ActorContext` provides a watch method to monitor the death of an actor and an unwatch to de-register as monitor. Once an actor calls the watch method on an actor reference, it becomes the monitor of that actor reference. A `Terminated` message is sent to the monitor actor when the monitored actor is terminated. The `Terminated` message only contains the `ActorRef` of the actor that died.
+
+As opposed to supervision, which is only possible from parent to child actors, monitoring can be done by any actor. As long as the actor has access to the `ActorRef` of the actor that needs to be monitored, it can simply call `context.watch(actorRef)`, after which it will receive a `Terminated` message when the actor is terminated.
+
+The first supervision strategy is called 'supervision hierarchy' and is under the /user actor path, which will also be referred to as the 'user space'. This is where all application actors live. The supervision hierarchy is fixed for the lifetime of a child actor. Once the child is created by the parent, it will fall under the supervision of that parent as long as it lives so it’s important to choose the right supervision hierarchy from the start in your application, especially if you don’t plan to terminate parts of the hierarchy to replace them with completely different subtrees of actors. The most dangerous actors (actors that are most likely to crash) should be as low down the hierarchy as possible.
+The top-level actors in an application are created under the `/user` path and supervised by the user guardian. The default supervision strategy for the user guardian is to restart its children on any `Exception`, except when it receives internal exceptions that indicate that the actor was killed or failed during initialization, at which point it will stop the actor in question. This strategy is known as the default strategy.
+Every actor has a default supervisor strategy, which can be overridden by implementing the `supervisorStrategy` method. There are two predefined strategies available in the `SupervisorStrategy` object: the `defaultStrategy` and the `stoppingStrategy`.
+Any `Throwable` that isn’t handled by the supervisor strategy will be escalated to the parent of the supervisor. If a fatal error reaches all the way up to the user guardian, the user guardian won’t handle it, since the user guardian uses the default strategy. In that case, an uncaught exception handler in the actor system causes the actor system to shut down.
+
+Like actors, futures are important asynchronous building blocks that create an opportunity for parallel execution. Both actors and futures are great tools best used for different use cases.
+Whereas actors provide a mechanism to build a system out of concurrent objects, futures provide a mechanism to build a system out of asynchronous functions and indeed a future makes it possible to process the result of a function without ever waiting in the current thread for the result.
+Futures are composable with other futures, which in short means that they can be freely combined in many ways. A future is a placeholder for a function result (a success or failure) that will be available at some point in the future. It’s effectively an asynchronous result handle. It gives you a way to point at a result that will eventually become available. A future is a read-only placeholder. It can’t be changed from the outside. A future will contain a successful result or a failure once the function is completed. After completion, the result inside the future can’t change and can be read many times; it will always give the same result.
+Futures are especially handy for pipelining, where one function provides the input for a next function, fanning out to many functions in parallel, later to combine the results of these functions.
+
+If a `Future[T]` is only for reading, the `Promise[T]` is the counterpart for writing.
+A promise can only be completed once. `promise.success(metadata)` and `promise.failure(e)` are shorthand for `promise.complete(Success(metadata))` and `promise.complete(Failure(e))`, respectively. An `IllegalStateException` is thrown if the promise has already been completed and you try to complete it again.
