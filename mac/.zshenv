@@ -13,13 +13,16 @@ export COURSERADL="$HOME/opt/coursera/coursera-dl"
 bindkey '^[b' cdParentKey
 bindkey '^[f' cdUndoKey
 
-source $DOTFILES/.general_zshenv
 export AWS_URL="52.29.218.153"
 export PATH=$PATH:$SCALAFRM:$MYSQL_HOME:$COURSERADL:$PYTHONPATH:$DOTFILES
 
+alias l="ls -lahG"
+alias ..l="ls -lahG .."
+alias .2l="ls -lahG ../../"
+alias .3l="ls -lahG ../../../"
+alias .4l="ls -lahG ../../../../"
 alias macchanger="spoof "
 alias less="nvim -u /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/macros/less.vim"
-alias l="ls -lahG"
 alias blogdir="cd /Applications/MAMP/htdocs/blog/"
 alias blogssh="ssh -i $MY_SHELL/aws_moltitudini_key.pem ec2-user@$AWS_URL"
 scptoblog() {
@@ -45,3 +48,4 @@ if [ -d "$GHC_DOT_APP" ]; then
   export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
 
+source $DOTFILES/.general_zshenv

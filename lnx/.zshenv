@@ -53,6 +53,10 @@ alias omegafix="xmodmap -e \"keycode 24 = q Q at at at at\""     # transformer �
 #COMMENTATO PERCHE ROMPE LA 's'
 #alias sectionfix="xmodmap -e \"keycode 339 = o O oslash Oslash\"" # transformer ß -> §
 alias l="ls --color -lah"
+alias ..l="ls --color -la .."
+alias .2l="ls --color -la ../../"
+alias .3l="ls --color -la ../../../"
+alias .4l="ls --color -la ../../../../"
 
 export PATH=$PATH:~/opt/activator/bin:~/opt/play-2.2.3:~/opt/ripgrep-0.3.2-x86_64-unknown-linux-musl/:~/scripts
 export EDITOR=/usr/local/bin/nvim
