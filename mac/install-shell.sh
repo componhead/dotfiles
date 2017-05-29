@@ -30,6 +30,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "Installing Neovim..."
 brew install neovim/neovim/neovim
 
+echo "Installing Ripgrep..."
+brew install ripgrep
+
 echo "Installing generics dot configuration files"
 ln -sf ${PARENT_DIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
 ln -sf ${PARENT_DIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim

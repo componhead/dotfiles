@@ -38,6 +38,12 @@ sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config editor
 
+echo "Installing Rust..."
+curl -sSf https://static.rust-lang.org/rustup.sh | sh
+
+echo "Installin Ripgrep..."
+cargo install ripgrep
+
 echo "Installing generics dot configuration files"
 ln -sf ${PARENT_DIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
 ln -sf ${PARENT_DIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim
