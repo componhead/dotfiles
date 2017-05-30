@@ -1,4 +1,4 @@
-export DOTFILES="$HOME/opt/dotfiles"
+export DOTFILES="$HOME/dotfiles"
 export SPECIFICDOTFILES="$DOTFILES/lnx"
 
 #alias less="nvim -u /usr/share/nvim/runtime/macros/less.vim"
