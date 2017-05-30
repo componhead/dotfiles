@@ -13,7 +13,6 @@ export COURSERADL="$HOME/opt/coursera/coursera-dl"
 bindkey '^[b' cdParentKey
 bindkey '^[f' cdUndoKey
 
-export AWS_URL="52.29.218.153"
 export PATH=$PATH:$SCALAFRM:$MYSQL_HOME:$COURSERADL:$PYTHONPATH:$DOTFILES
 
 alias l="ls -lahG"
@@ -24,13 +23,6 @@ alias .4l="ls -lahG ../../../../"
 alias macchanger="spoof "
 alias less="nvim -u /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/macros/less.vim"
 alias blogdir="cd /Applications/MAMP/htdocs/blog/"
-alias blogssh="ssh -i $MY_SHELL/aws_moltitudini_key.pem ec2-user@$AWS_URL"
-scptoblog() {
-    scp -rpi $MY_SHELL/aws_moltitudini_key.pem $1 ec2-user@$AWS_URL:~/.
-}
-scpfromblog() {
-    scp -rpi $MY_SHELL/aws_moltitudini_key.pem ec2-user@$AWS_URL:~/$1 .
-}
 
 if [ -f "${HOME}/.gpg-agent-info" ]; then
   . "${HOME}/.gpg-agent-info"
