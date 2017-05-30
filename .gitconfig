@@ -64,6 +64,7 @@
     g-ls-sw = ls-files -v | grep ^[sS]
     conflicts = diff --name-only --diff-filter=U
     st = status -sb
+    d = difftool
 [interactive]
     diffFilter = $DOTFILES/diff-highlight
 [pager]
@@ -73,3 +74,7 @@
     helper = cache --timeout=144000
 [merge]
     conflictstyle = diff3
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false

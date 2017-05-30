@@ -147,6 +147,3 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-ssh-add ~/.ssh/id_rsa > /dev/null 2>&1
-ssh-add ~/.ssh/work_onetech > /dev/null 2>&1

@@ -51,7 +51,6 @@ alias eclim="$ECLIPSE_HOME/eclimd"
 
 alias GG="function _grepThis(){ ps aux | grep $1; }; _grepThis();"
 alias getMyIp="curl ipecho.net/plain ; echo"
-alias scalaskel=scalaskel()
 
 #replace virtualenv2 by virtualenv if needed.
 #virtualenv2 just means i'm using python2 and have python3 as main interpreter)
@@ -79,6 +78,10 @@ function! scalaskel() {
         echo 'name := "'$1'"\nversion := "0.1"\nscalaVersion := "2.11.8"\n\nlibraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.8.5" % "test")\n\nscalacOptions in Test ++= Seq("-Yrangepos")' > build.sbt
         echo 'sbt.version=0.13.12' > project/build.properties
     fi
+}
+function! addmyssh() {
+    ssh-add ~/.ssh/id_rsa > /dev/null 2>&1
+    ssh-add ~/.ssh/work_onetech > /dev/null 2>&1
 }
 
 setopt inc_append_history
