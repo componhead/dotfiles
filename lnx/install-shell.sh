@@ -72,7 +72,7 @@ ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
 ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
 ln -sf ${DOTFILESDIR}/.ghci ${HOME}/.ghci
 ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/ghci.conf
-ln -sf ${DOTFILESDIR}/.git_template ${HOME}/.git_template
+ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
 ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
 ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
