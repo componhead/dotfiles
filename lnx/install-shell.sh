@@ -55,6 +55,25 @@ then
     sudo update-alternatives --config editor
 fi
 
+if [ $(dpkg-query -W -f='${Status}' tmux 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+    sudo apt-get install tmux
+fi
+
+if [ $(dpkg-query -W -f='${Status}' unzip 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+    sudo apt-get install unzip
+fi
+
+if [ $(dpkg-query -W -f='${Status}' colortail 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+    sudo apt-get install colortail
+fi
+
+if [ $(dpkg-query -W -f='${Status}' colordiff 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+    sudo apt-get install colordiff
+fi
 #echo "Installing Rust..."
 #curl -sSf https://static.rust-lang.org/rustup.sh | sh
 #
