@@ -76,8 +76,8 @@ ln -sf ${DOTFILESDIR}/.git_template ${HOME}/.git_template
 ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
 ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
-ln -sf ${DOTFILESDIR}/manuali ${HOME}/manuali
-ln -sf ${DOTFILESDIR}/appunti ${HOME}/appunti
+ln -sf ${DOTFILESDIR}/manuali ${HOME}/
+ln -sf ${DOTFILESDIR}/appunti ${HOME}/
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
 
 echo "Installing specifics dot configuration files"
