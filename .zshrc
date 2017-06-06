@@ -149,5 +149,5 @@ export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export HISTFILESIZE=
-export HISTSIZE=
-export HISTFILE="${HOME}/.history"
+export HISTSIZE=999999
+export HISTFILE="${HOME}/.zsh_history"
