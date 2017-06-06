@@ -2,12 +2,11 @@ export DOTFILES="$HOME/dotfiles"
 export SPECIFICDOTFILES="$DOTFILES/lnx"
 
 #alias less="nvim -u /usr/share/nvim/runtime/macros/less.vim"
-alias repo="cd $REPO "
+alias repo="cd $REPO"
 alias tm="tmux attach"
 alias omegafix="xmodmap -e \"keycode 24 = q Q at at at at\""     # transformer Ω -> @
 #COMMENTATO PERCHE ROMPE LA 's'
 #alias sectionfix="xmodmap -e \"keycode 339 = o O oslash Oslash\"" # transformer ß -> §
-alias l="ls --color -lah"
 
 export PATH=$PATH:~/opt/activator/bin:~/opt/play-2.2.3:~/opt/ripgrep-0.3.2-x86_64-unknown-linux-musl/:~/scripts
 export EDITOR=/usr/local/bin/nvim

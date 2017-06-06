@@ -47,6 +47,17 @@ CURRENT_BG='NONE'
   SEGMENT_SEPARATOR=$'\ue0b0'
 }
 
+# RANDOM EMOJI
+EMOJI=(� � � � � � � � ☕️ � � � � � � � � � � � � � � � � � � � � � � )
+
+function random_emoji {
+  echo -n "$EMOJI[$RANDOM%$#EMOJI+1]"
+}
+
+emojiprompt() {
+  echo -n "$(random_emoji)  "
+}
+
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
@@ -196,6 +207,7 @@ prompt_status() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  emojiprompt
   prompt_history
   prompt_status
   prompt_virtualenv

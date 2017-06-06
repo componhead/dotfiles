@@ -19,6 +19,7 @@ export LANG=en_US.UTF-8
 
 #ALIASES
 alias gti="git"
+alias dkr="sudo docker"
 alias vi="nvim"
 alias emacs="emacs -nw"
 alias da="du -sch"
@@ -35,10 +36,11 @@ alias lindos="sed -i 's/$/\r/g' "
 # for finding string in code = grep -rnw 'directory' -e "pattern"
 # system aliases
 alias tun="ssh -ND $1 localhost"
-alias ..="cd .."
-alias .2="cd ../../"
-alias .3="cd ../../../"
-alias .4="cd ../../../../"
+alias l="ls --color -lah"
+alias ..="cd .. && ls -lah"
+alias .2="cd ../../ && ls -lah"
+alias .3="cd ../../../ && ls -lah"
+alias .4="cd ../../../../ && ls -lah"
 alias ports="netstat -tulanp"
 alias fastping="ping -c 100 -s.2"
 alias backup="sudo tar -cvpjf /backup-'date+%d-%m-%Y'.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/backup-'date+%d-%m-%Y'.tar.bz2 --exclude=/mnt --exclude=/sys /"
