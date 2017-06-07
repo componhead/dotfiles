@@ -219,3 +219,8 @@
     git bisect [bad|good]
     git bisect reset
 
+## ALTRO
+### Togliere dall'index dei files dopo avere aggiunto una cartella con molti files
+``` shell
+git reset -- `git status -sb | grep "\/path1\/to1\/dir1\|\/path2\/to2\/dir2\|\/path3\/to3\/dir3" | sed 's/^[ACDMRTUX ]\{1,3\}//'`
+```
