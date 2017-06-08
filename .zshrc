@@ -66,7 +66,7 @@ export ARCHFLAGS="-arch x86_64"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 if [[ ! -f ~/antigen.zsh ]]; then
-  curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/antigen.zsh
+    curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/antigen.zsh
 fi
 source ~/antigen.zsh
 antigen-use oh-my-zsh
@@ -88,19 +88,19 @@ setopt hist_ignore_space
 setopt nobeep
 
 cdUndoKey() {
-  popd      > /dev/null
-  zle       reset-prompt
-  echo
-  ls
-  echo
+    popd      > /dev/null
+    zle       reset-prompt
+    echo
+    ls
+    echo
 }
 
 cdParentKey() {
-  pushd .. > /dev/null
-  zle      reset-prompt
-  echo
-  ls
-  echo
+    pushd .. > /dev/null
+    zle      reset-prompt
+    echo
+    ls
+    echo
 }
 
 # <A-up> torna sopra di un livello
@@ -111,11 +111,11 @@ zle -N                 cdUndoKey
 mkdir -p ~/.cache/zsh
 DIRSTACKFILE="$HOME/.cache/zsh/dirs"
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-  [[ -d $dirstack[1] ]] && cd $dirstack[1]
+    dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+    [[ -d $dirstack[1] ]] && cd $dirstack[1]
 fi
 chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+    print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
 
 DIRSTACKSIZE=20
@@ -138,9 +138,37 @@ cd $HOME
 if [[ -f ~/.fzf.zsh && -d ~/.fzf ]]; then
     source ~/.fzf.zsh
 else
-   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf 
-   ~/.fzf/install
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf 
+    ~/.fzf/install
 fi
+
+# Randomize string (space-separated values).
+function randomize_string () {
+echo $@ | tr " " "\n" | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' | tr "\n" " "
+}
+
+# Extract a random item from a string (space-separated values).
+function random_el () {
+local array=($(randomize_string $@))
+# Bash $RANDOM is terrible; use jot.
+echo ${array[$(jot -r 1 0 `expr ${#array[*]} - 1`)]}
+}
+
+# Generate a random emoji.
+function random_emoji () {
+    # RANDOM EMOJI
+    echo $(random_el "� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �  ")
+}
+
+# Set tmux window status using emoji as index.
+function tmux_emoji () {
+if [[ "$TERM" = screen* ]] && [ -n "$TMUX" ]; then
+    tmux_index=$(random_emoji)
+    tmux set-option quiet on
+    tmux set-window window-status-current-format " $tmux_index  #W "
+    tmux set-window window-status-format " $tmux_index  #W "
+fi
+}
 
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
