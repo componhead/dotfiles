@@ -55,7 +55,7 @@ function random_emoji {
 }
 
 emojiprompt() {
-  echo -n "$(random_emoji)  "
+  echo -n " $(random_emoji)  "
   prompt_segment black default
 }
 
