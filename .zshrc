@@ -142,34 +142,6 @@ else
     ~/.fzf/install
 fi
 
-# Randomize string (space-separated values).
-function randomize_string () {
-echo $@ | tr " " "\n" | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' | tr "\n" " "
-}
-
-# Extract a random item from a string (space-separated values).
-function random_el () {
-local array=($(randomize_string $@))
-# Bash $RANDOM is terrible; use jot.
-echo ${array[$(jot -r 1 0 `expr ${#array[*]} - 1`)]}
-}
-
-# Generate a random emoji.
-function random_emoji () {
-    # RANDOM EMOJI
-    echo $(random_el "� � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � � �  ")
-}
-
-# Set tmux window status using emoji as index.
-function tmux_emoji () {
-if [[ "$TERM" = screen* ]] && [ -n "$TMUX" ]; then
-    tmux_index=$(random_emoji)
-    tmux set-option quiet on
-    tmux set-window window-status-current-format " $tmux_index  #W "
-    tmux set-window window-status-format " $tmux_index  #W "
-fi
-}
-
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
