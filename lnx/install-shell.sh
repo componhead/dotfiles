@@ -74,11 +74,15 @@ if [ $(dpkg-query -W -f='${Status}' colordiff 2>/dev/null | grep -c "ok installe
 then
     sudo apt-get install colordiff
 fi
-#echo "Installing Rust..."
-#curl -sSf https://static.rust-lang.org/rustup.sh | sh
-#
-#echo "Installin Ripgrep..."
-#cargo install ripgrep
+
+echo "Installing Rust..."
+curl https://sh.rustup.rs -sSf > rust-install.sh
+chmod +x ./rust-install.sh
+./rust-install.sh -y
+rm rust-install.sh
+
+echo "Installin Ripgrep..."
+cargo install ripgrep
 
 echo "Installing generics dot configuration files"
 ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
