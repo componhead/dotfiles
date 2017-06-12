@@ -73,6 +73,8 @@ source ~/antigen.zsh
 antigen-use oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 antigen bundle zsh-users/zsh-completions
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
 
 bindkey -s "\e[25~" """]"
 bindkey -v
