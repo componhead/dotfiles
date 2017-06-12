@@ -81,8 +81,16 @@ chmod +x ./rust-install.sh
 ./rust-install.sh -y
 rm rust-install.sh
 
-echo "Installin Ripgrep..."
+echo "Installing Ripgrep..."
 cargo install ripgrep
+
+echo "Installing Docker"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install -y docker-ce
+sudo systemctl status docker
+sudo usermod -aG docker $(whoami)
 
 echo "Installing completion docker"
 mkdir -p ~/.zsh/completion
