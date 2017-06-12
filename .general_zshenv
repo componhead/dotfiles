@@ -20,6 +20,7 @@ export LANG=en_US.UTF-8
 #ALIASES
 alias gti="git"
 alias dkr="sudo docker"
+alias dkrc="sudo docker-compose"
 alias vi="nvim"
 alias emacs="emacs -nw"
 alias da="du -sch"
