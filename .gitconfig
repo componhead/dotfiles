@@ -20,7 +20,7 @@
     local = normal
     remote = red
     plain = normal
-	current = white
+    current = white
 [color "status"]
     header = normal
     added = red
