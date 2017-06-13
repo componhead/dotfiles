@@ -16,7 +16,6 @@
     commit = yellow bold
     whitespace = red
 [color "branch"]
-    current = white
     local = normal
     remote = red
     plain = normal
@@ -24,17 +23,17 @@
 [color "status"]
     header = normal
     added = red
-    updated = white
-    changed = red
+    updated = green bold
+    changed = yellow
     untracked = red
     nobranch = red
 [color "grep"]
     match = normal
 [color "interactive"]
-    prompt = normal
-    header = normal
-    help = normal
-    error = normal
+    prompt = green
+    header = cyan
+    help = yellow
+    error = red
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     autoclrf=true
