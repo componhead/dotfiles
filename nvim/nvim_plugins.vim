@@ -42,7 +42,6 @@ call dein#add('kien/rainbow_parentheses.vim')
 call dein#add('jamessan/vim-gnupg')
 call dein#add('blueyed/vim-diminactive')
 call dein#add('tmux-plugins/vim-tmux-focus-events')
-call dein#add('neomake/neomake')
 call dein#add('itchyny/calendar.vim')
 call dein#add('MattesGroeger/vim-bookmarks')
 call dein#add('chrisbra/unicode.vim.git')
@@ -54,6 +53,7 @@ call dein#add('eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] })
 call dein#add('eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] })
 call dein#add('Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] })
 call dein#add('mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] })
+call dein#add('w0rp/ale.git')
 call dein#end()
 
 if dein#check_install()
@@ -113,7 +113,6 @@ let g:haddock_browser_callformat = "%s %s"
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 autocmd FocusGained * let @z=@+
-autocmd! BufWritePost * Neomake
 " --column: Show column number
 " --line-number: Show line number
 " --no-heading: Do not show file headings in results
