@@ -56,7 +56,7 @@ function random_emoji {
 
 emojiprompt() {
   prompt_segment white black
-  echo -n "$(random_emoji)"
+  echo -n "$(random_emoji) "
 }
 
 # Begin a segment
