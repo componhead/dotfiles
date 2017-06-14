@@ -101,7 +101,7 @@ prompt_context() {
 }
 
 prompt_history() {
-  prompt_segment white black "%h"
+  prompt_segment blue white "%h"
 }
 
 # Git: branch/detached head, dirty status
