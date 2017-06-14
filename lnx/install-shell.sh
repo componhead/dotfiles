@@ -21,13 +21,8 @@ then
     git clone https://github.com/zsh-users/antigen.git ${HOME}/.antigen
 fi
 
-if [[ ! -d ${HOME}/dein.vim ]]
-then
-    echo "Installing dein.vim..."
-    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-    sh ./installer.sh ${HOME}
-fi
-
+echo "Installing Plug..."
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
