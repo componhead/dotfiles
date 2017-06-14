@@ -1,64 +1,49 @@
 " INSTALLATION {{{
-" ------------- VERY IMPORTANT: Installation of vimproc ------------
-" git clone https://github.com/Shougo/vimproc.vim.git ~/bin
-" cd ~/bin/vimproc.vim
-" make
-" cp -r autoload ~/.config/nvim
-" cp -r plugin ~/.config/nvim
-" cp -r lib ~/.config/nvim
-" cp ~/bin/vimproc.vim/lib/vimproc_mac.so ~/.cache/dein.vim/.dein/lib
-" curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-" sh ./installer.sh ~/bin/dein.vim
-" -----------------------------------------
-call dein#begin(expand('~/.cache/dein.vim'))
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('pippocode/vim-lucius')
-call dein#add('jeetsukumaran/vim-buffergator')
-call dein#add('jpalardy/vim-slime')
-call dein#add('mhinz/vim-signify')
-call dein#add('mhinz/vim-grepper')
-call dein#add('derekwyatt/vim-scala')
-call dein#add('tpope/vim-characterize')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-unimpaired')
-call dein#add('tpope/vim-obsession')
-call dein#add('tpope/vim-vinegar')
-call dein#add('tpope/vim-markdown', {'for':['md','markdown']})
-call dein#add('Chiel92/vim-autoformat')
-call dein#add('ervandew/supertab')
-call dein#add('mbbill/undotree')
-call dein#add('guns/xterm-color-table.vim')
-call dein#add('junegunn/goyo.vim', {'for':['txt','md','markdown']})
-call dein#add ('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
-call dein#add('junegunn/fzf.vim')
-call dein#add('junegunn/vim-emoji.git')
-call dein#add('kien/rainbow_parentheses.vim')
-call dein#add('jamessan/vim-gnupg')
-call dein#add('blueyed/vim-diminactive')
-call dein#add('tmux-plugins/vim-tmux-focus-events')
-call dein#add('itchyny/calendar.vim')
-call dein#add('MattesGroeger/vim-bookmarks')
-call dein#add('chrisbra/unicode.vim.git')
-call dein#add('bling/vim-airline')
-call dein#add('rhysd/nyaovim-markdown-preview.git')
-call dein#add('ekalinin/Dockerfile.vim.git')
-call dein#add('neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] })
-call dein#add('eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] })
-call dein#add('eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] })
-call dein#add('Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] })
-call dein#add('mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] })
-call dein#add('w0rp/ale.git')
-call dein#end()
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'Shougo/vimproc.vim', {'build' : 'make'}
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/unite.vim'
+Plug 'pippocode/vim-lucius'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'jpalardy/vim-slime'
+Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-grepper'
+Plug 'derekwyatt/vim-scala'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-markdown', {'for':['md','markdown']}
+Plug 'Chiel92/vim-autoformat'
+Plug 'ervandew/supertab'
+Plug 'mbbill/undotree'
+Plug 'guns/xterm-color-table.vim'
+Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'git@github:junegunn/vim-emoji.git'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'blueyed/vim-diminactive'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'itchyny/calendar.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'git@github:chrisbra/unicode.vim.git'
+Plug 'bling/vim-airline'
+Plug 'git@github:rhysd/nyaovim-markdown-preview.git'
+Plug 'git@github:ekalinin/Dockerfile.vim.git'
+Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
+Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
+Plug 'eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
+Plug 'Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
+Plug 'mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
+Plug 'git@github:w0rp/ale.git'
+call plug#end()
 
-if dein#check_install()
-    call dein#install()
-endif
 "}}}
 " PLUGINS PREFERENCES {{{
 set statusline+=%#warningmsg#
