@@ -64,7 +64,7 @@
     conflicts = diff --name-only --diff-filter=U
     st = status -sb
     d = difftool --color=always --word-diff=color --word-diff-regex=.
-    m = mergetool --color=always
+    m = mergetool --color=always --no-ff --no-commit 
 [interactive]
     diffFilter = $DOTFILES/diff-highlight
 [pager]
