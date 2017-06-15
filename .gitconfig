@@ -64,6 +64,7 @@
     conflicts = diff --name-only --diff-filter=U
     st = status -sb
     d = difftool --color=always --word-diff=color --word-diff-regex=.
+    m = mergetool --color=always
 [interactive]
     diffFilter = $DOTFILES/diff-highlight
 [pager]
@@ -73,7 +74,10 @@
     helper = cache --timeout=144000
 [merge]
     conflictstyle = diff3
-[diff]
     tool = vimdiff
+[mergetool]
+    prompt = false
+[diff]
+    tool = vimdiff3
 [difftool]
     prompt = false
