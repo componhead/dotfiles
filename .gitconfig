@@ -74,7 +74,7 @@
     helper = cache --timeout=144000
 [merge]
     conflictstyle = diff3
-    tool = vimdiff
+    tool = vimdiff3
 [mergetool]
     prompt = false
 [diff]
