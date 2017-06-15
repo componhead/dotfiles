@@ -6,7 +6,7 @@
 [color "branch"]
     current = yellow reverse
     local = yellow
-    remote = green
+    remote = green bold
 [color "diff"]
     plain = normal
     meta = cyan
@@ -30,7 +30,7 @@
 [color "grep"]
     match = normal
 [color "interactive"]
-    prompt = green
+    prompt = green bold
     header = cyan
     help = yellow
     error = red
