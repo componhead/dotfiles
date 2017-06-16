@@ -41,6 +41,7 @@
     fscache = true
     excludesfile = ~/.gitignore_global
     pager = $DOTFILES/diff-highlight | less -r
+    autocrlf = input
 [branch]
     autosetuprebase = always
 [push]
