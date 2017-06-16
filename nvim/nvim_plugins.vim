@@ -41,7 +41,7 @@ Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
 Plug 'eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
 Plug 'Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
 Plug 'mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
-Plug 'git@github:w0rp/ale.git'
+"Plug 'git@github:w0rp/ale.git'
 call plug#end()
 
 "}}}
@@ -61,7 +61,6 @@ let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
-"let g:airline_theme='oceanicnext'
 let g:airline_theme='dark'
 let g:bufferline_echo = 0
 let g:buffergator_viewport_split_policy = 'R'
