@@ -74,7 +74,9 @@ else
     set ttymouse=xterm2
 endif
 source ~/.vimsessions
-source $DOTFILES/nvim/nvim_plugins.vim
+if !empty(glob("$DOTFILES/nvim/nvim_plugins.vim"))
+    source $DOTFILES/nvim/nvim_plugins.vim
+endif
 silent! source $DOTFILES/scala_settings.vim
 " }}}
 " FUNCTIONS {{{
