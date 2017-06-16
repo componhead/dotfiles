@@ -48,7 +48,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startupg.
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-plugins=(zsh-syntax-highlighting github osx docker git-flow git-flow-avh git-hubflow git-remote-branch emoji)
+plugins=(zsh-syntax-highlighting github osx docker git-extra emoji)
 autoload -U compinit && compinit
 
 # Compilation flags
