@@ -1,7 +1,7 @@
 " INSTALLATION {{{
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'pippocode/vim-lucius'
@@ -68,7 +68,7 @@ let g:session_autosave = 'no'
 let g:slime_target = "tmux"
 let g:SuperTabDefaultCompletionType = 'context'
 let g:unite_source_history_yank_enable = 1
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 let g:signify_vcs_cmds = { 'git': 'git diff --no-color --no-ext-diff -U0 -- %f', 'accurev':  'accurev diff %f -- -U0' }
 let g:signify_disable_by_default = 0
 let g:signify_update_on_bufenter = 1
