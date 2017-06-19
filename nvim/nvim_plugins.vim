@@ -33,7 +33,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'itchyny/calendar.vim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'git@github:chrisbra/unicode.vim.git'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'git@github:rhysd/nyaovim-markdown-preview.git'
 Plug 'git@github:ekalinin/Dockerfile.vim.git'
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
