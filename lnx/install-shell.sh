@@ -24,15 +24,24 @@ fi
 echo "Installing Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "ok installed") -eq 0 ];
-then
-    echo "Installing zsh..."
-    sudo apt-get install zsh
-fi
+#if [ $(dpkg-query -W -f='${Shttps://launchpad.net/~fish-shell/+archive/ubuntu/release-2/+build/12681007/+files/fish-common_2.6.0-1~xenial_all.de://launchpad.net/~fish-shell/+archive/ubuntu/release-2/+build/12681007/+files/fish-common_2.6.0-1~xenial_all.debtatus}' zsh 2>/dev/null | grep -c "ok installed") -eq 0 ];
+#then
+#    echo "Installing zsh..."
+#    sudo apt-get install zsh
+#fi
 
-echo "Installing Oh-My-Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s `which zsh`
+#echo "Installing Oh-My-Zsh..."
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#chsh -s `which zsh`
+
+echo "Installing fish shell..."
+sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-get update
+sudo apt-get install fish
+
+echo "Installing oh-my-fish shell..."
+curl -L https://get.oh-my.fish > ~/install
+fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 
 if [ $(dpkg-query -W -f='${Status}' neovim 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
