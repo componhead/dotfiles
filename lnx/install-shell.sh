@@ -38,6 +38,7 @@ echo "Installing fish shell..."
 sudo apt-add-repository ppa:fish-shell/release-2
 sudo apt-get update
 sudo apt-get install fish
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 
 echo "Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
