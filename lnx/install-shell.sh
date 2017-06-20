@@ -3,6 +3,9 @@
 # Installation on UBUNTU (14.04+)
 DOTFILESDIR=${HOME}/dotfiles
 
+echo "Installing fonts..."
+sudo gnome-font-viewer ../BitstreamVeraSansMono/Bitstream Vera Sans Mono Nerd Font Complete.ttf
+
 if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "Installing git..."
