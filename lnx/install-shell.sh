@@ -4,7 +4,13 @@
 DOTFILESDIR=${HOME}/dotfiles
 
 echo "Installing fonts..."
-sudo gnome-font-viewer ../BitstreamVeraSansMono/Bitstream Vera Sans Mono Nerd Font Complete.ttf
+#sudo gnome-font-viewer ../BitstreamVeraSansMono/Bitstream Vera Sans Mono Nerd Font Complete.ttf
+if [ ! -d ~/.fonts ]
+then
+    mkdir ~/.fonts
+fi
+cp $DOTFILESDIR/BitstreamVeraSansMono/* ~/.fonts
+sudo fc-cache -fv
 
 if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
