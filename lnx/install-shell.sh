@@ -120,6 +120,10 @@ ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
 ln -sf ${DOTFILESDIR}/manuali ${HOME}/
 ln -sf ${DOTFILESDIR}/appunti ${HOME}/
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
+rm -r $HOME/.config/omf
+ln -sf ${DOTFILESDIR}/.config/omf $HOME/.config
+rm -r $HOME/.config/fish
+ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
 
 echo "Installing specifics dot configuration files"
 ln -sf ${DOTFILESDIR}/lnx/.zshenv ${HOME}/.zshenv

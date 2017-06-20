@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 DOTFILESDIR=${HOME}/dotfiles
 
@@ -32,8 +32,14 @@ else
     git clone https://github.com/zsh-users/antigen.git ${HOME}/.antigen
 fi
 
-echo "Installing Plug..."
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+echo "Installing fish shell..."
+brew install fish
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+
+echo "Installing oh-my-fish shell..."
+curl -L https://get.oh-my.fish > ~/install
+fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 
 if brew ls --versions zsh > /dev/null; then
     echo "Zsh already installed"
@@ -53,13 +59,8 @@ else
     brew install neovim/neovim/neovim
 fi
 
-if brew ls --versions zsh > /dev/null; then
-    echo "Zsh already installed"
-else
-    echo "Installing zsh..."
-    brew install zsh zsh-completions
-    chsh -s $(which zsh)
-fi
+echo "Installing Plug..."
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if brew ls --versions ripgrep > /dev/null; then
     echo "Ripgrep already installed"
@@ -90,7 +91,11 @@ ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
 ln -sf ${DOTFILESDIR}/manuali ${HOME}/
 ln -sf ${DOTFILESDIR}/appunti ${HOME}/
-ln -sf  ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
+ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
+rm -r ${HOME}/.config/omf
+ln -sf ${DOTFILESDIR}/.config/omf ${HOME}/.config
+rm -r ${HOME}/.config/fish
+ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config
 
 echo "Installing specifics dot configuration files"
 ln -sf ${DOTFILESDIR}/mac/.zshenv ${HOME}/.zshenv
