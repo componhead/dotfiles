@@ -25,22 +25,23 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'git@github:junegunn/vim-emoji.git'
+Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'blueyed/vim-diminactive'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'itchyny/calendar.vim'
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'git@github:chrisbra/unicode.vim.git'
+Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'git@github:rhysd/nyaovim-markdown-preview.git'
-Plug 'git@github:ekalinin/Dockerfile.vim.git'
+Plug 'rhysd/nyaovim-markdown-preview'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
 Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
 Plug 'eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
 Plug 'Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
 Plug 'mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
+Plug 'hkupty/nvimux'
 "Plug 'git@github:w0rp/ale.git'
 call plug#end()
 
@@ -94,6 +95,7 @@ let g:markdown_preview_auto=1
 let g:markdown_preview_eager=1
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
+let g:nvimux_prefix='<C-a>'
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 autocmd FocusGained * let @z=@+
