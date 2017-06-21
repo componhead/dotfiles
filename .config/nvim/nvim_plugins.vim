@@ -29,7 +29,6 @@ Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'blueyed/vim-diminactive'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'itchyny/calendar.vim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'chrisbra/unicode.vim'
@@ -41,7 +40,6 @@ Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
 Plug 'eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
 Plug 'Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
 Plug 'mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
-Plug 'hkupty/nvimux'
 "Plug 'git@github:w0rp/ale.git'
 call plug#end()
 
@@ -65,7 +63,6 @@ let g:airline_theme='dark'
 let g:bufferline_echo = 0
 let g:buffergator_viewport_split_policy = 'R'
 let g:session_autosave = 'no'
-let g:slime_target = "tmux"
 let g:SuperTabDefaultCompletionType = 'context'
 let g:unite_source_history_yank_enable = 1
 "let g:deoplete#enable_at_startup = 1
@@ -148,15 +145,11 @@ autocmd BufNewFile *.html,*.htm silent! 0r ~/.config/nvim/templates/%:e.tpl
 " }}}
 " BLOG post file settings {{{
 function! s:goyo_enter()
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
     set noshowmode
     set noshowcmd
     set scrolloff=999
 endfunction
 function! s:goyo_leave()
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
     set showmode
     set showcmd
     set scrolloff=5
