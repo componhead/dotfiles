@@ -1,3 +1,3 @@
 function reset
-    clear and printf '\e[3J'
+    tput reset
 end
