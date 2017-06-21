@@ -3,6 +3,8 @@
 # Installation on UBUNTU (14.04+)
 DOTFILESDIR=${HOME}/dotfiles
 
+mkdir ~/bin
+
 echo "Installing fonts..."
 #sudo gnome-font-viewer ../BitstreamVeraSansMono/Bitstream Vera Sans Mono Nerd Font Complete.ttf
 if [ ! -d ~/.fonts ]
@@ -90,14 +92,11 @@ then
     sudo apt-get install colordiff
 fi
 
-echo "Installing Rust..."
-curl https://sh.rustup.rs -sSf > rust-install.sh
-chmod +x ./rust-install.sh
-./rust-install.sh -y
-rm rust-install.sh
-
 echo "Installing Ripgrep..."
-cargo install ripgrep
+wget https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
+tar xzvf ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
+mv ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/bin
+rm -r ripgrep-0.5.2-x86_64-unknown-linux-musl*
 
 echo "Installing Docker"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
