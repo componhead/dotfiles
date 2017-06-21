@@ -51,7 +51,6 @@ if brew ls --versions zsh > /dev/null; then
 else
     echo "Installing Zsh..."
     brew install zsh zsh-completions
-    chsh -s $(which zsh)
 fi
 
 echo "Installing Oh-My-Zsh..."
