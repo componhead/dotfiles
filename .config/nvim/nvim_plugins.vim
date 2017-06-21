@@ -49,7 +49,6 @@ call plug#end()
 " PLUGINS PREFERENCES {{{
 set statusline+=%#warningmsg#
 set statusline+=%*
-set rtp+=~/.fzf
 colorscheme lucius
 let g:lucius_style="dark"
 let g:lucius_contrast="low"
