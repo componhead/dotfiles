@@ -56,6 +56,11 @@ echo "Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
 fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 
+echo "Installing omf plugins..."
+omg install fzf
+omg install bang-bang
+omg install bobthefish
+
 if [ $(dpkg-query -W -f='${Status}' neovim 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "Installing Neovim..."

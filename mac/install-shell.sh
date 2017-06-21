@@ -41,6 +41,11 @@ echo "Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
 fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 
+echo "Installing omf plugins..."
+omg install fzf
+omg install bang-bang
+omg install bobthefish
+
 if brew ls --versions zsh > /dev/null; then
     echo "Zsh already installed"
 else
