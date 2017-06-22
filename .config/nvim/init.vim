@@ -65,19 +65,11 @@ let g:yankring_clipboard_monitor=0
 "autocmd BufWritePost * call system("ctags -R")
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
+let g:terminal_scrollback_buffer_size = 100000
 "}}}
 " OTHER {{{
 " Better compatibility with vim
-if exists(':tnoremap')
-    tnoremap <A-h> <C-\><C-N><C-w>h
-    tnoremap <A-j> <C-\><C-N><C-w>j
-    tnoremap <A-k> <C-\><C-N><C-w>k
-    tnoremap <A-l> <C-\><C-N><C-w>l
-    inoremap <A-h> <C-\><C-N><C-w>h
-    inoremap <A-j> <C-\><C-N><C-w>j
-    inoremap <A-k> <C-\><C-N><C-w>k
-    inoremap <A-l> <C-\><C-N><C-w>l
-else
+if ! exists(':tnoremap')
     set ttymouse=xterm2
 endif
 source ~/.vimsessions
@@ -175,10 +167,6 @@ vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap {} {}<left><CR><ESC>O
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
 " }}}
 " AUTOCOMMANDS {{{
 if did_filetype()	" filetype already set..
