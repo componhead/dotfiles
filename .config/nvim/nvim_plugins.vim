@@ -1,46 +1,46 @@
 " INSTALLATION {{{
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'git@github:Shougo/vimproc.vim', {'build' : 'make'}
+Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 "Plug 'Shougo/deoplete.nvim'
-Plug 'git@github:Shougo/neomru.vim'
-Plug 'git@github:Shougo/unite.vim'
-Plug 'git@github:pippocode/vim-lucius'
-Plug 'git@github:jeetsukumaran/vim-buffergator'
-Plug 'git@github:jpalardy/vim-slime'
-Plug 'git@github:mhinz/vim-signify'
-Plug 'git@github:mhinz/vim-grepper'
-Plug 'git@github:derekwyatt/vim-scala'
-Plug 'git@github:tpope/vim-characterize'
-Plug 'git@github:tpope/vim-repeat'
-Plug 'git@github:tpope/vim-surround'
-Plug 'git@github:tpope/vim-commentary'
-Plug 'git@github:tpope/vim-unimpaired'
-Plug 'git@github:tpope/vim-obsession'
-Plug 'git@github:tpope/vim-vinegar'
-Plug 'git@github:tpope/vim-markdown', {'for':['md','markdown']}
-Plug 'git@github:Chiel92/vim-autoformat'
-Plug 'git@github:ervandew/supertab'
-Plug 'git@github:mbbill/undotree'
-Plug 'git@github:guns/xterm-color-table.vim'
-Plug 'git@github:junegunn/goyo.vim', {'for':['txt','md','markdown']}
-Plug 'git@github:junegunn/fzf.vim'
-Plug 'git@github:junegunn/vim-emoji'
-Plug 'git@github:kien/rainbow_parentheses.vim'
-Plug 'git@github:jamessan/vim-gnupg'
-Plug 'git@github:blueyed/vim-diminactive'
-Plug 'git@github:itchyny/calendar.vim'
-Plug 'git@github:MattesGroeger/vim-bookmarks'
-Plug 'git@github:chrisbra/unicode.vim'
-Plug 'git@github:vim-airline/vim-airline'
-Plug 'git@github:rhysd/nyaovim-markdown-preview'
-Plug 'git@github:ekalinin/Dockerfile.vim'
-Plug 'git@github:neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
-Plug 'git@github:eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
-Plug 'git@github:eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
-Plug 'git@github:Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
-Plug 'git@github:mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/unite.vim'
+Plug 'pippocode/vim-lucius'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'jpalardy/vim-slime'
+Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-grepper'
+Plug 'derekwyatt/vim-scala'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-markdown', {'for':['md','markdown']}
+Plug 'Chiel92/vim-autoformat'
+Plug 'ervandew/supertab'
+Plug 'mbbill/undotree'
+Plug 'guns/xterm-color-table.vim'
+Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-emoji'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'blueyed/vim-diminactive'
+Plug 'itchyny/calendar.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'chrisbra/unicode.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'rhysd/nyaovim-markdown-preview'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
+Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
+Plug 'eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
+Plug 'Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
+Plug 'mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
 "Plug 'git@github:w0rp/ale.git'
-Plug 'git@github:kassio/neoterm.git'
+Plug 'kassio/neoterm'
 call plug#end()
 
 "}}}
