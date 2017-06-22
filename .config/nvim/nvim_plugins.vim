@@ -6,7 +6,6 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'pippocode/vim-lucius'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'jpalardy/vim-slime'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper'
 Plug 'derekwyatt/vim-scala'
@@ -20,8 +19,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-markdown', {'for':['md','markdown']}
 Plug 'Chiel92/vim-autoformat'
 Plug 'ervandew/supertab'
-Plug 'mbbill/undotree'
-Plug 'guns/xterm-color-table.vim'
 Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-emoji'
@@ -32,7 +29,6 @@ Plug 'itchyny/calendar.vim'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
 Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
@@ -82,16 +78,9 @@ let g:bookmark_auto_save = 1
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 " let g:unite_ignore_source_files = ['function.vim', 'command.vim']
-let g:UltiSnipsExpandTrigger="<leader><tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-let g:markdown_preview_auto=1
-let g:markdown_preview_eager=1
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
-let g:nvimux_prefix='<C-a>'
 let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
 
