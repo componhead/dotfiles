@@ -5,7 +5,6 @@ Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'pippocode/vim-lucius'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper'
 Plug 'derekwyatt/vim-scala'
@@ -57,7 +56,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 let g:bufferline_echo = 0
-let g:buffergator_viewport_split_policy = 'R'
 let g:session_autosave = 'no'
 let g:SuperTabDefaultCompletionType = 'context'
 let g:unite_source_history_yank_enable = 1

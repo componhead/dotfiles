@@ -100,6 +100,33 @@ function! ToggleMaxWins()
         let g:windowMax=1
     endif
 endfunction
+"" Handle git conflicts characters
+"function! ResolveGitConflicts(direction)
+"    :set nohlsearch
+"    let grt = search('^[>]\{7}','nw')
+"    let pipe = search('^[\|]\{7}','nw')
+"    if pipe ==# 0
+"        if a:direction ==# 'forward'
+"            /^[<]\{7}<CR>ma/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd
+"        else
+"            ?^[<]\{7}<CR>ma/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd
+"        endif
+"    else
+"        if a:direction ==# 'forward'
+"            execute "normal! /^[<]\{7}<CR>ma/^[\|]\{7}<CR>mb/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd"
+"        else
+"            execute "normal! ?^[<]\{7}<CR>ma/^[\|]\{7}<CR>mb/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd"
+"        endif
+"    endif
+"    " Scelta del blocco local '<<<<<<<'
+"    vnoremap <silent> <leader>, <ESC>'a"_dd'bV'd"_dd
+"    " Scelta del blocco index '>>>>>>>'
+"    vnoremap <silent> <leader>. <ESC>'d"_dd'aV'c"_d
+"    if pipe ==# 0
+"        " Scelta del blocco tra '|||||||' e '======='
+"        vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
+"    endif
+"endfunction
 " Show syntax highlighting groups for word under cursor
 nmap <C-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
