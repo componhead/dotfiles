@@ -1,5 +1,5 @@
+package apt
 package bang-bang
-package docker-machine
 package fzf
 theme agnoster
 theme bobthefish
