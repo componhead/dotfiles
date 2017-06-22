@@ -81,6 +81,36 @@ endif
 silent! source $DOTFILES/scala_settings.vim
 " }}}
 " FUNCTIONS {{{
+" Handle git conflicts characters
+function! ResolveGitConflicts(direction)
+    set nohlsearch
+    delmarks a b c d
+    let pipe = search('^[\|]\{7}','nw')
+    if pipe ==# 0
+        if a:direction ==# 'forward'
+            exec "normal! /^[<]\\{7}\<CR>ma" . "/^[=]\\{7}\<CR>mc" . "/^[>]\\{7}\<CR>md" . "'aV'd"
+        else
+            exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
+        endif
+    else
+        if a:direction ==# 'forward'
+            exec "normal! /^[<]\\{7}\<CR>ma" . "/^[|]\\{7}\<CR>mb" ."/^[=]\\{7}\<CR>mc" . "/^[>]\\{7}\<CR>md" . "'aV'd"
+        else
+            exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[|]\\{7}\<CR>mb" ."?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
+        endif
+    endif
+    " Scelta del blocco index '>>>>>>>'
+    vnoremap <silent> <leader>. <ESC>'d"_dd'aV'c"_d
+    if pipe ==# 0
+        " Scelta del blocco local '<<<<<<<'
+        vnoremap <silent> <leader>, <ESC>'a"_dd'cV'd"_d
+    else
+        " Scelta del blocco local '<<<<<<<'
+        vnoremap <silent> <leader>, <ESC>'a"_dd'bV'd"_d
+        " Scelta del blocco tra '|||||||' e '======='
+        vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
+    endif
+endfunction
 " Disable syntax highlight in diff mode
 "Toggles whether or not the current window is automatically zoomed
 nnoremap <C-W>z :call ToggleMaxWins()<CR>
@@ -130,10 +160,10 @@ endfunction
 " Show syntax highlighting groups for word under cursor
 nmap <C-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 " }}}
 " }}}
@@ -157,14 +187,8 @@ nnoremap <silent> <leader>sudo :w !sudo tee % > /dev/null<CR>
 nnoremap <silent> <leader>lcd :lcd %:p:h<CR>
 "
 " Ricerca del blocco di conflitto
-nnoremap <silent> <leader>] :set nohlsearch<CR>/^[<]\{7}<CR>ma/^[\|]\{7}<CR>mb/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd
-nnoremap <silent> <leader>[ :set nohlsearch<CR>?^[<]\{7}<CR>ma/^[\|]\{7}<CR>mb/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd
-" Scelta del blocco local '<<<<<<<'
-vnoremap <silent> <leader>, <ESC>'a"_dd'bV'd"_dd
-" Scelta del blocco index '>>>>>>>'
-vnoremap <silent> <leader>. <ESC>'d"_dd'aV'c"_d
-" Scelta del blocco tra '|||||||' e '======='
-vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
+nnoremap <silent> <leader>[ :call ResolveGitConflicts("backward")<CR>
+nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
 
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
