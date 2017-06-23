@@ -179,13 +179,15 @@ noremap <F1> <ESC>:exec "help ".expand("<cWORD>")<CR>
 noremap <F4> <ESC>:!ctags -R .<CR>
 nnoremap k gk
 nnoremap j gj
+
 " Permette l'ignorecase con i comandi '*' e '#' quando usati per la parola corrente
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap <silent> <leader>sudo :w !sudo tee % > /dev/null<CR>
+
 " Posiziona la directory locale 'lcd' alla directory contenente il file aperto
 nnoremap <silent> <leader>lcd :lcd %:p:h<CR>
-"
+
 " Ricerca del blocco di conflitto
 nnoremap <silent> <leader>[ :call ResolveGitConflicts("backward")<CR>
 nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
@@ -193,6 +195,18 @@ nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap {} {}<left><CR><ESC>O
+tnoremap <C-A>c <C-\><C-n>:term<CR>
+tnoremap <C-A>n <C-\><C-n>:bn<CR>h
+tnoremap <C-A>p <C-\><C-n>:bp<CR>i
+tnoremap <C-A>w <C-\><C-n>:buffers<CR>
+tnoremap <C-A>, <C-\><C-n>:file 
+tnoremap <C-A>% <C-\><C-n>:vnew<CR>:term<CR>
+tnoremap <leader>" <C-\><C-n>:new<CR>:term<CR>
+tnoremap <C-A>[ <C-\><C-n>
+tnoremap <C-W>l <C-\><C-n><C-W>li
+tnoremap <C-W>h <C-\><C-n><C-W>hi
+tnoremap <C-W>k <C-\><C-n><C-W>ki
+tnoremap <C-W>j <C-\><C-n><C-W>ji
 " }}}
 " AUTOCOMMANDS {{{
 if did_filetype()	" filetype already set..
