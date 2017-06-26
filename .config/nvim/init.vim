@@ -195,9 +195,10 @@ nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap {} {}<left><CR><ESC>O
+tnoremap <C-A> <C-\><C-n>
 tnoremap <C-A>c <C-\><C-n>:term<CR>
 tnoremap <C-A>n <C-\><C-n>:bn<CR>h
-tnoremap <C-A>p <C-\><C-n>:bp<CR>i
+tnoremap <C-A>p <C-\><C-n>:bp<CR>l
 tnoremap <C-A>w <C-\><C-n>:buffers<CR>
 tnoremap <C-A>, <C-\><C-n>:file 
 tnoremap <C-A>% <C-\><C-n>:vnew<CR>:term<CR>
