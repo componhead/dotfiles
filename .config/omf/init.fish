@@ -1,4 +1,5 @@
 set -xg DOTFILES ~/dotfiles/
+set -xg PAGER less
 set -xg TERM screen-256color
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
