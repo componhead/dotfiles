@@ -66,6 +66,10 @@
     st = status -sb
     d = difftool --color=always --word-diff=color --word-diff-regex=.
     m = mergetool --color=always --no-ff --no-commit 
+    modified = "!f() { git status -sb | sed 1d | sed '/ M /!d' | sed 's/^...//g'; }; f"
+    added = "!f() { git status -sb | sed 1d | sed '/ A /!d' | sed 's/^...//g'; }; f"
+    deleted = "!f() { git status -sb | sed 1d | sed '/ D /!d' | sed 's/^...//g'; }; f"
+    untracked = "!f() { git status -sb | sed 1d | sed '/?? /!d' | sed 's/^...//g'; }; f"
 [interactive]
     diffFilter = $DOTFILES/diff-highlight
 [pager]
