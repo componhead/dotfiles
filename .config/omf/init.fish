@@ -10,6 +10,8 @@ set -xg EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg LANG en_US.UTF-8
 set -xg fish_user_paths /usr/local/bin $fish_user_paths
+set -xg JBOSS_HOME /home/eanichini/repo/mfpro-tools/docker-jboss-esterno/buildfiles/jboss-4.2.3.GA
+set -xg JBOSS_SERVER_CONFIG tserver
 
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
