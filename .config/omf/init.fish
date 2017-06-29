@@ -1,4 +1,4 @@
-set -xg DOTFILES ~/dotfiles/
+set -xg DOTFILES ~/dotfiles
 set -xg PAGER less
 set -xg TERM screen-256color
 set -xg CLICOLOR 1
@@ -12,6 +12,12 @@ set -xg LANG en_US.UTF-8
 set -xg fish_user_paths /usr/local/bin $fish_user_paths
 set -xg JBOSS_HOME /home/eanichini/repo/mfpro-tools/docker-jboss-esterno/buildfiles/jboss-4.2.3.GA
 set -xg JBOSS_SERVER_CONFIG tserver
+switch (uname)
+    case "Linux"
+        set -xg SPECIFIC_DOTFILES "$DOTFILES/lnx"
+    case "Darwin"
+        set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
+end
 
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
@@ -39,3 +45,5 @@ set -g theme_color_scheme solarized-dark
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
+
+source "$SPECIFIC_DOTFILES/specific-configuration.fish"
