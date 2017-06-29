@@ -47,3 +47,26 @@ set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
 
 source "$SPECIFIC_DOTFILES/specific-configuration.fish"
+
+# ABBREVIAZIONI GIT 
+if status --is-interactive
+    set -g fish_user_abbreviations
+    abbr --add g+ 'git add '
+    abbr --add g- 'git checkout -- '
+    abbr --add gau 'git update-index --assume-unchanged '
+    abbr --add gcm 'git commit -m "'
+    abbr --add gco 'git checkout '
+    abbr --add gdf 'git difftool --color=always --word-diff=color --word-diff-regex=. HEAD'
+    abbr --add gfl 'git diff --name-only --diff-filter='
+    abbr --add gft 'git fetch origin '
+    abbr --add glg 'git log --decorate --graph --all --oneline --color'
+    abbr --add gmr 'git mergetool --color=always --no-ff --no-commit '
+    abbr --add gnu 'git update-index --no-assume-unchanged '
+    abbr --add gpl 'git pull origin '
+    abbr --add gps 'git push origin '
+    abbr --add gpt 'git add -p '
+    abbr --add grb 'git rebase '
+    abbr --add grs 'git reset --mixed HEAD'
+    abbr --add gst 'git status -sb'
+    abbr --add gti 'git'
+end

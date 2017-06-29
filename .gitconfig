@@ -59,13 +59,6 @@
 [gc]
     auto = 256
 [alias]
-    lg = log --decorate --graph --all --oneline --color
-    g-ls-au = ls-files -v | grep ^[a-z]
-    g-ls-sw = ls-files -v | grep ^[sS]
-    conflicts = diff --name-only --diff-filter=U
-    st = status -sb
-    d = difftool --color=always --word-diff=color --word-diff-regex=.
-    m = mergetool --color=always --no-ff --no-commit 
     modified = "!f() { git status -sb | sed 1d | sed '/ M /!d' | sed 's/^...//g'; }; f"
     added = "!f() { git status -sb | sed 1d | sed '/ A /!d' | sed 's/^...//g'; }; f"
     deleted = "!f() { git status -sb | sed 1d | sed '/ D /!d' | sed 's/^...//g'; }; f"
