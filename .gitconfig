@@ -40,7 +40,7 @@
     preloadindex = true
     fscache = true
     excludesfile = ~/.gitignore_global
-    pager = $DOTFILES/diff-highlight | less -r
+    pager = $DOTFILES/diff-highlight | less -rJN
     autocrlf = input
 [branch]
     autosetuprebase = always
