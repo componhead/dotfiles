@@ -5,15 +5,6 @@ DOTFILESDIR=${HOME}/dotfiles
 
 mkdir ~/bin
 
-echo "Installing fonts..."
-#sudo gnome-font-viewer ../BitstreamVeraSansMono/Bitstream Vera Sans Mono Nerd Font Complete.ttf
-if [ ! -d ~/.fonts ]
-then
-    mkdir ~/.fonts
-fi
-cp $DOTFILESDIR/BitstreamVeraSansMono/* ~/.fonts
-sudo fc-cache -fv
-
 if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "Installing git..."
@@ -25,6 +16,16 @@ then
     echo "Installing curl..."
     sudo apt-get install curl
 fi
+
+echo "Installing fonts..."
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/BitstreamVeraSansMono.zip"
+if [ ! -d ~/.fonts ]
+then
+    mkdir ~/.fonts
+fi
+unzip BitstreamVeraSansMono.zip -d ~/.fonts
+rm BitstreamVeraSansMono.zip
+sudo fc-cache -fv
 
 if [[ ! -d ${HOME}/.antigen ]]
 then
@@ -102,7 +103,7 @@ tar xzvf ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
 mv ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/bin
 rm -r ripgrep-0.5.2-x86_64-unknown-linux-musl*
 
-echo "Installing Docker"
+echo "Installing Docker..."
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
@@ -110,11 +111,14 @@ sudo apt-get install -y docker-ce
 sudo systemctl status docker
 sudo usermod -aG docker $(whoami)
 
-echo "Installing completion docker"
+echo "Installing zsh completion docker..."
 mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 
-echo "Installing generics dot configuration files"
+echo "Installing xsel..."
+sudo apt-get install xsel
+
+echo "Installing generics dot configuration files..."
 ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.vimrc
