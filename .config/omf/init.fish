@@ -54,6 +54,7 @@ if status --is-interactive
     abbr --add g+ 'git add'
     abbr --add g- 'git checkout --'
     abbr --add gau 'git update-index --assume-unchanged'
+    abbr --add gbr 'git branch --set-upstream HEAD'
     abbr --add gcm 'git commit -m"'
     abbr --add gco 'git checkout'
     abbr --add gdf 'git difftool --color=always --word-diff=color --word-diff-regex=. HEAD'
