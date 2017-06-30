@@ -1,9 +1,9 @@
 " INSTALLATION {{{
+let g:plug_url_format = 'git@github.com:%s.git'
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
-"Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neomru.vim'
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper'
@@ -34,7 +34,6 @@ Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
 Plug 'eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
 Plug 'Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
 Plug 'mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
-"Plug 'git@github:w0rp/ale.git'
 Plug 'kassio/neoterm'
 call plug#end()
 
@@ -58,8 +57,6 @@ let g:airline_theme='dark'
 let g:bufferline_echo = 0
 let g:session_autosave = 'no'
 let g:SuperTabDefaultCompletionType = 'context'
-let g:unite_source_history_yank_enable = 1
-"let g:deoplete#enable_at_startup = 1
 let g:signify_vcs_cmds = { 'git': 'git diff --no-color --no-ext-diff -U0 -- %f', 'accurev':  'accurev diff %f -- -U0' }
 let g:signify_disable_by_default = 0
 let g:signify_update_on_bufenter = 1
@@ -75,7 +72,6 @@ let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
-" let g:unite_ignore_source_files = ['function.vim', 'command.vim']
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
@@ -106,11 +102,11 @@ set grepprg=rg\ --vimgrep
 nnoremap [unite] <Nop>
 nmap § [unite]
 nmap ß [unite]
-nnoremap <silent> [unite]p  :<C-u>UniteWithProjectDir -buffer-name=files buffer bookmark file<CR>
-nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> [unite]ma :<C-u>Unite mapping<CR>
-nnoremap <silent> [unite]me :<C-u>Unite output:message<CR>
-" nnoremap <silent> [unite]§  :<C-u>Unite -start-insert -buffer-name=buffer -no-split jump_point file_point buffer_tab file_rec/neovim file file/new<CR>
+"nnoremap <silent> [unite]p  :<C-u>UniteWithProjectDir -buffer-name=files buffer bookmark file<CR>
+"nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
+"nnoremap <silent> [unite]ma :<C-u>Unite mapping<CR>
+"nnoremap <silent> [unite]me :<C-u>Unite output:message<CR>
+"" nnoremap <silent> [unite]§  :<C-u>Unite -start-insert -buffer-name=buffer -no-split jump_point file_point buffer_tab file_rec/neovim file file/new<CR>
 nnoremap <leader>mm :BookmarkToggle<CR>
 nnoremap <leader>ma :BookmarkAnnotate<CR>
 nnoremap <leader>ms :BookmarkShowAll<CR>
