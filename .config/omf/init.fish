@@ -12,6 +12,8 @@ set -xg LANG en_US.UTF-8
 set -xg fish_user_paths /usr/local/bin $fish_user_paths
 set -xg JBOSS_HOME /home/eanichini/repo/mfpro-tools/docker-jboss-esterno/buildfiles/jboss-4.2.3.GA
 set -xg JBOSS_SERVER_CONFIG tserver
+set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+set -xg grepprg rg\ --vimgrep
 switch (uname)
     case "Linux"
         set -xg SPECIFIC_DOTFILES "$DOTFILES/lnx"
@@ -71,3 +73,5 @@ if status --is-interactive
     abbr --add gst 'git status -sb'
     abbr --add gti 'git'
 end
+
+bind \co openfile
