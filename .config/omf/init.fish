@@ -47,6 +47,7 @@ set -g theme_color_scheme solarized-dark
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
+set -g fish_vi_key_bindings yes
 
 source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 
@@ -75,3 +76,4 @@ if status --is-interactive
 end
 
 bind \co openfile
+fish_vi_key_bindings
