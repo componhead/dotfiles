@@ -30,10 +30,6 @@ Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
-Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell', 'hs'] }
-Plug 'eagletmt/neco-ghc', { 'for': ['haskell', 'hs'] }
-Plug 'Twinside/vim-hoogle', { 'for': ['haskell', 'hs'] }
-Plug 'mpickering/hlint-refactor-vim', { 'for': ['haskell', 'hs'] }
 Plug 'kassio/neoterm'
 call plug#end()
 
