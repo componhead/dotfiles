@@ -8,13 +8,13 @@ mkdir ~/bin
 if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "Installing git..."
-    sudo apt-get install git-core
+    sudo apt-get install -y git-core
 fi
 
 if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "Installing curl..."
-    sudo apt-get install curl
+    sudo apt-get install -y curl
 fi
 
 echo "Installing fonts..."
@@ -39,7 +39,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     echo "Installing zsh..."
-    sudo apt-get install zsh
+    sudo apt-get install -y zsh
 fi
 
 echo "Installing Oh-My-Zsh..."
@@ -48,7 +48,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "Installing fish shell..."
 sudo apt-add-repository ppa:fish-shell/release-2
 sudo apt-get update
-sudo apt-get install fish
+sudo apt-get install -y fish
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 
@@ -57,9 +57,10 @@ curl -L https://get.oh-my.fish > ~/install
 fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 
 echo "Installing omf plugins..."
-omg install fzf
-omg install bang-bang
-omg install bobthefish
+omg install fzf bang-bang bobthefish
+
+echo "Installing gpg tools..."
+sudo apt-get install -y gpgv2 gnupg2 gnupg-agent gnupg-doc pinentry-curses
 
 if [ $(dpkg-query -W -f='${Status}' neovim 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
