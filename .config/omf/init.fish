@@ -55,8 +55,8 @@ source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 # ABBREVIAZIONI GIT 
 if status --is-interactive
     set -g fish_user_abbreviations
-    abbr --add g+ 'git add'
-    abbr --add g- 'git checkout --'
+    abbr --add gad 'git add'
+    abbr --add gco 'git checkout --'
     abbr --add gau 'git update-index --assume-unchanged'
     abbr --add gbr 'git branch --set-upstream HEAD'
     abbr --add gcm 'git commit -m'
