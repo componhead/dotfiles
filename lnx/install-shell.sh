@@ -61,6 +61,8 @@ omg install fzf bang-bang bobthefish
 
 echo "Installing gpg tools..."
 sudo apt-get install -y gpgv2 gnupg2 gnupg-agent gnupg-doc pinentry-curses
+curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
+chmod +x ~/.local/bin/git-credential-netrc
 
 if [ $(dpkg-query -W -f='${Status}' neovim 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then

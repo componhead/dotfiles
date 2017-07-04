@@ -80,6 +80,8 @@ curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose versio
 echo "Installing gpg tools..."
 brew install gpgme gpg-agent
 brew install pinentry
+curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
+chmod +x ~/.local/bin/git-credential-netrc
 
 echo "Installing generics dot configuration files"
 ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
