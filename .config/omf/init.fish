@@ -74,6 +74,7 @@ if status --is-interactive
     abbr --add grs 'git reset --mixed HEAD'
     abbr --add gst 'git status -sb'
     abbr --add gti 'git'
+    abbr --add groot 'cd (git rev-parse --show-toplevel)'
 end
 
 bind \co openfile
