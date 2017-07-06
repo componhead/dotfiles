@@ -75,6 +75,11 @@ if status --is-interactive
     abbr --add gst 'git status -sb'
     abbr --add gti 'git'
     abbr --add groot 'cd (git rev-parse --show-toplevel)'
+    abbr --add trm 'nvim -c terminal'
+    abbr --add l 'ls -lah'
+    abbr --add Eomf 'nvim ~/.local/share/omf/themes/(cat ~/.config/omf/theme)/' 
+    abbr --add Erc 'nvim ~/.config/omf/init.fish'
+    abbr --add Evimrc 'nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim'
 end
 
 bind \co openfile
