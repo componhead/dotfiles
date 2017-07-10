@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
 Plug 'kassio/neoterm'
+Plug 'thinca/vim-visualstar'
 call plug#end()
 
 "}}}

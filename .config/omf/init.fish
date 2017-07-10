@@ -1,4 +1,6 @@
 set -xg DOTFILES ~/dotfiles
+set -xg RCFILE ~/.config/omf/init.fish
+set -xg APPDATA $HOME
 set -xg PAGER less
 set -xg TERM screen-256color
 set -xg CLICOLOR 1
@@ -52,35 +54,48 @@ set -g fish_escape_delay_ms 300
 
 source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 
+set -g fish_user_abbreviations
+set -U abbrs_initialized
+
 # ABBREVIAZIONI GIT 
-if status --is-interactive
-    set -g fish_user_abbreviations
-    abbr --add gad 'git add'
-    abbr --add gco 'git checkout --'
-    abbr --add gau 'git update-index --assume-unchanged'
-    abbr --add gbr 'git branch --set-upstream HEAD'
-    abbr --add gcm 'git commit -m'
-    abbr --add gco 'git checkout'
-    abbr --add gdf 'git difftool --color=always --word-diff=color --word-diff-regex=. HEAD'
-    abbr --add gfl 'git diff --name-only --diff-filter='
-    abbr --add gft 'git fetch origin'
-    abbr --add glg 'git log --decorate --graph --all --oneline --color'
-    abbr --add gmr 'git mergetool --no-ff --no-commit'
-    abbr --add gnu 'git update-index --no-assume-unchanged'
-    abbr --add gpl 'git pull origin'
-    abbr --add gps 'git push origin'
-    abbr --add gpt 'git add -p'
-    abbr --add grb 'git rebase'
-    abbr --add grs 'git reset --mixed HEAD'
-    abbr --add gst 'git status -sb'
-    abbr --add gti 'git'
-    abbr --add groot 'cd (git rev-parse --show-toplevel)'
-    abbr --add trm 'nvim -c terminal'
-    abbr --add l 'ls -lah'
-    abbr --add Eomf 'nvim ~/.local/share/omf/themes/(cat ~/.config/omf/theme)/' 
-    abbr --add Erc 'nvim ~/.config/omf/init.fish'
-    abbr --add Evimrc 'nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim'
-end
+abbr --add gad 'git add'
+abbr --add gco 'git checkout --'
+abbr --add gau 'git update-index --assume-unchanged'
+abbr --add gbr 'git branch --set-upstream HEAD'
+abbr --add gcm 'git commit -m'
+abbr --add gco 'git checkout'
+abbr --add gdf 'git difftool --color=always --word-diff=color --word-diff-regex=. HEAD'
+abbr --add gfl 'git diff --name-only --diff-filter='
+abbr --add gft 'git fetch origin'
+abbr --add glg 'git log --decorate --graph --all --oneline --color'
+abbr --add gmr 'git mergetool --no-ff --no-commit'
+abbr --add gnu 'git update-index --no-assume-unchanged'
+abbr --add gpl 'git pull origin'
+abbr --add gps 'git push origin'
+abbr --add gpt 'git add -p'
+abbr --add grb 'git rebase'
+abbr --add grs 'git reset --mixed HEAD'
+abbr --add gst 'git status -sb'
+abbr --add gti 'git'
+abbr --add groot 'cd (git rev-parse --show-toplevel)'
+
+# ALTRE ABBREVIAZIONI
+abbr --add trm 'nvim -c terminal'
+abbr --add l 'ls -lah'
+abbr --add Eomf 'nvim ~/.local/share/omf/themes/(cat ~/.config/omf/theme)/' 
+abbr --add Erc 'nvim $RCFILE'
+abbr --add Evimrc 'nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim'
+abbr --add ubuntu_version 'lsb_release -idrc'
+abbr --add pgr 'pgrep -fal'
+
+# ABBREVIAZIONI FILES
+abbr --add findopen 'lsof | wc -l' # Per vedere quanti files sono aperti dal sistema
+abbr --add findlinks 'find . -type l -maxdepth 1' # Per trovare tutti i files di tipo link
+abbr --add findfiles 'find . -name "$cursor_pos"' 
+
+# ABBREVIAZIONI NETWORKING
+abbr --add network_port_occupied 'sudo lsof -i -P'
+abbr --add sudoku sudo "$history[1]"
 
 bind \co openfile
 fish_vi_key_bindings

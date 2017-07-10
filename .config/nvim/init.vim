@@ -37,6 +37,7 @@ set ttimeoutlen=100
 set listchars=eol:$,tab:>>,trail:~,extends:>,precedes:<,nbsp:-
 set diffopt+=vertical
 set grepprg=rg\ --vimgrep
+set nowrapscan
 if has("multi_byte")
     if &termencoding == ""
         let &termencoding = &encoding
