@@ -63,6 +63,13 @@ else
     brew install neovim/neovim/neovim
 fi
 
+if brew ls --versions tmux > dev/null; then
+    echo "Tmux already installed"
+else
+    brew install tmux
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 echo "Installing Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

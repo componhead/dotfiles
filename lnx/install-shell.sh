@@ -83,6 +83,7 @@ fi
 if [ $(dpkg-query -W -f='${Status}' tmux 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
     sudo apt-get install tmux
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 if [ $(dpkg-query -W -f='${Status}' unzip 2>/dev/null | grep -c "ok installed") -eq 0 ];
