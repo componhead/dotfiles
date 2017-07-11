@@ -122,6 +122,13 @@ curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose versio
 echo "Installing xsel..."
 sudo apt-get install xsel
 
+echo "Installing Facebook PathPicker in ~/bin..."
+cd ~/bin
+wget https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
+tar xzvf fpp.0.7.2.tar.gz
+rm fpp.0.7.2.tar.gz
+cd ~
+
 echo "Installing generics dot configuration files..."
 ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim

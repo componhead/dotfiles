@@ -32,10 +32,14 @@ else
     git clone https://github.com/zsh-users/antigen.git ${HOME}/.antigen
 fi
 
-echo "Installing fish shell..."
-brew install fish
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
+if brew ls --versions fish > /dev/null; then
+    echo "fish already installed"
+else
+    echo "Installing fish shell..."
+    brew install fish
+    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+    chsh -s /usr/local/bin/fish
+fi
 
 echo "Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
@@ -84,9 +88,34 @@ echo "Installing autocompletion docker"
 mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 
-echo "Installing gpg tools..."
-brew install gpgme gpg-agent
-brew install pinentry
+if brew ls --versions pinentry > /dev/null; then
+    echo "Pinentry already installed"
+else
+    echo "Installing Pinentry..."
+    brew install pinentry
+fi
+
+if brew ls --versions gpgme > /dev/null; then
+    echo "Gpgme already installed"
+else
+    echo "Installing Gpgme..."
+    brew install gpgme
+fi
+
+if brew ls --versions gpg-agent > /dev/null; then
+    echo "Gpg-agent already installed"
+else
+    echo "Installing Gpg-agent..."
+    brew install gpg-agent
+fi
+
+if brew ls --versions fpp > /dev/null; then
+    echo "Facebook PathPicker already installed"
+else
+    echo "Installing Facebook PathPicker..."
+    brew install fpp
+fi
+
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
 
