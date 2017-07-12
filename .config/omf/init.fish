@@ -58,7 +58,7 @@ set -g fish_user_abbreviations
 set -U abbrs_initialized
 
 # ABBREVIAZIONI GIT 
-abbr --add gad 'git add'
+abbr --add gad 'git add .'
 abbr --add gco 'git checkout --'
 abbr --add gau 'git update-index --assume-unchanged'
 abbr --add gbr 'git branch --set-upstream HEAD'
@@ -70,14 +70,14 @@ abbr --add gft 'git fetch origin'
 abbr --add glg 'git log --decorate --graph --all --oneline --color'
 abbr --add gmr 'git mergetool --no-ff --no-commit'
 abbr --add gnu 'git update-index --no-assume-unchanged'
-abbr --add gpl 'git pull origin'
-abbr --add gps 'git push origin'
 abbr --add gpt 'git add -p'
 abbr --add grb 'git rebase'
 abbr --add grs 'git reset --mixed HEAD'
-abbr --add gst 'git status -sb'
+abbr --add gst 'git status -sb | fpp'
 abbr --add gti 'git'
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
+abbr --add pull 'git pull origin'
+abbr --add push 'git push origin'
 
 # ALTRE ABBREVIAZIONI
 abbr --add trm 'nvim -c terminal'
