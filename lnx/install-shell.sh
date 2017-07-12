@@ -7,17 +7,17 @@ mkdir ~/bin
 
 if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "git already installed") -eq 0 ];
 then
-    echo "Installing git..."
+    echo "******* Installing git..."
     sudo apt-get install -y git-core
 fi
 
 if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "curl already installed") -eq 0 ];
 then
-    echo "Installing curl..."
+    echo "******* Installing curl..."
     sudo apt-get install -y curl
 fi
 
-echo "Installing fonts..."
+echo "******* Installing fonts..."
 wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/BitstreamVeraSansMono.zip"
 if [ ! -d ~/.fonts ]
 then
@@ -29,25 +29,29 @@ sudo fc-cache -fv
 
 if [[ ! -d ${HOME}/.antigen ]]
 then
-    echo "Installing Antigen..."
+    echo "******* Installing Antigen..."
     git clone https://github.com/zsh-users/antigen.git ${HOME}/.antigen
 fi
 
-echo "Installing neovim Plug..."
+echo "******* Installing neovim Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "zsh already installed") -eq 0 ];
-then
-    echo "Installing zsh..."
-    sudo apt-get install -y zsh
-fi
-
-echo "Installing Oh-My-Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "zsh already installed") -eq 0 ];
+#then
+#    echo "******* Installing zsh..."
+#    sudo apt-get install -y zsh
+#fi
+#
+#echo "******* Installing Oh-My-Zsh..."
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#
+#echo "******* Installing zsh completion docker..."
+#mkdir -p ~/.zsh/completion
+#curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 
 if [ $(dpkg-query -W -f='${Status}' fish 2>/dev/null | grep -c "fish already installed") -eq 0 ];
 then
-    echo "Installing fish shell..."
+    echo "******* Installing fish shell..."
     sudo apt-add-repository ppa:fish-shell/release-2
     sudo apt-get update
     sudo apt-get install -y fish
@@ -55,26 +59,26 @@ then
     chsh -s /usr/local/bin/fish
 fi
 
-echo "Installing oh-my-fish shell..."
+echo "******* Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
 fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 
-echo "Installing omf plugins..."
+echo "******* Installing omf plugins..."
 omg install fzf bang-bang bobthefish
 
-echo "Installing gpg tools..."
+echo "******* Installing gpg tools..."
 sudo apt-get install -y gpgv2 gnupg2 gnupg-agent gnupg-doc pinentry-curses
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
 
 if [ $(dpkg-query -W -f='${Status}' neovim 2>/dev/null | grep -c "neovim already installed") -eq 0 ];
 then
-    echo "Installing Neovim..."
-    sudo apt-get install software-properties-common
-    sudo apt-get install python-dev python-pip python3-dev python3-pip
+    echo "******* Installing Neovim..."
+    sudo apt-get install -y software-properties-common
+    sudo apt-get install -y python-dev python-pip python3-dev python3-pip
     sudo add-apt-repository ppa:neovim-ppa/stable
     sudo apt-get update
-    sudo apt-get install neovim
+    sudo apt-get install -y neovim
     sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
     sudo update-alternatives --config vi
     sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
@@ -85,23 +89,27 @@ fi
 
 if [ $(dpkg-query -W -f='${Status}' tmux 2>/dev/null | grep -c "tmux already installed") -eq 0 ];
 then
-    sudo apt-get install tmux
+    echo "******* Installing tmux..."
+    sudo apt-get install -y tmux
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 if [ $(dpkg-query -W -f='${Status}' unzip 2>/dev/null | grep -c "unzip already installed") -eq 0 ];
 then
-    sudo apt-get install unzip
+    echo "******* Installing unzip..."
+    sudo apt-get install -y unzip
 fi
 
 if [ $(dpkg-query -W -f='${Status}' colortail 2>/dev/null | grep -c "colortail already installed") -eq 0 ];
 then
-    sudo apt-get install colortail
+    echo "******* Installing colortail..."
+    sudo apt-get install -y colortail
 fi
 
 if [ $(dpkg-query -W -f='${Status}' colordiff 2>/dev/null | grep -c "colordiff already installed") -eq 0 ];
 then
-    sudo apt-get install colordiff
+    echo "******* Installing colordiff..."
+    sudo apt-get install -y colordiff
 fi
 
 echo "Installing Ripgrep..."
@@ -112,7 +120,7 @@ rm -r ripgrep-0.5.2-x86_64-unknown-linux-musl*
 
 if [ $(dpkg-query -W -f='${Status}' docker 2>/dev/null | grep -c "docker already installed") -eq 0 ];
 then
-    echo "Installing Docker..."
+    echo "******* Installing Docker..."
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt-get update
@@ -121,30 +129,26 @@ then
     sudo usermod -aG docker $(whoami)
 fi
 
-echo "Installing zsh completion docker..."
-mkdir -p ~/.zsh/completion
-curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
-
 if [ $(dpkg-query -W -f='${Status}' xsel 2>/dev/null | grep -c "xsel already installed") -eq 0 ];
 then
-    echo "Installing xsel..."
+    echo "******* Installing xsel..."
     sudo apt-get install xsel
 fi
 
 if [ $(dpkg-query -W -f='${Status}' xclip 2>/dev/null | grep -c "xclip already installed") -eq 0 ];
 then
-    echo "Installing xclip..."
+    echo "******* Installing xclip..."
     sudo apt-get install xclip
 fi
 
-echo "Installing Facebook PathPicker in ~/bin..."
+echo "******* Installing Facebook PathPicker in ~/bin..."
 cd ~/bin
 wget https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
 tar xzvf fpp.0.7.2.tar.gz
 rm fpp.0.7.2.tar.gz
 cd ~
 
-echo "Installing generics dot configuration files..."
+echo "******* Installing generics dot configuration files..."
 ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.vimrc
