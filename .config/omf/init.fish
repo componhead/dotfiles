@@ -87,6 +87,7 @@ abbr --add Erc 'nvim $RCFILE'
 abbr --add Evimrc 'nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim'
 abbr --add ubuntu_version 'lsb_release -idrc'
 abbr --add pgr 'pgrep -fal'
+abbr --add vi 'nvim'
 
 # ABBREVIAZIONI FILES
 abbr --add findopen 'lsof | wc -l' # Per vedere quanti files sono aperti dal sistema
