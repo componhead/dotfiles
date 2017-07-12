@@ -122,6 +122,9 @@ curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose versio
 echo "Installing xsel..."
 sudo apt-get install xsel
 
+echo "Installing x..."
+sudo apt-get install xclip
+
 echo "Installing Facebook PathPicker in ~/bin..."
 cd ~/bin
 wget https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
