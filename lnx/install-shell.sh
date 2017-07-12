@@ -5,13 +5,13 @@ DOTFILESDIR=${HOME}/dotfiles
 
 mkdir ~/bin
 
-if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "git already installed") -eq 0 ];
 then
     echo "Installing git..."
     sudo apt-get install -y git-core
 fi
 
-if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' curl 2>/dev/null | grep -c "curl already installed") -eq 0 ];
 then
     echo "Installing curl..."
     sudo apt-get install -y curl
@@ -36,7 +36,7 @@ fi
 echo "Installing neovim Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "zsh already installed") -eq 0 ];
 then
     echo "Installing zsh..."
     sudo apt-get install -y zsh
@@ -45,12 +45,15 @@ fi
 echo "Installing Oh-My-Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "Installing fish shell..."
-sudo apt-add-repository ppa:fish-shell/release-2
-sudo apt-get update
-sudo apt-get install -y fish
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
+if [ $(dpkg-query -W -f='${Status}' fish 2>/dev/null | grep -c "fish already installed") -eq 0 ];
+then
+    echo "Installing fish shell..."
+    sudo apt-add-repository ppa:fish-shell/release-2
+    sudo apt-get update
+    sudo apt-get install -y fish
+    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+    chsh -s /usr/local/bin/fish
+fi
 
 echo "Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
@@ -64,7 +67,7 @@ sudo apt-get install -y gpgv2 gnupg2 gnupg-agent gnupg-doc pinentry-curses
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
 
-if [ $(dpkg-query -W -f='${Status}' neovim 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' neovim 2>/dev/null | grep -c "neovim already installed") -eq 0 ];
 then
     echo "Installing Neovim..."
     sudo apt-get install software-properties-common
@@ -80,23 +83,23 @@ then
     sudo update-alternatives --config editor
 fi
 
-if [ $(dpkg-query -W -f='${Status}' tmux 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' tmux 2>/dev/null | grep -c "tmux already installed") -eq 0 ];
 then
     sudo apt-get install tmux
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-if [ $(dpkg-query -W -f='${Status}' unzip 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' unzip 2>/dev/null | grep -c "unzip already installed") -eq 0 ];
 then
     sudo apt-get install unzip
 fi
 
-if [ $(dpkg-query -W -f='${Status}' colortail 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' colortail 2>/dev/null | grep -c "colortail already installed") -eq 0 ];
 then
     sudo apt-get install colortail
 fi
 
-if [ $(dpkg-query -W -f='${Status}' colordiff 2>/dev/null | grep -c "ok installed") -eq 0 ];
+if [ $(dpkg-query -W -f='${Status}' colordiff 2>/dev/null | grep -c "colordiff already installed") -eq 0 ];
 then
     sudo apt-get install colordiff
 fi
@@ -107,23 +110,32 @@ tar xzvf ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
 mv ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/bin
 rm -r ripgrep-0.5.2-x86_64-unknown-linux-musl*
 
-echo "Installing Docker..."
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install -y docker-ce
-sudo systemctl status docker
-sudo usermod -aG docker $(whoami)
+if [ $(dpkg-query -W -f='${Status}' docker 2>/dev/null | grep -c "docker already installed") -eq 0 ];
+then
+    echo "Installing Docker..."
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    sudo apt-get update
+    sudo apt-get install -y docker-ce
+    sudo systemctl status docker
+    sudo usermod -aG docker $(whoami)
+fi
 
 echo "Installing zsh completion docker..."
 mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 
-echo "Installing xsel..."
-sudo apt-get install xsel
+if [ $(dpkg-query -W -f='${Status}' xsel 2>/dev/null | grep -c "xsel already installed") -eq 0 ];
+then
+    echo "Installing xsel..."
+    sudo apt-get install xsel
+fi
 
-echo "Installing x..."
-sudo apt-get install xclip
+if [ $(dpkg-query -W -f='${Status}' xclip 2>/dev/null | grep -c "xclip already installed") -eq 0 ];
+then
+    echo "Installing xclip..."
+    sudo apt-get install xclip
+fi
 
 echo "Installing Facebook PathPicker in ~/bin..."
 cd ~/bin
