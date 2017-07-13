@@ -170,8 +170,8 @@ rm -r $HOME/.config/omf
 ln -sf ${DOTFILESDIR}/.config/omf $HOME/.config
 rm -r $HOME/.config/fish
 ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
+ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
 
 echo "Installing specifics dot configuration files"
 ln -sf ${DOTFILESDIR}/lnx/.zshenv ${HOME}/.zshenv
-ln -sf ${DOTFILESDIR}/lnx/.tmux.conf ${HOME}/.tmux.conf
 ln -sf ${DOTFILESDIR}/lnx/.vimperatorsys ${HOME}/.vimperatorsys
