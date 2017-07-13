@@ -36,19 +36,6 @@ fi
 echo "******* Installing neovim Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-#if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "zsh already installed") -eq 0 ];
-#then
-#    echo "******* Installing zsh..."
-#    sudo apt-get install -y zsh
-#fi
-#
-#echo "******* Installing Oh-My-Zsh..."
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#
-#echo "******* Installing zsh completion docker..."
-#mkdir -p ~/.zsh/completion
-#curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
-
 if [ $(dpkg-query -W -f='${Status}' fish 2>/dev/null | grep -c "fish already installed") -eq 0 ];
 then
     echo "******* Installing fish shell..."
@@ -149,11 +136,9 @@ rm fpp.0.7.2.tar.gz
 cd ~
 
 echo "******* Installing generics dot configuration files..."
-ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.vimrc
 ln -sf ${DOTFILESDIR}/nvim/nvim_plugins.vim  ${HOME}/nvim_plugins.vim
-ln -sf ${DOTFILESDIR}/.zshrc ${HOME}/.zshrc
 ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/.dockerignore
 ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
 ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
@@ -173,5 +158,4 @@ ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
 
 echo "Installing specifics dot configuration files"
-ln -sf ${DOTFILESDIR}/lnx/.zshenv ${HOME}/.zshenv
 ln -sf ${DOTFILESDIR}/lnx/.vimperatorsys ${HOME}/.vimperatorsys
