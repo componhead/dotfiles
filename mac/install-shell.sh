@@ -25,24 +25,6 @@ else
     brew install curl
 fi
 
-if brew ls --versions fish > /dev/null; then
-    echo "******* fish already installed"
-else
-    echo "******* Installing fish shell..."
-    brew install fish
-    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-    chsh -s /usr/local/bin/fish
-fi
-
-echo "******* Installing oh-my-fish shell..."
-curl -L https://get.oh-my.fish > ~/install
-fish ~/install --path=~/.local/share/omf --config=~/.config/omf
-
-echo "******* Installing omf plugins..."
-omg install fzf
-omg install bang-bang
-omg install bobthefish
-
 echo "******* Installing Fura Fontee."
 brew tap caskroom/fonts
 brew cask install font-firacode-nerd-font-mono
@@ -136,3 +118,22 @@ ln -sf ${DOTFILESDIR}/mac/.zshenv ${HOME}/.zshenv
 ln -sf ${DOTFILESDIR}/mac/.osx ${HOME}/.osx
 ln -sf ${DOTFILESDIR}/mac/.profile ${HOME}/.profile
 ln -sf ${DOTFILESDIR}/mac/.vimperatorsys ${HOME}/.vimperatorsys
+
+echo "******* Setup Fish shell environment..."
+if brew ls --versions fish > /dev/null; then
+    echo "******* fish already installed"
+else
+    echo "******* Installing fish shell..."
+    brew install fish
+    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+    chsh -s /usr/local/bin/fish
+
+    echo "******* Installing oh-my-fish shell..."
+    curl -L https://get.oh-my.fish > ~/install
+    fish ~/install --path=~/.local/share/omf --config=~/.config/omf
+
+    echo "******* Installing omf plugins..."
+    omg install fzf
+    omg install bang-bang
+    omg install bobthefish
+fi
