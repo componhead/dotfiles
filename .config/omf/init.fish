@@ -76,8 +76,8 @@ abbr --add grs 'git reset --mixed HEAD'
 abbr --add gst 'git status -sb | fpp'
 abbr --add gti 'git'
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
-abbr --add pull 'git pull origin'
-abbr --add push 'git push origin'
+abbr --add pll 'git pull origin'
+abbr --add psh 'git push origin'
 
 # ALTRE ABBREVIAZIONI
 abbr --add trm 'nvim -c terminal'
