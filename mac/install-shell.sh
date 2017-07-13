@@ -43,10 +43,9 @@ omg install fzf
 omg install bang-bang
 omg install bobthefish
 
-echo "******* Installing Fura Font..."
-cd ~/Library/Fonts && curl -fLo "Fura Code Retina Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fura%20Code%20Retina%20Nerd%20Font%20Complete.otf
-cd ~
-
+echo "******* Installing Fura Fontee."
+brew tap caskroom/fonts
+brew cask install font-firacode-nerd-font-mono
 
 if brew ls --versions neovim > /dev/null; then
     echo "******* Neovim already installed"
