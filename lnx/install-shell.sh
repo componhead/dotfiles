@@ -130,11 +130,11 @@ then
     sudo apt-get update
     sudo apt-get install -y fish
     echo "/usr/bin/fish" | sudo tee -a /etc/shells
-    chsh -s /usr/bin/fish
 
     echo "******* Installing oh-my-fish shell..."
     curl -L https://get.oh-my.fish > ~/install
-    fish ~/install --path=~/.local/share/omf --config=~/.config/omf
+    /usr/bin/fish ~/install --path=~/.local/share/omf --config=~/.config/omf
+    rm ~/install
 
     echo "******* Installing omf plugins..."
     omf install fzf bang-bang bobthefish
@@ -172,6 +172,7 @@ then
     ln -sf ${DOTFILESDIR}/lnx/.vimperatorsys ${HOME}/.vimperatorsys
     ln -sf ${DOTFILESDIR}/.config/omf $HOME/.config
     ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
+    ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
 else if $DISTRO -eq "Kali";
     echo "******* Cpying generics dot configuration files..."
     cp -fr ${DOTFILESDIR}/.config/nvim ${HOME}/.config/nvim
@@ -185,5 +186,8 @@ else if $DISTRO -eq "Kali";
     cp -f ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
     cp -rf ${DOTFILESDIR}/.config/omf $HOME/.config
     cp -rf ${DOTFILESDIR}/.config/fish $HOME/.config
+    ln -sf $HOME/.config/omf/init.fish $HOME/.config/fish/config.fish
     rm -rf ${DOTFILESDIR}
 fi
+
+chsh -s /usr/bin/fish
