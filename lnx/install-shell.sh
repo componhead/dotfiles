@@ -38,12 +38,12 @@ if [ ! -d /usr/share/fonts/opentype ]
 then
     mkdir -p /usr/share/fonts/opentype/FuraCodeRegularNerd
 fi
-curl -fLo /usr/share/fonts/opentype/FuraCodeRegularNerd/Fura\ Code\ Regular\ Nerd\ Complete.otf https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.otf
+
+curl -o /usr/share/fonts/opentype/FuraCodeRegularNerd/Fura\ Code\ Regular\ Nerd\ Complete.otf --create-dirs https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura\ Code\ Regular\ Nerd\ Font\ Complete.otf
 sudo fc-cache -fv
 
 echo "******* Installing neovim Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 
 echo "******* Installing gpg tools..."
 sudo apt-get install -y gpgv2 gnupg2 gnupg-agent pinentry-curses
