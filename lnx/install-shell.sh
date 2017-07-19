@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# args:
+# --persist           # persist the dotfiles folder and link instead of copy files
+
 # Installation on UBUNTU (14.04+)
 DOTFILESDIR=${HOME}/dotfiles
 
@@ -165,7 +168,7 @@ curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose versio
 
 sudo apt autoremove -y
 
-if $DISTRO -eq "Ubuntu";
+if $1 == "--persist";
 then
     echo "******* Linking generics dot configuration files..."
     ln -sf ${DOTFILESDIR}/.config/nvim/init.vim ${HOME}/.config/nvim/init.vim
@@ -186,11 +189,9 @@ then
     ln -sf ${DOTFILESDIR}/.config/omf $HOME/.config
     ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
     ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
-    ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
-    ln -sf ${DOTFILESDIR}/lnx/.zshrc ${HOME}/.zshrc
-    ln -sf ${DOTFILESDIR}/lnx/.zshenv ${HOME}/.zshenv
-else if $DISTRO -eq "Kali";
-    echo "******* Copying generics dot configuration files..."
+ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
+else
+    echo "******* Cpying generics dot configuration files..."
     cp -fr ${DOTFILESDIR}/.config/nvim ${HOME}/.config/nvim
     cp -f ${DOTFILESDIR}/.config/nvim/init.vim ${HOME}/.vimrc
     cp -f ${DOTFILESDIR}/.config/nvim/nvim_plugins.vim  ${HOME}/nvim_plugins.vim
@@ -202,9 +203,6 @@ else if $DISTRO -eq "Kali";
     cp -f ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
     cp -rf ${DOTFILESDIR}/.config/omf $HOME/.config
     cp -rf ${DOTFILESDIR}/.config/fish $HOME/.config
-    cp -rf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
-    cp -rf ${DOTFILESDIR}/lnx/.zshrc ${HOME}/.zshrc
-    cp -rf ${DOTFILESDIR}/lnx/.zshenv ${HOME}/.zshenv
     ln -sf $HOME/.config/omf/init.fish $HOME/.config/fish/config.fish
     rm -rf ${DOTFILESDIR}
 fi
