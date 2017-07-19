@@ -150,6 +150,19 @@ mv ~/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/bin
 mv ~/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/complete/rg.fish ~/.config/fish/functions/
 rm -rf ripgrep-0.5.2-x86_64-unknown-linux-musl
 
+if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "zsh already installed") -eq 0 ];
+then
+    echo "******* Installing zsh..."
+    sudo apt-get install -y zsh
+fi
+
+echo "******* Installing Oh-My-Zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "******* Installing zsh completion docker..."
+mkdir -p ~/.zsh/completion
+curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+
 sudo apt autoremove -y
 
 if $DISTRO -eq "Ubuntu";
@@ -173,8 +186,11 @@ then
     ln -sf ${DOTFILESDIR}/.config/omf $HOME/.config
     ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
     ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
+    ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
+    ln -sf ${DOTFILESDIR}/lnx/.zshrc ${HOME}/.zshrc
+    ln -sf ${DOTFILESDIR}/lnx/.zshenv ${HOME}/.zshenv
 else if $DISTRO -eq "Kali";
-    echo "******* Cpying generics dot configuration files..."
+    echo "******* Copying generics dot configuration files..."
     cp -fr ${DOTFILESDIR}/.config/nvim ${HOME}/.config/nvim
     cp -f ${DOTFILESDIR}/.config/nvim/init.vim ${HOME}/.vimrc
     cp -f ${DOTFILESDIR}/.config/nvim/nvim_plugins.vim  ${HOME}/nvim_plugins.vim
@@ -186,6 +202,9 @@ else if $DISTRO -eq "Kali";
     cp -f ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
     cp -rf ${DOTFILESDIR}/.config/omf $HOME/.config
     cp -rf ${DOTFILESDIR}/.config/fish $HOME/.config
+    cp -rf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
+    cp -rf ${DOTFILESDIR}/lnx/.zshrc ${HOME}/.zshrc
+    cp -rf ${DOTFILESDIR}/lnx/.zshenv ${HOME}/.zshenv
     ln -sf $HOME/.config/omf/init.fish $HOME/.config/fish/config.fish
     rm -rf ${DOTFILESDIR}
 fi
