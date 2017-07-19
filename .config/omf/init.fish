@@ -100,3 +100,5 @@ abbr --add sudoku sudo "$history[1]"
 
 bind \co openfile
 fish_vi_key_bindings
+
+add-ssh-keys
