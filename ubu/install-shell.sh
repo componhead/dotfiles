@@ -185,7 +185,7 @@ then
     ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
     ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
     ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
-    ln -sf ${DOTFILESDIR}/lnx/.vimperatorsys ${HOME}/.vimperatorsys
+    ln -sf ${DOTFILESDIR}/ubu/.vimperatorsys ${HOME}/.vimperatorsys
     ln -sf ${DOTFILESDIR}/.config/omf $HOME/.config
     ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
     ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
