@@ -18,7 +18,12 @@ set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.
 set -xg grepprg rg\ --vimgrep
 switch (uname)
     case "Linux"
-        set -xg SPECIFIC_DOTFILES "$DOTFILES/lnx"
+        switch (cat /etc/lsb-release | grep "DISTRIB_ID" | sed "s/^.*\=//g")
+		case "Ubuntu"
+			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
+		case "Kali"
+			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
+        end
     case "Darwin"
         set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
 end
