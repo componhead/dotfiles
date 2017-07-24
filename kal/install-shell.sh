@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Installation on KALI ROLLING as root user
+# Installation on KALI ROLLING in docker as root user
 DOTFILESDIR=${HOME}/dotfiles
 
 cd ~
@@ -16,23 +16,17 @@ then
     mkdir ~/.config
 fi
 
+echo "******* Installing ssh..."
+apt-get install -y ssh
+
 echo "******* Installing git..."
 apt-get install -y git-core
-
-echo "******* Installing Fura Nerd font..."
-apt-get install fontconfig
-if [ ! -d /usr/share/fonts/opentype ]
-then
-    mkdir -p /usr/share/fonts/opentype/FuraCodeRegularNerd
-fi
-curl -o /usr/share/fonts/opentype/FuraCodeRegularNerd/Fura\ Code\ Regular\ Nerd\ Complete.otf --create-dirs https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura\ Code\ Regular\ Nerd\ Font\ Complete.otf
-fc-cache -fv
 
 echo "******* Installing neovim Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "******* Installing gpg tools..."
-apt-get install -y gpgv2 gnupg2 gnupg-agent pinentry-curses
+apt-get install -y gnupg pinentry-curses
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
 
@@ -63,28 +57,31 @@ echo "******* Installing xclip..."
 apt-get install xclip
 
 echo "******* Installing Facebook PathPicker in ~/bin..."
-wget -O ~/fpp.tar.gz https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
+wget https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
 mkdir -p ~/.local/share/fpp
 tar xzvf ~/fpp.tar.gz ~/.local/share/fpp
 ls -s ~/.local/share/fpp/fpp ~/.local/bin
 rm ~/fpp.tar.gz
 
-echo "******* Setup Fish shell environment..."
-    echo "******* Installing fish shell..."
-    apt-get install -y fish
-    echo "/usr/bin/fish" | tee -a /etc/shells
+echo "******* Installing fish shell..."
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list
+wget -nv http://download.opensuse.org/repositories/shells:fish:release:2/Debian_9.0/Release.key -O Release.key
+apt-key add - < Release.key
+apt-get update
+apt-get install -y fish
+rm Release.key
 
-    echo "******* Installing oh-my-fish shell..."
-    curl -L https://get.oh-my.fish > ~/install
-    chmod +x ~/install
-    /usr/bin/fish ~/install --path=~/.local/share/omf --config=~/.config/omf
-    rm ~/install
+echo "******* Installing oh-my-fish shell..."
+curl -L https://get.oh-my.fish > ~/install
+chmod +x ~/install
+/usr/bin/fish ~/install --path=~/.local/share/omf --config=~/.config/omf
+rm ~/install
 
-    echo "******* Installing omf plugins..."
-    omf install fzf bang-bang bobthefish
+echo "******* Installing omf plugins..."
+omf install fzf bang-bang bobthefish
 
-    rm -r $HOME/.config/omf
-    rm -r $HOME/.config/fish
+rm -r $HOME/.config/omf
+rm -r $HOME/.config/fish
 
 echo "Installing Ripgrep..."
 wget -O ~/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
@@ -105,7 +102,6 @@ cp -f ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
 cp -f ${DOTFILESDIR}/.git_template ${HOME}/
 cp -f ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
 cp -f ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
-cp -f ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
 cp -rf ${DOTFILESDIR}/.config/omf $HOME/.config
 cp -rf ${DOTFILESDIR}/.config/fish $HOME/.config
 ln -sf $HOME/.config/omf/init.fish $HOME/.config/fish/config.fish
