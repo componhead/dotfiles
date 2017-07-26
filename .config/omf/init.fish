@@ -97,13 +97,14 @@ abbr --add vi nvim
 abbr --add battery pmset -g batt
 
 # ABBREVIAZIONI FILES
-abbr --add findopen 'lsof | wc -l' # Per vedere quanti files sono aperti dal sistema
-abbr --add findlinks 'find . -type l -maxdepth 1' # Per trovare tutti i files di tipo link
+abbr --add findopen 'lsof | wc -l'
+abbr --add findlinks 'find . -type l -maxdepth 1'
 abbr --add findfiles 'find . -name "$cursor_pos"' 
 
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
 abbr --add sudoku sudo "$history[1]"
+abbr --add getip curl ipinfo.io
 
 bind \co openfile
 fish_vi_key_bindings
