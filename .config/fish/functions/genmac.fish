@@ -1,4 +1,6 @@
 function genmac
-    openssl rand -hex 6 | sed 's/\(.\{2\}\)\(.\{2\}\)\(.\{2\}\)\(.\{2\}\)\(.\{2\}\)\(.\{2\}\)/\1:\2:\3:\4:\5:\6/g'
+    set macaddr (openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+    echo $macaddr
+    echo $macaddr | eval $CPCLIPBOARD -selection clipboard
 end
 
