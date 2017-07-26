@@ -1,4 +1,5 @@
 function genpsw
-    openssl rand -base64 $argv | cut -c1-$argv
+    date +%s | sha256sum | base64 | head -c $argv
+    echo
 end
 
