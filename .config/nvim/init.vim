@@ -196,19 +196,21 @@ nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap {} {}<left><CR><ESC>O
-tnoremap <C-A> <C-\><C-n>
-tnoremap <C-A>c <C-\><C-n>:term<CR>
-tnoremap <C-A>n <C-\><C-n>:bn<CR>h
-tnoremap <C-A>p <C-\><C-n>:bp<CR>l
-tnoremap <C-A>w <C-\><C-n>:buffers<CR>
-tnoremap <C-A>, <C-\><C-n>:file 
-tnoremap <C-A>% <C-\><C-n>:vnew<CR>:term<CR>
-tnoremap <leader>" <C-\><C-n>:new<CR>:term<CR>
-tnoremap <C-A>[ <C-\><C-n>
-tnoremap <C-W>l <C-\><C-n><C-W>li
-tnoremap <C-W>h <C-\><C-n><C-W>hi
-tnoremap <C-W>k <C-\><C-n><C-W>ki
-tnoremap <C-W>j <C-\><C-n><C-W>ji
+if has('nvim')
+    tnoremap <C-A> <C-\><C-n>
+    tnoremap <C-A>c <C-\><C-n>:term<CR>
+    tnoremap <C-A>n <C-\><C-n>:bn<CR>h
+    tnoremap <C-A>p <C-\><C-n>:bp<CR>l
+    tnoremap <C-A>w <C-\><C-n>:buffers<CR>
+    tnoremap <C-A>, <C-\><C-n>:file 
+    tnoremap <C-A>% <C-\><C-n>:vnew<CR>:term<CR>
+    tnoremap <leader>" <C-\><C-n>:new<CR>:term<CR>
+    tnoremap <C-A>[ <C-\><C-n>
+    tnoremap <C-W>l <C-\><C-n><C-W>li
+    tnoremap <C-W>h <C-\><C-n><C-W>hi
+    tnoremap <C-W>k <C-\><C-n><C-W>ki
+    tnoremap <C-W>j <C-\><C-n><C-W>ji
+endif
 " }}}
 " AUTOCOMMANDS {{{
 if did_filetype()	" filetype already set..
@@ -219,7 +221,9 @@ if getline(1) =~ '^#!.{-}\<bash|zsh\>$'
 endif
 "match errorMsg /\(2[5][6-9]\|2[6-9][0-9]\|[3-9][0-9][0-9]\)[.]\[0-9]\{1,3\}[.][0-9]\{1,3\}[.][0-9]\{1,3\}\|\[0-9]\{1,3\}[.]\(2[5][6-9]\|2[6-9][0-9]\|\\\\[3-9][0-9][0-9]\)[.][0-9]\{1,3\}[.][0-9]\\{1,3\}\|\[0-9]\{1,3\}[.][0-9]\{1,3\}[.]\(2[5]\\ \[6-9]\|\2[6-9][0-9]|[3-9][0-9][0-9]\)[.][0-9]\{1,3\}\\|[0-9]\{1,3\}[.][0-9]\{1,3\}[.][0-9]\{1,3\}[.]\\(2[5][6-9]\|2[6-9][0-9]\|\[3-9][0-9][0-9]\)/
 
-autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-autocmd BufEnter term://* startinsert
+if has('nvim')
+    autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+    autocmd BufEnter term://* startinsert
+endif
 " }}}
 filetype plugin indent on
