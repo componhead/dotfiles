@@ -33,6 +33,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
 Plug 'kassio/neoterm'
 Plug 'thinca/vim-visualstar'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 "}}}
@@ -128,6 +129,7 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " }}}
 " Scala file settings ---------------------- {{{
 augroup ensime_settings
+    au!
     au BufWritePost *.scala :EnTypeCheck<CR>:Autoformat<CR>:EnOrganizeImports<CR>
     au FileType scala nnoremap <localleader>t :EnType<CR>
     au FileType scala nnoremap <localleader>d :EnDeclaration<CR>
@@ -171,3 +173,13 @@ autocmd BufNewFile *.post,*.md,*.markdown :Goyo
 autocmd VimLeave * :Goyo!
 autocmd BufWrite *.post call <SID>createNewBlogPost()
 " }}}
+" SYNTASTIC settings {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"}}}
