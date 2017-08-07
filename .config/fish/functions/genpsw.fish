@@ -6,13 +6,13 @@ function genpsw
     set -g seeds $digitseeds $alfaseeds $specialseeds
     if set -q argv[2]
         switch $argv[2]
-            case 'alfanum'
+            case "an"
                 set -g seeds $digitseeds $alfaseeds
-            case 'alfa'
+            case 'a'
                 set -g seeds $alfaseeds
-            case 'num'
+            case 'n'
                 set -g seeds $digitseeds
-            case 'hex'
+            case 'h'
                 set -g seeds $hexseeds
         end
     end
