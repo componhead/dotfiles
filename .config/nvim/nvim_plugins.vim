@@ -4,6 +4,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/denite.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Valloric/YouCompleteMe'
 Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper'
@@ -18,8 +20,8 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-markdown', {'for':['md','markdown']}
 Plug 'Chiel92/vim-autoformat'
-Plug 'ervandew/supertab'
 Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
@@ -39,6 +41,7 @@ call plug#end()
 "}}}
 " PLUGINS PREFERENCES {{{
 set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 colorscheme lucius
 let g:lucius_style="dark"
@@ -76,6 +79,12 @@ let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
 let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_scala_checkers = ['ensime', 'fsc','scalac']
+let g:deoplete#enable_at_startup = 1
 
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
@@ -98,14 +107,11 @@ set grepprg=rg\ --vimgrep
 "}}}
 " PLUGINS KEYMAPS {{{
 " The prefix key.
-nnoremap [unite] <Nop>
-nmap § [unite]
-nmap ß [unite]
-"nnoremap <silent> [unite]p  :<C-u>UniteWithProjectDir -buffer-name=files buffer bookmark file<CR>
-"nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
-"nnoremap <silent> [unite]ma :<C-u>Unite mapping<CR>
-"nnoremap <silent> [unite]me :<C-u>Unite output:message<CR>
-"" nnoremap <silent> [unite]§  :<C-u>Unite -start-insert -buffer-name=buffer -no-split jump_point file_point buffer_tab file_rec/neovim file file/new<CR>
+nnoremap [denite] <Nop>
+nmap § [denite]
+nmap ß [denite]
+nnoremap <silent> [denite][denite] :<C-u>DeniteProjectDir file_rec line<CR>
+call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
 nnoremap <leader>mm :BookmarkToggle<CR>
 nnoremap <leader>ma :BookmarkAnnotate<CR>
 nnoremap <leader>ms :BookmarkShowAll<CR>
@@ -173,13 +179,3 @@ autocmd BufNewFile *.post,*.md,*.markdown :Goyo
 autocmd VimLeave * :Goyo!
 autocmd BufWrite *.post call <SID>createNewBlogPost()
 " }}}
-" SYNTASTIC settings {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"}}}
