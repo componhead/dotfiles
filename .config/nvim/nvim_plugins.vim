@@ -110,7 +110,7 @@ set grepprg=rg\ --vimgrep
 nnoremap [denite] <Nop>
 nmap § [denite]
 nmap ß [denite]
-nnoremap <silent> [denite][denite] :<C-u>DeniteProjectDir file_rec line<CR>
+nnoremap <silent> [denite]f :<C-u>DeniteProjectDir file_rec line<CR>
 call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
 nnoremap <leader>mm :BookmarkToggle<CR>
 nnoremap <leader>ma :BookmarkAnnotate<CR>
