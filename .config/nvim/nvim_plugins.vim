@@ -36,6 +36,10 @@ Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
 Plug 'kassio/neoterm'
 Plug 'thinca/vim-visualstar'
 Plug 'vim-syntastic/syntastic'
+Plug 'kbrw/elixir.nvim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'thinca/vim-ref'
+Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 call plug#end()
 
 "}}}
@@ -85,6 +89,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_scala_checkers = ['ensime', 'fsc','scalac']
 let g:deoplete#enable_at_startup = 1
+let g:syntastic_enable_elixir_checker = 1
 
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
