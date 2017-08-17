@@ -103,6 +103,8 @@ abbr --add ubuntu_version lsb_release -idrc
 abbr --add pgr pgrep -fal
 abbr --add vi nvim
 abbr --add battery pmset -g batt
+abbr --add mux tmuxinator
+abbr --add tm tmux
 
 # ABBREVIAZIONI FILES
 abbr --add findopen 'lsof | wc -l'
