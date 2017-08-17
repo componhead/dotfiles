@@ -63,7 +63,6 @@ let g:airline_theme='dark'
 let g:bufferline_echo = 0
 let g:session_autosave = 'no'
 let g:SuperTabDefaultCompletionType = 'context'
-let g:signify_vcs_cmds = { 'git': 'git diff --no-color --no-ext-diff -U0 -- %f', 'accurev':  'accurev diff %f -- -U0' }
 let g:signify_disable_by_default = 0
 let g:signify_update_on_bufenter = 1
 let g:formatdef_scalafmt = "'scalafmt'"
