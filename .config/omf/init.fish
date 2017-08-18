@@ -15,14 +15,11 @@ set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg LSCOLOR Gxfxcxdxbxegedabagacad
 set -xg GREP_COLOR '3;33'
-set -xg JEKYLL_GITHUB_TOKEN 'c5826f89fba802f901cb846fbaf5e3f3059e51af'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg LANG en_US.UTF-8
 set -xg fish_user_paths /usr/local/bin $fish_user_paths
-set -xg JBOSS_HOME /home/eanichini/repo/mfpro-tools/docker-jboss-esterno/buildfiles/jboss-4.2.3.GA
-set -xg JBOSS_SERVER_CONFIG tserver
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -xg grepprg rg\ --vimgrep
 switch (uname)
@@ -109,7 +106,7 @@ abbr --add tm tmux
 # ABBREVIAZIONI FILES
 abbr --add findopen 'lsof | wc -l'
 abbr --add findlinks 'find . -type l -maxdepth 1'
-abbr --add findfiles 'find . -name "$cursor_pos"' 
+abbr --add ff 'rg -uuu --files | rg' 
 
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
@@ -119,4 +116,4 @@ abbr --add getip curl ipinfo.io
 bind \co openfile
 fish_vi_key_bindings
 
-add-ssh-keys
+source $DOTFILES/privatefile
