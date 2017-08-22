@@ -27,13 +27,14 @@ switch (uname)
         switch (cat /etc/lsb-release | grep "DISTRIB_ID" | sed "s/^.*\=//g")
 		case "Ubuntu"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
-                        abbr --add l ls -lah --color=always \| less -R
+                        set -g lscmd 'ls -lah --color=always | less -R'
 		case "Kali"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
-                        abbr --add l ls -lah -G \| less -R
+                        set -g lscmd 'ls -lah --color=always | less -R'
         end
     case "Darwin"
         set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
+        set -g lscmd 'ls -lah -G | less -R'
 end
 
 set -g theme_display_git yes
@@ -103,6 +104,7 @@ abbr --add vi nvim
 abbr --add battery pmset -g batt
 abbr --add mux tmuxinator
 abbr --add tm tmux
+abbr --add l "$lscmd"
 
 # ABBREVIAZIONI FILES
 abbr --add findopen 'lsof | wc -l'
