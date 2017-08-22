@@ -27,8 +27,10 @@ switch (uname)
         switch (cat /etc/lsb-release | grep "DISTRIB_ID" | sed "s/^.*\=//g")
 		case "Ubuntu"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
+                        abbr --add l ls -lah --color=always \| less -R
 		case "Kali"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
+                        abbr --add l ls -lah -G \| less -R
         end
     case "Darwin"
         set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
@@ -92,7 +94,6 @@ abbr --add psh git push origin
 
 # ALTRE ABBREVIAZIONI
 abbr --add trm nvim -c terminal
-abbr --add l ls -lah --color=always \| less -R
 abbr --add Eomf nvim ~/.local/share/omf/themes/(cat ~/.config/omf/theme)/
 abbr --add Erc nvim $RCFILE
 abbr --add Evimrc nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim
