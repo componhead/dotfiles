@@ -16,7 +16,7 @@ set clipboard+=unnamedplus
 set timeoutlen=500
 set ignorecase
 set smartcase
-set guifont=SourceCodePro+Powerline+Awesome\ Regular:h14
+set guifont=BitstreamVeraSansMono\ Nerd\ Font\ Mono:h14
 set cursorline
 set hidden
 set wildmode=longest:full,full
