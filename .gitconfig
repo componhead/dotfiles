@@ -60,8 +60,9 @@
     auto = 256
 [alias]
     modified = "!f() { git status -sb | sed 1d | sed '/[M]*[M]* /!d' | sed 's/^...//g'; }; f"
-    umerged = "!f() { git status -sb | sed 1d | sed '/[U]*[U]* /!d' | sed 's/^...//g'; }; f"
+    unmerged = "!f() { git status -sb | sed 1d | sed '/[U]*[U]* /!d' | sed 's/^...//g'; }; f"
     deleted = "!f() { git status -sb | sed 1d | sed '/[D]*[D]* /!d' | sed 's/^...//g'; }; f"
+    added = "!f() { git status -sb | sed 1d | sed '/A  /!d' | sed 's/^...//g'; }; f"
     untracked = "!f() { git status -sb | sed 1d | sed '/?? /!d' | sed 's/^...//g'; }; f"
 [interactive]
     diffFilter = $DOTFILES/diff-highlight
