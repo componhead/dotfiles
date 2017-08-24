@@ -225,7 +225,9 @@ if has('nvim')
     autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
     autocmd BufEnter term://* startinsert
 endif
-"autocmd BufEnter * silent! lcd %:p:h
-autocmd BufEnter * silent! lcd `git rev-parse --show-toplevel`
+augroup change_dir_to_root
+    autocmd BufEnter * silent! lcd %:p:h
+    autocmd BufEnter * silent! lcd `git rev-parse --show-toplevel`
+augroup end
 " }}}
 filetype plugin indent on
