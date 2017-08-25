@@ -168,12 +168,6 @@ function! <SID>SynStack()
 endfunc
 " }}}
 " }}}
-" Vimscript file settings ---------------------- {{{
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
-" }}}
 " KEYBINDINGS {{{
 nnoremap <F5> :Autoformat<CR>
 noremap <F1> <ESC>:exec "help ".expand("<cWORD>")<CR>
@@ -190,26 +184,24 @@ nnoremap <silent> <leader>sudo :w !sudo tee % > /dev/null<CR>
 nnoremap <silent> <leader>lcd :lcd %:p:h<CR>
 
 " Ricerca del blocco di conflitto
-nnoremap <silent> <leader>[ :call ResolveGitConflicts("backward")<CR>
+nnoremap <silent> <leader>[ :silent! call ResolveGitConflicts("backward")<CR>
 nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
 
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap {} {}<left><CR><ESC>O
 if has('nvim')
-    tnoremap <C-A> <C-\><C-n>
-    tnoremap <C-A>c <C-\><C-n>:term<CR>
-    tnoremap <C-A>n <C-\><C-n>:bn<CR>h
-    tnoremap <C-A>p <C-\><C-n>:bp<CR>l
-    tnoremap <C-A>w <C-\><C-n>:buffers<CR>
-    tnoremap <C-A>, <C-\><C-n>:file 
-    tnoremap <C-A>% <C-\><C-n>:vnew<CR>:term<CR>
-    tnoremap <leader>" <C-\><C-n>:new<CR>:term<CR>
-    tnoremap <C-A>[ <C-\><C-n>
-    tnoremap <C-W>l <C-\><C-n><C-W>li
-    tnoremap <C-W>h <C-\><C-n><C-W>hi
-    tnoremap <C-W>k <C-\><C-n><C-W>ki
-    tnoremap <C-W>j <C-\><C-n><C-W>ji
+    tnoremap <leader>tc <C-\><C-n>:term<CR>i
+    tnoremap <leader>tn <C-\><C-n>:bn<CR>hi
+    tnoremap <leader>tp <C-\><C-n>:bp<CR>li
+    tnoremap <leader>tw <C-\><C-n>:buffers<CR>i
+    tnoremap <leader>t, <C-\><C-n>:file 
+    tnoremap <leader>t% <C-\><C-n>:vnew<CR>:term<CR>i
+    tnoremap <leader>t" <C-\><C-n>:new<CR>:term<CR>i
+    tnoremap <leader>tl <C-\><C-n><C-W>li
+    tnoremap <leader>th <C-\><C-n><C-W>hi
+    tnoremap <leader>tk <C-\><C-n><C-W>ki
+    tnoremap <leader>tj <C-\><C-n><C-W>ji
 endif
 " }}}
 " AUTOCOMMANDS {{{
@@ -220,6 +212,12 @@ if getline(1) =~ '^#!.{-}\<bash|zsh\>$'
     setfiletype='sh'
 endif
 "match errorMsg /\(2[5][6-9]\|2[6-9][0-9]\|[3-9][0-9][0-9]\)[.]\[0-9]\{1,3\}[.][0-9]\{1,3\}[.][0-9]\{1,3\}\|\[0-9]\{1,3\}[.]\(2[5][6-9]\|2[6-9][0-9]\|\\\\[3-9][0-9][0-9]\)[.][0-9]\{1,3\}[.][0-9]\\{1,3\}\|\[0-9]\{1,3\}[.][0-9]\{1,3\}[.]\(2[5]\\ \[6-9]\|\2[6-9][0-9]|[3-9][0-9][0-9]\)[.][0-9]\{1,3\}\\|[0-9]\{1,3\}[.][0-9]\{1,3\}[.][0-9]\{1,3\}[.]\\(2[5][6-9]\|2[6-9][0-9]\|\[3-9][0-9][0-9]\)/
+
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim normal zR
+augroup END
 
 if has('nvim')
     autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
