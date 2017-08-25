@@ -44,7 +44,6 @@ if has("multi_byte")
     endif
     set encoding=utf-8
     setglobal fileencoding=utf-8
-    "setglobal bomb
     set fileencodings=ucs-bom,utf-8,latin1
 endif
 " Disable syntax highlight in diff mode
@@ -62,24 +61,15 @@ endif
 "}}}
 " LET {{{
 let g:yankring_clipboard_monitor=0
-" Reindicizza i ctags al salvataggio del file
-"autocmd BufWritePost * call system("ctags -R")
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 let g:terminal_scrollback_buffer_size = 100000
 "}}}
 " OTHER {{{
-" Better compatibility with vim
-if ! exists(':tnoremap')
-    set ttymouse=xterm2
-else
-    "au BufferNewFile * if &buftype == 'terminal' | :set relativenumber | :set number | endif
-endif
 source ~/.vimsessions
 if !empty(glob("$DOTFILES/.config/nvim/nvim_plugins.vim"))
     source $DOTFILES/.config/nvim/nvim_plugins.vim
 endif
-silent! source $DOTFILES/scala_settings.vim
 " }}}
 " FUNCTIONS {{{
 " Handle git conflicts characters
@@ -112,7 +102,6 @@ function! ResolveGitConflicts(direction)
         vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
     endif
 endfunction
-" Disable syntax highlight in diff mode
 "Toggles whether or not the current window is automatically zoomed
 nnoremap <C-W>z :call ToggleMaxWins()<CR>
 function! ToggleMaxWins()
@@ -131,33 +120,6 @@ function! ToggleMaxWins()
         let g:windowMax=1
     endif
 endfunction
-"" Handle git conflicts characters
-"function! ResolveGitConflicts(direction)
-"    :set nohlsearch
-"    let grt = search('^[>]\{7}','nw')
-"    let pipe = search('^[\|]\{7}','nw')
-"    if pipe ==# 0
-"        if a:direction ==# 'forward'
-"            /^[<]\{7}<CR>ma/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd
-"        else
-"            ?^[<]\{7}<CR>ma/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd
-"        endif
-"    else
-"        if a:direction ==# 'forward'
-"            execute "normal! /^[<]\{7}<CR>ma/^[\|]\{7}<CR>mb/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd"
-"        else
-"            execute "normal! ?^[<]\{7}<CR>ma/^[\|]\{7}<CR>mb/^[=]\{7}<CR>mc/^[>]\{7}<CR>md'aV'd"
-"        endif
-"    endif
-"    " Scelta del blocco local '<<<<<<<'
-"    vnoremap <silent> <leader>, <ESC>'a"_dd'bV'd"_dd
-"    " Scelta del blocco index '>>>>>>>'
-"    vnoremap <silent> <leader>. <ESC>'d"_dd'aV'c"_d
-"    if pipe ==# 0
-"        " Scelta del blocco tra '|||||||' e '======='
-"        vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
-"    endif
-"endfunction
 " Show syntax highlighting groups for word under cursor
 nmap <C-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -190,6 +152,7 @@ nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap {} {}<left><CR><ESC>O
+" Differences between nvim and vim
 if has('nvim')
     tnoremap <leader>tc <C-\><C-n>:term<CR>i
     tnoremap <leader>tn <C-\><C-n>:bn<CR>hi
@@ -202,6 +165,8 @@ if has('nvim')
     tnoremap <leader>th <C-\><C-n><C-W>hi
     tnoremap <leader>tk <C-\><C-n><C-W>ki
     tnoremap <leader>tj <C-\><C-n><C-W>ji
+else
+    set ttymouse=xterm2
 endif
 " }}}
 " AUTOCOMMANDS {{{
