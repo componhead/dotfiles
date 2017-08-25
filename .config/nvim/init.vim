@@ -62,7 +62,7 @@ endif
 " LET {{{
 let g:yankring_clipboard_monitor=0
 let mapleader = "\<Space>"
-let maplocalleader = "\\"
+let maplocalleader = "\<Space>"
 let g:terminal_scrollback_buffer_size = 100000
 "}}}
 " OTHER {{{
@@ -121,7 +121,7 @@ function! ToggleMaxWins()
     endif
 endfunction
 " Show syntax highlighting groups for word under cursor
-nmap <C-P> :call <SID>SynStack()<CR>
+nnoremap <C-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
     if !exists("*synstack")
         return
