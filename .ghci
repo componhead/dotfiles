@@ -1,2 +1,3 @@
-:set prompt "    ☻  %s ⇒  "
+:set prompt "    %s ⇒  "
 :set +t
+:def catn \p -> return $ ":! catn \"" ++ p ++ "\""
