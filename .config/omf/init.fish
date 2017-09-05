@@ -119,4 +119,5 @@ abbr --add getip curl ipinfo.io
 bind \co openfile
 fish_vi_key_bindings
 
+set -g TMUX tmux new-session -d -s work
 source $DOTFILES/privatefile
