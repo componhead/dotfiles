@@ -131,6 +131,7 @@ endfunc
 " }}}
 " }}}
 " KEYBINDINGS {{{
+" GENERAL {{{
 nnoremap <F5> :Autoformat<CR>
 noremap <F1> <ESC>:exec "help ".expand("<cWORD>")<CR>
 noremap <F4> <ESC>:!ctags -R .<CR>
@@ -168,22 +169,6 @@ if has('nvim')
 else
     set ttymouse=xterm2
 endif
-" }}}
-" AUTOCOMMANDS {{{
-if did_filetype()	" filetype already set..
-    finish		    " ..don't do these checks
-endif
-if getline(1) =~ '^#!.{-}\<bash|zsh\>$'
-    setfiletype='sh'
-endif
-"match errorMsg /\(2[5][6-9]\|2[6-9][0-9]\|[3-9][0-9][0-9]\)[.]\[0-9]\{1,3\}[.][0-9]\{1,3\}[.][0-9]\{1,3\}\|\[0-9]\{1,3\}[.]\(2[5][6-9]\|2[6-9][0-9]\|\\\\[3-9][0-9][0-9]\)[.][0-9]\{1,3\}[.][0-9]\\{1,3\}\|\[0-9]\{1,3\}[.][0-9]\{1,3\}[.]\(2[5]\\ \[6-9]\|\2[6-9][0-9]|[3-9][0-9][0-9]\)[.][0-9]\{1,3\}\\|[0-9]\{1,3\}[.][0-9]\{1,3\}[.][0-9]\{1,3\}[.]\\(2[5][6-9]\|2[6-9][0-9]\|\[3-9][0-9][0-9]\)/
-
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim normal zR
-augroup END
-
 if has('nvim')
     autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
     autocmd BufEnter term://* startinsert
@@ -192,5 +177,26 @@ augroup change_dir_to_root
     autocmd BufEnter * silent! lcd %:p:h
     autocmd BufEnter * silent! lcd `git rev-parse --show-toplevel`
 augroup end
+" }}}
+" VIM {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim normal zR
+    autocmd FileType vim nnoremap <buffer> <localleader>c I" <esc>j0
+augroup END
+" }}}
+" HASKELL {{{
+augroup filetype_haskell
+    autocmd FileType haskell nnoremap <buffer> <localleader>c I-- <esc>j0
+    autocmd FileType haskell vnoremap <buffer> <localleader>c <esc>'<O{-<esc>'>o-}<esc>j0
+augroup END
+" }}}
+" ELIXIR {{{
+augroup filetype_elizir
+    autocmd FileType elixir nnoremap <buffer> <localleader>c I# <esc>0
+    autocmd FileType elixir vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>j0
+augroup END
+" }}}
 " }}}
 filetype plugin indent on
