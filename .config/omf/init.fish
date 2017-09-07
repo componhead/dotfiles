@@ -6,6 +6,7 @@ set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME ~/.cache
 set -xg XDG_RUNTIME_DIR ~/.runtime
 
+set -xg HISTCONTROL ignoreboth:erasedups
 set -xg DOTFILES ~/dotfiles
 set -xg RCFILE ~/.config/omf/init.fish
 set -xg APPDATA $HOME
