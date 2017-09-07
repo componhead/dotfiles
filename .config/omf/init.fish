@@ -9,7 +9,6 @@ set -xg XDG_RUNTIME_DIR ~/.runtime
 set -xg DOTFILES ~/dotfiles
 set -xg RCFILE ~/.config/omf/init.fish
 set -xg APPDATA $HOME
-set -xg PAGER less -R
 set -xg TERM screen-256color
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
