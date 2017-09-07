@@ -1,10 +1,11 @@
 function l
+    tmux split-window -h 
     switch (uname)
         case "Linux"
             if set -q argv[1]
-                tmux split-window -h | tmux send-keys -t "$pane" C-a "ls -lah --color=always $argv[1] | less -R" Enter
+                tmux send-keys -t "$pane" C-a "ls -lah --color=always $argv[1] | less -R" Enter
             else
-                tmux split-window -h | tmux send-keys -t "$pane" C-a 'ls -lah --color=always | less -R' Enter
+                 tmux send-keys -t "$pane" C-a 'ls -lah --color=always | less -R' Enter
             end
         case "Darwin"
             if set -q argv[1]
