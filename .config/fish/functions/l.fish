@@ -1,5 +1,4 @@
 function l
-    tmux split-window -h 
     switch (uname)
         case "Linux"
             if set -q argv[1]
