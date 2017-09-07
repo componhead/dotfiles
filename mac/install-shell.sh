@@ -85,6 +85,8 @@ else
     brew install fpp
 fi
 
+brew install source-highlight
+
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
 

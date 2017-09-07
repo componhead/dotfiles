@@ -166,6 +166,9 @@ echo "******* Installing zsh completion docker..."
 mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 
+echo "******* Installing source-highlight..."
+sudo apt-get install -y source-highlight
+
 sudo apt autoremove -y
 
 if $1 == "--persist";
