@@ -2,15 +2,15 @@ function l
     switch (uname)
         case "Linux"
             if set -q argv[1]
-                tmux send-keys -t "$pane" C-a "ls -lah --color=always $argv[1] | less -R" Enter
+                ls -lah --color=always $argv[1] | less -R
             else
-                 tmux send-keys -t "$pane" C-a 'ls -lah --color=always | less -R' Enter
+                ls -lah --color=always | less -R
             end
         case "Darwin"
             if set -q argv[1]
-                tmux send-keys -t "$pane" C-a "ls -lah -G $argv[1] | less -R" Enter
+                ls -lah -G $argv[1] | less -R
             else
-                tmux send-keys -t "$pane" C-a 'ls -lah -G | less -R' Enter
+                ls -lah -G | less -R
             end
     end
 end
