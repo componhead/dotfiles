@@ -1,16 +1,16 @@
 function l
     switch (uname)
         case "Linux"
-             if set -q argv[1]
-                 ls -lah --color=always $argv[1] | less -R
-             else
-                 ls -lah --color=always | less -R
-             end
+            if set -q argv[1]
+                tmux split-window -h | tmux send-keys -t "$pane" C-a "ls -lah --color=always $argv[1] | less -R" Enter
+            else
+                tmux split-window -h | tmux send-keys -t "$pane" C-a 'ls -lah --color=always | less -R' Enter
+            end
         case "Darwin"
             if set -q argv[1]
-                ls -lah -G $argv[1] | less -R
+                tmux split-window -h | tmux send-keys -t "$pane" C-a "ls -lah -G $argv[1] | less -R" Enter
             else
-                ls -lah -G | less -R
+                tmux split-window -h | tmux send-keys -t "$pane" C-a 'ls -lah -G | less -R' Enter
             end
     end
 end
