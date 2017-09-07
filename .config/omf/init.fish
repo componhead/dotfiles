@@ -26,14 +26,14 @@ switch (uname)
         switch (cat /etc/lsb-release | grep "DISTRIB_ID" | sed "s/^.*\=//g")
 		case "Ubuntu"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
-			set -xg PRIVATE_DOTFILES "$DOTFILES/privatefiles/ubu"
+			set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/ubu"
 		case "Kali"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
-			set -xg PRIVATE_DOTFILES "$DOTFILES/privatefiles/kal"
+			set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/kal"
         end
     case "Darwin"
         set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
-        set -xg PRIVATE_DOTFILES "$DOTFILES/privatefiles/mac"
+        set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/mac"
 end
 
 set -g theme_display_git yes
