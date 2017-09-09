@@ -2,7 +2,7 @@
     name = Emi
 [color]
     pager = true
-    ui = auto
+    ui = always
 [color "branch"]
     current = yellow reverse
     local = yellow
