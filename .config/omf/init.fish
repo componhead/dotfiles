@@ -6,7 +6,6 @@ set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME ~/.cache
 set -xg XDG_RUNTIME_DIR ~/.runtime
 
-set -xg HISTCONTROL ignoreboth:erasedups
 set -xg DOTFILES ~/dotfiles
 set -xg RCFILE ~/.config/omf/init.fish
 set -xg APPDATA $HOME
@@ -112,7 +111,6 @@ abbr --add ff 'rg -uuu --files | rg'
 
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
-abbr --add sudoku sudo "$history[1]"
 abbr --add getip curl ipinfo.io
 
 bind \co openfile

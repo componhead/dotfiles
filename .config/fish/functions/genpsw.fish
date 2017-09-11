@@ -5,9 +5,6 @@ function genpsw
     set -g hexseeds 1 2 3 4 5 6 7 8 9 0 a b c d e f
     set -g specialseedsreduced \! \$ \% \@ \#
     set -g specialseeds \! \@ \# \$ \% \^ \& \* \( \) \_ \+ \- \= \: \" \| \; \' \< \> \? \, \. \/ \~ \` \{ \} \[ \]
-
-    set -g mode "normal"
-    set -g seeds $digitseeds $lowercase $uppercase $specialseeds
     if set -q argv[2]
         switch $argv[2]
             case "an"
@@ -26,6 +23,9 @@ function genpsw
                 set -g seeds $digitseeds $lowercase $uppercase $specialseedsreduced
                 set -g mode "reduced"
         end
+    else
+        set -g seeds $digitseeds $lowercase $uppercase $specialseeds
+        set -g mode "normal"
     end
     set -g rndm ''
     for i in (seq 1 1 $argv[1])
