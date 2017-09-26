@@ -87,6 +87,7 @@ abbr --add gpt git add -p
 abbr --add grb git rebase
 abbr --add grs git reset --mixed HEAD
 abbr --add gst git status -sb
+abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add pll git pull origin
@@ -103,6 +104,7 @@ abbr --add vi nvim
 abbr --add battery pmset -g batt
 abbr --add mux tmuxinator
 abbr --add tm tmux
+abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 
 # ABBREVIAZIONI FILES
 abbr --add findopen 'lsof | wc -l'
