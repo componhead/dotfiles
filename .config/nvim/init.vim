@@ -186,6 +186,14 @@ augroup filetype_vim
     autocmd FileType vim nnoremap <buffer> <localleader>c I" <esc>j0
 augroup END
 " }}}
+" MARKDOWN {{{
+augroup filetype_markdown
+    au! FileType markdown setlocal foldmethod=marker
+    au! FileType markdown setlocal foldmarker=&nbsp;,&nbsp;
+    au! FileType markdown normal zR
+    au! FileType markdown nnoremap <buffer> <localleader>c I[//]: # ()<esc>hi
+augroup END
+" }}}
 " HASKELL {{{
 augroup filetype_haskell
     autocmd FileType haskell nnoremap <buffer> <localleader>c I-- <esc>j0
