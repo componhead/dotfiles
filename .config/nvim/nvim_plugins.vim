@@ -9,7 +9,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper'
-Plug 'derekwyatt/vim-scala'
 Plug 'ensime/ensime-vim'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-repeat'
@@ -32,13 +31,18 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
 Plug 'kassio/neoterm'
 Plug 'thinca/vim-visualstar'
 Plug 'vim-syntastic/syntastic'
+Plug 'thinca/vim-ref'
+" SCALA
+Plug 'derekwyatt/vim-scala'
+" HASKELL
+Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
+" ELIXIR
 Plug 'kbrw/elixir.nvim'
 Plug 'elixir-lang/vim-elixir'
-Plug 'thinca/vim-ref'
+Plug 'elixir-editors/vim-elixir'
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 call plug#end()
 
@@ -177,9 +181,8 @@ function! s:createNewBlogPost() range
         execute "saveas " . l:filename
     endif
 endfunction
-autocmd BufNewFile *.post silent! 0r ~/.config/nvim/templates/blogpost.tpl
-autocmd BufRead *.post,*.md,*.markdown :Goyo
-autocmd BufNewFile *.post,*.md,*.markdown :Goyo
-autocmd VimLeave * :Goyo!
-autocmd BufWrite *.post call <SID>createNewBlogPost()
+au! BufNewFile *.post silent! 0r ~/.config/nvim/templates/blogpost.tpl
+au! BufRead,BufNewFile *.md,*.markdown :Goyo
+au! VimLeave * :Goyo!
+au! BufWrite *.post call <SID>createNewBlogPost()
 " }}}
