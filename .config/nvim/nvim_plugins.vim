@@ -39,6 +39,7 @@ Plug 'thinca/vim-ref'
 Plug 'derekwyatt/vim-scala'
 " HASKELL
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell','hs'] }
+Plug 'alx741/vim-hindent', { 'for': ['haskell','hs'] }
 " ELIXIR
 Plug 'kbrw/elixir.nvim'
 Plug 'elixir-lang/vim-elixir'
@@ -69,13 +70,10 @@ let g:session_autosave = 'no'
 let g:SuperTabDefaultCompletionType = 'context'
 let g:signify_disable_by_default = 0
 let g:signify_update_on_bufenter = 1
-let g:formatdef_scalafmt = "'scalafmt'"
-let g:formatters_scala = ['scalafmt']
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 let g:calendar_first_day = "monday"
 let g:calendar_time_zone = "+02:00"
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:bookmark_no_default_key_mappings = 1
 let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
@@ -90,9 +88,21 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
-let g:syntastic_scala_checkers = ['ensime', 'fsc','scalac']
 let g:deoplete#enable_at_startup = 1
+" ELIXIR
 let g:syntastic_enable_elixir_checker = 1
+" HASKELL
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+let g:hindent_on_save = 1
+let g:hindent_indent_size = 2
+let g:hindent_line_length = 100
+
 
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
@@ -143,7 +153,6 @@ nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " }}}
 " Scala file settings ---------------------- {{{
 augroup ensime_settings
-    au!
     au BufWritePost *.scala :EnTypeCheck<CR>:Autoformat<CR>:EnOrganizeImports<CR>
     au FileType scala nnoremap <localleader>t :EnType<CR>
     au FileType scala nnoremap <localleader>d :EnDeclaration<CR>
@@ -152,6 +161,14 @@ augroup ensime_settings
     au FileType scala nnoremap <localleader>ww :WorksheetEval<CR>
     au FileType scala nnoremap <localleader>wc :WorksheetClean<CR>
     au FileType scala nnoremap <localleader>we :WorksheetEnd<CR>
+    au FileType scala let g:syntastic_scala_checkers = ['ensime', 'fsc','scalac']
+    au FileType scala let g:formatdef_scalafmt = "'scalafmt'"
+    au FileType scala let g:formatters_scala = ['scalafmt']
+augroup END
+"}}}
+" Haskell file settings ---------------------- {{{
+augroup haskell_settings
+    au FileType haskell silent! setlocal formatprg=hindent
 augroup END
 "}}}
 " HTML file settings {{{
