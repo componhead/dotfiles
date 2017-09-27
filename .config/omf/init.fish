@@ -18,7 +18,6 @@ set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg LANG en_US.UTF-8
-set -xg fish_user_paths /usr/local/bin $fish_user_paths
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -xg grepprg rg\ --vimgrep
 switch (uname)
@@ -69,6 +68,7 @@ source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 
 set -g fish_user_abbreviations
 set -U abbrs_initialized
+set -U fish_user_paths $fish_user_paths /usr/local/bin $HOME/.local/bin
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
