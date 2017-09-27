@@ -103,21 +103,18 @@ abbr --add pgr pgrep -fal
 abbr --add vi nvim
 abbr --add battery pmset -g batt
 abbr --add mux tmuxinator
-abbr --add tm tmux
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 
 # ABBREVIAZIONI FILES
-abbr --add findopen 'lsof | wc -l'
-abbr --add findlinks 'find . -type l -maxdepth 1'
+abbr --add fopn 'lsof | wc -l'
+abbr --add flnk 'find . -type l -maxdepth 1'
 abbr --add ff 'rg -uuu --files | rg' 
 
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
-abbr --add getip curl ipinfo.io
 
 bind \co openfile
 fish_vi_key_bindings
 
-set -g TMUX tmux new-session -d -s work
 source $PRIVATE_DOTFILES/privatefile
 add-ssh-keys
