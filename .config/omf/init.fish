@@ -72,21 +72,14 @@ set -U fish_user_paths $fish_user_paths /usr/local/bin $HOME/.local/bin
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
-abbr --add gco git checkout --
-abbr --add gau git update-index --assume-unchanged
-abbr --add gbr git branch --set-upstream HEAD
 abbr --add gcm git commit -m
-abbr --add gco git checkout
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
-abbr --add gft git fetch origin
 abbr --add glg git log --decorate --graph --all --oneline --color
 abbr --add gmr git mergetool --no-ff --no-commit
-abbr --add gnu git update-index --no-assume-unchanged
 abbr --add gpt git add -p
-abbr --add grb git rebase
 abbr --add grs git reset --mixed HEAD
-abbr --add gst git status -sb
+abbr --add gst git status -sb \| fpp
 abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
