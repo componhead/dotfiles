@@ -1,2 +1,1 @@
-set -xg CPCLIPBOARD xclip
-set -xg PSCLIPBOARD xclip
+set -xg TMUX_CLIPBOARD_COMMAND "xclip -sel clip -i"
