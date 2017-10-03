@@ -12,7 +12,6 @@ set -xg APPDATA $HOME
 set -xg TERM screen-256color
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
-set -xg LSCOLORS hxgxahhxacafxfaexeabxb
 set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
