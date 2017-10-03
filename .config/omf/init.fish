@@ -12,7 +12,7 @@ set -xg APPDATA $HOME
 set -xg TERM screen-256color
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
-set -xg LSCOLOR Gxfxcxdxbxegedabagacad
+set -xg LSCOLORS hxgxahhxacafxfaexeabxb
 set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
@@ -68,7 +68,7 @@ source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 
 set -g fish_user_abbreviations
 set -U abbrs_initialized
-set -U fish_user_paths $fish_user_paths /usr/local/bin $HOME/.local/bin
+set -U fish_user_paths /usr/local/bin $HOME/.local/bin
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
