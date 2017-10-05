@@ -6,6 +6,7 @@ set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME ~/.cache
 set -xg XDG_RUNTIME_DIR ~/.runtime
 
+set -xg FZF_HOME ~/.fzf
 set -xg DOTFILES ~/dotfiles
 set -xg RCFILE ~/.config/omf/init.fish
 set -xg APPDATA $HOME
@@ -67,7 +68,7 @@ source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 
 set -g fish_user_abbreviations
 set -U abbrs_initialized
-set -U fish_user_paths /usr/local/bin $HOME/.local/bin
+set -U fish_user_paths /usr/local/bin $HOME/.local/bin $FZF_HOME/bin
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
