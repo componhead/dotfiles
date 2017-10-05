@@ -25,6 +25,14 @@ else
     brew install curl
 fi
 
+if test -f ~/.fzf/install then
+    echo "******* fzf already installed"
+else
+    echo "******* Installing fzf"
+    git clone https://github.com/junegunn/fzf.git ~/.fzf
+    chmod +x ~/.fzf/install | ~/.fzf/install
+fi
+
 echo "******* Installing Fura Fontee."
 brew tap caskroom/fonts
 brew cask install font-firacode-nerd-font-mono
