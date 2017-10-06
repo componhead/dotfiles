@@ -63,12 +63,11 @@ set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
 set -g fish_vi_key_bindings yes
 set -g fish_escape_delay_ms 300
-
-source "$SPECIFIC_DOTFILES/specific-configuration.fish"
-
 set -g fish_user_abbreviations
 set -U abbrs_initialized
 set -U fish_user_paths /usr/local/bin $HOME/.local/bin $FZF_HOME/bin
+
+source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
