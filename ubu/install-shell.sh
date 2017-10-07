@@ -46,6 +46,7 @@ sudo pip3 install neovim
 echo "******* Installing tmux..."
 sudo apt-get install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+sudo cp -f ${DOTFILESDIR}/tmux /usr/bin/tmux
 
 echo "******* Installing unzip..."
 sudo apt-get install -y unzip
@@ -94,6 +95,9 @@ sudo apt-get install -y source-highlight
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --bin --key-bindings --completion --update-rc --64
+
+echo "******* Installing dev tools..."
+sudo apt-get install libevent-dev ncurses-dev
 
 sudo apt autoremove -y
 
