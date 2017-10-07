@@ -78,6 +78,7 @@ wget -O ~/fpp.tar.gz https://github.com/facebook/PathPicker/releases/download/0.
 tar --warning=no-unknown-keyword -zxf ~/fpp.tar.gz
 mv ~/fpp .local/bin
 mv ~/._fpp .local/bin
+mv ~/src .local/bin
 rm ~/fpp.tar.gz
 
 echo "Installing Ripgrep..."
@@ -89,6 +90,10 @@ rm -rf ~/ripgrep-0.5.2-x86_64-unknown-linux-musl
 
 echo "******* Installing source-highlight..."
 sudo apt-get install -y source-highlight
+
+echo "******* Installing fzf..."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --bin --key-bindings --completion --update-rc --64
 
 sudo apt autoremove -y
 
