@@ -110,5 +110,5 @@ abbr --add network_port_occupied 'sudo lsof -i -P'
 bind \co openfile
 fish_vi_key_bindings
 
-source $PRIVATE_DOTFILES/privatefile
+#source $PRIVATE_DOTFILES/privatefile
 add-ssh-keys
