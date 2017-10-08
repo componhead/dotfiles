@@ -77,9 +77,9 @@ sudo apt-get install xclip
 echo "******* Installing Facebook PathPicker in ~/.local/bin..."
 wget -O ~/fpp.tar.gz https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
 tar --warning=no-unknown-keyword -zxf ~/fpp.tar.gz
-mv ~/fpp .local/bin
-mv ~/._fpp .local/bin
-mv ~/src .local/bin
+mv ~/fpp ~/.local/bin
+mv ~/._fpp ~/.local/bin
+mv ~/src ~/.local/bin
 rm ~/fpp.tar.gz
 
 echo "Installing Ripgrep..."
@@ -94,7 +94,7 @@ sudo apt-get install -y source-highlight
 
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --bin --key-bindings --completion --update-rc --64
+~/.fzf/install
 
 echo "******* Installing dev tools..."
 sudo apt-get install libevent-dev ncurses-dev
@@ -104,24 +104,19 @@ sudo apt autoremove -y
 if $1 == "--delete";
 then
     echo "******* Copying generics dot configuration files..."
-    cp -fr ${DOTFILESDIR}/.config/nvim ${HOME}/.config/nvim
-    cp -f ${DOTFILESDIR}/.config/nvim/init.vim ${HOME}/.vimrc
-    cp -f ${DOTFILESDIR}/.config/nvim/nvim_plugins.vim  ${HOME}/nvim_plugins.vim
+    cp -fr ${DOTFILESDIR}/.config/ ${HOME}/.config/
+    ln -sf $HOME/.config/omf/init.fish $HOME/.config/fish/config.fish
     cp -f ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
     cp -f ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
     cp -f ${DOTFILESDIR}/.git_template ${HOME}/
     cp -f ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
     cp -f ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
     cp -f ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
-    cp -rf ${DOTFILESDIR}/.config/omf $HOME/.config
-    cp -rf ${DOTFILESDIR}/.config/fish $HOME/.config
-    ln -sf $HOME/.config/omf/init.fish $HOME/.config/fish/config.fish
     rm -rf ${DOTFILESDIR}
 else
     echo "******* Linking generics dot configuration files..."
-    ln -sf ${DOTFILESDIR}/.config/nvim/init.vim ${HOME}/.config/nvim/init.vim
-    ln -sf ${DOTFILESDIR}/.config/nvim/init.vim ${HOME}/.vimrc
-    ln -sf ${DOTFILESDIR}/.config/nvim/nvim_plugins.vim  ${HOME}/nvim_plugins.vim
+    ln -sf ${DOTFILESDIR}/.config/ ${HOME}/.config/
+    ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
     ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/.dockerignore
     ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
     ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
@@ -129,15 +124,11 @@ else
     ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/ghci.conf
     ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
     ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
-    ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
     ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
     ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
     ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
     ln -sf ${DOTFILESDIR}/ubu/.vimperatorsys ${HOME}/.vimperatorsys
-    ln -sf ${DOTFILESDIR}/.config/omf $HOME/.config
-    ln -sf ${DOTFILESDIR}/.config/fish $HOME/.config
-    ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
-    ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
+    ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 fi
 
 echo "*** Setup Fish shell environment..."

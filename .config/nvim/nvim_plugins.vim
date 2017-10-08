@@ -9,7 +9,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper'
-Plug 'ensime/ensime-vim'
+"Plug 'ensime/ensime-vim'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'

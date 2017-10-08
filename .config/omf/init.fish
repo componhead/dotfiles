@@ -25,15 +25,13 @@ switch (uname)
         switch (cat /etc/lsb-release | grep "DISTRIB_ID" | sed "s/^.*\=//g")
 		case "Ubuntu"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
-			set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/ubu"
 		case "Kali"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
-			set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/kal"
         end
     case "Darwin"
         set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
-        set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/mac"
 end
+set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
@@ -68,6 +66,7 @@ set -U abbrs_initialized
 set -U fish_user_paths /usr/local/bin $HOME/.local/bin $FZF_HOME/bin
 
 source "$SPECIFIC_DOTFILES/specific-configuration.fish"
+source "$PRIVATE_DOTFILES/privatefile"
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
@@ -110,5 +109,4 @@ abbr --add network_port_occupied 'sudo lsof -i -P'
 bind \co openfile
 fish_vi_key_bindings
 
-#source $PRIVATE_DOTFILES/privatefile
 add-ssh-keys

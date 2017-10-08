@@ -1,1 +1,1 @@
-.config/omf/init.fish
+/home/emi/dotfiles/.config/omf/init.fish
