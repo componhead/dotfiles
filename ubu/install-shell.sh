@@ -85,9 +85,9 @@ rm ~/fpp.tar.gz
 echo "Installing Ripgrep..."
 wget -O ~/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
 tar xzvf ~/ripgrep.tar.gz -C ~/.local/bin
-mv ~/ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/.local/bin
-mv ~/ripgrep-0.5.2-x86_64-unknown-linux-musl/complete/rg.fish ~/.config/fish/functions/
-rm -rf ~/ripgrep-0.5.2-x86_64-unknown-linux-musl
+mv ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/.local/bin
+mv ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/complete/rg.fish ~/.config/fish/functions/
+rm -rf ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl
 
 echo "******* Installing source-highlight..."
 sudo apt-get install -y source-highlight
