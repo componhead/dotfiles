@@ -8,16 +8,10 @@ DOTFILESDIR=${HOME}/dotfiles
 
 DISTRO=sudo cat /etc/lsb-release | sudo grep "DISTRIB_ID" | sudo sed "s/\w\+=\(\w\+\)$/\1/"
 
-if [ ! -d ~/.local/bin ]
-then
-    mkdir -p ~/.local/bin
-    mkdir -p ~/.local/share
-fi
-
-if [ ! -d ~/.config ]
-then
-    mkdir ~/.config
-fi
+mkdir -p ~/.local/bin
+mkdir -p ~/.local/share
+mkdir ~/.config
+mkdir ~/opt
 
 rm -rf ~/.tmux
 
@@ -31,6 +25,9 @@ echo "******* Installing gpg tools..."
 sudo apt-get install -y gpgv2 gnupg2 gnupg-agent pinentry-curses
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
+
+echo "******* Installing dev tools..."
+sudo apt-get install -y libevent-dev ncurses-dev openssl libcurl4-openssl-dev libxml2 libssl-dev libxml2-dev cmake build-essential pkg-config
 
 echo "******* Installing Neovim..."
 sudo apt-get install -y software-properties-common
@@ -48,15 +45,6 @@ sudo apt-get install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp -f ${DOTFILESDIR}/tmux /usr/bin/tmux
 
-echo "******* Installing unzip..."
-sudo apt-get install -y unzip
-
-echo "******* Installing colortail..."
-sudo apt-get install -y colortail
-
-echo "******* Installing colordiff..."
-sudo apt-get install -y colordiff
-
 if $DISTRO -eq "Ubuntu";
 then
     echo "******* Installing Docker..."
@@ -68,11 +56,6 @@ then
     sudo usermod -aG docker $(whoami)
 fi
 
-echo "******* Installing xsel..."
-sudo apt-get install xsel
-
-echo "******* Installing xclip..."
-sudo apt-get install xclip
 
 echo "******* Installing Facebook PathPicker in ~/.local/bin..."
 wget -O ~/fpp.tar.gz https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
@@ -89,15 +72,12 @@ mv ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/.local/bin
 mv ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/complete/rg.fish ~/.config/fish/functions/
 rm -rf ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl
 
-echo "******* Installing source-highlight..."
-sudo apt-get install -y source-highlight
-
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-echo "******* Installing dev tools..."
-sudo apt-get install libevent-dev ncurses-dev
+echo "******* Installing utilities..."
+sudo apt-get install -y xsel xclip source-highlight unzip colortail colordiff gdebi lastpadd-cli
 
 sudo apt autoremove -y
 
@@ -130,6 +110,7 @@ else
     ln -sf ${DOTFILESDIR}/ubu/.vimperatorsys ${HOME}/.vimperatorsys
     ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 fi
+sudo cp -fr ${DOTFILESDIR}/tmux /usr/bin/tmux
 
 echo "*** Setup Fish shell environment..."
 echo "******* Installing fish shell..."
