@@ -104,6 +104,13 @@ let g:hindent_on_save = 1
 let g:hindent_indent_size = 2
 let g:hindent_line_length = 100
 let g:vimfiler_as_default_explorer = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
