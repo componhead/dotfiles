@@ -2,13 +2,16 @@ map('<Ctrl-f>', 'd');
 map('<Ctrl-b>', 'e');
 
 mapkey('oa', '#8Open Search with amazon.it', 'Front.openOmnibar({type: "SearchEngine", extra: "a"})');
-mapkey('oh', '#8Open Search with github.com', 'Front.openOmnibar({type: "SearchEngine", extra: "h"})');
+mapkey('og', '#8Open Search with github.com', 'Front.openOmnibar({type: "SearchEngine", extra: "g"})');
 mapkey('oc', '#8Open Search with github.com', 'Front.openOmnibar({type: "SearchEngine", extra: "c"})');
+mapkey('ou', '#8Open Search with github.com', 'Front.openOmnibar({type: "SearchEngine", extra: "u"})');
+mapkey('od', '#8Open Search with duckduck.com', 'Front.openOmnibar({type: "SearchEngine", extra: "d"})');
 
 addSearchAliasX('a', 'amazon.it', 'https://www.amazon.it/s/ref=nb_sb_noss/260-9728740-7288529?__mk_it_IT=ÅMÅŽÕÑ&url=search-alias%3Daps&field-keywords=');
 
-addSearchAliasX('h', 'github', 'https://github.com/search?type=Repositories&utf8=%E2%9C%93&ref=simplesearch&q=');
+addSearchAliasX('g', 'github-repo', 'https://github.com/search?type=Repositories&utf8=%E2%9C%93&ref=simplesearch&q=');
 addSearchAliasX('c', 'github-code', 'https://github.com/search?type=Code&utf8=%E2%9C%93&ref=simplesearch&q=');
+addSearchAliasX('u', 'github-user', 'https://github.com/search?ref=simplesearch&type=Users&utf8=%E2%9C%93&q=');
 
 // an example to create a new mapping `ctrl-y`
 mapkey('<Ctrl-y>', 'Show me the money', function() {
