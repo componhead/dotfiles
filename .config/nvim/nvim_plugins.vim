@@ -5,6 +5,7 @@ Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/vimfiler.vim'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
@@ -102,7 +103,10 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 let g:hindent_on_save = 1
 let g:hindent_indent_size = 2
 let g:hindent_line_length = 100
+let g:vimfiler_as_default_explorer = 1
 
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
 
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
