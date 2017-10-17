@@ -1,0 +1,68 @@
+" Settings
+set nohud
+set nosmoothscroll
+set noautofocus " The opposite of autofocus; this setting stops
+                " sites from focusing on an input box when they load
+set typelinkhints
+let searchengine duckduck = "https://duckduckgo.com/?q="
+let searchengine github_repo = "https://github.com/search?utf8=%E2%9C%93&q="
+let searchengine githb_code = "https://github.com/search?utf8=%E2%9C%93&type=Code&q="
+let searchengine dockerhub = "https://hub.docker.com/search/?q="
+let searchengine amazon = "https://www.amazon.it/s/ref=nb_sb_noss?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords="
+let searchlimit = 30
+let scrollstep = 70
+let barposition = "bottom"
+let defaultengine = "duckduck"
+let hintcharacters = "asdfghjkl0123456789"
+let mainengines = ["duckduckgo", "amazon", "wikipedia", "github", "dockerhub"]
+let searchalias g = "github_repo"
+let searchalias d = "duckduck"
+let searchalias a = "amazon"
+" Open all of these in a tab with `gnw` or open one of these with <N>gow where <N>
+let qmark w = ["https://actitime.itnetcloud.com/actitime", "https://bitbucket.org/", "https://github.com/"]
+" blacklists prefixed by '@' act as a whitelist
+let mapleader = ","
+" Create a variable that can be used/referenced in the command bar
+let @@reddit_prog = 'http://www.reddit.com/r/programming'
+let @@top_all = 'top?sort=top&t=all'
+let @@top_day = 'top?sort=top&t=day'
+let @@udemy = 'https://www.udemy.com'
+let @@udemy_haskell = 'learning-path-haskell-functional-programming-and-haskell/learn/v4/content'
+let @@futurelearn = 'https://www.futurelearn.com'
+let @@futurelearn_haskell = 'courses/functional-programming-haskell'
+command d tabnew duckduck
+command g tabnew github_repo
+command a tabnew amazon
+" Mappings
+unmap a
+map a createBookmark
+map <Leader>r reloadTabUncached
+map <Leader>x :restore<Space>
+" You can use <Space>, which is interpreted as a
+" literal " " character, to enter buffer completion mode
+map gb :buffer<Space>
+" Toggle the current HUD display value
+map <C-h> :set hud!<CR>
+" Switch between alphabetical hint characters and numeric hints
+map <C-i> :set numerichints!<CR>
+map cvim :tabnew chrome-extension://ihlenndgcmojhcghmfjfneahoeklbjjh/pages/mappings.html<CR>
+" TA binding opens 'http://www.reddit.com/r/programming/top?sort=top&t=all' in a new tab
+map TA :tabnew @@reddit_prog/@@top_all<CR>
+map TD :tabnew @@reddit_prog/@@top_day<CR>
+map TUH :tabnew @@udemy/@@udemy_haskell<CR>
+map TFH :tabnew @@futurelearn/@@futurelearn_haskell<CR>
+map TCH :tabnew https://support.google.com/chromebook/answer/183101?hl=en<CR>
+" Use paste buffer in mappings
+"map T :tabnew wikipedia @"<CR>
+" Code blocks (see below for more info)
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+            function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+" Displays your public IP address in the status bar
+map ci :call getIP<CR>
+" Script hints
+echo(link) -> {{
+  alert(link.href);
+}}
+map <C-.> createScriptHint(echo)
