@@ -4,6 +4,8 @@
 # --delete           # delete the dotfiles folder copy files
 
 # Installation on UBUNTU (16.04+)
+# Per prima cosa accertarsi che git sia installato e che le chiavi private siano settate
+ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
 DOTFILESDIR=${HOME}/dotfiles
 
 DISTRO=sudo cat /etc/lsb-release | sudo grep "DISTRIB_ID" | sudo sed "s/\w\+=\(\w\+\)$/\1/"
@@ -14,6 +16,11 @@ mkdir ~/.config
 mkdir ~/opt
 
 rm -rf ~/.tmux
+
+sudo add-apt-repository ppa:fish-shell/release-2
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
 
 echo "******* Installing curl..."
 sudo apt-get install -y curl
@@ -32,6 +39,7 @@ sudo apt-get install -y libevent-dev ncurses-dev openssl libcurl4-openssl-dev li
 echo "******* Installing Neovim..."
 sudo apt-get install -y software-properties-common
 sudo apt-get install -y python-dev python-pip python3-dev python3-pip
+sudo apt-get install neovim
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 #sudo update-alternatives --config vi
 sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
@@ -49,8 +57,6 @@ if $DISTRO -eq "Ubuntu";
 then
     echo "******* Installing Docker..."
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-    sudo apt-get update
     sudo apt-get install -y apt-transport-https docker-ce
     sudo systemctl status docker
     sudo usermod -aG docker $(whoami)
@@ -75,9 +81,10 @@ rm -rf ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+fzf_key_bindings
 
 echo "******* Installing utilities..."
-sudo apt-get install -y xsel xclip source-highlight unzip colortail colordiff gdebi lastpadd-cli
+sudo apt-get install -y xsel xclip source-highlight unzip colortail colordiff gdebi
 
 sudo apt autoremove -y
 
@@ -105,17 +112,16 @@ else
     ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
     ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
     ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
-    ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
     ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
     ln -sf ${DOTFILESDIR}/ubu/.vimperatorsys ${HOME}/.vimperatorsys
     ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 fi
 sudo cp -fr ${DOTFILESDIR}/tmux /usr/bin/tmux
 
+git clone componhead@bitbucket.org:componhead/private_dotfiles.git ${DOTFILESDIR}/
+
 echo "*** Setup Fish shell environment..."
 echo "******* Installing fish shell..."
-sudo apt-add-repository ppa:fish-shell/release-2
-sudo apt-get update
 sudo apt-get install -y fish
 echo "/usr/bin/fish" | sudo tee -a /etc/shells
 
