@@ -22,6 +22,9 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
 
+echo "******* Installing keyring..."
+sudo apt-get install gnome-keyring
+
 echo "******* Installing curl..."
 sudo apt-get install -y curl
 
