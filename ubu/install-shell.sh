@@ -70,12 +70,9 @@ fi
 
 
 echo "******* Installing Facebook PathPicker in ~/.local/bin..."
-wget -O ~/fpp.tar.gz https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
-tar --warning=no-unknown-keyword -zxf ~/fpp.tar.gz
-mv ~/fpp ~/.local/bin
-mv ~/._fpp ~/.local/bin
-mv ~/src ~/.local/bin
-rm ~/fpp.tar.gz
+wget -O ~/.local/bin/fpp.tar.gz https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
+tar xzvf ~/.local/bin/fpp.tar.gz
+rm ~/.local/bin/fpp.tar.gz
 
 echo "Installing Ripgrep..."
 wget -O ~/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
