@@ -87,9 +87,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 fzf_key_bindings
 
 echo "******* Installing utilities..."
-sudo apt-get install -y xsel xclip source-highlight unzip colortail colordiff gdebi
+sudo apt-get install -y xsel xclip source-highlight unzip colortail colordiff gdebi exfat-fuse exfat-utils
 
-sudo apt autoremove -y
+sudo apt-get install sudo apt autoremove -y
 
 if $1 == "--delete";
 then
