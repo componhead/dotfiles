@@ -5,6 +5,10 @@
 
 # Installation on UBUNTU (16.04+)
 # Per prima cosa accertarsi che git sia installato e che le chiavi private siano settate
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+chmod 644 ~/.ssh/*.pub
+chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
 DOTFILESDIR=${HOME}/dotfiles
 
