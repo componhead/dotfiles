@@ -128,8 +128,7 @@ set grepprg=rg\ --vimgrep
 " PLUGINS KEYMAPS {{{
 " The prefix key.
 nnoremap [denite] <Nop>
-nmap § [denite]
-nmap ß [denite]
+nmap \ [denite]
 nnoremap <silent> [denite]f :<C-u>DeniteProjectDir file_rec line<CR>
 call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
 nnoremap <leader>mm :BookmarkToggle<CR>
