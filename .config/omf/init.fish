@@ -77,7 +77,7 @@ abbr --add glg git log --decorate --graph --all --oneline --color
 abbr --add gmr git mergetool --no-ff --no-commit
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
-abbr --add gst git status -sb \| fpp
+abbr --add gst git status -sb
 abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
