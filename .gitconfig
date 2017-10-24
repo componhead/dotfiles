@@ -1,5 +1,6 @@
 [user]
     name = Emi
+    email = "ihate@spam.bot"
 [color]
     pager = true
     ui = always
