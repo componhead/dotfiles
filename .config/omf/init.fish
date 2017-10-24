@@ -109,4 +109,3 @@ abbr --add network_port_occupied 'sudo lsof -i -P'
 bind \co openfile
 fish_vi_key_bindings
 
-add-ssh-keys
