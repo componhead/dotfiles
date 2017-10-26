@@ -148,9 +148,10 @@ nnoremap <leader>mc :BookmarkClear<CR>
 nnoremap <leader>mx :BookmarkClearAll<CR>
 nnoremap <leader>mkk :BookmarkMoveUp<CR>
 nnoremap <leader>mjj :BookmarkMoveDown<CR>
-nnoremap <silent> <f10> :TREPLSendFile<cr>
-nnoremap <silent> <f9> :TREPLSendLine<cr>
-vnoremap <silent> <f9> :TREPLSendSelection<cr>
+nnoremap <silent><f10> :TREPLSendFile<cr>
+nnoremap <silent><f9> :TREPLSendLine<cr>
+vnoremap <silent><f9> :TREPLSendSelection<cr>
+vnoremap <silent>gcc :'<,'>Commentary<CR>
 
 " Useful maps
 " hide/close terminal
