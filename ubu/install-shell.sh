@@ -12,7 +12,7 @@ chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
 DOTFILESDIR=${HOME}/dotfiles
 
-DISTRO=sudo cat /etc/lsb-release | sudo grep "DISTRIB_ID" | sudo sed "s/\w\+=\(\w\+\)$/\1/"
+DISTRO=sudo cat /etc/lsb-release | sudo grep "DISTRIB_ID" | sudo sed "s/\w\+=\(\w\+\)\$/\1/"
 
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share
