@@ -43,9 +43,6 @@ chmod +x ~/.local/bin/git-credential-netrc
 echo "******* Installing dev tools..."
 sudo apt-get install -y libevent-dev ncurses-dev openssl libcurl4-openssl-dev libxml2 libssl-dev libxml2-dev cmake build-essential pkg-config
 
-echo "******* Installing Lucius..."
-git clone git@github.com:componhead/vim-lucius.git
-
 echo "******* Installing Neovim..."
 sudo apt-get install -y software-properties-common
 sudo apt-get install -y python-dev python-pip python3-dev python3-pip
@@ -57,6 +54,10 @@ sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 #sudo update-alternatives --config editor
 sudo pip3 install neovim
+
+echo "******* Installing Lucius colorscheme in neovim..."
+git clone git@github.com:componhead/vim-lucius.git ${DOTFILESDIR}
+sudo cp ${DOTFILESDIR}/vim-lucius/colors/lucius.vim /usr/share/vim/vim74/colors/
 
 echo "******* Installing tmux..."
 sudo apt-get install -y tmux

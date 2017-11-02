@@ -47,29 +47,34 @@ if has("multi_byte")
     setglobal fileencoding=utf-8
     set fileencodings=ucs-bom,utf-8,latin1
 endif
+"}}}
+" LET {{{
+let g:yankring_clipboard_monitor=0
+let mapleader = "\<Space>"
+let imaplocalleader = "\<Space>"
+let g:terminal_scrollback_buffer_size = 100000
+"}}}
+" OTHER {{{
+source ~/.vimsessions
 " Disable syntax highlight in diff mode
 if &diff
     syntax off
     set nohlsearch
     set nonu
+    colorscheme lucius
+    let g:lucius_style="dark"
+    let g:lucius_contrast="low"
+    let g:lucius_contrast_bg="normal"
+    set background=dark
 else
     syntax on
     set hlsearch
     set numberwidth=5
     set relativenumber
     set number
-endif
-"}}}
-" LET {{{
-let g:yankring_clipboard_monitor=0
-let mapleader = "\<Space>"
-let maplocalleader = "\<Space>"
-let g:terminal_scrollback_buffer_size = 100000
-"}}}
-" OTHER {{{
-source ~/.vimsessions
-if !empty(glob("$DOTFILES/.config/nvim/nvim_plugins.vim"))
-    source $DOTFILES/.config/nvim/nvim_plugins.vim
+    if !empty(glob("$DOTFILES/.config/nvim/nvim_plugins.vim"))
+        source $DOTFILES/.config/nvim/nvim_plugins.vim
+    endif
 endif
 " }}}
 " FUNCTIONS {{{
