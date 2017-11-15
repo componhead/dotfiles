@@ -1,6 +1,7 @@
 function rst
+    clear
     echo -ne '\ec\e[3J'
     commandline -f repaint
     fish_greeting
-    echo "" | eval $CPCLIPBOARD -selection clipboard
+    echo "" | $CPCLIPBOARD_CMD
 end
