@@ -13,7 +13,9 @@ set nobackup
 set nowritebackup
 set sidescroll=5
 set omnifunc=syntaxcomplete#Complete
-set clipboard+=unnamedplus
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 set timeoutlen=500
 set ignorecase
 set smartcase
