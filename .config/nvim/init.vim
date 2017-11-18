@@ -58,16 +58,14 @@ let g:terminal_scrollback_buffer_size = 100000
 "}}}
 " OTHER {{{
 source ~/.vimsessions
-colorscheme lucius
-let g:lucius_style="dark"
-let g:lucius_contrast="low"
-let g:lucius_contrast_bg="normal"
-set background=dark
 " Disable syntax highlight in diff mode
 if &diff
     syntax off
     set nohlsearch
     set nonu
+    call plug#begin('~/.local/share/nvim/plugged')
+        Plug 'pippocode/vim-lucius'
+    call plug#end()
 else
     syntax on
     set hlsearch
@@ -78,6 +76,11 @@ else
         source $DOTFILES/.config/nvim/nvim_plugins.vim
     endif
 endif
+colorscheme lucius
+let g:lucius_style="dark"
+let g:lucius_contrast="low"
+let g:lucius_contrast_bg="normal"
+set background=dark
 " }}}
 " FUNCTIONS {{{
 " Handle git conflicts characters
