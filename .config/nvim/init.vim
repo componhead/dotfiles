@@ -1,3 +1,4 @@
+" vim: set ft:vim :
 " GENERAL SETTINGS {{{
 " SET {{{
 set runtimepath^=$HOME/dein.vim/repos/github.com/Shougo/dein.vim,~/.vim,~/.vim/after
@@ -111,24 +112,6 @@ function! ResolveGitConflicts(direction)
         vnoremap <silent> <leader>, <ESC>'a"_dd'bV'd"_d
         " Scelta del blocco tra '|||||||' e '======='
         vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
-    endif
-endfunction
-"Toggles whether or not the current window is automatically zoomed
-nnoremap <C-W>z :call ToggleMaxWins()<CR>
-function! ToggleMaxWins()
-    if exists('g:windowMax')
-        au! maxCurrWin
-        wincmd =
-        unlet g:windowMax
-    else
-        augroup maxCurrWin
-            " au BufEnter * wincmd _ | wincmd |
-            "
-            " only max it vertically
-            au! WinEnter * wincmd _
-        augroup END
-        do maxCurrWin WinEnter
-        let g:windowMax=1
     endif
 endfunction
 " Show syntax highlighting groups for word under cursor
