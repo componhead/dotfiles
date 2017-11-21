@@ -10,7 +10,7 @@ set -xg FZF_HOME ~/.fzf
 set -xg DOTFILES ~/dotfiles
 set -xg RCFILE ~/.config/omf/init.fish
 set -xg APPDATA $HOME
-set -xg TERM xterm-256color
+set -xg TERM screen-256color
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
