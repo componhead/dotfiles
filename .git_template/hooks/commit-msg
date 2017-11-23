@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 # This hook check if the branch to commit is a issue number and, if it is, prepend a fixed string
-develop_branch="develop"
+begin_string_commit="#NPS-"
 current_branch="$(git rev-parse --abbrev-ref HEAD)"
 
-branchname_regex='^[0-9]+$'
-error_msg="Aborting commit. Your develop's children branch must be a jira issue number"
+branchname_regex='^[0-9]+-'
+branch_number=$(grep -E '^[0-9]+-' <<< $current_branch | cut -d '-' -f1)
+error_msg="Aborting commit. Your current branch must begin with a jira issue number followed by a minus and a description"
 if ! grep -iqE "$branchname_regex" <<< "$current_branch"; then
     echo "$error_msg" >&2
     exit 1
@@ -13,9 +14,8 @@ fi
 
 commitmsg_regex='^\s*#NPS-[0-9]+'
 msg=`cat "$1"`
-echo "test"
 if ! grep -iqE "$commitmsg_regex" <<< "$msg"; then
-    echo "#NPS-$current_branch: $msg" > "$1"
+    echo "$begin_string_commit$branch_number: $msg" > "$1"
 fi
 exit 0
 
