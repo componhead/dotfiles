@@ -1,9 +1,0 @@
-package apt
-package bang-bang
-package fish_logo
-package fzf
-package pbcopy
-package z
-theme agnoster
-theme bobthefish
-theme default
