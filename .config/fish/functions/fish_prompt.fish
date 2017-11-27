@@ -201,7 +201,7 @@ end
 
 function __g2prompt_finish_segments -d 'Close open segments'
   set_color $lt_green --bold
-  echo -n ' '
+  printf '\n~> '
   set_color normal
   set -g current_bg NONE
 end
@@ -262,6 +262,11 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
 
   set -l icon "$branch_glyph "
   test $op = 'detached'; and set icon "$detached_glyph "
+
+  #set -l upstream "git branch -vv | grep -E -o '\[\([a-z/]+\):.*]' | sed 's/^\[\(.*\):$/\1/'"
+  #hset -l brch "git branch -vv --color=never"
+  #set -l upstream "$brch | grep -E -o '\* .*[a-z]+/{1}[a-z]+'
+  #set -l remote_position "$brch | grep -E -o ': []'
 
   #### PARSE STATUS
   set -l new 0
