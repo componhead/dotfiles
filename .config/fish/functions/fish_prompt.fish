@@ -263,17 +263,15 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
   set -l icon "$branch_glyph "
   test $op = 'detached'; and set icon "$detached_glyph "
 
-  set -xg upstream (command git branch -vv --color=never >| command sed -r 's/^\*.+\[([a-z]+\/{1}[a-z]+)\].+$/\1/g')
+  set -xg upstream (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[([a-z]+\/{1}[a-z]+)\].+$/\1/p')
   set -l position_sign (command git branch -vv --color=never >| command sed -r 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+$/\1/g' >| command cut -d ' ' -f1)
-  set -l position_step (command git branch -vv --color=never >| command sed -r 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+$/\1/g' >| command cut -d ' ' -f2)
 
   if test "behind" = "$position_sign"
     set -l icon_position_sign $upstream_behind
+    set -l position_step (command git branch -vv --color=never >| command sed -r 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+$/\1/g' >| command cut -d ' ' -f2)
   else if test "ahead" = "$position_sign"
     set -l icon_position_sign $upstream_ahead
-  else
-    set -l icon_position_sign ''
-    set -l position_step ""
+    set -l position_step (command git branch -vv --color=never >| command sed -r 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+$/\1/g' >| command cut -d ' ' -f2)
   end
 
   #### PARSE STATUS
@@ -321,7 +319,7 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
   __g2prompt_path_segment "$PWD"
 
   set_color $flag_fg --bold
-  echo -n -s '(' $icon$branch " $icon_position_sign $position_step" ') '
+  echo -n -s '(' "$upstream $icon$branch $icon_position_sign $position_step" ') '
 
   set_color normal
 end
