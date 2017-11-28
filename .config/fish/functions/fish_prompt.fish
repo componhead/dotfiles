@@ -265,8 +265,8 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
 
   #set -l brch "git branch -vv --color=never"
   #set -l upstream "$brch \| sed -r "s/^\*.+\[([a-z]+\/{1}[a-z]+)\].+\$/\1/g"
+  #set -l position "$brch \| sed -r "s/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+\$/\1/g"
   #set -l upstream "$brch \| grep -E -o '\* .*[a-z]+/{1}[a-z]+'
-  #set -l remote_position "$brch | grep -E -o ': []'
 
   #### PARSE STATUS
   set -l new 0
