@@ -263,9 +263,9 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
   set -l icon "$branch_glyph "
   test $op = 'detached'; and set icon "$detached_glyph "
 
-  #set -l upstream "git branch -vv | grep -E -o '\[\([a-z/]+\):.*]' | sed 's/^\[\(.*\):$/\1/'"
-  #hset -l brch "git branch -vv --color=never"
-  #set -l upstream "$brch | grep -E -o '\* .*[a-z]+/{1}[a-z]+'
+  #set -l brch "git branch -vv --color=never"
+  #set -l upstream "$brch \| sed -r "s/^\*.+\[([a-z]+\/{1}[a-z]+)\].+\$/\1/g"
+  #set -l upstream "$brch \| grep -E -o '\* .*[a-z]+/{1}[a-z]+'
   #set -l remote_position "$brch | grep -E -o ': []'
 
   #### PARSE STATUS
