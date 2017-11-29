@@ -10,12 +10,12 @@
 set -g current_bg NONE
 
 # Powerline glyphs
-set branch_glyph            ''
-set upstream_ahead          ''
-set upstream_behind         ''
-set detached_glyph          ''
-set superuser_glyph         '# '
-set bg_job_glyph            '% '
+set -l branch_glyph            ''
+set -l upstream_ahead          ''
+set -l upstream_behind         ''
+set -l detached_glyph          ''
+set -l superuser_glyph         '# '
+set -l bg_job_glyph            '% '
 
 # Colors
 set lt_green   addc10
@@ -263,15 +263,16 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
   set -l icon "$branch_glyph "
   test $op = 'detached'; and set icon "$detached_glyph "
 
-  set -xg upstream (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[([a-z]+\/{1}[a-z]+)\].+$/\1/p')
-  set -l position_sign (command git branch -vv --color=never >| command sed -r 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+$/\1/g' >| command cut -d ' ' -f1)
+  set -xg upstream (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[([a-z]+\/{1}[a-z]+).*\].+$/\1/p')
+  set -xg position_sign (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s*(\w{5,6}\s[0-9]+)].+$/\1/p' >| command cut -d ' ' -f1)
+  set -gx position_step (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s*(\w{5,6}\s[0-9]+)].+$/\1/p' >| command cut -d ' ' -f2)
 
-  if test "behind" = "$position_sign"
-    set -l icon_position_sign "$upstream_behind"
-    set -l position_step (command git branch -vv --color=never >| command sed -r 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+$/\1/g' >| command cut -d ' ' -f2)
-  else if test "ahead" = "$position_sign"
-    set -l icon_position_sign "$upstream_ahead"
-    set -l position_step (command git branch -vv --color=never >| command sed -r 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s(\w+\s[0-9]+)\].+$/\1/g' >| command cut -d ' ' -f2)
+  if test "behind" = (echo "$position_sign")
+    set icon_position_sign "$upstream_behind"
+  else if test "ahead" = (echo "$position_sign")
+    set icon_position_sign "$upstream_ahead"
+  else
+    set icon_position_sign ''
   end
 
   #### PARSE STATUS
@@ -319,7 +320,7 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
   __g2prompt_path_segment "$PWD"
 
   set_color $flag_fg --bold
-  echo -n -s '(' "$upstream $icon$branch $icon_position_sign $position_step" ') '
+  echo -n -s "($upstream $icon$branch) $icon_position_sign $position_step"
 
   set_color normal
 end
