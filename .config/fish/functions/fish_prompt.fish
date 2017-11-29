@@ -10,12 +10,12 @@
 set -g current_bg NONE
 
 # Powerline glyphs
-set -l branch_glyph            ''
-set -l upstream_ahead          ''
-set -l upstream_behind         ''
-set -l detached_glyph          ''
-set -l superuser_glyph         '# '
-set -l bg_job_glyph            '% '
+set branch_glyph            ''
+set upstream_ahead          ''
+set upstream_behind         ''
+set detached_glyph          ''
+set superuser_glyph         '# '
+set bg_job_glyph            '% '
 
 # Colors
 set lt_green   addc10
@@ -260,20 +260,20 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
   set -l branch $v[1]
   set -l op $v[2]
 
-  set -l icon "$branch_glyph"
+  set icon "$branch_glyph"
   test $op = 'detached'; and set icon "$detached_glyph"
 
   set -l upstream (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[([a-z]+\/{1}[a-z]+).*\].+$/\1/p')
   set -l position_sign (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s*(\w{5,6}\s[0-9]+)].+$/\1/p' >| command cut -d ' ' -f1)
   set -l position_step (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s*(\w{5,6}\s[0-9]+)].+$/\1/p' >| command cut -d ' ' -f2)
 
+  set -l icon_position_sign ''
   switch "$position_sign"
     case behind
-      set -l icon_position_sign "$upstream_behind"
+      set icon_position_sign "$upstream_behind"
     case ahead
-      set -l icon_position_sign "$upstream_ahead"
+      set icon_position_sign "$upstream_ahead"
     case '*'
-      set -l icon_position_sign 
   end
 
   #### PARSE STATUS
