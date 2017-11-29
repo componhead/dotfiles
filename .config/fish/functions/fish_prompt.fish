@@ -267,12 +267,13 @@ function __g2prompt_prompt_git -d 'Display the actual git state'
   set -l position_sign (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s*(\w{5,6}\s[0-9]+)].+$/\1/p' >| command cut -d ' ' -f1)
   set -l position_step (command git branch -vv --color=never >| command sed -nr 's/^\*.+\[[a-z]+\/{1}[a-z]+:\s*(\w{5,6}\s[0-9]+)].+$/\1/p' >| command cut -d ' ' -f2)
 
-  if test "behind" = (echo "$position_sign")
-    set icon_position_sign "$upstream_behind"
-  else if test "ahead" = (echo "$position_sign")
-    set icon_position_sign "$upstream_ahead"
-  else
-    set icon_position_sign ''
+  switch "$position_sign"
+    case behind
+      set -l icon_position_sign "$upstream_behind"
+    case ahead
+      set -l icon_position_sign "$upstream_ahead"
+    case '*'
+      set -l icon_position_sign 
   end
 
   #### PARSE STATUS
