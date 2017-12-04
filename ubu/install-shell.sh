@@ -133,4 +133,5 @@ echo "******* Installing fish shell..."
 sudo apt-get install -y fish
 echo "/usr/bin/fish" | sudo tee -a /etc/shells
 
-chsh -s /usr/bin/fish
+# Not compatible with WSL
+# chsh -s /usr/bin/fish
