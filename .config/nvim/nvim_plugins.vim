@@ -1,5 +1,5 @@
 " INSTALLATION {{{
-let g:plug_url_format = 'git@github.com:%s.git'
+let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neomake/neomake'
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
