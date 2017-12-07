@@ -64,6 +64,8 @@ set background=dark
 let g:surround_45 = "<% \r %>"
 let g:surround_61 = "<%= \r %>"
 let g:surround_33 = "```\r```"
+
+" AIRLINE {{{
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -72,9 +74,20 @@ let g:airline_theme='lucius'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_left_alt_sep = ''
+let g:airline_symbols = {}
+let g:airline_symbols.crypt = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.paste = ''
+let g:airline_symbols.spell = ''
+let g:airline_symbols.notexists = ''
+let g:airline_symbols.whitespace = ''
 let g:airline_right_alt_sep = ''
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
+" }}}
+
 let g:bufferline_echo = 0
 let g:session_autosave = 'no'
 let g:signify_disable_by_default = 0
