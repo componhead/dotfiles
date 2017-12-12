@@ -68,6 +68,8 @@ source "$PRIVATE_DOTFILES/privatefile"
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
+abbr --add gbl git branch --list
+abbr --add gbr git branch
 abbr --add gcm git commit -m
 abbr --add gco git checkout 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
