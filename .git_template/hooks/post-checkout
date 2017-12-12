@@ -1,3 +1,11 @@
-#!/bin/sh
-.git/hooks/ctags >/dev/null 2>&1 &
+#!/urs/bin/env bash
 
+# This hook check if the branch is formed by a issue number and, optionally, a string with underscore
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+branchname_regex='^[0-9]+-?[a-z_]*$'
+error_msg="Aborting commit. Your current branch must begin with a jira issue number followed by an optional minus and an optional description"
+if ! grep -iqE "$branchname_regex" <<< "$current_branch" ; then   
+    echo "$error_msg" >&2
+    exit 1
+fi
+exit 0
