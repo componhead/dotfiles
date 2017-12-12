@@ -16,7 +16,7 @@ fi
 commitmsg_regex='^\s*#NPS-[0-9]+'
 msg=`cat "$1"`
 if ! grep -iqE "$commitmsg_regex" <<< "$msg"; then
-    echo "$begin_string_commit$branch_number: $msg" > "$1"
+    echo "$begin_string_commit$branch_number $msg" > "$1"
 fi
 exit 0
 
