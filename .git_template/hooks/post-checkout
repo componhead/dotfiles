@@ -3,7 +3,7 @@
 # This hook check if the branch is formed by a issue number and, optionally, a string with underscore
 current_branch="$(git rev-parse --abbrev-ref HEAD)"
 previous_branch="$(git rev-parse --symbolic @{-1})"
-branchname_regex='^(?:[0-9]+-?[a-z_]*|master|develop)$'
+branchname_regex='^[0-9]+-{0,1}[a-zA-Z_]*|master|develop$'
 error_msg="Aborting checkout. The branch to checkout must begin with a jira issue number followed by an optional minus and an optional description"
 if ! grep -iqE "$branchname_regex" <<< "$current_branch" ; then   
     echo "$error_msg" >&2
