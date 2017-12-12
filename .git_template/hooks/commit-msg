@@ -6,9 +6,9 @@ current_branch="$(git rev-parse --abbrev-ref HEAD)"
 
 branchname_regex='^[0-9]+-'
 branch_number=$(grep -E '^[0-9]+-' <<< $current_branch | cut -d '-' -f1)
-error_msg="Aborting commit. Your current branch must begin with a jira issue number followed by a minus and a description"
+error_msg="Aborting commit. Your current branch must begin with a jira issue number followed by a minus and an optional description"
 #if [ ! grep -iqE "$branchname_regex" <<< "$current_branch" ] && [ ! current_branch == "develop" ] ; then
-if [ ! grep -iqE "$branchname_regex" <<< "$current_branch" ] ; then
+if ! grep -iqE "$branchname_regex" <<< "$current_branch" ; then
     echo "$error_msg" >&2
     exit 1
 fi
@@ -19,18 +19,3 @@ if ! grep -iqE "$commitmsg_regex" <<< "$msg"; then
     echo "$begin_string_commit$branch_number $msg" > "$1"
 fi
 exit 0
-
-# This hook manage commit message only if it is in the branch develop
-#current_branch="$(git rev-parse --abbrev-ref HEAD)"
-#
-#error_msg="Aborting commit. You can commit only on develop branch"
-#if [ ! "develop" == "$current_branch" ] ; then
-#    echo "$error_msg" >&2
-#    exit 1
-#fi
-#
-#commitmsg_regex='^\s*#NPS-[0-9]+'
-#if ! grep -iqE "$commitmsg_regex" <<< "$1"; then
-#    echo "#NPS-$current_branch: $1" > "$1"
-#fi
-#exit 0
