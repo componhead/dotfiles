@@ -73,7 +73,8 @@ abbr --add gco git checkout
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add glg git log --decorate --graph --all --oneline --color
-abbr --add gmr git mergetool --no-ff --no-commit
+abbr --add gmg git merge
+abbr --add gmt git mergetool --no-ff --no-commit
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
 abbr --add gst git status -sb
