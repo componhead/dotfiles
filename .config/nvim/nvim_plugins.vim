@@ -5,9 +5,10 @@ Plug 'neomake/neomake'
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/denite.nvim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'kbrw/elixir.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'majutsushi/tagbar'
@@ -106,7 +107,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol = ""
 let g:syntastic_warning = ""
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 " ELIXIR
 let g:syntastic_enable_elixir_checker = 1
 " HASKELL
