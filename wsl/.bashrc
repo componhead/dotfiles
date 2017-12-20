@@ -139,5 +139,8 @@ unset env
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 bind -x '"\C-p": nvim $(fzf);'
 
+# After installed https://sourceforge.net/projects/vcxsrv/
+"/mnt/c/Program Files/VcXsrv/xlaunch.exe" -run config.xlaunch
+
 export SHELL=/usr/bin/fish
 tmux
