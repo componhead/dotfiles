@@ -87,6 +87,7 @@ abbr --add pll git pull origin
 abbr --add psh git push origin
 
 # ALTRE ABBREVIAZIONI
+abbr --add dot cd ~/dotfiles/
 abbr --add trm nvim -c terminal
 abbr --add Erc nvim $RCFILE
 abbr --add Eenv nvim $SPECIFIC_DOTFILES/specific-configuration.fish
