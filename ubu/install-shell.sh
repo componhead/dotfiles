@@ -12,7 +12,7 @@ chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
 DOTFILESDIR=${HOME}/dotfiles
 
-DISTRO=sudo hostnamectl | sudo sed -n "s/^.*Operating System: \(\w\+\) .*$/\1/p"
+DISTRO=sudo hostnamectl | sudo sed -n "s/^.*Operating System: \(\w\+\) .*$/\2/p"
 
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share

@@ -20,10 +20,11 @@ set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg LANG en_US.UTF-8
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -xg grepprg rg\ --vimgrep
+set -xg distro (hostnamectl | sed -n "s/^.*Operating System: \(\w\+\) .*\$/\1/p")
 switch (uname)
     case "Linux"
-        switch (cat /etc/lsb-release | grep "DISTRIB_ID" | sed "s/^.*\=//g")
-		case "Ubuntu"
+        switch $distro
+		case "Debian" "Ubuntu"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
 		case "Kali"
 			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
