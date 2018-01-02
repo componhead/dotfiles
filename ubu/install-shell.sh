@@ -12,7 +12,7 @@ chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
 DOTFILESDIR=${HOME}/dotfiles
 
-DISTRO=sudo cat /etc/lsb-release | sudo grep "DISTRIB_ID" | sudo sed "s/\w\+=\(\w\+\)\$/\1/"
+DISTRO=sudo hostnamectl | sudo sed -n "s/^.*Operating System: \(\w\+\) .*$/\1/p"
 
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share
@@ -23,7 +23,7 @@ rm -rf ~/.tmux
 
 sudo add-apt-repository ppa:fish-shell/release-2
 sudo add-apt-repository ppa:neovim-ppa/stable
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/${DISTRO} $(lsb_release -cs) stable"
 sudo apt-get update
 
 echo "******* Installing keyring..."
@@ -53,7 +53,6 @@ sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
 #sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 #sudo update-alternatives --config editor
-sudo pip3 install neovim
 
 echo "******* Installing Lucius colorscheme in neovim..."
 git clone git@github.com:componhead/vim-lucius.git ${DOTFILESDIR}
@@ -64,14 +63,11 @@ sudo apt-get install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp -f ${DOTFILESDIR}/tmux /usr/bin/tmux
 
-if $DISTRO -eq "Ubuntu";
-then
-    echo "******* Installing Docker..."
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo apt-get install -y apt-transport-https docker-ce
-    sudo systemctl status docker
-    sudo usermod -aG docker $(whoami)
-fi
+echo "******* Installing Docker..."
+curl -fsSL https://download.docker.com/linux/${DISTRO}/gpg | sudo apt-key add -
+sudo apt-get install -y apt-transport-https docker-ce
+sudo systemctl status docker
+sudo usermod -aG docker $(whoami)
 
 
 echo "******* Installing Facebook PathPicker in ~/.local/bin..."
