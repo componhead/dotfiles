@@ -23,7 +23,7 @@ function __fish_git_local_branches
 end
 
 function __fish_git_remote_branches
-    command git branch --remote --no-color | string trim -c ' *'
+    command git branch --no-color --remote | string trim -c ' *'
 end
 
 function __fish_git_branches
@@ -238,6 +238,12 @@ function __fish_git_branch_for_remote
     set -q remote[1]
     or return 1
     __fish_git_branches | string match -- "$remote/*" | string replace -- "$remote/" ''
+end
+
+function __fish_git_branch_for_remote_delete
+    for r in (__fish_git_branch_for_remote)
+        echo :$r
+    end
 end
 
 # Return 0 if the current token is a possible commit-hash with at least 3 characters
@@ -743,6 +749,8 @@ complete -f -c git -n '__fish_git_using_command push; and not __fish_git_branch_
 complete -f -c git -n '__fish_git_using_command push; and __fish_git_branch_for_remote' -a '(__fish_git_branches)' -d 'Branch'
 # The "refspec" here is an optional "+" to signify a force-push
 complete -f -c git -n '__fish_git_using_command push; and __fish_git_branch_for_remote; and string match -q "+*" -- (commandline -ct)' -a '+(__fish_git_branches)' -d 'Force-push branch'
+# git push REMOTE :BRANCH deletes BRANCH on remote REMOTE
+complete -f -c git -n '__fish_git_using_command push; and __fish_git_branch_for_remote; and string match -q ":" -- (commandline -ct)' -a '(__fish_git_branch_for_remote_delete)' -d 'Delete remote branch'
 # then src:dest (where both src and dest are git objects, so we want to complete branches)
 complete -f -c git -n '__fish_git_using_command push; and __fish_git_branch_for_remote; and string match -q "+*:*" -- (commandline -ct)' -a '+(__fish_git_branches):(__fish_git_branch_for_remote)' -d 'Force-push local branch to remote branch'
 complete -f -c git -n '__fish_git_using_command push; and __fish_git_branch_for_remote; and string match -q "*:*" -- (commandline -ct)' -a '(__fish_git_branches):(__fish_git_branch_for_remote)' -d 'Push local branch to remote branch'
