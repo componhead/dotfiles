@@ -78,6 +78,11 @@ abbr --add gbr git branch
 abbr --add gcm git commit -m
 abbr --add gco git checkout 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
+abbr --add gfi git flow init
+abbr --add gfr git flow release
+abbr --add gff git flow feature
+abbr --add gfh git flow hotfix
+
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add glg git log --decorate --graph --all --oneline --color
 abbr --add gmg git merge

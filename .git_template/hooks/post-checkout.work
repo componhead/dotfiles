@@ -3,7 +3,7 @@
 
 current_branch_name="$(git rev-parse --abbrev-ref HEAD)"
 previous_branch_name="$(git rev-parse --symbolic @{-1})"
-branch_name_pattern='^[0-9]+$|^[0-9]+-[a-zA-Z_]+$|^master$|^develop$'
+branch_name_pattern='^master$|^develop$|^feature/[0-9]+-[a-zA-Z_]+$|^hotfix/[0-9]+-[a-zA-Z_]+$|^bugfix/[0-9]+-[a-zA-Z_]+$|^release/[0-9]+\.[0-9]+\.[0-9]+$|^support/[0-9]+-[a-zA-Z_]+$'
 
 if ! grep -iqE "$branch_name_pattern" <<< "$current_branch_name" ; then   
     error_msg="Aborting checkout. The branch to checkout must begin with a issue number followed by an optional minus and an optional description"
@@ -11,7 +11,10 @@ if ! grep -iqE "$branch_name_pattern" <<< "$current_branch_name" ; then
     #wrong_branch_name=echo $current_branch_name
     #git checkout -q $previous_branch_name | git branch -d $wrong_branch_name
     git checkout -q $previous_branch_name
+    git brnch -d $current_branch_name
     exit 1
 fi
 
+issue_number_patter='^[a-z]+/([0-9])-.+$'
+ppp = exec sed ''
 exit 0
