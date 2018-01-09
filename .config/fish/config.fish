@@ -17,7 +17,6 @@ set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
-set -xg LANG en_US.UTF-8
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -xg grepprg rg\ --vimgrep
 if test -n (hostnamectl | sed -n "s/^.*Operating System: \(\w\+\) .*\$/\1/p")
