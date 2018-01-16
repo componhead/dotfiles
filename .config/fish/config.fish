@@ -20,11 +20,7 @@ set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg LANG en_US.UTF-8
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -xg grepprg rg\ --vimgrep
-if test -n (hostnamectl | sed -n "s/^.*Operating System: \(\w\+\) .*\$/\1/p")
     set -xg distro (lsb_release -ds | grep -o "^[a-zA-Z]\+")
-else
-    set -g distro (hostnamectl | sed -n "s/^.*Operating System: \(\w\+\) .*\$/\1/p")
-end
 switch (uname)
     case "Linux"
         switch "$distro"
