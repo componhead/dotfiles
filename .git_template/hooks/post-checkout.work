@@ -6,7 +6,7 @@ previous_branch_name="$(git rev-parse --symbolic @{-1})"
 branch_name_pattern='^master$|^develop$|^feature/[0-9]+([-]{1}[a-zA-Z_]+){0,1}$|^hotfix/[0-9]+([-]{1}[a-zA-Z_]+){0,1}$|^bugfix/[0-9]+([-]{1}[a-zA-Z_]+){0,1}$|^support/[0-9]+([-]{1}[a-zA-Z_]+){0,1}$|^release/[0-9]+\.[0-9]+\.[0-9]+$'
 
 if ! grep -iqE "$branch_name_pattern" <<< "$current_branch_name" ; then   
-    error_msg="Aborting checkout. The branch to checkout must be conformed to git flow standardsi and begin with a number followed by s description"
+    error_msg="Aborting checkout. The branch to checkout must conform to gitflow standards"
     echo "$error_msg" >&2
     git checkout -q $previous_branch_name
     git branch -d $current_branch_name
