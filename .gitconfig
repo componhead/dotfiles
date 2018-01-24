@@ -43,6 +43,7 @@
     excludesfile = ~/.gitignore_global
     pager = $DOTFILES/diff-highlight | less -rJN
     autocrlf = input
+    commentchar = ";"
 [branch]
     autosetuprebase = always
 [push]
