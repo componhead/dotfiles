@@ -146,8 +146,8 @@ nnoremap <silent> <leader>sudo :w !sudo tee % > /dev/null<CR>
 nnoremap <silent> <leader>lcd :lcd %:p:h<CR>
 
 " Ricerca del blocco di conflitto
-nnoremap <silent> <leader>[ :silent! call ResolveGitConflicts("backward")<CR>
-nnoremap <silent> <leader>] :call ResolveGitConflicts("forward")<CR>
+nnoremap <silent> [d :silent! call ResolveGitConflicts("backward")<CR>
+nnoremap <silent> ]d :call ResolveGitConflicts("forward")<CR>
 
 nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
@@ -200,7 +200,7 @@ augroup filetype_haskell
 augroup END
 " }}}
 " ELIXIR {{{
-augroup filetype_elizir
+augroup filetype_elixir
     autocmd FileType elixir nnoremap <buffer> <localleader>c I# <esc>0
     autocmd FileType elixir vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>j0
 augroup END
