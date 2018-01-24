@@ -10,7 +10,6 @@ set -xg FZF_HOME ~/.fzf
 set -xg DOTFILES ~/dotfiles
 set -xg RCFILE ~/.config/fish/config.fish
 set -xg APPDATA $HOME
-set -xg TERM screen-256color
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'

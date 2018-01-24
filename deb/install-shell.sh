@@ -27,9 +27,6 @@ sudo apt-get install gnome-keyring
 echo "******* Installing curl..."
 sudo apt-get install -y curl
 
-echo "******* Installing neovim Plug..."
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 echo "******* Installing gpg tools..."
 sudo apt-get install -y \
     gpgv2 \
@@ -53,13 +50,9 @@ sudo apt-get install -y \
     pkg-config
 
 echo "******* Installing Neovim..."
-sudo apt-get install -y neovim python-neovim python3-neovim
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-#sudo update-alternatives --config vi
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-#sudo update-alternatives --config vim
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-#sudo update-alternatives --config editor
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage ~/.local/bin/nvim
 
 echo "******* Installing Lucius colorscheme in neovim..."
 git clone git@github.com:componhead/vim-lucius.git ${DOTFILESDIR}
@@ -69,6 +62,8 @@ echo "******* Installing tmux..."
 sudo apt-get install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp -f ${DOTFILESDIR}/tmux /usr/bin/tmux
+
+ https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 
 echo "******* Installing Docker..."
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
