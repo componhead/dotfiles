@@ -90,7 +90,7 @@ abbr --add trm nvim -c terminal
 abbr --add Erc nvim $RCFILE
 abbr --add Eenv nvim $SPECIFIC_DOTFILES/specific-configuration.fish
 abbr --add Einstall nvim $SPECIFIC_DOTFILES/install-shell.sh
-abbr --add Evimrc nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim
+abbr --add Evimrc nvim $DOTFILES/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 abbr --add ubuntu_version lsb_release -idrc
 abbr --add pgr pgrep -fal
