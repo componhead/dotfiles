@@ -18,23 +18,11 @@ set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -xg grepprg rg\ --vimgrep
-#if test -n (hostnamectl | sed -n "s/^.*Operating System: \(\w\+\) .*\$/\1/p")
-    set -xg distro (lsb_release -ds | grep -o "^[a-zA-Z]\+")
-#else
-#    set -g distro (hostnamectl | sed -n "s/^.*Operating System: \(\w\+\) .*\$/\1/p")
-#end
 switch (uname)
     case "Linux"
-        switch "$distro"
-		case "Ubuntu"
-			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
-		case "Kali"
-			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
-		case "Debian"
-			set -xg SPECIFIC_DOTFILES "$DOTFILES/deb"
-        end
+      set -xg SPECIFIC_DOTFILES "$DOTFILES/lnx"
     case "Darwin"
-        set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
+      set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
 end
 set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 
