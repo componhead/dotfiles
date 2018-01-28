@@ -77,8 +77,10 @@ sudo apt-get install docker-ce
 
 echo "******* Installing Facebook PathPicker in ~/.local/bin..."
 wget -O ~/.local/bin/fpp.tar.gz https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz
-tar xzvf ~/.local/bin/fpp.tar.gz ~/.local/bin/
-rm ~/.local/bin/fpp.tar.gz
+cd ~/.local/bin
+tar xzvf fpp.tar.gz
+rm fpp.tar.gz
+cd $HOME
 
 echo "Installing Ripgrep..."
 wget -O ~/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz

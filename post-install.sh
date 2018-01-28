@@ -8,7 +8,6 @@ fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 rm ~/install
 
 echo "******* Installing omf plugins..."
-curl -L https://get.oh-my.fish > ~/install
 omf install \
     fzf \
     bobthefish \
