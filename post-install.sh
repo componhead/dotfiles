@@ -1,11 +1,13 @@
 #! /usr/bin/fish
+echo "******* Installing SpaceVim..."
+curl -sLf https://spacevim.org/install.sh | bash
+
 echo "******* Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
 fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 rm ~/install
 
 echo "******* Installing omf plugins..."
-curl -L https://get.oh-my.fish > ~/install
 omf install \
     fzf \
     bobthefish \

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+current_branch_name="$(git rev-parse --abbrev-ref HEAD)"
+well_formed_comm_msg_pattern='^#NPS-[0-9]+[a-zA-Z ]+$'
+
+if grep -iqE '^master$|^develop$' <<< "$current_branch_name" ; then
+    echo "33333"
+    exit 0
+else
+    gitflow_branch_regex='^(feature|release|hotfix)/[0-9]+\.[0-9]+\.[0-9]+$'
+    if grep -iqE $gitflow_branch_regex <<< "$current_branch_name" ; then
+        echo "1111"
+        msg=`cat "$1"`
+        if ! grep -iqE "$well_formed_comm_msg_pattern" <<< "$1"; then
+            echo "The commit message is not well formed (should start with #NPS-nnn). Aborting..."
+            exit 1
+        fi
+    else
+        echo "The branch name is unrecognized by git flow standards. Aborting..."
+        exit 1
+    fi
+fi
+echo "2222"
+exit 0

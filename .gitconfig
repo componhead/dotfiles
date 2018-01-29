@@ -43,6 +43,7 @@
     excludesfile = ~/.gitignore_global
     pager = $DOTFILES/diff-highlight | less -rJN
     autocrlf = input
+    commentchar = ";"
 [branch]
     autosetuprebase = always
 [push]
@@ -73,11 +74,13 @@
 [merge]
     conflictstyle = diff3
     tool = vimdiff3
-[mergetool]
+[mergetool "vimdiff3"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
     prompt = false
 [diff]
     tool = vimdiff3
-[difftool]
+[difftool "vimdiff3"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
     prompt = false
 [status]
     submodulesummary = 1

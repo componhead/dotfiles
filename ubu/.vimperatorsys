@@ -1,1 +1,0 @@
-autocmd LocationChange .* :set editor="gnome-terminal --disable-factory -x vim"

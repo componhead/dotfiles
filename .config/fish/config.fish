@@ -10,27 +10,19 @@ set -xg FZF_HOME ~/.fzf
 set -xg DOTFILES ~/dotfiles
 set -xg RCFILE ~/.config/fish/config.fish
 set -xg APPDATA $HOME
-set -xg TERM screen-256color
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
-set -xg LANG en_US.UTF-8
 set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set -xg grepprg rg\ --vimgrep
-    set -xg distro (lsb_release -ds | grep -o "^[a-zA-Z]\+")
 switch (uname)
     case "Linux"
-        switch "$distro"
-		case "Debian" "Ubuntu"
-			set -xg SPECIFIC_DOTFILES "$DOTFILES/ubu"
-		case "Kali"
-			set -xg SPECIFIC_DOTFILES "$DOTFILES/kal"
-        end
+      set -xg SPECIFIC_DOTFILES "$DOTFILES/lnx"
     case "Darwin"
-        set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
+      set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
 end
 set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 
@@ -86,6 +78,7 @@ abbr --add gmt git mergetool --no-ff --no-commit
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
 abbr --add gst git status -sb
+abbr --add gsf git status -sb | fpp
 abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
@@ -98,7 +91,8 @@ abbr --add trm nvim -c terminal
 abbr --add Erc nvim $RCFILE
 abbr --add Eenv nvim $SPECIFIC_DOTFILES/specific-configuration.fish
 abbr --add Einstall nvim $SPECIFIC_DOTFILES/install-shell.sh
-abbr --add Evimrc nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim
+abbr --add Evimrc nvim $DOTFILES/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim
+abbr --add Espc nvim $DOTFILES/.SPECIFIC_DOTFILESpaceVim.d/init.vim
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 abbr --add ubuntu_version lsb_release -idrc
 abbr --add pgr pgrep -fal
