@@ -78,7 +78,7 @@ abbr --add gmt git mergetool --no-ff --no-commit
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
 abbr --add gst git status -sb
-abbr --add gsf git status -sb | fpp
+abbr --add gsf git status -sb \| fpp
 abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
