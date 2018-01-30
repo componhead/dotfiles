@@ -35,6 +35,18 @@ let g:spacevim_windows_leader = '°'
 let g:spacevim_denite_leader = '§'
 let g:spacevim_unite_leader = '@'
 let g:chromatica#enable_at_startup = 0
+" }}}
+" MYCUSTOMS ----- {{{
+let g:spacevim_colorscheme = 'lucius'
+let g:lucius_style="dark"
+let g:spacevim_colorscheme_bg = 'dark'
+let g:spacevim_disabled_plugins=[
+\ ['arakashic/chromatica.nvim'],
+\ ]
+let g:spacevim_custom_plugins = [
+\ ['plasticboy/vim-markdown', {'on_ft' : 'markdown'}],
+\ ['troydm/zoomwintab.vim']
+\ ]
 if executable('vimlint')
     call add(g:neomake_vim_enabled_makers, 'vimlint') 
 endif
@@ -47,18 +59,6 @@ if has('python3')
 endif
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
-" }}}
-" MYCUSTOMS ----- {{{
-let g:spacevim_colorscheme = 'lucius'
-let g:lucius_style="dark"
-let g:spacevim_colorscheme_bg = 'dark'
-"let g:spacevim_disabled_plugins=[
-"\ ['arakashic/chromatica.nvim'],
-"\ ]
-let g:spacevim_custom_plugins = [
-\ ['plasticboy/vim-markdown', {'on_ft' : 'markdown'}],
-\ ['troydm/zoomwintab.vim']
-\ ]
 tnoremap <leader>tc <C-\><C-n>:term<CR>i
 tnoremap <leader>tn <C-\><C-n>:bn<CR>hi
 tnoremap <leader>tp <C-\><C-n>:bp<CR>li
