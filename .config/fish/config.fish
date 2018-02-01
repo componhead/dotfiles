@@ -66,11 +66,6 @@ abbr --add gbr git branch
 abbr --add gcm git commit -m
 abbr --add gco git checkout 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
-abbr --add gfi git flow init
-abbr --add gfr git flow release
-abbr --add gff git flow feature
-abbr --add gfh git flow hotfix
-
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add glg git log --decorate --graph --all --oneline --color
 abbr --add gmg git merge
@@ -78,7 +73,7 @@ abbr --add gmt git mergetool --no-ff --no-commit
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
 abbr --add gst git status -sb
-abbr --add gsf git status -sb \| fpp
+abbr --add gstf git status -sb \| fpp
 abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
