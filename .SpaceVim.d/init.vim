@@ -87,16 +87,18 @@ function! ResolveGitConflicts(direction)
             exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[|]\\{7}\<CR>mb" ."?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
         endif
     endif
-    " Scelta del blocco index '>>>>>>>'
-    vnoremap <silent> <leader>> <ESC>'d"_dd'aV'c"_d
     if pipe ==# 0
         " Scelta del blocco local '<<<<<<<'
-        vnoremap <silent> <leader>> <ESC>'a"_dd'cV'd"_d
+        vnoremap <silent> <leader>1 <ESC>'a"_dd'cV'd"_d
+        " Scelta del blocco index '>>>>>>>'
+        vnoremap <silent> <leader>2 <ESC>'d"_dd'aV'c"_d
     else
         " Scelta del blocco local '<<<<<<<'
-        vnoremap <silent> <leader>< <ESC>'a"_dd'bV'd"_d
+        vnoremap <silent> <leader>1 <ESC>'a"_dd'bV'd"_d
         " Scelta del blocco tra '|||||||' e '======='
-        vnoremap <silent> <leader>| <ESC>'aV'b"_d'cV'd"_d
+        vnoremap <silent> <leader>2 <ESC>'aV'b"_d'cV'd"_d
+        " Scelta del blocco index '>>>>>>>'
+        vnoremap <silent> <leader>3 <ESC>'d"_dd'aV'c"_d
     endif
 endfunction
 nnoremap <silent> <leader>sudo :w !sudo tee % > /dev/null<CR>
