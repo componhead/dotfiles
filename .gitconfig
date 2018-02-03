@@ -72,12 +72,10 @@
     tool = vimdiff3
 [mergetool "vimdiff3"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-    prompt = true
 [diff]
     tool = vimdiff3
 [difftool "vimdiff3"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-    prompt = true
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [status]
     submodulesummary = 1
 [fetch]

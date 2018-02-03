@@ -44,8 +44,7 @@ let g:spacevim_disabled_plugins=[
 \ ['arakashic/chromatica.nvim'],
 \ ]
 let g:spacevim_custom_plugins = [
-\ ['plasticboy/vim-markdown', {'on_ft' : 'markdown'}],
-\ ['troydm/zoomwintab.vim']
+\ ['plasticboy/vim-markdown', {'on_ft' : 'markdown'}]
 \ ]
 if executable('vimlint')
     call add(g:neomake_vim_enabled_makers, 'vimlint') 
