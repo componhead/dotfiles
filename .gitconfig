@@ -72,13 +72,13 @@
     tool = vimdiff3
 [mergetool "vimdiff3"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-    prompt = false
+    prompt = true
 [diff]
     tool = vimdiff3
 [difftool "vimdiff3"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-    prompt = false
+    prompt = true
 [status]
     submodulesummary = 1
 [fetch]
-    prune = true
+    prune = false

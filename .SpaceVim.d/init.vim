@@ -3,22 +3,22 @@
 let g:spacevim_enable_debug = 1
 let g:spacevim_realtime_leader_guide = 1
 call SpaceVim#layers#load('incsearch')
-"call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('lang#elixir')
-call SpaceVim#layers#load('lang#go')
 call SpaceVim#layers#load('lang#haskell')
 call SpaceVim#layers#load('lang#scala')
 call SpaceVim#layers#load('lang#java')
 call SpaceVim#layers#load('lang#javascript')
 call SpaceVim#layers#load('lang#lua')
-call SpaceVim#layers#load('lang#perl')
-call SpaceVim#layers#load('lang#php')
 call SpaceVim#layers#load('lang#python')
 call SpaceVim#layers#load('lang#rust')
 call SpaceVim#layers#load('lang#swig')
 call SpaceVim#layers#load('lang#tmux')
 call SpaceVim#layers#load('lang#vim')
 call SpaceVim#layers#load('lang#xml')
+"call SpaceVim#layers#load('lang#c')
+"call SpaceVim#layers#load('lang#go')
+"call SpaceVim#layers#load('lang#perl')
+"call SpaceVim#layers#load('lang#php')
 call SpaceVim#layers#load('shell')   
 call SpaceVim#layers#load('tools#screensaver')
 let g:spacevim_statusline_separator = 'curve'
@@ -31,9 +31,9 @@ let g:spacevim_enable_os_fileformat_icon = 1
 let g:spacevim_buffer_index_type = 1
 let g:neomake_vim_enabled_makers = []
 let g:spacevim_windows_smartclose = ''
-let g:spacevim_windows_leader = '°'
-let g:spacevim_denite_leader = '§'
-let g:spacevim_unite_leader = '@'
+let g:spacevim_windows_leader = '<F5>'
+let g:spacevim_denite_leader = '<F6>'
+let g:spacevim_unite_leader = '<F7>'
 let g:chromatica#enable_at_startup = 0
 " }}}
 " MYCUSTOMS ----- {{{
