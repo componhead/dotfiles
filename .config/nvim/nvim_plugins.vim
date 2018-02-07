@@ -9,7 +9,6 @@ Plug 'Shougo/neossh.vim'
 Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
-Plug 'neomake/neomake'
 Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
@@ -172,21 +171,6 @@ let g:bookmark_highlight_lines = 1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
-" }}}
-
-" ----- neomake/neomake ----- {{{
-" Use neomake only as a dependency for other plugins. Otherwise, prefer ALE.
-let g:neomake_error_sign = {
-    \ 'text': '✘',
-    \ 'texthl': 'Error',
-    \ }
-let g:neomake_warning_sign = {
-    \ 'text': '▲',
-    \ 'texthl': 'Todo',
-    \ }
-
-let g:neomake_open_list = 1
-
 " }}}
 
 " ----- w0rp/ale ----- {{{
