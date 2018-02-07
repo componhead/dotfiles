@@ -2,11 +2,10 @@
 let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
-Plug 'Shougo/neomru.vim'
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/neossh.vim'
 Plug 'sbdchd/neoformat'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'majutsushi/tagbar'
@@ -18,24 +17,19 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-markdown', {'for':['md','markdown']}
 Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'jamessan/vim-gnupg'
-Plug 'blueyed/vim-diminactive'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'thinca/vim-visualstar'
-Plug 'thinca/vim-ref'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
@@ -63,6 +57,7 @@ let g:signify_update_on_bufenter = 1
 let g:surround_45 = "<% \r %>"
 let g:surround_61 = "<%= \r %>"
 let g:surround_33 = "```\r```"
+let g:vimfiler_as_default_explorer = 1
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 autocmd FocusGained * let @z=@+
