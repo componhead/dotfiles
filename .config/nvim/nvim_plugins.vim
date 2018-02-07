@@ -7,7 +7,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/neossh.vim'
 Plug 'sbdchd/neoformat'
-Plug 'artur-shaik/vim-javacomplete2'
+Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
 Plug 'pippocode/vim-lucius'
@@ -192,7 +192,7 @@ let g:neomake_open_list = 1
 " ----- w0rp/ale ----- {{{
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '▲'
-
+let g:ale_completion_enabled = 1
 let g:airline#extensions#ale#enabled = 1
 
 " Open the loclist if there were errors
