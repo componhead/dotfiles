@@ -5,7 +5,6 @@ Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimfiler.vim'
-Plug 'Shougo/neossh.vim'
 Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
@@ -32,7 +31,6 @@ Plug 'thinca/vim-visualstar'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-Plug 'kassio/neoterm'
 " HASKELL
 Plug 'parsonsmatt/intero-neovim'
 Plug 'alx741/vim-hindent', { 'for': ['haskell','hs'] }
