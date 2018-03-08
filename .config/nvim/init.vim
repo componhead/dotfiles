@@ -157,9 +157,12 @@ nnoremap <silent> <leader>lcd :lcd %:p:h<CR>
 nnoremap <silent> [d :silent! call ResolveGitConflicts("backward")<CR>
 nnoremap <silent> ]d :call ResolveGitConflicts("forward")<CR>
 
-nnoremap <leader><TAB> /<+.\{-1,}+><cr>c/+>/e<cr>
-inoremap <leader><TAB> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
-inoremap {} {}<left><CR><ESC>O
+" Salta da un tag nel template all'altro (tag: maiuscole tra pipes '|')
+nnoremap <leader><TAB> /\|[A-Z]\+\|<cr>c/\|/e<CR>
+nnoremap <leader><S-TAB> ?\|[A-Z]\+\|<cr>c/\|/e<CR>
+inoremap <leader><TAB> <ESC>/\|[A-Z]\+\|<cr>c/\|/e<CR>
+inoremap <leader><S-TAB> <ESC>?\|[A-Z]\+\|<cr>c/\|/e<CR>
+match Todo /|[A-Z]\+|/
 " Differences between nvim and vim
 if has('nvim')
     tnoremap <leader>tc <C-\><C-n>:term<CR>i
