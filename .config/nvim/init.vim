@@ -41,6 +41,9 @@ set ttimeoutlen=100
 set listchars=eol:$,tab:>>,trail:~,extends:>,precedes:<,nbsp:-
 set diffopt+=vertical
 set grepprg=rg\ --vimgrep
+set nospell
+set spelllang=it,en
+:set spellsuggest=7
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
@@ -59,7 +62,7 @@ endif
 " LET {{{
 let g:yankring_clipboard_monitor=0
 let mapleader = "\<Space>"
-let imaplocalleader = "\<Space>"
+let maplocalleader = "\\"
 let g:terminal_scrollback_buffer_size = 100000
 "}}}
 " OTHER {{{
@@ -134,9 +137,14 @@ endfunc
 nnoremap <F5> :Autoformat<CR>
 noremap <F1> <ESC>:exec "help ".expand("<cWORD>")<CR>
 noremap <F4> <ESC>:!ctags -R .<CR>
-nnoremap k gk
-nnoremap j gj
-
+nnoremap <A-DOWN> gj
+nnoremap <A-UP> gk
+inoremap <A-UP> <ESC>gki
+inoremap <A-DOWN> <ESC>gji
+nnoremap <A-RIGHT> :set nowrap<CR>
+nnoremap <A-LEFT> :set wrap<CR>
+inoremap <A-RIGHT> <ESC>:set nowrap<CR>i
+inoremap <A-LEFT> <ESC>:set wrap<CR>i
 " Permette l'ignorecase con i comandi '*' e '#' quando usati per la parola corrente
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
@@ -165,12 +173,10 @@ if has('nvim')
     tnoremap <leader>th <C-\><C-n><C-W>hi
     tnoremap <leader>tk <C-\><C-n><C-W>ki
     tnoremap <leader>tj <C-\><C-n><C-W>ji
-else
-    set ttymouse=xterm2
-endif
-if has('nvim')
     autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
     autocmd BufEnter term://* startinsert
+else
+    set ttymouse=xterm2
 endif
 augroup change_dir_to_root
     autocmd BufEnter * silent! lcd %:p:h
