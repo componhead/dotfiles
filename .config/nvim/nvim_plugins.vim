@@ -32,7 +32,6 @@ Plug 'thinca/vim-visualstar'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-Plug 'kassio/neoterm'
 " HASKELL
 Plug 'parsonsmatt/intero-neovim'
 Plug 'alx741/vim-hindent', { 'for': ['haskell','hs'] }
@@ -75,12 +74,6 @@ command! -nargs=+ Tg :T git <args>
 set grepprg=rg\ --vimgrep
 vnoremap <silent> gcc :'<,'>Commentary<CR>
 " Useful maps
-" hide/close terminal
-nnoremap <silent> ,th :call neoterm#close()<cr>
-" clear terminal
-nnoremap <silent> ,tl :call neoterm#clear()<cr>
-" kills the current job (send a <c-c>)
-nnoremap <silent> ,tc :call neoterm#kill()<cr>
 " Haskell file settings ---------------------- {{{
 augroup haskell_settings
     au FileType haskell silent! setlocal formatprg=hindent
@@ -165,12 +158,6 @@ let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
-" }}}
-
-" ----- netrw ----- {{{
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
 " }}}
 
 " ----- w0rp/ale ----- {{{

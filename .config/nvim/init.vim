@@ -64,6 +64,11 @@ let g:terminal_scrollback_buffer_size = 100000
 "}}}
 " OTHER {{{
 source ~/.vimsessions
+" ----- netrw ----- {{{
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+" }}}
 " Disable syntax highlight in diff mode
 if &diff
     syntax off
