@@ -29,6 +29,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'thinca/vim-visualstar'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 " HASKELL

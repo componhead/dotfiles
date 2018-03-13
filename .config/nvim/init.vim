@@ -1,4 +1,5 @@
 " vim: set ft:vim :
+"
 " GENERAL SETTINGS {{{
 " SET {{{
 set runtimepath^=$HOME/dein.vim/repos/github.com/Shougo/dein.vim,~/.vim,~/.vim/after
@@ -43,7 +44,7 @@ set diffopt+=vertical
 set grepprg=rg\ --vimgrep
 set nospell
 set spelllang=it,en
-:set spellsuggest=7
+set spellsuggest=7
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
