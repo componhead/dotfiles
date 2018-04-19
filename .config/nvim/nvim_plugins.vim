@@ -1,3 +1,4 @@
+" PLUGINS {{{{{{
 " INSTALLATION {{{
 let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.local/share/nvim/plugged')
@@ -266,3 +267,4 @@ xmap gs <plug>(GrepperOperator)
 "}}}
 
 "}}}
+"}}}}}}

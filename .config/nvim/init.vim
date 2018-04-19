@@ -140,9 +140,12 @@ endfunc
 " }}}
 " KEYBINDINGS {{{
 " GENERAL {{{
+nnoremap <F1> :diffget 1<CR>
+nnoremap <F2> :diffget 2<CR>
+nnoremap <F3> :diffget 3<CR>
+nnoremap <F4> <ESC>:!ctags -R .<CR>
 nnoremap <F5> :Autoformat<CR>
-noremap <F1> <ESC>:exec "help ".expand("<cWORD>")<CR>
-noremap <F4> <ESC>:!ctags -R .<CR>
+noremap <F6> <ESC>:exec "help ".expand("<cWORD>")<CR>
 nnoremap <A-DOWN> gj
 nnoremap <A-UP> gk
 inoremap <A-UP> <ESC>gki
@@ -170,23 +173,23 @@ inoremap <leader><TAB> <ESC>/\|[A-Z]\+\|<cr>c/\|/e<CR>
 inoremap <leader><S-TAB> <ESC>?\|[A-Z]\+\|<cr>c/\|/e<CR>
 match Todo /|[A-Z]\+|/
 " Differences between nvim and vim
-if has('nvim')
-    tnoremap <leader>tc <C-\><C-n>:term<CR>i
-    tnoremap <leader>tn <C-\><C-n>:bn<CR>hi
-    tnoremap <leader>tp <C-\><C-n>:bp<CR>li
-    tnoremap <leader>tw <C-\><C-n>:buffers<CR>i
-    tnoremap <leader>t, <C-\><C-n>:file 
-    tnoremap <leader>t% <C-\><C-n>:vnew<CR>:term<CR>i
-    tnoremap <leader>t" <C-\><C-n>:new<CR>:term<CR>i
-    tnoremap <leader>tl <C-\><C-n><C-W>li
-    tnoremap <leader>th <C-\><C-n><C-W>hi
-    tnoremap <leader>tk <C-\><C-n><C-W>ki
-    tnoremap <leader>tj <C-\><C-n><C-W>ji
+"if has('nvim')
+    nnoremap <leader>tc <C-\><C-n>:term<CR>i
+    nnoremap <leader>tn <C-\><C-n>:bn<CR>hi
+    nnoremap <leader>tp <C-\><C-n>:bp<CR>li
+    nnoremap <leader>tw <C-\><C-n>:buffers<CR>i
+    nnoremap <leader>t, <C-\><C-n>:file 
+    nnoremap <leader>t% <C-\><C-n>:vnew<CR>:term<CR>i
+    nnoremap <leader>t" <C-\><C-n>:new<CR>:term<CR>i
+    nnoremap <leader>tl <C-\><C-n><C-W>li
+    nnoremap <leader>th <C-\><C-n><C-W>hi
+    nnoremap <leader>tk <C-\><C-n><C-W>ki
+    nnoremap <leader>tj <C-\><C-n><C-W>ji
     autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
     autocmd BufEnter term://* startinsert
-else
-    set ttymouse=xterm2
-endif
+"else
+"    set ttymouse=xterm2
+"endif
 augroup change_dir_to_root
     autocmd BufEnter * silent! lcd %:p:h
     autocmd BufEnter * silent! lcd `git rev-parse --show-toplevel`
