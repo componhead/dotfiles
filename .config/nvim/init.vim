@@ -81,6 +81,7 @@ if &diff
     call plug#begin('~/.local/share/nvim/plugged')
         Plug 'pippocode/vim-lucius'
     call plug#end()
+    highlight CursorLine ctermfg=Black ctermbg=White cterm=bold guifg=black guibg=white gui=bold
 else
     syntax on
     set hlsearch
