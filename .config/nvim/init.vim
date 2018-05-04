@@ -79,9 +79,12 @@ if &diff
     set nohlsearch
     set nonu
     call plug#begin('~/.local/share/nvim/plugged')
-        Plug 'pippocode/vim-lucius'
+        Plug 'componhead/vim-lucius'
     call plug#end()
-    highlight CursorLine ctermfg=Black ctermbg=White cterm=bold guifg=black guibg=white gui=bold
+    let g:lucius_style="dark"
+    let g:lucius_contrast="high"
+    let g:lucius_contrast_bg="normal"
+    set background=dark
 else
     syntax on
     set hlsearch
@@ -92,11 +95,6 @@ else
         source $DOTFILES/.config/nvim/nvim_plugins.vim
     endif
 endif
-colorscheme lucius
-let g:lucius_style="dark"
-let g:lucius_contrast="low"
-let g:lucius_contrast_bg="normal"
-set background=dark
 " }}}
 " FUNCTIONS {{{
 " Handle git conflicts characters
@@ -121,12 +119,12 @@ function! ResolveGitConflicts(direction)
     vnoremap <silent> <leader>. <ESC>'d"_dd'aV'c"_d
     if pipe ==# 0
         " Scelta del blocco local '<<<<<<<'
-        vnoremap <silent> <leader>, <ESC>'a"_dd'cV'd"_d
+        vnoremap <silent> <F1> <ESC>'a"_dd'cV'd"_d
     else
         " Scelta del blocco local '<<<<<<<'
-        vnoremap <silent> <leader>, <ESC>'a"_dd'bV'd"_d
+        vnoremap <silent> <F2> <ESC>'a"_dd'bV'd"_d
         " Scelta del blocco tra '|||||||' e '======='
-        vnoremap <silent> <leader>/ <ESC>'aV'b"_d'cV'd"_d
+        vnoremap <silent> <F3> <ESC>'aV'b"_d'cV'd"_d
     endif
 endfunction
 " Show syntax highlighting groups for word under cursor
