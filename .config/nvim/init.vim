@@ -81,10 +81,12 @@ if &diff
     call plug#begin('~/.local/share/nvim/plugged')
         Plug 'componhead/vim-lucius'
     call plug#end()
+    colorscheme lucius
     let g:lucius_style="dark"
     let g:lucius_contrast="high"
     let g:lucius_contrast_bg="normal"
     set background=dark
+    highlight CursorLine ctermfg=Black ctermbg=White cterm=bold guifg=black guibg=white gui=bold
 else
     syntax on
     set hlsearch
