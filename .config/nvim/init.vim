@@ -75,16 +75,13 @@ let g:haddock_browser_callformat = "%s %s"
 " }}}
 " Disable syntax highlight in diff mode
 if &diff
-    syntax off
-    set nohlsearch
-    set nonu
     call plug#begin('~/.local/share/nvim/plugged')
         Plug 'componhead/vim-lucius'
     call plug#end()
     colorscheme lucius
     let g:lucius_style="dark"
-    let g:lucius_contrast="high"
-    let g:lucius_contrast_bg="normal"
+    let g:lucius_contrast="low"
+    let g:lucius_contrast_bg="high"
     set background=dark
     highlight CursorLine ctermfg=Black ctermbg=White cterm=bold guifg=black guibg=white gui=bold
 else
@@ -223,6 +220,15 @@ augroup filetype_elixir
     autocmd FileType elixir nnoremap <buffer> <localleader>c I# <esc>0
     autocmd FileType elixir vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>j0
 augroup END
+if &diff
+    syntax off
+    set nohlsearch
+    set nonu
+else
+    syntax on
+    set hlsearch
+    set nu
+endif
 " }}}
 " }}}
 filetype plugin indent on
