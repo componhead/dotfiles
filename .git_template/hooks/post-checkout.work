@@ -3,7 +3,7 @@
 
 current_branch_name="$(git rev-parse --abbrev-ref HEAD)"
 previous_branch_name="$(git rev-parse --symbolic @{-1})"
-branch_name_pattern='^master$|^develop$|^(feature|release|hotfix)/[0-9]+\.[0-9]+\.[0-9]+$'
+branch_name_pattern='^master$|^develop$|^(bugfix|feature|release|hotfix)/[0-9]+\.[0-9]+\.[0-9]+$'
 
 if ! grep -iqE "$branch_name_pattern" <<< "$current_branch_name" ; then   
     error_msg="Aborting checkout. The branch to checkout must conform to gitflow standards"
