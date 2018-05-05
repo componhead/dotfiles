@@ -9,7 +9,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
-Plug 'componhead/vim-lucius'
+Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 Plug 'tpope/vim-characterize'
