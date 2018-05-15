@@ -5,7 +5,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/vimfiler.vim'
 Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
@@ -56,7 +55,6 @@ let g:signify_update_on_bufenter = 1
 let g:surround_45 = "<% \r %>"
 let g:surround_61 = "<%= \r %>"
 let g:surround_33 = "```\r```"
-let g:vimfiler_as_default_explorer = 1
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 autocmd FocusGained * let @z=@+
