@@ -85,11 +85,9 @@ if &diff
     set background=dark
     highlight CursorLine ctermfg=Black ctermbg=White cterm=bold guifg=black guibg=white gui=bold
     " Ricerca del blocco di conflitto
-    nnoremap <silent> [d :silent! call ResolveGitConflicts("backward")<CR>
-    nnoremap <silent> ]d :call ResolveGitConflicts("forward")<CR>
-    nnoremap <silent> <leader>r :diffget RE
-    nnoremap <silent> <leader>l :diffget LO
-    nnoremap <silent> <leader>b :diffget BA
+    nnoremap <silent> <leader>r :diffget RE<CR>
+    nnoremap <silent> <leader>l :diffget LO<CR>
+    nnoremap <silent> <leader>b :diffget BA<CR>
 else
     syntax on
     set hlsearch
@@ -102,36 +100,6 @@ else
 endif
 " }}}
 " FUNCTIONS {{{
-" Handle git conflicts characters
-function! ResolveGitConflicts(direction)
-    set nohlsearch
-    delmarks a b c d
-    let pipe = search('^[\|]\{7}','nw')
-    if pipe ==# 0
-        if a:direction ==# 'forward'
-            exec "normal! /^[<]\\{7}\<CR>ma" . "/^[=]\\{7}\<CR>mc" . "/^[>]\\{7}\<CR>md" . "'aV'd"
-        else
-            exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
-        endif
-    else
-        if a:direction ==# 'forward'
-            exec "normal! /^[<]\\{7}\<CR>ma" . "/^[|]\\{7}\<CR>mb" ."/^[=]\\{7}\<CR>mc" . "/^[>]\\{7}\<CR>md" . "'aV'd"
-        else
-            exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[|]\\{7}\<CR>mb" ."?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
-        endif
-    endif
-    " Scelta del blocco index REMOTE '>>>>>>>'
-    vnoremap <silent> <leader>r <ESC>'d"_dd'aV'c"_d
-    if pipe ==# 0
-        " Scelta del blocco LOCAL '<<<<<<<'
-        vnoremap <silent> <leader>l  <ESC>'a"_dd'cV'd"_d
-    else
-        " Scelta del blocco LOCAL '<<<<<<<'
-        vnoremap <silent> <leader>l <ESC>'a"_dd'bV'd"_d
-        " Scelta del blocco BASE tra '|||||||' e '======='
-        vnoremap <silent> <leader>b <ESC>'aV'b"_d'cV'd"_d
-    endif
-endfunction
 " Show syntax highlighting groups for word under cursor
 nnoremap <C-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
