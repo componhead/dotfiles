@@ -46,9 +46,9 @@ set nospell
 set spelllang=it,en
 set spellsuggest=7
 let g:rg_command = '
-  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
-  \ -g "!{.git,node_modules,vendor}/*" '
+            \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+            \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+            \ -g "!{.git,node_modules,vendor}/*" '
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 set nowrapscan
 if has("multi_byte")
@@ -76,7 +76,7 @@ let g:haddock_browser_callformat = "%s %s"
 " Disable syntax highlight in diff mode
 if &diff
     call plug#begin('~/.local/share/nvim/plugged')
-        Plug 'componhead/vim-lucius'
+    Plug 'componhead/vim-lucius'
     call plug#end()
     colorscheme lucius
     let g:lucius_style="dark"
@@ -84,6 +84,12 @@ if &diff
     let g:lucius_contrast_bg="high"
     set background=dark
     highlight CursorLine ctermfg=Black ctermbg=White cterm=bold guifg=black guibg=white gui=bold
+    " Ricerca del blocco di conflitto
+    nnoremap <silent> [d :silent! call ResolveGitConflicts("backward")<CR>
+    nnoremap <silent> ]d :call ResolveGitConflicts("forward")<CR>
+    nnoremap <silent> <leader>r :diffget RE
+    nnoremap <silent> <leader>l :diffget LO
+    nnoremap <silent> <leader>b :diffget BA
 else
     syntax on
     set hlsearch
@@ -114,16 +120,16 @@ function! ResolveGitConflicts(direction)
             exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[|]\\{7}\<CR>mb" ."?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
         endif
     endif
-    " Scelta del blocco index '>>>>>>>'
-    vnoremap <silent> <leader>. <ESC>'d"_dd'aV'c"_d
+    " Scelta del blocco index REMOTE '>>>>>>>'
+    vnoremap <silent> <leader>r <ESC>'d"_dd'aV'c"_d
     if pipe ==# 0
-        " Scelta del blocco local '<<<<<<<'
-        vnoremap <silent> <F1> <ESC>'a"_dd'cV'd"_d
+        " Scelta del blocco LOCAL '<<<<<<<'
+        vnoremap <silent> <leader>l  <ESC>'a"_dd'cV'd"_d
     else
-        " Scelta del blocco local '<<<<<<<'
-        vnoremap <silent> <F2> <ESC>'a"_dd'bV'd"_d
-        " Scelta del blocco tra '|||||||' e '======='
-        vnoremap <silent> <F3> <ESC>'aV'b"_d'cV'd"_d
+        " Scelta del blocco LOCAL '<<<<<<<'
+        vnoremap <silent> <leader>l <ESC>'a"_dd'bV'd"_d
+        " Scelta del blocco BASE tra '|||||||' e '======='
+        vnoremap <silent> <leader>b <ESC>'aV'b"_d'cV'd"_d
     endif
 endfunction
 " Show syntax highlighting groups for word under cursor
@@ -138,9 +144,6 @@ endfunc
 " }}}
 " KEYBINDINGS {{{
 " GENERAL {{{
-nnoremap <F1> :diffget 1<CR>
-nnoremap <F2> :diffget 2<CR>
-nnoremap <F3> :diffget 3<CR>
 nnoremap <F4> <ESC>:!ctags -R .<CR>
 nnoremap <F5> :Autoformat<CR>
 noremap <F6> <ESC>:exec "help ".expand("<cWORD>")<CR>
@@ -160,10 +163,6 @@ nnoremap <silent> <leader>sudo :w !sudo tee % > /dev/null<CR>
 " Posiziona la directory locale 'lcd' alla directory contenente il file aperto
 nnoremap <silent> <leader>lcd :lcd %:p:h<CR>
 
-" Ricerca del blocco di conflitto
-nnoremap <silent> [d :silent! call ResolveGitConflicts("backward")<CR>
-nnoremap <silent> ]d :call ResolveGitConflicts("forward")<CR>
-
 " Salta da un tag nel template all'altro (tag: maiuscole tra pipes '|')
 nnoremap <leader><TAB> /\|[A-Z]\+\|<cr>c/\|/e<CR>
 nnoremap <leader><S-TAB> ?\|[A-Z]\+\|<cr>c/\|/e<CR>
@@ -172,19 +171,19 @@ inoremap <leader><S-TAB> <ESC>?\|[A-Z]\+\|<cr>c/\|/e<CR>
 match Todo /|[A-Z]\+|/
 " Differences between nvim and vim
 "if has('nvim')
-    nnoremap <leader>tc <C-\><C-n>:term<CR>i
-    nnoremap <leader>tn <C-\><C-n>:bn<CR>hi
-    nnoremap <leader>tp <C-\><C-n>:bp<CR>li
-    nnoremap <leader>tw <C-\><C-n>:buffers<CR>i
-    nnoremap <leader>t, <C-\><C-n>:file 
-    nnoremap <leader>t% <C-\><C-n>:vnew<CR>:term<CR>i
-    nnoremap <leader>t" <C-\><C-n>:new<CR>:term<CR>i
-    nnoremap <leader>tl <C-\><C-n><C-W>li
-    nnoremap <leader>th <C-\><C-n><C-W>hi
-    nnoremap <leader>tk <C-\><C-n><C-W>ki
-    nnoremap <leader>tj <C-\><C-n><C-W>ji
-    autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-    autocmd BufEnter term://* startinsert
+nnoremap <leader>tc <C-\><C-n>:term<CR>i
+nnoremap <leader>tn <C-\><C-n>:bn<CR>hi
+nnoremap <leader>tp <C-\><C-n>:bp<CR>li
+nnoremap <leader>tw <C-\><C-n>:buffers<CR>i
+nnoremap <leader>t, <C-\><C-n>:file 
+nnoremap <leader>t% <C-\><C-n>:vnew<CR>:term<CR>i
+nnoremap <leader>t" <C-\><C-n>:new<CR>:term<CR>i
+nnoremap <leader>tl <C-\><C-n><C-W>li
+nnoremap <leader>th <C-\><C-n><C-W>hi
+nnoremap <leader>tk <C-\><C-n><C-W>ki
+nnoremap <leader>tj <C-\><C-n><C-W>ji
+autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+autocmd BufEnter term://* startinsert
 "else
 "    set ttymouse=xterm2
 "endif
