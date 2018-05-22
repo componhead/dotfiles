@@ -82,3 +82,5 @@
     submodulesummary = 1
 [fetch]
     prune = false
+[branch]
+	autoSetupRebase = never
