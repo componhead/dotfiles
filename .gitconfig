@@ -40,7 +40,7 @@
     preloadindex = true
     fscache = true
     excludesfile = ~/.gitignore_global
-    pager = $DOTFILES/diff-highlight | less -rJN
+    pager = diff-highlight | less -rJN
     autocrlf = input
     commentchar = ";"
 [push]
@@ -67,14 +67,17 @@
 [credential]
     helper = cache --timeout=144000
 [merge]
-    conflictstyle = diff3
     tool = vimdiff3
-[mergetool "vimdiff3"]
-    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [diff]
     tool = vimdiff3
 [difftool "vimdiff3"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "vimdiff3"]
     cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "diffconflicts"]
+    keepBackup = false
+    trustExitCode = true
+    cmd = diffconflicts nvim $LOCAL $BASE $REMOTE $MERGED
 [status]
     submodulesummary = 1
 [fetch]
