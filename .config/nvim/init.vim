@@ -85,9 +85,9 @@ if &diff
     set background=dark
     highlight CursorLine ctermfg=Black ctermbg=White cterm=bold guifg=black guibg=white gui=bold
     " Ricerca del blocco di conflitto
-    nnoremap <silent> <leader>r :diffget RE<CR>
-    nnoremap <silent> <leader>l :diffget LO<CR>
-    nnoremap <silent> <leader>b :diffget BA<CR>
+    nnoremap <silent> <leader>1 :diffget 1<CR>
+    nnoremap <silent> <leader>2 :diffget 2<CR>
+    nnoremap <silent> <leader>3 :diffget 3<CR>
 else
     syntax on
     set hlsearch
@@ -117,12 +117,8 @@ nnoremap <F5> :Autoformat<CR>
 noremap <F6> <ESC>:exec "help ".expand("<cWORD>")<CR>
 nnoremap <A-DOWN> gj
 nnoremap <A-UP> gk
-inoremap <A-UP> <ESC>gki
 inoremap <A-DOWN> <ESC>gji
-nnoremap <A-RIGHT> :set nowrap<CR>
-nnoremap <A-LEFT> :set wrap<CR>
-inoremap <A-RIGHT> <ESC>:set nowrap<CR>i
-inoremap <A-LEFT> <ESC>:set wrap<CR>i
+inoremap <A-UP> <ESC>gki
 " Permette l'ignorecase con i comandi '*' e '#' quando usati per la parola corrente
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
