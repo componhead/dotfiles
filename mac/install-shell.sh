@@ -25,7 +25,7 @@ else
     brew install curl
 fi
 
-if test -f ~/.fzf/install then
+if test -f ~/.fzf/install; then
     echo "******* fzf already installed"
 else
     echo "******* Installing fzf"
