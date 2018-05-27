@@ -9,7 +9,6 @@ set -xg XDG_RUNTIME_DIR ~/.runtime
 
 set -xg FZF_HOME ~/.fzf
 set -xg RCFILE "$XDG_CONFIG_HOME/fish/config.fish"
-set -xg VIM "$XDG_CONFIG_HOME/nvim"
 set -xg APPDATA $HOME
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
