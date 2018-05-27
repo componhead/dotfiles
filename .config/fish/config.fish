@@ -1,5 +1,6 @@
+set -xg DOTFILES ~/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set -xg XDG_CONFIG_HOME ~/.config
+set -xg XDG_CONFIG_HOME "$DOTFILES/.config"
 set -xg XDG_DATA_HOME ~/.local/share
 set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
@@ -7,8 +8,8 @@ set -xg XDG_CACHE_HOME ~/.cache
 set -xg XDG_RUNTIME_DIR ~/.runtime
 
 set -xg FZF_HOME ~/.fzf
-set -xg DOTFILES ~/dotfiles
-set -xg RCFILE ~/.config/fish/config.fish
+set -xg RCFILE "$XDG_CONFIG_HOME/fish/config.fish"
+set -xg VIM "$XDG_CONFIG_HOME/nvim"
 set -xg APPDATA $HOME
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
