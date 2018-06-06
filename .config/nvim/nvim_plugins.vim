@@ -41,6 +41,8 @@ Plug 'kbrw/elixir.nvim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'elixir-editors/vim-elixir'
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+" TYPESCRIPT
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 call plug#end()
 
 "}}}

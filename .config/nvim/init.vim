@@ -100,6 +100,38 @@ else
 endif
 " }}}
 " FUNCTIONS {{{
+" Handle git conflicts characters
+function! ResolveGitConflicts(direction)
+    set nohlsearch
+    delmarks a b c d
+    let pipe = search('^[\|]\{7}','nw')
+    if pipe ==# 0
+        if a:direction ==# 'forward'
+            exec "normal! /^[<]\\{7}\<CR>ma" . "/^[=]\\{7}\<CR>mc" . "/^[>]\\{7}\<CR>md" . "'aV'd"
+        else
+            exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
+        endif
+    else
+        if a:direction ==# 'forward'
+            exec "normal! /^[<]\\{7}\<CR>ma" . "/^[|]\\{7}\<CR>mb" ."/^[=]\\{7}\<CR>mc" . "/^[>]\\{7}\<CR>md" . "'aV'd"
+        else
+            exec "normal! ?^[<]\\{7}\<CR>ma" . "?^[|]\\{7}\<CR>mb" ."?^[=]\\{7}\<CR>mc" . "?^[>]\\{7}\<CR>md" . "'aV'd"
+        endif
+    endif
+    " Scelta del blocco index REMOTE '>>>>>>>'
+    vnoremap <silent> <leader>3 <ESC>'d"_dd'aV'c"_d
+    if pipe ==# 0
+        " Scelta del blocco LOCAL '<<<<<<<'
+        vnoremap <silent> <leader>1  <ESC>'a"_dd'cV'd"_d
+    else
+        " Scelta del blocco LOCAL '<<<<<<<'
+        vnoremap <silent> <leader>1 <ESC>'a"_dd'bV'd"_d
+        " Scelta del blocco BASE tra '|||||||' e '======='
+        vnoremap <silent> <leader>2 <ESC>'aV'b"_d'cV'd"_d
+    endif
+endfunction
+nnoremap <silent> [d :silent! call ResolveGitConflicts("backward")<CR>
+nnoremap <silent> ]d :call ResolveGitConflicts("forward")<CR>
 " Show syntax highlighting groups for word under cursor
 nnoremap <C-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
