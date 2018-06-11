@@ -32,17 +32,10 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-" HASKELL
-Plug 'parsonsmatt/intero-neovim'
-Plug 'alx741/vim-hindent', { 'for': ['haskell','hs'] }
-Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell', 'hs'] }
-" ELIXIR
-Plug 'kbrw/elixir.nvim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'elixir-editors/vim-elixir'
-Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-" TYPESCRIPT
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-completion-manager'
+
 call plug#end()
 
 "}}}
@@ -51,6 +44,10 @@ call plug#end()
 " ----- GENERAL ----- {{{
 set statusline+=%#warningmsg#
 set statusline+=%*
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_debug = 1
+let g:deoplete#enable_profile = 1
+"call deoplete#enable_logging('DEBUG', 'deoplete.log')
 let g:bufferline_echo = 0
 let g:session_autosave = 'no'
 let g:signify_disable_by_default = 0
@@ -58,6 +55,29 @@ let g:signify_update_on_bufenter = 1
 let g:surround_45 = "<% \r %>"
 let g:surround_61 = "<%= \r %>"
 let g:surround_33 = "```\r```"
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+" ----- JAVASCRIPT/TYPESCRIPT -----{{{
+" Minimal LSP configuration for JavaScript
+let g:LanguageClient_serverCommands = {}
+if executable('javascript-typescript-stdio')
+    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+    " Use LanguageServer for omnifunc completion
+    autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+else
+    au! BufRead,BufNewFile *.js,*.ts :echom "javascript-typescript-stdio not installed!"
+endif
+" <leader>ld to go to definition
+autocmd FileType javascript nnoremap <buffer> <leader>ld :call LanguageClient_textDocument_definition()<cr>
+" <leader>lh for type info under cursor
+autocmd FileType javascript nnoremap <buffer> <leader>lh :call LanguageClient_textDocument_hover()<cr>
+" <leader>lr to rename variable under cursor
+autocmd FileType javascript nnoremap <buffer> <leader>lr :call LanguageClient_textDocument_rename()<cr>
+" Put this outside of the plugin section
+" <leader>lf to fuzzy find the symbols in the current document
+autocmd FileType javascript nnoremap <buffer> <leader>lf :call LanguageClient_textDocument_documentSymbol()<cr>
+"}}}
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 autocmd FocusGained * let @z=@+
@@ -76,10 +96,6 @@ command! -nargs=+ Tg :T git <args>
 set grepprg=rg\ --vimgrep
 vnoremap <silent> gcc :'<,'>Commentary<CR>
 " Useful maps
-" Haskell file settings ---------------------- {{{
-augroup haskell_settings
-    au FileType haskell silent! setlocal formatprg=hindent
-augroup END
 "}}}
 " HTML file settings {{{
 autocmd BufNewFile *.html,*.htm silent! 0r ~/.config/nvim/templates/%:e.tpl
@@ -199,61 +215,10 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_rust_cargo_check_all_targets = 0
 
 augroup aleMaps
-  au FileType javascript let g:ale_fix_on_save = 1
-  au FileType css let g:ale_fix_on_save = 1
+    au FileType javascript let g:ale_fix_on_save = 1
+    au FileType css let g:ale_fix_on_save = 1
 augroup END
 
-" }}}
-" ----- neovimhaskell/haskell-vim ----- {{{
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-"  }}}
-" ----- parsonsmatt/intero-neovim ----- {{{
-augroup interoMaps
-  au!
-  " Maps for intero. Restrict to Haskell buffers so the bindings don't collide.
-
-  " Background process and window management
-  au FileType haskell nnoremap <silent> <leader>is :InteroStart<CR>
-  au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
-
-  " Open intero/GHCi split horizontally
-  au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
-  " Open intero/GHCi split vertically
-  au FileType haskell nnoremap <silent> <leader>iov :InteroOpen<CR><C-W>H
-  au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
-
-  " Reloading (pick one)
-  " Automatically reload on save
-  au BufWritePost *.hs InteroReload
-  " Manually save and reload
-  au FileType haskell nnoremap <silent> <leader>wr :w \| :InteroReload<CR>
-
-  " Load individual modules
-  au FileType haskell nnoremap <silent> <leader>il :InteroLoadCurrentModule<CR>
-  au FileType haskell nnoremap <silent> <leader>if :InteroLoadCurrentFile<CR>
-
-  " Type-related information
-  " Heads up! These next two differ from the rest.
-  au FileType haskell map <silent> <leader>t <Plug>InteroGenericType
-  au FileType haskell map <silent> <leader>T <Plug>InteroType
-  au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
-
-  " Navigation
-  au FileType haskell nnoremap <silent> <leader>jd :InteroGoToDef<CR>
-
-  " Managing targets
-  " Prompts you to enter targets (no silent):
-  au FileType haskell nnoremap <leader>ist :InteroSetTargets<SPACE>
-augroup END
-
-" Intero starts automatically. Set this if you'd like to prevent that.
-let g:intero_start_immediately = 0
 " }}}
 
 " ----- MattesGroeger/vim-bookmarks ----- {{{
@@ -274,6 +239,5 @@ nnoremap <leader>G :Grepper -tool rg -buffers<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 "}}}
-
 "}}}
 "}}}}}}
