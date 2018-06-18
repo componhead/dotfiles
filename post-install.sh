@@ -10,7 +10,8 @@ omf install \
     fzf \
     bobthefish \
     fish_logo \
-    ssh-term-helper
+    ssh-term-helper \
+    git-flow
 
 # If in WSL:
 # > mv /home/USER/.local/share/omf/pkg/bobthefish /home/USER/.local/share/omf/themes/bobthefish

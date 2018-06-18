@@ -1,5 +1,5 @@
 [user]
-	name = Emiliano A.
+    name = Emiliano A.
 [color]
     pager = true
     ui = auto
@@ -83,4 +83,6 @@
 [fetch]
     prune = false
 [branch]
-	autoSetupRebase = never
+    autoSetupRebase = never
+[gitflow "feature.start"]
+    fetch = true
