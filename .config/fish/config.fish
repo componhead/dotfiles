@@ -28,6 +28,7 @@ set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 
 set -gx PATH $PATH $DOTFILES/bin
 
+alias git="$DOTFILES/.gitwrapper.sh"
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
 set -g theme_display_git_ahead_verbose yes
