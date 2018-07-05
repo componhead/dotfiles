@@ -93,6 +93,12 @@ else
     brew install fpp
 fi
 
+if brew ls --versions sed > /dev/null; then
+    echo "******* Gnu-sed already installed"
+else
+    brew install gnu-sed --with-default-names
+fi
+
 brew install source-highlight
 
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
