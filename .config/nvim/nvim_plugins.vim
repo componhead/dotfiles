@@ -2,13 +2,13 @@
 " INSTALLATION {{{
 let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'pippocode/vim-lucius'
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
-Plug 'pippocode/vim-lucius'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 Plug 'tpope/vim-characterize'
@@ -32,10 +32,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-completion-manager'
-
 call plug#end()
 
 "}}}
