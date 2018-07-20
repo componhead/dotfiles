@@ -71,12 +71,12 @@ abbr --add gco git checkout
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gg git status -sb \| fpp
-abbr --add glg git log --decorate --graph --all --oneline --color
+abbr --add glg git log --color --decorate --graph --all --oneline
 abbr --add gmg git merge --no-commit --no-ff
 abbr --add gmt git mergetool
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
-abbr --add gst git status -sb
+abbr --add gst git status -sb \| fpp
 abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
