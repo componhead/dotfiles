@@ -48,7 +48,8 @@ if brew ls --versions tmux > dev/null; then
     echo "******* Tmux already installed"
 else
     brew install tmux
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/epm
+    brew install reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste
 fi
 
 echo "******* Installing Plug..."
