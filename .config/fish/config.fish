@@ -7,7 +7,6 @@ set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME ~/.cache
 set -xg XDG_RUNTIME_DIR ~/.runtime
 
-set -xg FZF_HOME ~/.fzf
 set -xg RCFILE "$XDG_CONFIG_HOME/fish/config.fish"
 set -xg APPDATA $HOME
 set -xg CLICOLOR 1
@@ -16,7 +15,9 @@ set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
-set -xg FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+set -xg FZF_HOME ~/.fzf
+set -xg FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
+set -xg FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 set -xg grepprg rg\ --vimgrep
 switch (uname)
     case "Linux"
@@ -102,6 +103,7 @@ abbr --add mux tmuxinator
 abbr --add fopn 'lsof | wc -l'
 abbr --add flnk 'find . -type l -maxdepth 1'
 abbr --add ff 'rg -uuu --files | rg' 
+abbr --add fuz 'fzf | read -l result; and nvim $result'
 
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
