@@ -17,6 +17,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-markdown', {'for':['md','markdown']}
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
 Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
