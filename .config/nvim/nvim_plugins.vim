@@ -34,6 +34,19 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
+" HASKELL
+Plug 'parsonsmatt/intero-neovim'
+Plug 'alx741/vim-hindent', { 'for': ['haskell','hs'] }
+" ELIXIR
+Plug 'kbrw/elixir.nvim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
+Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+" TYPESCRIPT
+Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'jason0x43/vim-js-indent'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 "}}}
