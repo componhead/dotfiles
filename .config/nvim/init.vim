@@ -155,10 +155,10 @@ inoremap <A-UP> <ESC>gki
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap <silent> <leader>sudo :w !sudo tee % > /dev/null<CR>
-
+" Con testo selezionato, il <tab> viene aggiundo a inizio di ogni riga
+" TODO
 " Posiziona la directory locale 'lcd' alla directory contenente il file aperto
 nnoremap <silent> <leader>lcd :lcd %:p:h<CR>
-
 " Salta da un tag nel template all'altro (tag: maiuscole tra pipes '|')
 nnoremap <leader><TAB> /\|[A-Z]\+\|<cr>c/\|/e<CR>
 nnoremap <leader><S-TAB> ?\|[A-Z]\+\|<cr>c/\|/e<CR>
