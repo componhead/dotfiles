@@ -2,7 +2,7 @@
 "
 " GENERAL SETTINGS {{{
 " SET {{{
-set runtimepath^=$HOME/dein.vim/repos/github.com/Shougo/dein.vim,~/.vim,~/.vim/after
+set runtimepath^=$HOME/dein.vim/repos/github.com/Shougo/dein.vim,~/.vim,~/.vim/after,~/.fzf/
 set packpath+=~/.vim
 set undofile
 set undolevels=1000 "maximum number of changes that can be undone
