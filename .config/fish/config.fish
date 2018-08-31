@@ -102,7 +102,6 @@ abbr --add mux tmuxinator
 # ABBREVIAZIONI FILES
 abbr --add fopn 'lsof | wc -l'
 abbr --add flnk 'find . -type l -maxdepth 1'
-abbr --add ff 'fzf | read -l result; and nvim $result'
 
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
