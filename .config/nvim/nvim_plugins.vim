@@ -20,8 +20,7 @@ Plug 'tpope/vim-markdown', {'for':['md','markdown']}
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'MattesGroeger/vim-bookmarks'
@@ -108,7 +107,12 @@ autocmd FocusGained * let @z=@+
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 command! -nargs=+ Tg :T git <args>
 set grepprg=rg\ --vimgrep
 vnoremap <silent> gcc :'<,'>Commentary<CR>
@@ -155,7 +159,7 @@ au! BufWrite *.post call <SID>createNewBlogPost()
 nnoremap [denite] <Nop>
 nmap \ [denite]
 nnoremap <silent> [denite]f :<C-u>DeniteProjectDir file_rec line<CR>
-call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
+call denite#custom#var('file_rec', 'command', ['rg', '--glob', '!.git', ''])
 "}}}
 "
 " ----- pippocode/lucius ----- {{{
@@ -202,6 +206,7 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '▲'
 let g:ale_completion_enabled = 1
 let g:airline#extensions#ale#enabled = 1
+let g:ale_set_highlights = 1
 
 " Open the loclist if there were errors
 let g:ale_open_list = 1
