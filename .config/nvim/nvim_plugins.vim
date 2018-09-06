@@ -4,7 +4,6 @@ let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'pippocode/vim-lucius'
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
-Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sbdchd/neoformat'
 Plug 'w0rp/ale'
@@ -154,14 +153,6 @@ au! BufWrite *.post call <SID>createNewBlogPost()
 " }}}
 " }}}
 
-" ----- Shougo/denite.nvim ----- {{{
-" The prefix key.
-nnoremap [denite] <Nop>
-nmap \ [denite]
-nnoremap <silent> [denite]f :<C-u>DeniteProjectDir file_rec line<CR>
-call denite#custom#var('file_rec', 'command', ['rg', '--glob', '!.git', ''])
-"}}}
-"
 " ----- pippocode/lucius ----- {{{
 colorscheme lucius
 let g:lucius_style="dark"
