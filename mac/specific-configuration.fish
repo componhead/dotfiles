@@ -6,4 +6,5 @@ set -xg LSCOLORS gxcxahdxacafxfaexeabxb
 # /usr/libexec/java_home -v 1.8
 
 abbr --add qb ~/opt/qutebrowser/qutebrowser.py
+abbr --add ubuntu_version lsb_release -idrc
 

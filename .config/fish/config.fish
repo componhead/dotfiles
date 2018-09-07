@@ -91,13 +91,12 @@ abbr --add Erc nvim $RCFILE
 abbr --add Eenv nvim $SPECIFIC_DOTFILES/specific-configuration.fish
 abbr --add Einstall nvim $SPECIFIC_DOTFILES/install-shell.sh
 abbr --add Evimrc nvim $DOTFILES/.config/nvim/init.vim $DOTFILES/.config/nvim/nvim_plugins.vim
-abbr --add Espc nvim $DOTFILES/.SpaceVim.d/init.vim
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
-abbr --add ubuntu_version lsb_release -idrc
 abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add battery pmset -g batt
 abbr --add mux tmuxinator
+abbr --add fuz fzf -m | while read -l r; set result $result $r; end; and vim $result
 
 # ABBREVIAZIONI FILES
 abbr --add fopn 'lsof | wc -l'
