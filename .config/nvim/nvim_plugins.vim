@@ -32,6 +32,10 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " HASKELL
 Plug 'parsonsmatt/intero-neovim'
 Plug 'alx741/vim-hindent', { 'for': ['haskell','hs'] }
@@ -74,8 +78,14 @@ let g:surround_33 = "```\r```"
 let g:LanguageClient_autoStart = 1
 
 " ----- JAVASCRIPT/TYPESCRIPT -----{{{
-" Minimal LSP configuration for JavaScript
-let g:LanguageClient_serverCommands = {}
+"  " Required for operations modifying multiple buffers like rename.
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
 if executable('javascript-typescript-stdio')
     let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     " Use LanguageServer for omnifunc completion
