@@ -27,7 +27,8 @@ switch (uname)
 end
 set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 
-set -gx PATH $PATH $DOTFILES/bin `npm bin`
+set -gx PATH $PATH $DOTFILES/bin 
+#(npm bin)
 
 alias git="$DOTFILES/.gitwrapper.sh"
 set -g theme_display_git yes

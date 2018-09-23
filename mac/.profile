@@ -8,3 +8,5 @@ source $HOME/bin/dotfiles/.oh-my-git/prompt.sh
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make the bash prompt show that Canopy is active, otherwise 1
 alias activate_canopy="source '/Users/3m1/Library/Enthought/Canopy_64bit/User/bin/activate'"
 VIRTUAL_ENV_DISABLE_PROMPT=1 source '/Users/3m1/Library/Enthought/Canopy_64bit/User/bin/activate'
+
+export PATH="$HOME/.cargo/bin:$PATH"
