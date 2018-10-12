@@ -147,10 +147,12 @@ endfunc
 nnoremap <F4> <ESC>:!ctags -R .<CR>
 nnoremap <F5> :Autoformat<CR>
 noremap <F6> <ESC>:exec "help ".expand("<cWORD>")<CR>
-nnoremap <A-DOWN> gj
-nnoremap <A-UP> gk
-inoremap <A-DOWN> <ESC>gji
-inoremap <A-UP> <ESC>gki
+nnoremap <S-DOWN> gj
+nnoremap <S-UP> gk
+inoremap <S-DOWN> <ESC>gji
+inoremap <S-UP> <ESC>gki
+vnoremap <S-DOWN> gj
+vnoremap <S-UP> gk
 " Permette l'ignorecase con i comandi '*' e '#' quando usati per la parola corrente
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>

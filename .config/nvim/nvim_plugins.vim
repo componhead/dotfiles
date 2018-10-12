@@ -18,7 +18,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-markdown', {'for':['md','markdown']}
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
-Plug 'junegunn/goyo.vim', {'for':['txt','md','markdown']}
+Plug 'junegunn/goyo.vim', {'for':['.txt','md','markdown']}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
