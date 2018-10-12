@@ -18,6 +18,7 @@ set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg FZF_HOME ~/.fzf
 set -xg FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 set -xg FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
+set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 switch (uname)
     case "Linux"
@@ -65,6 +66,8 @@ source "$PRIVATE_DOTFILES/privatefile"
 
 # ABBREVIAZIONI GIT 
 abbr --add gad git add .
+abbr --add gas git update-index --assume-unchanged 
+abbr --add gac git update-index --no-assume-unchanged 
 abbr --add gbl git branch --list
 abbr --add gbr git branch
 abbr --add gcm git commit -m
@@ -72,7 +75,7 @@ abbr --add gco git checkout
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gg git status -sb \| fpp
-abbr --add glg git log --color --decorate --graph --all --oneline
+abbr --add glg git log --color --decorate --graph --all --oneline | emojify | less -r
 abbr --add gmg git merge --no-commit --no-ff
 abbr --add gmt git mergetool
 abbr --add gpt git add -p

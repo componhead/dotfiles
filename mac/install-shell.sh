@@ -100,6 +100,8 @@ else
     brew install gnu-sed --with-default-names
 fi
 
+brew install emojify
+
 brew install source-highlight
 
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
