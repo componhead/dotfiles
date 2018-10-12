@@ -9,4 +9,4 @@ source $HOME/bin/dotfiles/.oh-my-git/prompt.sh
 alias activate_canopy="source '/Users/3m1/Library/Enthought/Canopy_64bit/User/bin/activate'"
 VIRTUAL_ENV_DISABLE_PROMPT=1 source '/Users/3m1/Library/Enthought/Canopy_64bit/User/bin/activate'
 
-export PATH="$HOME/.cargo/bin:$PATH"
+set -xg PATH $PATH $HOME/.cargo/bin
