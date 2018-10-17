@@ -75,7 +75,7 @@ abbr --add gco git checkout
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gg git status -sb \| fpp
-abbr --add glg git log --color --decorate --graph --all --oneline | emojify | less -r
+abbr --add glg git log --color --decorate --graph --all --oneline \| emojify \| less -r
 abbr --add gmg git merge --no-commit --no-ff
 abbr --add gmt git mergetool
 abbr --add gpt git add -p
@@ -110,4 +110,4 @@ abbr --add network_port_occupied 'sudo lsof -i -P'
 
 bind \co openfile
 fish_vi_key_bindings
-#tmux -2
+##tmux -2
