@@ -7,6 +7,7 @@ set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME ~/.cache
 set -xg XDG_RUNTIME_DIR ~/.runtime
 
+set -xg OMF_PATH "$XDG_DATA_HOME/omf"
 set -xg RCFILE "$XDG_CONFIG_HOME/fish/config.fish"
 set -xg APPDATA $HOME
 set -xg CLICOLOR 1
@@ -74,6 +75,11 @@ abbr --add gcm git commit -m
 abbr --add gco git checkout 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
+# Git Flow
+abbr --add gffs git flow feature start
+abbr --add gffp git flow feature publish
+abbr --add gfff git flow feature finish
+#
 abbr --add gg git status -sb \| fpp
 abbr --add glg git log --color --decorate --graph --all --oneline \| emojify \| less -r
 abbr --add gmg git merge --no-commit --no-ff
