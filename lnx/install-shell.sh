@@ -107,7 +107,12 @@ sudo apt-get install -y \
     colordiff \
     gdebi \
     exfat-fuse \
-    exfat-utils
+    exfat-utils \
+    nodejs \
+    npm
+
+echo "******* Installing gitmoji..."
+npm i -g gitmoji-cli
 
 sudo apt-get install sudo apt autoremove -y
 

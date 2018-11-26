@@ -18,6 +18,13 @@ else
     brew install git
 fi
 
+if brew ls --versions gitmoji > /dev/null; then
+    echo "******* Gitmoji already installed"
+else
+    echo "******* Installing gitmoji..."
+    brew install gitmoji
+fi
+
 if brew ls --versions curl > /dev/null; then
     echo "******* curl already installed"
 else

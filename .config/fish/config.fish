@@ -73,7 +73,7 @@ abbr --add gbl git branch --list
 abbr --add gbr git branch
 abbr --add gcd git checkout develop
 abbr --add gcf git checkout feature/
-abbr --add gcm git commit -m
+abbr --add gcm gimoji -c
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 # Git Flow
