@@ -1,3 +1,5 @@
+# TO FIX fzf_key_bindings
+# ln -sf ~/.fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
 set -xg DOTFILES ~/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set -xg XDG_CONFIG_HOME "$DOTFILES/.config"
@@ -73,7 +75,7 @@ abbr --add gbl git branch --list
 abbr --add gbr git branch
 abbr --add gcd git checkout develop
 abbr --add gcf git checkout feature/
-abbr --add gcm gimoji -c
+abbr --add gcm gitmoji -c
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 # Git Flow
