@@ -20,6 +20,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'junegunn/goyo.vim', {'for':['.txt','md','markdown']}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'MattesGroeger/vim-bookmarks'

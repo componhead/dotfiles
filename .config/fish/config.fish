@@ -71,8 +71,9 @@ abbr --add gas git update-index --assume-unchanged
 abbr --add gac git update-index --no-assume-unchanged 
 abbr --add gbl git branch --list
 abbr --add gbr git branch
+abbr --add gcd git checkout develop
+abbr --add gcf git checkout feature/
 abbr --add gcm git commit -m
-abbr --add gco git checkout 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 # Git Flow
