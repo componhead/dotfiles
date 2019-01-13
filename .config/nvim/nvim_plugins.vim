@@ -20,6 +20,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'junegunn/goyo.vim', {'for':['.txt','md','markdown']}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'MattesGroeger/vim-bookmarks'
@@ -32,6 +33,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
+Plug 'elzr/vim-json'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -77,6 +79,9 @@ let g:surround_33 = "```\r```"
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 
+" ----- JAVASCRIPT/TYPESCRIPT -----{{{
+let g:vim_json_syntax_conceal = 0
+"}}}
 " ----- JAVASCRIPT/TYPESCRIPT -----{{{
 "  " Required for operations modifying multiple buffers like rename.
 set hidden

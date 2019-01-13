@@ -198,6 +198,22 @@ augroup filetype_vim
     autocmd FileType vim nnoremap <buffer> <localleader>c I" <esc>j0
 augroup END
 " }}}
+" JAVASCRIPT {{{
+augroup filetype_javascript
+    autocmd!
+    autocmd FileType javascript setlocal foldmethod=syntax
+augroup END
+" }}}
+" JSON {{{
+augroup filetype_json
+    autocmd FileType json set autoindent 
+    autocmd FileType json set formatoptions=tcq2l 
+    autocmd FileType json set textwidth=78 shiftwidth=2 
+    autocmd FileType json set softtabstop=2 tabstop=8 
+    autocmd FileType json set expandtab 
+    autocmd FileType json set foldmethod=syntax 
+augroup END
+" }}}
 " MARKDOWN {{{
 augroup filetype_markdown
     au! FileType markdown setlocal foldmethod=marker
