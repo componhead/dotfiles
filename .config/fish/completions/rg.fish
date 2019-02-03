@@ -1,1 +1,0 @@
-/home/3m1/opt/ripgrep-0.7.1-x86_64-unknown-linux-musl/complete/rg.fish

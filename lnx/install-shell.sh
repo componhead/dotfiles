@@ -47,12 +47,10 @@ sudo apt-get install -y \
     libxml2-dev \
     cmake \
     build-essential \
-    pkg-config
-
-echo "******* Installing Neovim..."
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-chmod u+x nvim.appimage
-mv nvim.appimage ~/.local/bin/nvim
+    pkg-config \
+    gnome-tweak-tool \
+    dconf-editor \
+    neovim
 
 echo "******* Installing Lucius colorscheme in neovim..."
 git clone git@github.com:componhead/vim-lucius.git ${DOTFILESDIR}
@@ -83,11 +81,11 @@ rm fpp.tar.gz
 cd $HOME
 
 echo "Installing Ripgrep..."
-wget -O ~/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/0.5.2/ripgrep-0.5.2-x86_64-unknown-linux-musl.tar.gz
+wget -O ~/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep-0.10.0-x86_64-unknown-linux-musl.tar.gz
 tar xzvf ~/ripgrep.tar.gz -C ~/.local/bin
-mv ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/rg ~/.local/bin
-mv ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl/complete/rg.fish ~/.config/fish/functions/
-rm -rf ~/.local/bin/ripgrep-0.5.2-x86_64-unknown-linux-musl
+mv ~/.local/bin/ripgrep-0.10.0-x86_64-unknown-linux-musl/rg ~/.local/bin
+mv ~/.local/bin/ripgrep-0.10.0-x86_64-unknown-linux-musl/complete/rg.fish ~/.config/fish/functions/
+rm -rf ~/.local/bin/ripgrep-0.10.0-x86_64-unknown-linux-musl
 
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -117,7 +115,7 @@ npm i -g gitmoji-cli
 sudo apt-get install sudo apt autoremove -y
 
 echo "******* Linking generics dot configuration files..."
-ln -sf ${DOTFILESDIR}/.config/ ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config ${HOME}/.config
 ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
 ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/.dockerignore
 ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
@@ -128,8 +126,6 @@ ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
 ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
 ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
-ln -sf ${DOTFILESDIR}/ubu/.vimperatorsys ${HOME}/.vimperatorsys
-ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 sudo cp -fr ${DOTFILESDIR}/tmux /usr/bin/tmux
 
 git clone componhead@bitbucket.org:componhead/private_dotfiles.git ${DOTFILESDIR}/
