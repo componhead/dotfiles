@@ -106,6 +106,7 @@ sudo apt-get install -y \
     gdebi \
     exfat-fuse \
     exfat-utils \
+    autokey-gtk \
     nodejs \
     npm
 
