@@ -41,7 +41,7 @@
     preloadindex = true
     fscache = true
     excludesfile = ~/.gitignore_global
-    pager = diff-highlight | less -rJN
+    #pager = diff-highlight | less -rJN
     autocrlf = input
     commentchar = ";"
 [push]
