@@ -78,7 +78,7 @@ rm fpp.tar.gz
 cd $HOME
 
 echo "Installing Ripgrep..."
-sudo apt-get install ripgrep
+sudo snap install ripgrep --classic
 
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
