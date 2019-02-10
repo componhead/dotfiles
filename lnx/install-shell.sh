@@ -14,7 +14,6 @@ DISTRO=sudo hostnamectl | sudo sed -n "s/^.*Operating System: \(\w\+\) .*$/\1/p"
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share
 mkdir ~/.config
-mkdir ~/opt
 
 rm -rf ~/.tmux
 
@@ -61,8 +60,6 @@ sudo apt-get install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo cp -f ${DOTFILESDIR}/tmux /usr/bin/tmux
 
- https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-
 echo "******* Installing Docker..."
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
@@ -81,11 +78,7 @@ rm fpp.tar.gz
 cd $HOME
 
 echo "Installing Ripgrep..."
-wget -O ~/ripgrep.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep-0.10.0-x86_64-unknown-linux-musl.tar.gz
-tar xzvf ~/ripgrep.tar.gz -C ~/.local/bin
-mv ~/.local/bin/ripgrep-0.10.0-x86_64-unknown-linux-musl/rg ~/.local/bin
-mv ~/.local/bin/ripgrep-0.10.0-x86_64-unknown-linux-musl/complete/rg.fish ~/.config/fish/functions/
-rm -rf ~/.local/bin/ripgrep-0.10.0-x86_64-unknown-linux-musl
+sudo apt-get install ripgrep
 
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
