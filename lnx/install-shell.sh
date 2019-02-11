@@ -85,6 +85,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 fzf_key_bindings
 
+echo "******* Installing npm..."
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+
 echo "******* Installing utilities..."
 sudo apt-get install -y \
     apt-transport-https \
@@ -100,8 +103,7 @@ sudo apt-get install -y \
     exfat-fuse \
     exfat-utils \
     autokey-gtk \
-    nodejs \
-    npm
+    nodejs
 
 echo "******* Installing gitmoji..."
 npm i -g gitmoji-cli
