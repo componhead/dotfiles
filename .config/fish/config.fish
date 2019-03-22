@@ -85,6 +85,7 @@ abbr --add gfff git flow feature finish
 #
 abbr --add gg git status -sb \| fpp
 abbr --add glg git log --color --decorate --graph --all --oneline \| emojify \| less -r
+abbr --add gll git log --color --decorate --graph \| emojify \| less -r
 abbr --add gmg git merge --no-commit --no-ff
 abbr --add gmt git mergetool
 abbr --add gpt git add -p
