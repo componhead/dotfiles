@@ -153,6 +153,18 @@ inoremap <S-DOWN> <ESC>gji
 inoremap <S-UP> <ESC>gki
 vnoremap <S-DOWN> gj
 vnoremap <S-UP> gk
+" TERMINAL {{{
+tnoremap <C-A> <ESC><C-\><C-n>
+tnoremap <C-A>x <ESC><C-\><C-n>:bdelete!<CR>
+tnoremap <C-A>w <ESC><C-\><C-n>:buffers<CR>
+tnoremap <C-A>c <ESC><C-\><C-n>:enew<CR>:setlocal buftype=nofile<CR>:setlocal bufhidden=hide<CR>:setlocal noswapfile<CR><C-\><C-n>:ter<CR>i
+tnoremap <C-A>, <ESC><C-\><C-n>:file 
+tnoremap <C-L> <ESC><C-\><C-n>:redraw<CR>i
+tnoremap <C-A>" <ESC><C-\><C-n>:new<CR><C-\><C-n>:ter<CR>i
+tnoremap <C-A>% <ESC><C-\><C-n>:vnew<CR><C-\><C-n>:ter<CR>i
+tnoremap <C-A>n <ESC><C-\><C-n>:bn<CR>i
+tnoremap <C-A>p <ESC><C-\><C-n>:bp<CR>i
+" }}}
 " Permette l'ignorecase con i comandi '*' e '#' quando usati per la parola corrente
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
