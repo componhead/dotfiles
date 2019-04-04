@@ -82,6 +82,8 @@ abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gffs git flow feature start
 abbr --add gffp git flow feature publish
 abbr --add gfff git flow feature finish
+abbr --add gfhs git flow hotfix start
+abbr --add gfhf git flow hotfix finish
 #
 abbr --add gg git status -sb \| fpp
 abbr --add glg git log --color --decorate --graph --all --oneline \| emojify \| less -r
