@@ -159,7 +159,7 @@ tnoremap <C-A>x <ESC><C-\><C-n>:bdelete!<CR>
 tnoremap <C-A>w <ESC><C-\><C-n>:buffers<CR>
 tnoremap <C-A>c <ESC><C-\><C-n>:enew<CR>:setlocal buftype=nofile<CR>:setlocal bufhidden=hide<CR>:setlocal noswapfile<CR><C-\><C-n>:ter<CR>i
 tnoremap <C-A>, <ESC><C-\><C-n>:file 
-tnoremap <C-L> <ESC><C-\><C-n>:redraw<CR>i
+tnoremap <C-L> <ESC><C-\><C-n>:redraw!<CR>i
 tnoremap <C-A>" <ESC><C-\><C-n>:new<CR><C-\><C-n>:ter<CR>i
 tnoremap <C-A>% <ESC><C-\><C-n>:vnew<CR><C-\><C-n>:ter<CR>i
 tnoremap <C-A>n <ESC><C-\><C-n>:bn<CR>i
