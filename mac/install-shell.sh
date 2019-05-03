@@ -21,8 +21,8 @@ fi
 if brew ls --versions gitmoji > /dev/null; then
     echo "******* Gitmoji already installed"
 else
-    echo "******* Installing gitmoji..."
-    brew install gitmoji
+    echo "******* Installing git..."
+    brew install git
 fi
 
 if brew ls --versions curl > /dev/null; then
@@ -32,6 +32,22 @@ else
     brew install curl
 fi
 
+if brew ls --versions python3 > /dev/null; then
+    echo "******* Python3 already installed"
+else
+    echo "******* Installing python3..."
+    brew install python3
+    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+fi
+
+if brew ls --versions pip > /dev/null; then
+    echo "******* Pip already installed"
+else
+    echo "******* Installing pip..."
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py
+fi
+
 if test -f ~/.fzf/install; then
     echo "******* fzf already installed"
 else
@@ -39,6 +55,9 @@ else
     git clone https://github.com/junegunn/fzf.git ~/.fzf
     chmod +x ~/.fzf/install | ~/.fzf/install
 fi
+
+echo "******* Installing bitbucket-cli."
+pip install bitbucket-cli
 
 echo "******* Installing Fura Fontee."
 brew tap caskroom/fonts
