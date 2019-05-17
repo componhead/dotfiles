@@ -79,8 +79,9 @@ abbr --add gcm gitmoji -c
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 # Git Flow
+# git branch | grep \* | cut -d ' ' -f2 | sed 's/.*\/\([0-9]*\)$/\1/'
 abbr --add gffs git flow feature start
-abbr --add gffp git flow feature publish
+# abbr --add gffp git flow feature publish
 abbr --add gfff git flow feature finish
 abbr --add gfhs git flow hotfix start
 abbr --add gfhf git flow hotfix finish
@@ -112,6 +113,11 @@ abbr --add vi nvim
 abbr --add battery pmset -g batt
 abbr --add mux tmuxinator
 abbr --add fuz fzf -m | while read -l r; set result $result $r; end; and vim $result
+abbr --add CPD curl -X POST http://localhost:9000/ -H "Content-Type: application/x-www-form-urlencoded" -d "param1=value1&param2=value2" 
+abbr --add CPJ curl -X POST http://localhost:9000/ -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}'
+abbr --add CPf curl -X POST http://localhost:9000/ -d "@data.json"
+
+
 
 # ABBREVIAZIONI FILES
 abbr --add fopn 'lsof | wc -l'
