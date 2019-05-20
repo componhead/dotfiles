@@ -78,8 +78,6 @@ abbr --add gcf git checkout feature/
 abbr --add gcm gitmoji -c
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
-# git branch | grep \* | cut -d ' ' -f2 | sed 's/.*\/\([0-9]*\)$/\1/'
-# Git
 abbr --add gg git status -sb \| fpp
 abbr --add glg git log --color --decorate --graph --all --oneline \| emojify \| less -r
 abbr --add gll git log --color --decorate --graph \| emojify \| less -r
@@ -93,6 +91,14 @@ abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add pll git pull origin
 abbr --add psh git push origin
+# Git Flow
+# git branch | grep \* | cut -d ' ' -f2 | sed 's/.*\/\([0-9]*\)$/\1/'
+abbr --add gffs git flow feature start
+abbr --add gffp git flow feature publish
+abbr --add gfff git flow feature finish
+abbr --add gfhs git flow hotfix start
+abbr --add gfhf git flow hotfix finish
+#
 
 # ALTRE ABBREVIAZIONI
 abbr --add dot cd ~/dotfiles/
