@@ -112,13 +112,13 @@ sudo apt-get install sudo apt autoremove -y
 
 echo "******* Linking generics dot configuration files..."
 ln -sf ${DOTFILESDIR}/.config ${HOME}/.config
-ln -sf ${DOTFILESDIR}/.config/omf/init.fish $HOME/.config/fish/config.fish
+ln -sf ${DOTFILESDIR}/.config/omf/init.fish ${DOTFILESDIR}/.config/fish/config.fish
 ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/.dockerignore
 ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
 ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
 ln -sf ${DOTFILESDIR}/.ghci ${HOME}/.ghci
 ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/ghci.conf
-ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
+ln -sf ${DOTFILESDIR}/.git_template ${HOME}/.git_template
 ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
 ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf

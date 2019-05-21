@@ -6,12 +6,7 @@ fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 rm ~/install
 
 echo "******* Installing omf plugins..."
-omf install \
-    fzf \
-    bobthefish \
-    fish_logo \
-    ssh-term-helper \
-    git-flow
+omf install fzf bobthefish fish_logo ssh-term-helper git-flow
 
 pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote
