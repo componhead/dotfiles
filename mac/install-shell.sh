@@ -126,6 +126,8 @@ else
     brew install gnu-sed --with-default-names
 fi
 
+brew install thefuck
+
 brew install emojify
 
 brew install source-highlight
