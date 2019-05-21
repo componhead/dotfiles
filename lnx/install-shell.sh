@@ -26,6 +26,12 @@ sudo apt-get install gnome-keyring
 echo "******* Installing curl..."
 sudo apt-get install -y curl
 
+echo "******* Installing python3..."
+sudo apt install python3-dev python3-pip python3-setuptools
+
+echo "******* Installing thefuck..."
+sudo pip3 install thefuck
+
 echo "******* Installing gpg tools..."
 sudo apt-get install -y \
     gpgv2 \
