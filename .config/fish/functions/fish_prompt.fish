@@ -1,1 +1,1 @@
-/Users/ronaldinho/.local/share/omf/themes/default/fish_prompt.fish
+/home/emiliano/.local/share/omf/themes/agnoster/fish_prompt.fish
