@@ -6,8 +6,7 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 chmod 644 ~/.ssh/*.pub
 chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
-ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
-DOTFILESDIR=${HOME}/dotfiles
+cp ../.ssh/config ${HOME}/.ssh/config
 
 DISTRO=sudo hostnamectl | sudo sed -n "s/^.*Operating System: \(\w\+\) .*$/\1/p"
 
@@ -58,13 +57,13 @@ sudo apt-get install -y \
     neovim
 
 echo "******* Installing Lucius colorscheme in neovim..."
-git clone git@github.com:componhead/vim-lucius.git ${DOTFILESDIR}
-sudo cp ${DOTFILESDIR}/vim-lucius/colors/lucius.vim /usr/share/vim/vim74/colors/
+git clone git@github.com:componhead/vim-lucius.git ../
+sudo cp ../vim-lucius/colors/lucius.vim /usr/share/vim/vim74/colors/
 
 echo "******* Installing tmux..."
 sudo apt-get install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-sudo cp -f ${DOTFILESDIR}/tmux /usr/bin/tmux
+sudo cp -f ../tmux /usr/bin/tmux
 
 echo "******* Installing Docker..."
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
@@ -117,20 +116,23 @@ npm i -g gitmoji-cli
 sudo apt-get install sudo apt autoremove -y
 
 echo "******* Linking generics dot configuration files..."
-ln -sf ${DOTFILESDIR}/.config ${HOME}/.config
-ln -sf ${DOTFILESDIR}/.config/omf/init.fish ${DOTFILESDIR}/.config/fish/config.fish
-ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/.dockerignore
-ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
-ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
-ln -sf ${DOTFILESDIR}/.ghci ${HOME}/.ghci
-ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/ghci.conf
-ln -sf ${DOTFILESDIR}/.git_template ${HOME}/.git_template
-ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
-ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
-ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
-sudo cp -fr ${DOTFILESDIR}/tmux /usr/bin/tmux
+cp -fr ../.config/fish ~/.config/
+cp -fr ../.config/nvim ~/.config/
+cp -fr ../.config/omf ~/.config/
+cp -fr ../.config/exercism ~/.config/
+ln -sf ${HOME}/.config/omf/init.fish ${HOME}/.config/fish/config.fish
+cp ../.dockerignore ${HOME}/.dockerignore
+cp ../.gitconfig ${HOME}/.gitconfig
+cp ../.gitignore_global ${HOME}/.gitignore_global
+cp ../.ghci ${HOME}/.ghci
+cp ../ghci.conf ${HOME}/ghci.conf
+cp ../.git_template ${HOME}/.git_template
+cp ../.scalafmt ${HOME}/.scalafmt
+cp ../.vimsessions ${HOME}/.vimsessions
+cp .tmux.conf ${HOME}/.tmux.conf
+sudo cp -fr ../tmux /usr/bin/tmux
 
-git clone componhead@bitbucket.org:componhead/private_dotfiles.git ${DOTFILESDIR}/
+git clone componhead@bitbucket.org:componhead/private_dotfiles.git ../
 
 echo "*** Setup Fish shell environment..."
 echo "******* Installing fish shell..."
