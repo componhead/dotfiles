@@ -29,7 +29,7 @@ switch (uname)
     case "Darwin"
       set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
 end
-#set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
+set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 
 set -gx PATH $PATH ~/bin $DOTFILES/bin `npm bin`
 
