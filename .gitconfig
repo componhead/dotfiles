@@ -44,6 +44,7 @@
     #pager = diff-highlight | less -rJN
     autocrlf = input
     commentchar = ";"
+	askpass = git-gui--askpass
 [push]
     default = simple
 [pull]
@@ -87,3 +88,5 @@
     autoSetupRebase = never
 [gitflow "feature.start"]
     fetch = true
+[trace2]
+	normalTarget = /home/emiliano/gitlog.normal
