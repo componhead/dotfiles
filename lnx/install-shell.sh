@@ -113,6 +113,8 @@ sudo apt-get install -y \
 echo "******* Installing gitmoji..."
 npm i -g gitmoji-cli
 
+sudo sh -c "curl https://raw.githubusercontent.com/mrowa44/emojifgy/master/emojify -o /usr/local/bin/emojify && chmod +x /usr/local/bin/emojify"
+
 sudo apt-get install sudo apt autoremove -y
 
 echo "******* Linking generics dot configuration files..."
