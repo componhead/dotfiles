@@ -118,21 +118,21 @@ sudo sh -c "curl https://raw.githubusercontent.com/mrowa44/emojifgy/master/emoji
 sudo apt-get install sudo apt autoremove -y
 
 echo "******* Linking generics dot configuration files..."
-cp -fr ../.config/fish ~/.config/
-cp -fr ../.config/nvim ~/.config/
-cp -fr ../.config/omf ~/.config/
-cp -fr ../.config/exercism ~/.config/
+ln -sf $DOTFILES/.config/fish ~/.config/
+ln -sf $DOTFILES/.config/nvim ~/.config/
+ln -sf $DOTFILES/.config/omf ~/.config/
+ln -sf $DOTFILES/.config/exercism ~/.config/
 ln -sf ${HOME}/.config/omf/init.fish ${HOME}/.config/fish/config.fish
-cp ../.dockerignore ${HOME}/.dockerignore
-cp ../.gitconfig ${HOME}/.gitconfig
-cp ../.gitignore_global ${HOME}/.gitignore_global
-cp ../.ghci ${HOME}/.ghci
-cp ../ghci.conf ${HOME}/ghci.conf
-cp ../.git_template ${HOME}/.git_template
-cp ../.scalafmt ${HOME}/.scalafmt
-cp ../.vimsessions ${HOME}/.vimsessions
-cp .tmux.conf ${HOME}/.tmux.conf
-sudo cp -fr ../tmux /usr/bin/tmux
+ln -sf $DOTFILES/.dockerignore ${HOME}/.dockerignore
+ln -sf $DOTFILES/.gitconfig ${HOME}/.gitconfig
+ln -sf $DOTFILES/.gitignore_global ${HOME}/.gitignore_global
+ln -sf $DOTFILES/.ghci ${HOME}/.ghci
+ln -sf $DOTFILES/ghci.conf ${HOME}/ghci.conf
+ln -sf $DOTFILES/.git_template ${HOME}/.git_template
+ln -sf $DOTFILES/.scalafmt ${HOME}/.scalafmt
+ln -sf $DOTFILES/.vimsessions ${HOME}/.vimsessions
+ln -sf $DOTFILES/.tmux.conf ${HOME}/.tmux.conf
+sudo ln -sf $DOTFILES/tmux /usr/bin/tmux
 
 git clone componhead@bitbucket.org:componhead/private_dotfiles.git ../
 
