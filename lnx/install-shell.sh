@@ -29,7 +29,7 @@ echo "******* Installing python3..."
 sudo apt install python3-dev python3-pip python3-setuptools
 
 echo "******* Installing thefuck..."
-sudo pip3 install thefuck
+sudo pip install thefuck
 
 echo "******* Installing gpg tools..."
 sudo apt-get install -y \
@@ -63,7 +63,6 @@ sudo cp ../vim-lucius/colors/lucius.vim /usr/share/vim/vim74/colors/
 echo "******* Installing tmux..."
 sudo apt-get install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-sudo cp -f ../tmux /usr/bin/tmux
 
 echo "******* Installing Docker..."
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
@@ -87,11 +86,21 @@ sudo snap install ripgrep --classic
 
 echo "******* Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+~/.fzf/install -y
 fzf_key_bindings
 
 echo "******* Installing npm..."
+sudo apt remove --purge -y nodejs npm
+sudo apt clean
+sudo apt autoclean
+sudo apt install -f
+sudo apt autoremove -y
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+sudo apt update
+sudo apt install -y nodejs-dev node-gyp libssl1.0-dev
+sudo apt install -y npm
+sudo apt install -y yarn
 
 echo "******* Installing utilities..."
 sudo apt-get install -y \
@@ -132,7 +141,6 @@ ln -sf $DOTFILES/.git_template ${HOME}/.git_template
 ln -sf $DOTFILES/.scalafmt ${HOME}/.scalafmt
 ln -sf $DOTFILES/.vimsessions ${HOME}/.vimsessions
 ln -sf $DOTFILES/.tmux.conf ${HOME}/.tmux.conf
-sudo ln -sf $DOTFILES/tmux /usr/bin/tmux
 
 git clone componhead@bitbucket.org:componhead/private_dotfiles.git ../
 

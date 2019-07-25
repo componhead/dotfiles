@@ -129,7 +129,7 @@ abbr --add flnk 'find . -type l -maxdepth 1'
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
 
-thefuck --alias | source 
+#thefuck --alias | source 
 
 bind \co openfile
 fish_vi_key_bindings
