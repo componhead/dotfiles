@@ -101,6 +101,10 @@ sudo apt update
 sudo apt install -y nodejs-dev node-gyp libssl1.0-dev
 sudo apt install -y npm
 sudo apt install -y yarn
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+
 
 echo "******* Installing utilities..."
 sudo apt-get install -y \
