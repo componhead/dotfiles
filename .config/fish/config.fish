@@ -75,14 +75,15 @@ abbr --add gas git update-index --assume-unchanged
 abbr --add gac git update-index --no-assume-unchanged 
 abbr --add gbl git branch --list
 abbr --add gbr git branch
-abbr --add gcd git checkout develop
-abbr --add gcf git checkout feature/
 abbr --add gcm gitmoji -c
+abbr --add gd git checkout develop
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
+abbr --add gf git checkout feature/
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gg git status -sb \| fpp
 abbr --add glg git log --color --decorate --graph --all --oneline \| emojify \| less -r
 abbr --add gll git log --color --decorate --graph \| emojify \| less -r
+abbr --add gm git checkout master
 abbr --add gmg git merge --no-commit --no-ff
 abbr --add gmt git mergetool
 abbr --add gpt git add -p
@@ -128,6 +129,8 @@ abbr --add flnk 'find . -type l -maxdepth 1'
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
 
+thefuck --alias | source 
+
 bind \co openfile
 fish_vi_key_bindings
-##tmux -2
+tmux -2
