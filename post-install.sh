@@ -8,6 +8,9 @@ rm ~/install
 echo "******* Installing omf plugins..."
 omf install fzf bobthefish fish_logo ssh-term-helper git-flow
 
+ln -sf ${DOTFILESDIR}/.config/fish/functions/fish_prompt.fish ${HOME}/.local/share/omf/themes/agnoster/fish_prompt.fish
+ln -sf ${HOME}/fzf/shell/key-bindings.fish ${HOME}/.config/fish/functions/fzf_key_bindings.fish
+
 pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote
 pip3 install --upgrade pip
