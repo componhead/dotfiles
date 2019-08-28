@@ -1,1 +1,0 @@
-/home/emiliano/dotfiles/.config/fish/config.fish
