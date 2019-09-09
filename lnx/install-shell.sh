@@ -6,7 +6,7 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 chmod 644 ~/.ssh/*.pub
 chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
-cp ../.ssh/config ${HOME}/.ssh/config
+cp ../.ssh/config ~/.ssh/config
 
 DISTRO=sudo hostnamectl | sudo sed -n "s/^.*Operating System: \(\w\+\) .*$/\1/p"
 
@@ -79,7 +79,7 @@ wget -O ~/.local/bin/fpp.tar.gz https://github.com/facebook/PathPicker/releases/
 cd ~/.local/bin
 tar xzvf fpp.tar.gz
 rm fpp.tar.gz
-cd $HOME
+cd ~
 
 echo "Installing Ripgrep..."
 sudo snap install ripgrep --classic
@@ -131,20 +131,20 @@ sudo sh -c "curl https://raw.githubusercontent.com/mrowa44/emojifgy/master/emoji
 sudo apt-get install sudo apt autoremove -y
 
 echo "******* Linking generics dot configuration files..."
-ln -sf $DOTFILES/.config/fish ~/.config/
+cp -r $DOTFILES/.config/fish ~/.config/
 ln -sf $DOTFILES/.config/nvim ~/.config/
 ln -sf $DOTFILES/.config/omf ~/.config/
 ln -sf $DOTFILES/.config/exercism ~/.config/
-ln -sf ${HOME}/.config/omf/init.fish ${HOME}/.config/fish/config.fish
-ln -sf $DOTFILES/.dockerignore ${HOME}/.dockerignore
-ln -sf $DOTFILES/.gitconfig ${HOME}/.gitconfig
-ln -sf $DOTFILES/.gitignore_global ${HOME}/.gitignore_global
-ln -sf $DOTFILES/.ghci ${HOME}/.ghci
-ln -sf $DOTFILES/ghci.conf ${HOME}/ghci.conf
-ln -sf $DOTFILES/.git_template ${HOME}/.git_template
-ln -sf $DOTFILES/.scalafmt ${HOME}/.scalafmt
-ln -sf $DOTFILES/.vimsessions ${HOME}/.vimsessions
-ln -sf $DOTFILES/.tmux.conf ${HOME}/.tmux.conf
+ln -sf ~/.config/omf/init.fish ~/.config/fish/config.fish
+ln -sf $DOTFILES/.dockerignore ~/.dockerignore
+ln -sf $DOTFILES/.gitconfig ~/.gitconfig
+ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
+ln -sf $DOTFILES/.ghci ~/.ghci
+ln -sf $DOTFILES/ghci.conf ~/ghci.conf
+ln -sf $DOTFILES/.git_template ~/.git_template
+ln -sf $DOTFILES/.scalafmt ~/.scalafmt
+ln -sf $DOTFILES/.vimsessions ~/.vimsessions
+ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 
 git clone componhead@bitbucket.org:componhead/private_dotfiles.git ../
 
