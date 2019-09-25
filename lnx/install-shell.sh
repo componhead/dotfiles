@@ -121,7 +121,8 @@ sudo apt-get install -y \
     exfat-fuse \
     exfat-utils \
     autokey-gtk \
-    nodejs
+    nodejs \
+    compizconfig-settings-manager
 
 echo "******* Installing gitmoji..."
 npm i -g gitmoji-cli

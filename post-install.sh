@@ -1,4 +1,5 @@
 #! /bin/bash
+rm -rf ~/.local/share/omf
 echo "******* Installing oh-my-fish shell..."
 curl -L https://get.oh-my.fish > ~/install
 chmod +x ~/install
@@ -6,7 +7,7 @@ fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 rm ~/install
 
 echo "******* Installing omf plugins..."
-omf install fzf bobthefish fish_logo ssh-term-helper git-flow
+omf install fzf agnoster fish_logo ssh-term-helper git-flow
 
 ln -sf ~/.local/share/omf/themes/agnoster/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish 
 ln -sf ~/fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
