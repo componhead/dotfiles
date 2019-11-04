@@ -131,6 +131,8 @@ sudo sh -c "curl https://raw.githubusercontent.com/mrowa44/emojifgy/master/emoji
 
 sudo apt-get install sudo apt autoremove -y
 
+gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
+
 echo "******* Linking generics dot configuration files..."
 cp -r $DOTFILES/.config/fish ~/.config/
 ln -sf $DOTFILES/.config/nvim ~/.config/

@@ -1,6 +1,5 @@
 [user]
     name = Emiliano Anichini
-    email = ihate@spam.bot
 [color]
     pager = true
     ui = auto
@@ -90,3 +89,7 @@
     fetch = true
 [trace2]
 	normalTarget = /home/emiliano/gitlog.normal
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
