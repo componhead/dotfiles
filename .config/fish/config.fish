@@ -69,7 +69,7 @@ set -U fish_user_paths /usr/local/bin $HOME/.local/bin $FZF_HOME/bin
 source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 source "$PRIVATE_DOTFILES/privatefile"
 
-# ABBREVIAZIONI GIT 
+ #ABBREVIAZIONI GIT 
 abbr --add gad git add .
 abbr --add gas git update-index --assume-unchanged 
 abbr --add gac git update-index --no-assume-unchanged 
@@ -133,3 +133,7 @@ abbr --add network_port_occupied 'sudo lsof -i -P'
 
 bind \co openfile
 fish_vi_key_bindings
+fish_ssh_agent
+
+#workaround for resolving push (hung on) issue
+set SSH_AUTH_SOCK ssh git@github.com
