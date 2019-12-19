@@ -1,5 +1,6 @@
 [user]
-    name = Emiliano Anichini
+	name = emiliano anichini
+	email = emiliano.anichini@gmail.com
 [color]
     pager = true
     ui = auto
@@ -92,4 +93,4 @@
 [gpg]
 	program = gpg2
 [commit]
-	gpgsign = false
+	gpgsign = true
