@@ -89,6 +89,10 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install -y
 fzf_key_bindings
 
+echo "******* Installing Fura Nerd Font..."
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "Fura Mono Regular Nerd Font Complete Mono.otf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete%20Mono.otf
+
 echo "******* Installing npm..."
 sudo apt remove --purge -y nodejs npm
 sudo apt clean
@@ -134,26 +138,26 @@ sudo apt-get install sudo apt autoremove -y
 gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
 
 echo "******* Linking generics dot configuration files..."
-cp -r $DOTFILES/.config/fish ~/.config/
-ln -sf $DOTFILES/.config/nvim ~/.config/
-ln -sf $DOTFILES/.config/omf ~/.config/
-ln -sf $DOTFILES/.config/exercism ~/.config/
+cp -r ~/dotfiles/.config/fish ~/.config/
+cp -r ~/dotfiles/.config/nvim ~/.config/
+cp -r ~/dotfiles/.config/omf ~/.config/
+cp -r ~/dotfiles/.config/exercism ~/.config/
 ln -sf ~/.config/omf/init.fish ~/.config/fish/config.fish
-ln -sf $DOTFILES/.dockerignore ~/.dockerignore
-ln -sf $DOTFILES/.gitconfig ~/.gitconfig
-ln -sf $DOTFILES/.gitignore_global ~/.gitignore_global
-ln -sf $DOTFILES/.ghci ~/.ghci
-ln -sf $DOTFILES/ghci.conf ~/ghci.conf
-ln -sf $DOTFILES/.git_template ~/.git_template
-ln -sf $DOTFILES/.scalafmt ~/.scalafmt
-ln -sf $DOTFILES/.vimsessions ~/.vimsessions
-ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/.dockerignore ~/.dockerignore
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
+ln -sf ~/dotfiles/.ghci ~/.ghci
+ln -sf ~/dotfiles/ghci.conf ~/ghci.conf
+ln -sf ~/dotfiles/.git_template ~/.git_template
+ln -sf ~/dotfiles/.scalafmt ~/.scalafmt
+ln -sf ~/dotfiles/.vimsessions ~/.vimsessions
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 git clone componhead@bitbucket.org:componhead/private_dotfiles.git ../
 
 echo "*** Setup Fish shell environment..."
 echo "******* Installing fish shell..."
-sudo echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list 
+sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt update
 sudo apt-get install -y fish
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+echo "/usr/bin/fish" | sudo tee -a /etc/shells
