@@ -115,7 +115,6 @@ abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add battery pmset -g batt
 abbr --add mux tmuxinator
-abbr --add fuz fzf -m | while read -l r; set result $result $r; end; and vim $result
 abbr --add CPD curl -X POST http://localhost:9000/ -H "Content-Type: application/x-www-form-urlencoded" -d "param1=value1&param2=value2" 
 abbr --add CPJ curl -X POST http://localhost:9000/ -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}'
 abbr --add CPf curl -X POST http://localhost:9000/ -d "@data.json"
@@ -133,7 +132,6 @@ abbr --add network_port_occupied 'sudo lsof -i -P'
 
 bind \co openfile
 fish_vi_key_bindings
-fish_ssh_agent
 
 #workaround for resolving push (hung on) issue
 set SSH_AUTH_SOCK ssh git@github.com
