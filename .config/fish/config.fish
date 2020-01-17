@@ -95,10 +95,9 @@ abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add pll git pull origin
 abbr --add psh git push origin
 # Git Flow
-# git branch | grep \* | cut -d ' ' -f2 | sed 's/.*\/\([0-9]*\)$/\1/'
 abbr --add gffs git flow feature start
-abbr --add gffp git flow feature publish
-abbr --add gfff git flow feature finish
+abbr --add gffp git flow feature publish "(git rev-parse --abbrev-ref HEAD | sed 's/.*\///')"
+abbr --add gfff git flow feature finish "(git rev-parse --abbrev-ref HEAD | sed 's/.*\///')"
 abbr --add gfhs git flow hotfix start
 abbr --add gfhf git flow hotfix finish
 #
@@ -118,8 +117,6 @@ abbr --add mux tmuxinator
 abbr --add CPD curl -X POST http://localhost:9000/ -H "Content-Type: application/x-www-form-urlencoded" -d "param1=value1&param2=value2" 
 abbr --add CPJ curl -X POST http://localhost:9000/ -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}'
 abbr --add CPf curl -X POST http://localhost:9000/ -d "@data.json"
-
-
 
 # ABBREVIAZIONI FILES
 abbr --add fopn 'lsof | wc -l'
