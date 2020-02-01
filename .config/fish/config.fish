@@ -47,18 +47,18 @@ set -g theme_display_virtualenv yes
 set -g theme_display_ruby yes
 set -g theme_display_user yes
 set -g theme_display_vi yes
-set -g theme_display_date no
-set -g theme_display_cmd_duration no
+set -g theme_display_date yes
+set -g theme_display_cmd_duration yes
 set -g theme_title_display_process yes
 set -g theme_title_display_path no
 set -g theme_title_display_user yes
 set -g theme_title_use_abbreviated_path no
-set -g theme_date_format "+%a %H:%M"
+set -g theme_date_format "+%Y-%m-%d, %a, %H:%M:%S"
 set -g theme_avoid_ambiguous_glyphs yes
-set -g theme_powerline_fonts yes
-set -g theme_nerd_fonts yes
+set -g theme_powerline_fonts no
+set -g theme_nerd_fonts no
 set -g theme_show_exit_status yes
-set -g theme_color_scheme solarized-dark
+set -g theme_color_scheme solarized-light
 set -g theme_newline_cursor yes
 set -g fish_vi_key_bindings yes
 set -g fish_escape_delay_ms 300
@@ -81,8 +81,8 @@ abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=.
 abbr --add gf git checkout feature/
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gg git status -sb \| fpp
-abbr --add glg git log --color --decorate --graph --all --oneline \| emojify \| less -r
-abbr --add gll git log --color --decorate --graph \| emojify \| less -r
+abbr --add glg git log --color --decorate --graph --all --oneline \| less -r
+abbr --add gll git log --color --decorate --graph \| less -r
 abbr --add gm git checkout master
 abbr --add gmg git merge --no-commit --no-ff
 abbr --add gmt git mergetool
@@ -132,3 +132,8 @@ fish_vi_key_bindings
 
 #workaround for resolving push (hung on) issue
 set SSH_AUTH_SOCK ssh git@github.com
+
+fish_ssh_agent
+eval (ssh-agent -c) > /dev/null
+
+
