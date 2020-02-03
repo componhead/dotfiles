@@ -67,7 +67,7 @@ if brew ls --versions neovim > /dev/null; then
     echo "******* Neovim already installed"
 else
     echo "******* Installing Neovim..."
-    brew install neovim/neovim/neovim
+    brew install neovim
 fi
 
 if brew ls --versions tmux > dev/null; then
@@ -87,10 +87,6 @@ else
     echo "******* Installing Ripgrep..."
     brew install ripgrep
 fi
-
-echo "******* Installing autocompletion docker"
-mkdir -p ~/.zsh/completion
-curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
 
 if brew ls --versions pinentry > /dev/null; then
     echo "******* Pinentry already installed"
@@ -136,11 +132,9 @@ curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/
 chmod +x ~/.local/bin/git-credential-netrc
 
 echo "******* Installing generics dot configuration files"
-ln -sf ${DOTFILESDIR}/.oh-my-zsh_custom_themes/emiliano.zsh-theme ${HOME}/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh.git/themes/emiliano.zsh-theme
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.vimrc
 ln -sf ${DOTFILESDIR}/nvim/nvim_plugins.vim  ${HOME}/nvim_plugins.vim
-ln -sf ${DOTFILESDIR}/.zshrc ${HOME}/.zshrc
 ln -sf ${DOTFILESDIR}/.docker ${HOME}/.docker
 ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/.dockerignore
 ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
@@ -161,7 +155,6 @@ ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
 
 echo "******* Installing specifics dot configuration files"
-ln -sf ${DOTFILESDIR}/mac/.zshenv ${HOME}/.zshenv
 ln -sf ${DOTFILESDIR}/mac/.osx ${HOME}/.osx
 ln -sf ${DOTFILESDIR}/mac/.profile ${HOME}/.profile
 ln -sf ${DOTFILESDIR}/mac/.vimperatorsys ${HOME}/.vimperatorsys
