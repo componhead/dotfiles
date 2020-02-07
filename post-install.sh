@@ -19,3 +19,9 @@ pip3 install --upgrade pip
 # If in WSL:
 # > mv /home/USER/.local/share/omf/pkg/bobthefish /home/USER/.local/share/omf/themes/bobthefish
 # > omf theme bobthefish
+
+sudo chmod 700 ~/.ssh
+sudo chmod 600 ~/.ssh/*
+sudo chmod 644 ~/.ssh/*.pub
+sudo chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
+sudo chown -R (whoami):staff .ssh/
