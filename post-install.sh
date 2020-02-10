@@ -20,6 +20,7 @@ pip3 install --upgrade pip
 # > mv /home/USER/.local/share/omf/pkg/bobthefish /home/USER/.local/share/omf/themes/bobthefish
 # > omf theme bobthefish
 
+sudo chmod 755 ~
 sudo chmod 700 ~/.ssh
 sudo chmod 600 ~/.ssh/*
 sudo chmod 644 ~/.ssh/*.pub
