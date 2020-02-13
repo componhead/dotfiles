@@ -1,6 +1,3 @@
-[user]
-	name = emiliano anichini
-	email = emiliano.anichini@gmail.com
 [color]
     pager = true
     ui = auto
@@ -44,7 +41,7 @@
     #pager = diff-highlight | less -rJN
     autocrlf = input
     commentchar = ";"
-	askpass = git-gui--askpass
+    askpass = git-gui--askpass
 [push]
     default = simple
 [pull]
@@ -89,8 +86,9 @@
 [gitflow "feature.start"]
     fetch = true
 [trace2]
-	normalTarget = /home/emiliano/gitlog.normal
+    normalTarget = /home/emiliano/gitlog.normal
+[commit]
+    template = ~/.gitmessage
+#	gpgsign = true
 #[gpg]
 #	program = gpg2
-#[commit]
-#	gpgsign = true
