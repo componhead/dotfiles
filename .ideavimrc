@@ -1,0 +1,7 @@
+noremap <Space> :action AceAction<CR>
+noremap <M-Space> :action AceTargetAction<CR>
+noremap <A-Space> :action AceLineAction<CR>
+
+set scrolloff=5
+set encoding=utf-8
+
