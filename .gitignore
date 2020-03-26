@@ -15,3 +15,4 @@ private_dotfiles/3M1/.config/fish/functions/fish_prompt.fish
 .git_template/.git_template
 .config/omf/init.fish
 .config/omf/theme
+.DS_Store
