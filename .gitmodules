@@ -1,3 +1,3 @@
 [submodule "private_dotfiles"]
 	path = private_dotfiles
-	url = ssh://git@mybitbucket.org/componhead/private_dotfiles.git
+	url = ssh://git@mybitbucket/componhead/private_dotfiles.git

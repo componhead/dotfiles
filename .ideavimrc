@@ -1,33 +1,14 @@
-" ---------------------------------------------
-" Regular Vim Configuration (No Plugins Needed)
-" ---------------------------------------------
-
-
 " ---------------
-" Plugins
+" Functionalities
 " ---------------
 set easymotion
 set surround
 set commentary
 set ReplaceWithRegister
+set ideajoin
+set ideaput
 
-" ---------------
-" Color
-" ---------------
-" colorscheme monokai-chris
-"set background=dark
-
-" -----------------------------
-" File Locations
-" -----------------------------
-set backupdir=~/.vim/.backup// " Double // causes backups to use full file path
-set directory=~/.vim/.tmp//
-set spellfile=~/.vim/spell/custom.en.utf-8.add
-" Persistent Undo
-if has('persistent_undo')
-  set undofile
-  set undodir=~/.vim/.undo
-endif
+set timeoutlen=1000 ttimeoutlen=10
 
 " ---------------
 " UI
@@ -37,38 +18,14 @@ set relativenumber   " Line numbers on
 set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
-set cursorline     " Highlight current line
 set encoding=utf-8
 set noshowmode     " Don't show the mode since Powerline shows it
 set title          " Set the title of the window in the terminal to the file
-" if exists('+colorcolumn')
-"   set colorcolumn=80 " Color the 80th column differently as a wrapping guide.
-" endif
-" Disable tooltips for hovering keywords in Vim
-if exists('+ballooneval')
-  " This doesn't seem to stop tooltips for Ruby files
-  set noballooneval
-  " 100 second delay seems to be the only way to disable the tooltips
-  set balloondelay=100000
-endif
-
-" ---------------
-" Behaviors
-" ---------------
-syntax enable
-set backup             " Turn on backups
-set autoread           " Automatically reload changes if detected
-set wildmenu           " Turn on WiLd menu
-" longest common part, then all.
-set wildmode=longest,full
-set hidden             " Change buffer - without saving
-set history=768        " Number of things to remember in history.
-set confirm            " Enable error files & error jumping.
 set clipboard+=unnamed " Yanks go on clipboard instead.
 set autowrite          " Writes on make/shell commands
-set timeoutlen=400     " Time to wait for a command (after leader for example).
+set timeoutlen=600     " Time to wait for a command (after leader for example).
 set ttimeout
-set ttimeoutlen=100    " Time to wait for a key sequence.
+set ttimeoutlen=1000   " Time to wait for a key sequence.
 set nofoldenable       " Disable folding entirely.
 set foldlevelstart=99  " I really don't like folds.
 set formatoptions=crql
@@ -98,8 +55,9 @@ set smartcase  " Non-case sensitive search
 set incsearch  " Incremental search
 set hlsearch   " Highlight search results
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
-  \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc,*/node_modules/*,
-  \rake-pipeline-*
+			\.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc,*/node_modules/*,
+			\rake-pipeline-*
+set matchpairs+=<:>
 
 " ---------------
 " Visual
@@ -149,8 +107,8 @@ set complete=.,w,b,u,U
 " No 'Press Any Key to Contiue BS'
 " from: http://vim.wikia.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
 command! -nargs=1 SilentCmd
-\ | execute ':silent !'.<q-args>
-\ | execute ':redraw!'
+			\ | execute ':silent !'.<q-args>
+			\ | execute ':redraw!'
 
 
 " ---------------
@@ -174,7 +132,7 @@ nnoremap <silent> <C-l> :wincmd l<CR>
 nnoremap <silent> g1 :WriteBufferIfNecessary<CR>:wincmd t<CR>
 nnoremap <silent> g2 :WriteBufferIfNecessary<CR>:wincmd t<bar>:wincmd l<CR>
 nnoremap <silent> g3 :WriteBufferIfNecessary<CR>:wincmd t<bar>:wincmd l<bar>
-      \:wincmd l<CR>
+			\:wincmd l<CR>
 nnoremap <silent> g4 :WriteBufferIfNecessary<CR>:wincmd b<CR>
 
 " Equal Size Windows
@@ -258,17 +216,17 @@ iabbrev ddate <C-R>=strftime("%Y-%m-%d")<CR>
 " copy current file name (relative/absolute) to system clipboard
 " from http://stackoverflow.com/a/17096082/22423
 if has('mac') || has('gui_macvim') || has('gui_mac')
-  " relative path  (src/foo.txt)
-  nnoremap <silent> <leader>yp :let @*=expand("%")<CR>
+	" relative path  (src/foo.txt)
+	nnoremap <silent> <leader>yp :let @*=expand("%")<CR>
 
-  " absolute path  (/something/src/foo.txt)
-  nnoremap <silent> <leader>yP :let @*=expand("%:p")<CR>
+	" absolute path  (/something/src/foo.txt)
+	nnoremap <silent> <leader>yP :let @*=expand("%:p")<CR>
 
-  " filename       (foo.txt)
-  nnoremap <silent> <leader>yf :let @*=expand("%:t")<CR>
+	" filename       (foo.txt)
+	nnoremap <silent> <leader>yf :let @*=expand("%:t")<CR>
 
-  " directory name (/something/src)
-  nnoremap <silent> <leader>yd :let @*=expand("%:p:h")<CR>
+	" directory name (/something/src)
+	nnoremap <silent> <leader>yd :let @*=expand("%:p:h")<CR>
 endif
 
 " ----------------------------------------

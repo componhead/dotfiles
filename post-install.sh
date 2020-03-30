@@ -26,3 +26,6 @@ sudo chmod 600 ~/.ssh/*
 sudo chmod 644 ~/.ssh/*.pub
 sudo chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 sudo chown -R (whoami):staff .ssh/
+
+npm install -g npx
+npx install-peerdeps --dev eslint-config-airbnb
