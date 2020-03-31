@@ -134,6 +134,7 @@ curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/
 chmod +x ~/.local/bin/git-credential-netrc
 
 echo "******* Installing generics dot configuration files"
+cp ${DOTFILESDIR}/mac/Library/Preferences/* ~/Library/Preferences/
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.config/nvim/init.vim
 ln -sf ${DOTFILESDIR}/nvim/init.vim ${HOME}/.vimrc
 ln -sf ${DOTFILESDIR}/nvim/nvim_plugins.vim  ${HOME}/nvim_plugins.vim
