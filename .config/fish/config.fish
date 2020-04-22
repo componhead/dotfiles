@@ -135,5 +135,4 @@ set SSH_AUTH_SOCK ssh git@github.com
 
 fish_ssh_agent
 eval (ssh-agent -c) > /dev/null
-
-
+source (npx --shell-auto-fallback fish | psub)
