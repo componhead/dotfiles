@@ -7,7 +7,9 @@ fish ~/install --path=~/.local/share/omf --config=~/.config/omf
 rm ~/install
 
 echo "******* Installing omf plugins..."
-omf install fzf cmorrell fish_logo ssh-term-helper git-flow thefuck
+omf install fzf cmorrell fish_logo ssh-term-helper git-flow thefuck nvm
+
+set -gx NVM_DIR (brew --prefix nvm)
 
 ln -sf ~/.local/share/omf/themes/agnoster/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish 
 ln -sf ~/fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
