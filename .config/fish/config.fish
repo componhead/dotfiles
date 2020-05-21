@@ -32,8 +32,9 @@ switch (uname)
       set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
 end
 set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
+set -gx NVM_DIR "$HOME/.nvm"
 
-set -gx PATH $PATH $DOTFILES/bin `npm bin`
+set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin` $NVM_DIR
 
 alias git="$DOTFILES/.gitwrapper.sh"
 set -g theme_display_git yes
@@ -75,24 +76,24 @@ abbr --add gas git update-index --assume-unchanged
 abbr --add gac git update-index --no-assume-unchanged 
 abbr --add gbl git branch --list
 abbr --add gbr git branch
-abbr --add gcm gitmoji -c
+abbr --add gcm git commit -m 
 abbr --add gd git checkout develop
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gf git checkout feature/
 abbr --add gfl git diff --name-only --diff-filter=
-abbr --add gg git status -sb \| fpp
-abbr --add glg git log --color --decorate --graph --all --oneline \| less -r
+abbr --add glg git log --color --decorate --graph --all --oneline
 abbr --add gll git log --color --decorate --graph \| less -r
 abbr --add gm git checkout master
 abbr --add gmg git merge --no-commit --no-ff
 abbr --add gmt git mergetool
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
-abbr --add gst git status -sb \| fpp
+abbr --add gst git status -sb
 abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
-abbr --add pll git pull origin
+abbr --add cln git clone --recursive 
+abbr --add pll git pull origin && git submodule update --init --recursive
 abbr --add psh git push origin
 # Git Flow
 abbr --add gffs git flow feature start
@@ -136,3 +137,4 @@ set SSH_AUTH_SOCK ssh git@github.com
 fish_ssh_agent
 eval (ssh-agent -c) > /dev/null
 source (npx --shell-auto-fallback fish | psub)
+tmux -2
