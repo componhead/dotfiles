@@ -67,6 +67,7 @@
     helper = cache --timeout=144000
 [merge]
     tool = vimdiff3
+	commit = no
 [diff]
     tool = vimdiff3
 [difftool "vimdiff3"]
