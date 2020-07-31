@@ -59,7 +59,7 @@
     U = "!f() { git status -sb | sed 1d | sed '/^?? /!d' | sed 's/^...//g'; }; f"
     UU = "!f() { git status -sb | sed 1d | sed '/^UU /!d' | sed 's/^...//g'; }; f"
 [interactive]
-    diffFilter = $DOTFILES/diff-highlight
+    diffFilter = /Users/emiliano/dotfiles/diff-highlight
 [pager]
     show = nvim -R -
     color = true
@@ -67,11 +67,11 @@
     helper = cache --timeout=144000
 [merge]
     tool = vimdiff3
-    #tool = intellij
+    #tool = idea
     commit = no
 [diff]
     tool = vimdiff3
-    #tool = intellij
+    #tool = idea
 [difftool "vimdiff3"]
     cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "vimdiff3"]
@@ -94,9 +94,12 @@
 [gitflow "feature.start"]
     fetch = true
 [trace2]
-    normalTarget = /home/emiliano/gitlog.normal
+    normalTarget = /Users/emiliano/gitlog.normal
 [commit]
-    template = ~/.gitmessage
+    template = /Users/emiliano/.gitmessage
 #	gpgsign = true
 #[gpg]
 #	program = gpg2
+[user]
+	name = emiliano
+	email = e.anichini@treedom.net
