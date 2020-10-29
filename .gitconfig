@@ -103,3 +103,5 @@
 [user]
 	name = emiliano
 	email = e.anichini@treedom.net
+[gui]
+	recentrepo = /Users/emiliano/repo/treedom/eventmail.treedom.net

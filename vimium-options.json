@@ -1,0 +1,30 @@
+{
+  "settingsVersion": "1.66",
+  "exclusionRules": [
+    {
+      "pattern": "https?://www.typinggames.zone/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.typinggames.zone/*",
+      "passKeys": ""
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "# Insert your preferred key mappings here.\n\nmap \\bank createTab https://www.inbank.it/function/GestioneCartePrepagateNewFlow.flow?execution=e2s1\nmap \\bbjs createTab https://builderbook.org/books/builder-book/introduction\nmap \\bqc createTab https://console.cloud.google.com/home/dashboard\nmap \\brdgm createTab https://boardgamearena.com/startwannaplay\n\nmap \\czcli createTab https://github.com/commitizen/cz-cli\n\nmap \\eslint createTab https://eslint.org/docs/rules/\n\nmap \\ffdoc createTab https://www.mozilla.org/en-US/firefox/developer/\n\nmap \\gitmoji createTab https://gitmoji.carloscuesta.me/\n\nmap \\ijdoc createTab https://www.jetbrains.com/help/idea/discover-intellij-idea.html\n\nmap \\jsman createTab https://javascript.info/js\nmap \\jsref createTab https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference\nmap \\jstdoc createTab https://jestjs.io/docs/en/getting-started\n\nmap \\mail createTab https://mail.google.com/mail/u/0/#inbox\nmap \\mangrok createTab https://livebook.manning.com/book/grokking-functional-programming\nmap \\manjoy createTab https://livebook.manning.com/book/the-joy-of-javascript\nmap \\manning createTab https://www.manning.com/dashboard\nmap \\mantst createTab https://livebook.manning.com/book/the-art-of-unit-testing-third-edition/\n\nmap \\nact createTab https://nact.io/\nmap \\npmdoc createTab https://docs.npmjs.com/\nmap \\nstex createTab https://github.com/nestjs/nest/tree/master/sample\nmap \\nstdoc createTab https://docs.nestjs.com/\n\nmap \\oapidoc createTab http://spec.openapis.org/oas/v3.0.3\n\nmap \\pec createTab https://areaclienti.pec.it/\n\nmap \\reg createTab https://jex.im/regulex/\n\nmap \\seqdoc createTab https://sequelize.org/\nmap \\seqguide createTab https://sequelize-guides.netlify.app/getting-started/\nmap \\supertest createTab https://github.com/visionmedia/supertest\nmap \\swaged createTab https://editor.swagger.io/\n\nmap \\tjojs createTab https://github.com/JoyOfJavaScript/joj\nmap \\tscfg createTab https://www.staging-typescript.org/tsconfig\nmap \\tsman createTab https://basarat.gitbook.io/typescript/\nmap \\tsut createTab https://www.typescriptlang.org/docs/handbook/utility-types.html\n\nmap \\udmand createTab https://www.udemy.com/course/advanced-node-for-developers/\nmap \\udmdn createTab https://www.udemy.com/course/deno-the-complete-guide-zero-to-mastery/\nmap \\udmjs createTab https://www.udemy.com/course/advanced-javascript-concepts/\nmap \\udmmysql createTab https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/\nmap \\udmnd createTab https://www.udemy.com/course/nodejs-the-complete-guide/\nmap \\udmsenior createTab https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/\nmap \\udmts createTab https://www.udemy.com/course/understanding-typescript/\n\nmap \\ztm createTab https://zerotomastery.io/blog/",
+  "linkHintCharacters": "sadfjklewcmpgh",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 60,
+  "smoothScroll": true,
+  "grabBackFocus": true,
+  "searchEngines": "3c: http://www.treccani.it/enciclopedia/ricerca/%s Treccani\n\na: https://www.amazon.it/exec/obidos/external-search/?field-keywords=%s&mode=blended Amazon\n\nd: https://duckduckgo.com/?q=%s&t=h_&ia=videos DuckDuckGo\n\ne: https://www.ebay.it/sch/?_nkw=%s eBay\n\ng: https://www.google.com/search?q=%s Google\ngh: https://github.com/search?q=%s GitHub\ngi: https://www.google.com/search?tbm=isch&q=%s Google Images\ngm: https://www.google.com/maps?q=%s Google Maps\n\nhn: https://www.hnsearch.com/search#request/submissions&q=%s&start=0 HackerNews\n\nimdb: https://www.imdb.com/find?s=all&q=%s IMDB\n\nre: https://www.google.com/search?hl=en&tbo=1&tbs=qdr:y&q=%s Google (last year only)\n\nso: https://stackoverflow.com/search?q=%s StackOverflow\nsu: https://superuser.com/search?q=%s SuperUser\n\ntr: https://translate.google.com/?source=osdd#auto|auto|%s Google Translator\ntrello: https://trello.com/search?q=%s Trello\n\nu: https://www.udemy.com/courses/search/?src=ukw&q=%s Udemy\n\nwen: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia EN\nwit: https://www.wikipedia.it/w/index.php?title=Special:Search&search=%s Wikipedia IT\n\nyt: https://www.youtube.com/results?search_query=%s YouTube",
+  "searchUrl": "https://www.duckduckgo.com/?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}

@@ -2,6 +2,9 @@ set -xg CPCLIPBOARD pbcopy
 set -xg CPCLIPBOARD_CMD $CPCLIPBOARD -selection clipboard
 set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
 set -xg LSCOLORS gxcxahdxacafxfaexeabxb
+set -xg NVIM_PYTHON_LOG_FILE /tmp/log
+set -xg NVIM_PYTHON_LOG_LEVEL DEBUG
+
 # put on private JAVA_HOME the resulting
 # /usr/libexec/java_home -v 1.8
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" ~/.config/fish/config.fish
