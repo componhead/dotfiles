@@ -192,7 +192,7 @@ nnoremap <leader>tl <C-\><C-n><C-W>li
 nnoremap <leader>th <C-\><C-n><C-W>hi
 nnoremap <leader>tk <C-\><C-n><C-W>ki
 nnoremap <leader>tj <C-\><C-n><C-W>ji
-autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber number
 autocmd BufEnter term://* startinsert
 "else
 "    set ttymouse=xterm2

@@ -2,6 +2,7 @@
 " Functionalities
 " ---------------
 set easymotion
+set vim-easyclip
 set surround
 set commentary
 set ReplaceWithRegister
@@ -14,6 +15,7 @@ set timeoutlen=1000 ttimeoutlen=10
 " UI
 " ---------------
 set noruler          " Ruler off
+set number
 set relativenumber   " Line numbers on
 set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
