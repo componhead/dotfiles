@@ -51,7 +51,7 @@
 [pack]
     windowMemory = 250m
 [init]
-    templatedir = ~/.git_template
+    templatedir = ~/dotfiles/.git_template
 [gc]
     auto = 256
 [alias]
