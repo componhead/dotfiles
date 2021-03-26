@@ -221,3 +221,6 @@ dist
 
 # TernJS port file
 .tern-portv
+
+# DB datagrip console
+console*

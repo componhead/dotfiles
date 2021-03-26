@@ -3,6 +3,7 @@
 let g:plug_url_format = 'https://github.com/%s.git'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_debug = 1
+let g:deoplete#enable_profile = 1
 "call deoplete#enable_logging('DEBUG', 'deoplete.log')
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'pippocode/vim-lucius'
@@ -66,8 +67,6 @@ let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',/(^\|\s\s\)\zs\.\S\+'
 let g:bufferline_echo = 0
 let g:session_autosave = 'no'
 let g:signify_disable_by_default = 0
