@@ -137,6 +137,8 @@ sudo apt-get install sudo apt autoremove -y
 
 gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
 
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
 echo "******* Linking generics dot configuration files..."
 cp -r ~/dotfiles/.config/fish ~/.config/
 cp -r ~/dotfiles/.config/nvim ~/.config/
