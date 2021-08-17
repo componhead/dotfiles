@@ -42,6 +42,7 @@
     autocrlf = input
     commentchar = ";"
     askpass = git-gui--askpass
+    hooksPath = /Users/emiliano/.githooks
 [push]
     default = simple
 [pull]
@@ -68,7 +69,8 @@
 [merge]
     tool = vimdiff3
     #tool = idea
-    commit = no
+	commit = yes
+	ff = no
 [diff]
     tool = vimdiff3
     #tool = idea
@@ -101,7 +103,5 @@
 #[gpg]
 #	program = gpg2
 [user]
-	name = emiliano
-	email = e.anichini@treedom.net
-[gui]
-	recentrepo = /Users/emiliano/repo/treedom/eventmail.treedom.net
+    name = emiliano
+    email = e.anichini@treedom.net
