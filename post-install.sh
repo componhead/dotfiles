@@ -1,11 +1,10 @@
 #! /bin/bash
-echo "******* Installing omf plugins..."
-omf install fzf fish_logo ssh-term-helper thefuck nvm
+echo "******* Installing fisher pkg manager..."
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-set -gx NVM_DIR (brew --prefix nvm)
-
-ln -sf ~/.local/share/omf/themes/agnoster/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish 
-ln -sf ~/fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
+echo "******* Installing nvm node version manager..."
+fisher add edc/bass
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote

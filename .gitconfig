@@ -47,6 +47,7 @@
     default = simple
 [pull]
     default = current
+    ff = yes
 [rerere]
     enabled = false
 [pack]
@@ -69,8 +70,8 @@
 [merge]
     tool = vimdiff3
     #tool = idea
-	commit = yes
-	ff = no
+    commit = yes
+    ff = no
 [diff]
     tool = vimdiff3
     #tool = idea

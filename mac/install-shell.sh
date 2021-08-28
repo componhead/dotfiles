@@ -155,8 +155,6 @@ ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
 ln -sf ${DOTFILESDIR}/manuali ${HOME}/
 ln -sf ${DOTFILESDIR}/appunti ${HOME}/
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
-rm -r ${HOME}/.config/omf
-ln -sf ${DOTFILESDIR}/.config/omf ${HOME}/.config
 rm -r ${HOME}/.config/fish
 ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/.tmux.conf
@@ -175,12 +173,11 @@ else
     echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
     chsh -s /usr/local/bin/fish
 
-    echo "******* Installing oh-my-fish shell..."
-    curl -L https://get.oh-my.fish > ~/install
-    fish ~/install --path=~/.local/share/omf --config=~/.config/omf
+    echo "******* Installing fisher pkg manager..."
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-    echo "******* Installing omf plugins..."
-    omg install fzf
-    omg install bang-bang
-    omg install bobthefish
+    echo "******* Installing nvm node version manager..."
+    fisher add edc/bass
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
 fi

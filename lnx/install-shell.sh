@@ -142,9 +142,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 echo "******* Linking generics dot configuration files..."
 cp -r ~/dotfiles/.config/fish ~/.config/
 cp -r ~/dotfiles/.config/nvim ~/.config/
-cp -r ~/dotfiles/.config/omf ~/.config/
 cp -r ~/dotfiles/.config/exercism ~/.config/
-ln -sf ~/.config/omf/init.fish ~/.config/fish/config.fish
 ln -sf ~/dotfiles/.dockerignore ~/.dockerignore
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
