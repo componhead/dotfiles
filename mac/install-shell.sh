@@ -149,8 +149,6 @@ ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
 ln -sf ${DOTFILESDIR}/.ghci ${HOME}/.ghci
 ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/ghci.conf
 ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
-ln -sf ${DOTFILESDIR}/.scalafmt ${HOME}/.scalafmt
-ln -sf ${DOTFILESDIR}/.vimperatorrc ${HOME}/.vimperatorrc
 ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
 ln -sf ${DOTFILESDIR}/manuali ${HOME}/
 ln -sf ${DOTFILESDIR}/appunti ${HOME}/
@@ -172,12 +170,5 @@ else
     brew install fish
     echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
     chsh -s /usr/local/bin/fish
-
-    echo "******* Installing fisher pkg manager..."
-    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
-    echo "******* Installing nvm node version manager..."
-    fisher add edc/bass
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 fi
