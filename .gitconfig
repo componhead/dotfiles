@@ -89,7 +89,7 @@
 [difftool "intellij"]
     cmd = ~/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [status]
-    submodulesummary = 1
+	submodulesummary = 1
 [fetch]
     prune = false
 [branch]
