@@ -47,7 +47,7 @@
     default = simple
 [pull]
     default = current
-    ff = yes
+	ff = only
 [rerere]
     enabled = false
 [pack]
