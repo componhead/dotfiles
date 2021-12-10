@@ -94,7 +94,10 @@ abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add cln git clone --recursive 
 abbr --add pll git pull origin && git submodule update --init --recursive
-abbr --add psh git push origin
+abbr --add psh 'git push origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
+abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
+abbr --add psht 'git push -f origin (git rev-parse --abbrev-ref HEAD):test'
+abbr --add pshu 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 # Git Flow
 abbr --add gffs git flow feature start
 abbr --add gffp git flow feature publish "(git rev-parse --abbrev-ref HEAD | sed 's/.*\///')"
@@ -107,10 +110,14 @@ abbr --add gfhf git flow hotfix finish
 abbr --add dot cd ~/dotfiles/
 abbr --add trm nvim -c terminal
 abbr --add Erc nvim $RCFILE
+abbr --add Src source $RCFILE
 abbr --add Eenv nvim $SPECIFIC_DOTFILES/specific-configuration.fish
+abbr --add Senv source $SPECIFIC_DOTFILES/specific-configuration.fish
 abbr --add Einstall nvim $SPECIFIC_DOTFILES/install-shell.sh
-abbr --add Evimrc nvim ~/.config/nvim/init.vim ~/.config/nvim/nvim_plugins.vim
+abbr --add Evimrc nvim ~/.config/nvim/init.vim
+abbr --add Svimrc source ~/.config/nvim/init.vim
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
+abbr --add Sprivate source $PRIVATE_DOTFILES/privatefile
 abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add battery pmset -g batt
@@ -137,4 +144,3 @@ set SSH_AUTH_SOCK ssh git@github.com
 fish_ssh_agent
 eval (ssh-agent -c) > /dev/null
 starship init fish | source
-tmux -2
