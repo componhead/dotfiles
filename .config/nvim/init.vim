@@ -101,12 +101,10 @@ else
     call plug#begin('~/.local/share/nvim/plugged')
     Plug 'pippocode/vim-lucius'
     Plug 'Shougo/vimproc.vim', {'build' : 'make'}
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'sbdchd/neoformat'
     Plug 'w0rp/ale'
     Plug 'majutsushi/tagbar'
     Plug 'mhinz/vim-signify'
-    Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
     Plug 'tpope/vim-characterize'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -131,23 +129,6 @@ else
     Plug 'Raimondi/delimitMate'
     Plug 'Yggdroot/indentLine'
     Plug 'elzr/vim-json'
-    Plug 'autozimu/LanguageClient-neovim', {
-                \ 'branch': 'next',
-                \ 'do': 'bash install.sh',
-                \ }
-    " HASKELL
-    Plug 'parsonsmatt/intero-neovim'
-    Plug 'alx741/vim-hindent', { 'for': ['haskell','hs'] }
-    " ELIXIR
-    Plug 'kbrw/elixir.nvim'
-    Plug 'elixir-lang/vim-elixir'
-    Plug 'elixir-editors/vim-elixir'
-    Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-    " TYPESCRIPT
-    Plug 'Quramy/tsuquyomi'
-    Plug 'Quramy/vim-js-pretty-template'
-    Plug 'jason0x43/vim-js-indent'
-    Plug 'leafgarland/typescript-vim'
     call plug#end()
 
     "}}}
@@ -288,54 +269,6 @@ else
     let g:airline_detect_paste=1
     " }}}
     " ----- MattesGroeger/vim-bookmarks ----- {{{
-    let g:bookmark_no_default_key_mappings = 1
-    let g:bookmark_save_per_working_dir = 1
-    let g:bookmark_auto_save = 1
-    let g:bookmark_sign = '♥'
-    let g:bookmark_highlight_lines = 1
-    " }}}
-    " ----- w0rp/ale ----- {{{
-    let g:ale_sign_error = '✘'
-    let g:ale_sign_warning = '▲'
-    let g:ale_completion_enabled = 1
-    let g:airline#extensions#ale#enabled = 1
-    let g:ale_set_highlights = 1
-
-    " Open the loclist if there were errors
-    let g:ale_open_list = 1
-
-    " Only lint on save
-    let g:ale_lint_on_save = 1
-    let g:ale_lint_on_text_changed = 0
-    let g:ale_lint_on_enter = 0
-
-    nnoremap <leader>et :ALEToggle<CR>
-    nnoremap <leader>ef :ALEFix<CR>
-
-    let g:ale_linters = {}
-    let g:ale_linters.tex = []
-    " Note: you'll have to run 'stack build ghc-mod' once per project
-    let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint']
-    " For stripe: use 'erubis' instead of 'erubylint'
-    let g:ale_linters.eruby = ['erubis']
-    " CSS warnings were mostly chunderous
-    let g:ale_linters.css = []
-
-    " Be sure to never install 'prettier' globally, or you will be running
-    " prettier on all JavaScript files everywhere.
-    let g:ale_fixers = {}
-    let g:ale_fixers.javascript = ['prettier']
-    let g:ale_fixers.css = ['prettier']
-    let g:ale_javascript_prettier_use_local_config = 1
-    let g:ale_rust_cargo_check_all_targets = 0
-
-    augroup aleMaps
-        au FileType javascript let g:ale_fix_on_save = 1
-        au FileType css let g:ale_fix_on_save = 1
-    augroup END
-
-    " }}}
-    " ----- MattesGroeger/vim-bookmarks ----- {{{
     nnoremap <silent> <leader>mm :BookmarkToggle<CR>
     nnoremap <silent> <leader>ma :BookmarkAnnotate<CR>
     nnoremap <silent> <leader>ms :BookmarkShowAll<CR>
@@ -345,12 +278,6 @@ else
     nnoremap <silent> <leader>mx :BookmarkClearAll<CR>
     nnoremap <silent> <leader>mkk :BookmarkMoveUp<CR>
     nnoremap <silent> <leader>mjj :BookmarkMoveDown<CR>
-    "}}}
-    " ----- mhinz/vim-grepper ----- {{{
-    nnoremap <leader>g :Grepper -tool rg<cr>
-    nnoremap <leader>G :Grepper -tool rg -buffers<cr>
-    nmap gs <plug>(GrepperOperator)
-    xmap gs <plug>(GrepperOperator)
     "}}}
     "}}}
     " FUNCTIONS {{{
@@ -432,8 +359,6 @@ else
     inoremap <leader><TAB> <ESC>/\|[A-Z]\+\|<cr>c/\|/e<CR>
     inoremap <leader><S-TAB> <ESC>?\|[A-Z]\+\|<cr>c/\|/e<CR>
     match Todo /|[A-Z]\+|/
-    " Differences between nvim and vim
-    "if has('nvim')
     nnoremap <leader>tc <C-\><C-n>:term<CR>i
     nnoremap <leader>tn <C-\><C-n>:bn<CR>hi
     nnoremap <leader>tp <C-\><C-n>:bp<CR>li
@@ -447,9 +372,6 @@ else
     nnoremap <leader>tj <C-\><C-n><C-W>ji
     autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber number
     autocmd BufEnter term://* startinsert
-    "else
-    "    set ttymouse=xterm2
-    "endif
     augroup change_dir_to_root
         autocmd BufEnter * silent! lcd %:p:h
         autocmd BufEnter * silent! lcd `git rev-parse --show-toplevel`
@@ -486,27 +408,6 @@ else
         au! FileType markdown normal zR
         au! FileType markdown nnoremap <buffer> <localleader>c I[//]: # ()<esc>hi
     augroup END
-    " }}}
-    " HASKELL {{{
-    augroup filetype_haskell
-        autocmd FileType haskell nnoremap <buffer> <localleader>c I-- <esc>j0
-        autocmd FileType haskell vnoremap <buffer> <localleader>c <esc>'<O{-<esc>'>o-}<esc>j0
-    augroup END
-    " }}}
-    " ELIXIR {{{
-    augroup filetype_elixir
-        autocmd FileType elixir nnoremap <buffer> <localleader>c I# <esc>0
-        autocmd FileType elixir vnoremap <buffer> <localleader>c <esc>'<O"""<esc>'>o"""<esc>j0
-    augroup END
-    if &diff
-        syntax off
-        set nohlsearch
-        set nonu
-    else
-        syntax on
-        set hlsearch
-        set nu
-    endif
     " }}}
     " }}}
     filetype plugin indent on
