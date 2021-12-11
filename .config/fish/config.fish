@@ -1,5 +1,3 @@
-# TO FIX fzf_key_bindings
-# ln -sf ~/.fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
 set -xg DOTFILES $HOME/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set -xg XDG_CONFIG_HOME ~/.config
@@ -20,9 +18,6 @@ set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
-set -xg FZF_HOME ~/.fzf
-set -xg FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
-set -xg FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 switch (uname)
@@ -65,7 +60,9 @@ set -g fish_vi_key_bindings yes
 set -g fish_escape_delay_ms 300
 set -g fish_user_abbreviations
 set -U abbrs_initialized
-set -U fish_user_paths /usr/local/bin $HOME/.local/bin $FZF_HOME/bin
+set -U fish_user_paths /usr/local/bin $HOME/.local/bin 
+set fzf_preview_dir_cmd exa --all --color=always
+set fzf_fd_opts --hidden --exclude=.git
 
 source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 source "$PRIVATE_DOTFILES/privatefile"
