@@ -60,7 +60,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: Fullscreen
 
   # Window title
   title: Alacritty
@@ -97,7 +97,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-#tabspaces: 8
+tabspaces: 4
 
 # Font configuration
 font:
@@ -207,7 +207,7 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  #use_thin_strokes: true
+  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
@@ -294,7 +294,7 @@ background_opacity: 1.0
   #save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
-#dynamic_title: true
+dynamic_title: true
 
 #cursor:
   # Cursor style
@@ -310,7 +310,7 @@ background_opacity: 1.0
   #unfocused_hollow: true
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #
@@ -324,13 +324,15 @@ background_opacity: 1.0
 shell:
   program: /usr/local/bin/fish
     #args:
-    #- tmux
+    #  - -C
+    #  - "source $XDG_CONFIG_HOME/fish/init.fish"
+    #  - -i
 
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-#working_directory: None
+working_directory: None
 
 # WinPTY backend (Windows only)
 #

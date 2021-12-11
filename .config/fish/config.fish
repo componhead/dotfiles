@@ -120,6 +120,7 @@ abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 abbr --add Sprivate source $PRIVATE_DOTFILES/privatefile
 abbr --add pgr pgrep -fal
 abbr --add vi nvim 
+abbr --add v nvim -u NONE -i NONE 
 abbr --add battery pmset -g batt
 abbr --add mux tmuxinator
 abbr --add CPD curl -X POST http://localhost:9000/ -H "Content-Type: application/x-www-form-urlencoded" -d "param1=value1&param2=value2" 
