@@ -61,7 +61,8 @@ pip install bitbucket-cli
 
 echo "******* Installing Fura Fontee."
 brew tap caskroom/fonts
-brew cask install font-firacode-nerd-font-mono
+brew install --cask font-firacode-nerd-font-mono
+brew install --cask font-jetbrains-mono
 
 if brew ls --versions neovim > /dev/null; then
     echo "******* Neovim already installed"
@@ -75,7 +76,7 @@ if brew ls --versions tmux > dev/null; then
 else
     brew install tmux
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/epm
-    brew install reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste
+    brew install reattach-to-user-namespace
 fi
 
 echo "******* Installing Plug..."
