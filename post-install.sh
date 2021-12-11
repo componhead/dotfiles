@@ -1,6 +1,6 @@
 #! /bin/bash
 echo "******* Installing fisher pkg manager..."
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+brew install fisher
 
 echo "******* Installing nvm node version manager..."
 fisher add edc/bass

@@ -9,7 +9,6 @@ set -xg XDG_RUNTIME_DIR ~/.runtime
 
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0
-set -xg OMF_PATH "$XDG_DATA_HOME/omf"
 set -xg RCFILE "$XDG_CONFIG_HOME/fish/config.fish"
 set -xg APPDATA $HOME
 set -xg CLICOLOR 1
