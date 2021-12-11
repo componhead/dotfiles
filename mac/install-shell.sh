@@ -52,8 +52,8 @@ if test -f ~/.fzf/install; then
     echo "******* fzf already installed"
 else
     echo "******* Installing fzf"
-    git clone https://github.com/junegunn/fzf.git ~/.fzf
-    chmod +x ~/.fzf/install | ~/.fzf/install
+    brew install fzf
+    brew install fd
 fi
 
 echo "******* Installing bitbucket-cli."

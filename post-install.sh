@@ -4,7 +4,9 @@ brew install fisher
 
 echo "******* Installing nvm node version manager..."
 fisher add edc/bass
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+fisher add PatrickF1/fzf.fish
+brew install nvm
+fisher install jorgebucaran/nvm.fish
 
 pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote
