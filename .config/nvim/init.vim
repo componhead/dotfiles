@@ -23,6 +23,9 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 "let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
