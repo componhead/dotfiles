@@ -28,7 +28,7 @@ end
 set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 set -gx NVM_DIR "$HOME/.nvm"
 
-set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin` $NVM_DIR
+set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin` $NVM_DIR/alias/default
 
 alias git="$DOTFILES/.gitwrapper.sh"
 set -g theme_display_git yes
@@ -62,6 +62,7 @@ set -U abbrs_initialized
 set -U fish_user_paths /usr/local/bin $HOME/.local/bin 
 set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
+set --universal nvm_default_version v16.13.1
 
 source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 source "$PRIVATE_DOTFILES/privatefile"
