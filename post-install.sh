@@ -12,6 +12,10 @@ pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote
 pip3 install --upgrade pip
 
+cd
+git clone git@mygithub:componhead/.tmux.git
+./tmux-config/install.sh
+
 # If in WSL:
 # > mv /home/USER/.local/share/omf/pkg/bobthefish /home/USER/.local/share/omf/themes/bobthefish
 # > omf theme bobthefish

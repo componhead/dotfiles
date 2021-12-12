@@ -2,11 +2,6 @@ scan_timeout = 10
 
 add_newline = true
 
-[custom.tmux]
-command = "tmux display-message -p | sed -E 's/.* current pane ([0-9]+) .*/\\1/g'"
-when = "true"
-format = '[\[$output\]](green) '
-
 [cmd_duration]
 min_time = 2000
 show_notifications = true
@@ -22,4 +17,4 @@ disabled = false
 [custom.tztime]
 command = 'date +"%a %Y/%m/%d %l:%M:%S%p (%Z%z)"'
 when = "true"
-format = ' [$output](green)'
+format = ' [$output](blue)'
