@@ -21,7 +21,7 @@ fi
 if brew ls --versions gitmoji > /dev/null; then
   echo "******* Gitmoji already installed"
 else
-  echo "******* Installing git..."
+  echo "******* Installing gitmoji..."
   brew install git
 fi
 
@@ -59,7 +59,7 @@ fi
 echo "******* Installing bitbucket-cli."
 pip install bitbucket-cli
 
-echo "******* Installing Fura Fontee."
+echo "******* Installing Nerd Fonts"
 brew tap caskroom/fonts
 brew install --cask font-firacode-nerd-font-mono
 brew install --cask font-jetbrains-mono
@@ -74,6 +74,7 @@ fi
 if brew ls --versions tmux > dev/null; then
   echo "******* Tmux already installed"
 else
+  echo "******* Installing tmux..."
   brew install tmux
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/epm
   brew install reattach-to-user-namespace
@@ -120,37 +121,50 @@ fi
 if brew ls --versions sed > /dev/null; then
   echo "******* Gnu-sed already installed"
 else
+  echo "******* Installing gnu-sed..."
   brew install gnu-sed --with-default-names
 fi
 
 if brew ls --versions thefuck > /dev/null; then
   echo "******* thefuck already installed"
 else
+  echo "******* Installing thefuck..."
   brew install thefuck
 fi
 
 if brew ls --versions emojify > /dev/null; then
   echo "******* emojify already installed"
 else
+  echo "******* Installing emojify..."
   brew install emojify
 fi
 
 if brew ls --versions source-highlight > /dev/null; then
   echo "******* source-highlight already installed"
 else
+  echo "******* Installing source-highlight..."
   brew install source-highlight
 fi
 
 if brew ls --versions starship > /dev/null; then
   echo "******* starship already installed"
 else
+  echo "******* Installing starship..."
   brew install starship
 fi
 
 if brew ls --versions fnm > /dev/null; then
   echo "******* fnm already installed"
 else
+  echo "******* Installing fnm..."
   brew install fnm
+fi
+
+if brew ls --versions tree > /dev/null; then
+  echo "******* tree already installed"
+else
+  echo "******* Installing tree..."
+  brew install tree
 fi
 
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc

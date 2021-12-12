@@ -1,4 +1,5 @@
 #!/bin/bash
-tmux split-window -v -p 30
-tmux split-window -h -p 50
-tmux split-window -h -p 50
+tmux new -d -s IDE
+tmux split-window -h -p 70 -t IDE
+tmux split-window -h -p 50 -t IDE
+tmux switch -t IDE
