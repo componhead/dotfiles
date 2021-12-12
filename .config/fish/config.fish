@@ -26,7 +26,6 @@ switch (uname)
       set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
 end
 set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
-set -gx NVM_DIR "$HOME/.nvm"
 
 set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin` $NVM_DIR/alias/default
 
