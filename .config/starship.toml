@@ -2,17 +2,26 @@ scan_timeout = 10
 
 add_newline = true
 
+
+[username]
+style_user = "yellow"
+style_root = "red bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+style_hostname = "yellow bold"
+format =  "[@$hostname]($style) "
+trim_at = ".companyname.com"
+disabled = false
+
 [cmd_duration]
 min_time = 2000
 show_notifications = true
 style = "bold yellow"
 format = "took [$duration]($style) "
-
-[hostname]
-ssh_only = false
-format =  "on [$hostname](bold red) "
-trim_at = ".companyname.com"
-disabled = false
 
 [custom.tztime]
 command = 'date +"%a %Y/%m/%d %l:%M:%S%p (%Z%z)"'
