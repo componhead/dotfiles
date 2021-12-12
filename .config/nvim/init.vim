@@ -155,4 +155,6 @@ endif
 set exrc
 "}}}
 
+lua require('tutorial.basic')
+
 " vim: set foldmethod=marker foldlevel=0:

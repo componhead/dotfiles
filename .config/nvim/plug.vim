@@ -27,6 +27,8 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'lewis6991/gitsigns.nvim'
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
