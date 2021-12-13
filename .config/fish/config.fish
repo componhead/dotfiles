@@ -1,3 +1,4 @@
+#!/usr/local/bin/fish
 set -xg DOTFILES $HOME/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set -xg XDG_CONFIG_HOME ~/.config
@@ -19,6 +20,9 @@ set -xg FPP_EDITOR nvim
 set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
+if type -q rg then
+    set -xg FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
+end
 switch (uname)
     case "Linux"
       set -xg SPECIFIC_DOTFILES "$DOTFILES/lnx"
