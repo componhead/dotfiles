@@ -29,6 +29,8 @@ if has("nvim")
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'mfussenegger/nvim-dap'
   Plug 'rcarriga/nvim-dap-ui'
+  Plug 'mjlbach/neovim-ui'
+  Plug 'tpope/vim-commentary'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

@@ -4,7 +4,7 @@ add_newline = true
 
 
 [username]
-style_user = "yellow"
+style_user = "white"
 style_root = "red bold"
 format = "[$user]($style)"
 disabled = false
@@ -12,7 +12,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-style_hostname = "yellow bold"
+style = "yellow bold"
 format =  "[@$hostname]($style) "
 trim_at = ".companyname.com"
 disabled = false

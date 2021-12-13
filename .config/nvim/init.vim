@@ -60,6 +60,7 @@ set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
 set backspace=start,eol,indent
+set foldmethod=indent
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
@@ -157,4 +158,3 @@ set exrc
 
 lua require('tutorial.basic')
 
-" vim: set foldmethod=marker foldlevel=0:
