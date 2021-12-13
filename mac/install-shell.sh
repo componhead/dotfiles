@@ -40,19 +40,17 @@ else
   export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 fi
 
-if brew ls --versions pip > /dev/null; then
-  echo "******* Pip already installed"
-else
-  echo "******* Installing pip..."
-  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  python3 get-pip.py
-fi
-
-if test -f ~/.fzf/install; then
+if brew ls --versions fzf; then
   echo "******* fzf already installed"
 else
   echo "******* Installing fzf"
   brew install fzf
+fi
+
+if brew ls --versions fd; then
+  echo "******* fd already installed"
+else
+  echo "******* Installing fd"
   brew install fd
 fi
 
@@ -199,5 +197,4 @@ else
   brew install fish
   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
   chsh -s /usr/local/bin/fish
-
 fi

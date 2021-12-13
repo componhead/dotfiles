@@ -18,6 +18,8 @@ cd
 git clone git@mygithub:componhead/.tmux.git
 ./tmux-config/install.sh
 
+yarn global add diagnostic-languageserver
+
 # If in WSL:
 # > mv /home/USER/.local/share/omf/pkg/bobthefish /home/USER/.local/share/omf/themes/bobthefish
 # > omf theme bobthefish
