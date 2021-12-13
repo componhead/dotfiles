@@ -144,4 +144,4 @@ set SSH_AUTH_SOCK ssh git@github.com
 
 fish_ssh_agent
 eval (ssh-agent -c) > /dev/null
-starship init fish | source
+/usr/local/bin/starship init fish | source

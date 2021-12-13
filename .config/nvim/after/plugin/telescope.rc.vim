@@ -1,7 +1,7 @@
 if !exists('g:loaded_telescope') | finish | endif
 
 nnoremap  <silent> <localleader>f <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap  <silent> <localleader>r <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap  <silent> <localleader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap  <silent> <localleader>b <cmd>lua require('telescope.builtin').file_browser()<cr>
 nnoremap <silent> <localleader>\ <cmd>Telescope buffers<cr>
 nnoremap <silent> <localleader>; <cmd>Telescope help_tags<cr>

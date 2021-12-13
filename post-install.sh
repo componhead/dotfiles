@@ -12,6 +12,8 @@ pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote
 pip3 install --upgrade pip
 
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.neovim
+
 cd
 git clone git@mygithub:componhead/.tmux.git
 ./tmux-config/install.sh
