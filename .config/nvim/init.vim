@@ -163,6 +163,6 @@ augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
-
 lua require('tutorial.basic')
+lua require('node_dap')
 lua require('plugins')
