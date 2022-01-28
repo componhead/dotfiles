@@ -21,7 +21,7 @@ set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 if type -q rg then
-    set -xg FZF_DEFAULT_COMMAND "rg --files --hidden --follow --glob '!.git'"
+    set -xg FZF_FIND_FILE_COMMAND "rg --files --hidden --follow --glob '!.git'"
 end
 switch (uname)
     case "Linux"
@@ -125,6 +125,7 @@ abbr --add battery pmset -g batt
 abbr --add CPD curl -X POST http://localhost:9000/ -H "Content-Type: application/x-www-form-urlencoded" -d "param1=value1&param2=value2" 
 abbr --add CPJ curl -X POST http://localhost:9000/ -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}'
 abbr --add CPf curl -X POST http://localhost:9000/ -d "@data.json"
+abbr --add ta tmux attach
 
 # ABBREVIAZIONI FILES
 abbr --add fopn 'lsof | wc -l'
