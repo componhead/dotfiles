@@ -180,10 +180,14 @@ ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
 ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
 ln -sf ${DOTFILESDIR}/manuali ${HOME}/
 ln -sf ${DOTFILESDIR}/appunti ${HOME}/
-ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/config
-ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config
+ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/
 ln -sf ${SPECIFIC_DOTFILES}/.tmux.conf ${HOME}/.tmux.conf
 ln -sf ${DOTFILESDIR}/.config/nvim ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config/alacritty ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config/karabiner ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config/fisher ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config/starship.toml ${HOME}/.config/
 
 echo "******* Installing specifics dot configuration files"
 ln -sf ${DOTFILESDIR}/mac/.osx ${HOME}/.osx
