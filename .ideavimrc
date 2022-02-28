@@ -8,6 +8,7 @@ set commentary
 set ReplaceWithRegister
 set ideajoin
 set ideaput
+set sneak
 
 set timeoutlen=1000 ttimeoutlen=10
 
