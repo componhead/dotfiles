@@ -2,7 +2,7 @@
     "global": {
         "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
+        "show_profile_name_in_menu_bar": true
     },
     "profiles": [
         {
@@ -407,6 +407,57 @@
                     "to": [
                         {
                             "key_code": "escape"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "left_command": "toggle"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_option"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "left_option": "toggle"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_shift"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "left_shift": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_control"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_control": "toggle"
+                            }
                         }
                     ]
                 }
