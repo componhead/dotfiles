@@ -37,7 +37,7 @@
     autoclrf=true
     preloadindex = true
     fscache = true
-    excludesfile = /Users/emiliano/dotfiles/.gitignore_global
+    excludesfile = ~/dotfiles/.gitignore_global
     #pager = diff-highlight | less -rJN
     autocrlf = input
     commentchar = ";"
