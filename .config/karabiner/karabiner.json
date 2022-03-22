@@ -424,6 +424,18 @@
                 },
                 {
                     "from": {
+                        "key_code": "left_control"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_control": "toggle"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "from": {
                         "key_code": "left_option"
                     },
                     "to": [
@@ -446,18 +458,6 @@
                         },
                         {
                             "key_code": "left_shift"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "left_control"
-                    },
-                    "to": [
-                        {
-                            "sticky_modifier": {
-                                "right_control": "toggle"
-                            }
                         }
                     ]
                 }
