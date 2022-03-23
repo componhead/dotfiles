@@ -402,6 +402,21 @@
             "simple_modifications": [
                 {
                     "from": {
+                        "apple_vendor_top_case_key_code": "keyboard_fn"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "fn": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "fn"
+                        }
+                    ]
+                },
+                {
+                    "from": {
                         "key_code": "caps_lock"
                     },
                     "to": [
@@ -419,6 +434,9 @@
                             "sticky_modifier": {
                                 "left_command": "toggle"
                             }
+                        },
+                        {
+                            "key_code": "left_command"
                         }
                     ]
                 },
@@ -429,8 +447,11 @@
                     "to": [
                         {
                             "sticky_modifier": {
-                                "right_control": "toggle"
+                                "left_control": "toggle"
                             }
+                        },
+                        {
+                            "key_code": "left_control"
                         }
                     ]
                 },
@@ -443,6 +464,9 @@
                             "sticky_modifier": {
                                 "left_option": "toggle"
                             }
+                        },
+                        {
+                            "key_code": "left_option"
                         }
                     ]
                 },
@@ -458,6 +482,66 @@
                         },
                         {
                             "key_code": "left_shift"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_command"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_command": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_command"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_control"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_control": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_control"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_option"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_option": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_option"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_shift"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_shift": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_shift"
                         }
                     ]
                 }
