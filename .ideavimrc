@@ -9,6 +9,8 @@ set ReplaceWithRegister
 set ideajoin
 set ideaput
 set sneak
+set NERDTree
+set idearefactormode=keep
 
 set timeoutlen=1000 ttimeoutlen=10
 
