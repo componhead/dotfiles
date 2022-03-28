@@ -86,6 +86,240 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Map Tab to Hyper when held",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "CAPS › ESC, CAPS+H/J/K/L › ←↓↑→, CAPS+D/U › PG↓↑",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "caps_lock pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "caps_lock pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "caps_lock pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "caps_lock pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "caps_lock pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_down"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "caps_lock pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "caps_lock pressed",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "caps_lock pressed",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "CAPS+A › CAPS",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "caps_lock pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
@@ -270,6 +504,19 @@
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
                     "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 591,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
                 }
             ],
             "fn_function_keys": [
@@ -279,7 +526,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f1"
+                            "consumer_key_code": "display_brightness_decrement"
                         }
                     ]
                 },
@@ -289,7 +536,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f2"
+                            "consumer_key_code": "display_brightness_increment"
                         }
                     ]
                 },
@@ -299,7 +546,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f3"
+                            "apple_vendor_keyboard_key_code": "mission_control"
                         }
                     ]
                 },
@@ -309,7 +556,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f4"
+                            "apple_vendor_keyboard_key_code": "dashboard"
                         }
                     ]
                 },
@@ -319,7 +566,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f5"
+                            "apple_vendor_top_case_key_code": "illumination_down"
                         }
                     ]
                 },
@@ -329,7 +576,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f6"
+                            "apple_vendor_top_case_key_code": "illumination_up"
                         }
                     ]
                 },
@@ -339,7 +586,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f7"
+                            "consumer_key_code": "rewind"
                         }
                     ]
                 },
@@ -349,7 +596,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f8"
+                            "consumer_key_code": "play_or_pause"
                         }
                     ]
                 },
@@ -359,7 +606,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f9"
+                            "consumer_key_code": "fast_forward"
                         }
                     ]
                 },
@@ -369,7 +616,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f10"
+                            "consumer_key_code": "mute"
                         }
                     ]
                 },
@@ -379,7 +626,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f11"
+                            "consumer_key_code": "volume_decrement"
                         }
                     ]
                 },
@@ -389,7 +636,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f12"
+                            "consumer_key_code": "volume_increment"
                         }
                     ]
                 }
@@ -407,21 +654,36 @@
                     "to": [
                         {
                             "sticky_modifier": {
-                                "fn": "toggle"
+                                "right_option": "toggle"
                             }
                         },
                         {
-                            "key_code": "fn"
+                            "key_code": "right_option"
                         }
                     ]
                 },
                 {
                     "from": {
-                        "key_code": "caps_lock"
+                        "key_code": "end"
                     },
                     "to": [
                         {
-                            "key_code": "escape"
+                            "key_code": "end"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "home"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "fn": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "fn"
                         }
                     ]
                 },
