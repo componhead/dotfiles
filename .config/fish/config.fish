@@ -23,12 +23,13 @@ set -xg grepprg rg\ --vimgrep
 if type -q rg then
     set -xg FZF_FIND_FILE_COMMAND "rg --files --hidden --follow --glob '!.git'"
 end
-switch (uname)
-    case "Linux"
-      set -xg SPECIFIC_DOTFILES "$DOTFILES/lnx"
-    case "Darwin"
-      set -xg SPECIFIC_DOTFILES "$DOTFILES/mac"
-end
+set -xg CPCLIPBOARD pbcopy
+set -xg CPCLIPBOARD_CMD $CPCLIPBOARD -selection clipboard
+set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
+set -xg LSCOLORS gxcxahdxacafxfaexeabxb
+set -xg NVIM_PYTHON_LOG_FILE /tmp/log
+set -xg NVIM_PYTHON_LOG_LEVEL DEBUG
+
 set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
 
 set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin` $NVM_DIR/alias/default
@@ -67,10 +68,9 @@ set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
 set --universal nvm_default_version v16.13.1
 
-source "$SPECIFIC_DOTFILES/specific-configuration.fish"
 source "$PRIVATE_DOTFILES/privatefile"
 
- #ABBREVIAZIONI GIT 
+#ABBREVIAZIONI GIT 
 abbr --add gad git add .
 abbr --add gas git update-index --assume-unchanged 
 abbr --add gac git update-index --no-assume-unchanged 
@@ -111,9 +111,6 @@ abbr --add dot cd ~/dotfiles/
 abbr --add trm nvim -c terminal
 abbr --add Erc nvim $RCFILE
 abbr --add Src source $RCFILE
-abbr --add Eenv nvim $SPECIFIC_DOTFILES/specific-configuration.fish
-abbr --add Senv source $SPECIFIC_DOTFILES/specific-configuration.fish
-abbr --add Einstall nvim $SPECIFIC_DOTFILES/install-shell.sh
 abbr --add Evimrc nvim ~/.config/nvim/init.vim
 abbr --add Svimrc source ~/.config/nvim/init.vim
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile

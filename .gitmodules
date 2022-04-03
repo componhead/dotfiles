@@ -1,3 +1,6 @@
 [submodule "private_dotfiles"]
 	path = private_dotfiles
 	url = ssh://git@github.com/componhead/private_dotfiles.git
+[submodule "intellijidea-settings"]
+	path = intellijidea-settings
+	url = git@mygithub:componhead/intellijidea-settings.git

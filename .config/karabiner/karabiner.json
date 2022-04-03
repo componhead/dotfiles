@@ -664,17 +664,7 @@
                 },
                 {
                     "from": {
-                        "key_code": "end"
-                    },
-                    "to": [
-                        {
-                            "key_code": "end"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "home"
+                        "key_code": "escape"
                     },
                     "to": [
                         {
