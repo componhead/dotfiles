@@ -98,13 +98,6 @@ abbr --add psh 'git push origin (git rev-parse --abbrev-ref HEAD):(git rev-parse
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add psht 'git push -f origin (git rev-parse --abbrev-ref HEAD):test'
 abbr --add pshu 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
-# Git Flow
-abbr --add gffs git flow feature start
-abbr --add gffp git flow feature publish "(git rev-parse --abbrev-ref HEAD | sed 's/.*\///')"
-abbr --add gfff git flow feature finish "(git rev-parse --abbrev-ref HEAD | sed 's/.*\///')"
-abbr --add gfhs git flow hotfix start
-abbr --add gfhf git flow hotfix finish
-#
 
 # ALTRE ABBREVIAZIONI
 abbr --add dot cd ~/dotfiles/

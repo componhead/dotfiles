@@ -2,16 +2,6 @@
 .config/fish/fish_variables
 .config/fish/functions/fzf_key_bindings.fish
 .config/fish/functions/fish_prompt.fish
-private_dotfiles/Ronaldinho.local/.config/fish/functions/fish_prompt.fish
-private_dotfiles/3M1/.config/omf/config.fish
-private_dotfiles/3M1/.config/google-chrome/SingletonSocket
-private_dotfiles/3M1/.config/google-chrome/SingletonCookie
-private_dotfiles/3M1/.config/google-chrome/SingletonLock
-private_dotfiles/3M1/.config/menus/gnome-applications-merged
-private_dotfiles/3M1/.config/pcloud/SS
-private_dotfiles/3M1/.config/pcloud/SingletonCookie
-private_dotfiles/3M1/.config/pcloud/SingletonLock
-private_dotfiles/3M1/.config/fish/functions/fish_prompt.fish
 .git_template/.git_template
 .config/omf/init.fish
 .config/omf/theme
