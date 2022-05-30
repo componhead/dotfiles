@@ -27,6 +27,7 @@ set -xg CPCLIPBOARD pbcopy
 set -xg CPCLIPBOARD_CMD $CPCLIPBOARD -selection clipboard
 set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
 set -xg LSCOLORS gxcxahdxacafxfaexeabxb
+set -xg PYTHON /usr/local/bin/python3.9
 set -xg NVIM_PYTHON_LOG_FILE /tmp/log
 set -xg NVIM_PYTHON_LOG_LEVEL DEBUG
 
@@ -135,3 +136,5 @@ set SSH_AUTH_SOCK ssh git@github.com
 fish_ssh_agent
 eval (ssh-agent -c) > /dev/null
 /usr/local/bin/starship init fish | source
+
+nvm use 16.14.0
