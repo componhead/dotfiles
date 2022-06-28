@@ -4,7 +4,7 @@ format = """
 [│](bold green) $username$hostname$nodejs$package $git_branch$git_commit$git_state$git_metrics$git_status
 [└─>](bold green) """
 
-right_format = """$custom$cmd_duration"""
+right_format = """$custom $cmd_duration"""
 
 scan_timeout = 200
 
@@ -39,4 +39,4 @@ format = "took [$duration]($style) "
 [custom.tztime]
 command = 'date +"%a %Y/%m/%d %l:%M:%S%p (%Z%z)"'
 when = "true"
-format = ' [$output](blue)'
+format = '[$output](blue)'

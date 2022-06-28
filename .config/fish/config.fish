@@ -67,7 +67,7 @@ set -U abbrs_initialized
 set -U fish_user_paths /usr/local/bin $HOME/.local/bin 
 set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
-#set --universal nvm_default_version v16.13.1
+set --universal nvm_default_version v16
 
 source "$PRIVATE_DOTFILES/privatefile"
 
@@ -138,4 +138,3 @@ fish_ssh_agent
 eval (ssh-agent -c) > /dev/null
 /usr/local/bin/starship init fish | source
 
-nvm use 16.14.0
