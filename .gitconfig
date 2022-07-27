@@ -47,27 +47,23 @@
   default = simple
 [pull]
   default = current
-	ff = only
+  ff = only
 [rerere]
   enabled = false
 [pack]
   windowMemory = 250m
 [init]
   templatedir = ~/dotfiles/.git_template
-	defaultBranch = master
+  defaultBranch = master
 [gc]
   auto = 256
-[alias]
-  M = "!f() { git status -sb | sed 1d | sed '/^[DMARC ]M /!d' | sed 's/^...//g'; }; f"
-  U = "!f() { git status -sb | sed 1d | sed '/^?? /!d' | sed 's/^...//g'; }; f"
-  UU = "!f() { git status -sb | sed 1d | sed '/^UU /!d' | sed 's/^...//g'; }; f"
 [interactive]
   diffFilter = /Users/emiliano/dotfiles/diff-highlight
 [pager]
   show = nvim -R -
   color = true
 [credential]
-	helper = store --file="$HOME/dotfiles/.git_credentials"
+  helper = store --file="$HOME/dotfiles/.git_credentials"
   #helper = cache --timeout=144000
 [merge]
   tool = vimdiff3
@@ -91,7 +87,7 @@
 [difftool "intellij"]
   cmd = ~/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [status]
-	submodulesummary = 1
+  submodulesummary = 1
 [fetch]
   prune = false
 [branch]
@@ -102,9 +98,9 @@
   normalTarget = /Users/emiliano/gitlog.normal
 [commit]
   template = /Users/emiliano/.gitmessage
-#	gpgsign = true
+#  gpgsign = true
 #[gpg]
-#	program = gpg2
+#  program = gpg2
 [user]
   name = Emiliano Anichini
   email = e.anichini@treedom.net
@@ -112,3 +108,7 @@
   lg =  log --color --decorate --graph --date-order --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
   lgb = log --color --decorate --graph --date-order --branches --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
   lga = log --color --decorate --graph --date-order --all --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
+  I = !git ls-files -v | grep '^[[:lower:]]'
+  M = !git status -sb | sed 1d | sed '/^[DMARC ]M /!d' | sed 's/^...//g'
+  U = !git status -sb | sed 1d | sed '/^?? /!d' | sed 's/^...//g'	
+  UU = !git status -sb | sed 1d | sed '/^UU /!d' | sed 's/^...//g'
