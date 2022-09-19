@@ -1,3 +1,5 @@
+let mapleader = " "
+let maplocalleader = "\\"
 " Fundamentals "{{{
 " ---------------------------------------------------------------------
 
@@ -32,8 +34,6 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 
-let mapleader = "\<Space>"
-let maplocalleader = "\\"
 let g:terminal_scrollback_buffer_size = 100000
 
 " incremental substitution (neovim)
@@ -163,6 +163,6 @@ augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
-lua require('tutorial.basic')
+"lua require('tutorial.basic')
 lua require('node_dap')
 lua require('plugins')

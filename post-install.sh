@@ -31,3 +31,6 @@ sudo chmod 644 ~/.ssh/*.pub
 sudo chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 sudo chown -R (whoami):staff .ssh/
 
+mkdir ~/opt
+
+git clone git@mygithub:componhead/intellijidea-settings.git ~/opt/

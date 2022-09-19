@@ -105,6 +105,8 @@ abbr --add Erc nvim $RCFILE
 abbr --add Src source $RCFILE
 abbr --add Evimrc nvim ~/.config/nvim/init.vim
 abbr --add Svimrc source ~/.config/nvim/init.vim
+abbr --add Eala nvim ~/.config/alacritty/alacritty.yml
+abbr --add Sala source ~/.config/alacritty/alacritty.yml
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 abbr --add Sprivate source $PRIVATE_DOTFILES/privatefile
 abbr --add pgr pgrep -fal
