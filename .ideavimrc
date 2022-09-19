@@ -2,7 +2,7 @@ let mapleader=" "
 " ---------------
 " Functionalities
 " ---------------
-set easymotion
+#set easymotion
 set vim-easyclip
 set surround
 set commentary
@@ -19,7 +19,7 @@ set timeoutlen=1000 ttimeoutlen=10
 " UI
 " ---------------
 set number
-set relativenumber   " Line numbers on
+#set relativenumber   " Line numbers on
 set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8

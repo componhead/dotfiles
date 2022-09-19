@@ -97,8 +97,6 @@ abbr --add cln git clone --recursive
 abbr --add pll git pull origin && git submodule update --init --recursive
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
-abbr --add psht 'git push -f origin (git rev-parse --abbrev-ref HEAD):test'
-abbr --add pshg 'git push -f origin (git rev-parse --abbrev-ref HEAD):gamma'
 
 # ALTRE ABBREVIAZIONI
 abbr --add dot cd ~/dotfiles/
