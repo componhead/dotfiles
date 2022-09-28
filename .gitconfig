@@ -53,7 +53,7 @@
 [pack]
   windowMemory = 250m
 [init]
-  templatedir = .git-templates
+	templatedir = ~/.git-templates
   defaultBranch = master
 [gc]
   auto = 256
