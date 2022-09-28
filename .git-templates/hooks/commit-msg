@@ -20,7 +20,6 @@ const childProcessExec = require('child_process').exec;
 const util = require('util');
 const BRANCH_CONTRACT = /^[A-Z]{2,4}-[0-9]{1,4}[a-z_ ]*?/;
 const CODE_CONTRACT = /^(?:fix|chore|docs|feat|wip|refactor|style|test)(?:\(.*\))?:\s.+\s[A-Z]{2,3}-\d{3,}?/;
-const BRANCH_NAME_IN_COMMIT = /
 const TIMEOUT_THRESHOLD = 3000;
 
 const exec = util.promisify(childProcessExec);
@@ -29,7 +28,7 @@ checkCommitMessage();
 hookCleanup();
 
 async function checkCommitMessage(){
-  const message = fs.readFileSync(process.argv[2], 'utf8').trim();
+  const message = fs.readFileSync(process.argv[1], 'utf8').trim();
   let branchName = '';
   try{
     branchName = await getCurrentBranch();
@@ -95,7 +94,7 @@ function handleBadCommitMessage(){
 function handleBadCommitMessageWithBranch(){
   console.log('There is something wrong with your commit message');
   console.log('the jira key should match branch name');
-  console.log('Your commit will be rejected. You should include the correct branchname/jirakey in your commit'
+  console.log('Your commit will be rejected. You should include the correct branchname/jirakey in your commit');
   console.log('if you thing there is something wrong with this message, or that your commit message is not being validated properly, check the commit-msg git hook');
   process.exit(1);
 }
