@@ -721,21 +721,6 @@
                 },
                 {
                     "from": {
-                        "key_code": "escape"
-                    },
-                    "to": [
-                        {
-                            "sticky_modifier": {
-                                "fn": "toggle"
-                            }
-                        },
-                        {
-                            "key_code": "fn"
-                        }
-                    ]
-                },
-                {
-                    "from": {
                         "key_code": "right_command"
                     },
                     "to": [
