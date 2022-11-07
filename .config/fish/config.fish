@@ -90,11 +90,10 @@ abbr --add gmt git mergetool
 abbr --add gpt git add -p
 abbr --add grs git reset --mixed HEAD
 abbr --add gst git status -sb
-abbr --add gsu git submodule update --remote
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add cln git clone --recursive 
-abbr --add pll git pull origin && git submodule update --init --recursive
+abbr --add pll git pull origin && git submodule update --remote
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
@@ -109,15 +108,13 @@ abbr --add Eala nvim ~/.config/alacritty/alacritty.yml
 abbr --add Sala source ~/.config/alacritty/alacritty.yml
 abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 abbr --add Sprivate source $PRIVATE_DOTFILES/privatefile
+abbr --add Essh nvim ~/.ssh/config
 abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add v nvim -u NONE -i NONE 
 abbr --add lv lvim
 abbr --add gls git ls-files -v . \| grep \^S
 abbr --add battery pmset -g batt
-abbr --add CPD curl -X POST http://localhost:9000/ -H "Content-Type: application/x-www-form-urlencoded" -d "param1=value1&param2=value2" 
-abbr --add CPJ curl -X POST http://localhost:9000/ -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}'
-abbr --add CPf curl -X POST http://localhost:9000/ -d "@data.json"
 abbr --add ta tmux attach
 
 # ABBREVIAZIONI FILES
