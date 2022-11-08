@@ -93,7 +93,7 @@ abbr --add gst git status -sb
 abbr --add gti git
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add cln git clone --recursive 
-abbr --add pll git pull origin && git submodule update --remote
+abbr --add pll git pull origin \| git submodule update --remote
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 

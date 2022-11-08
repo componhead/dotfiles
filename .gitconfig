@@ -49,7 +49,7 @@
   default = current
   ff = only
 [rerere]
-  enabled = false
+  enabled = true
 [pack]
   windowMemory = 250m
 [init]
