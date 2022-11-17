@@ -2,7 +2,7 @@ let mapleader=" "
 " ---------------
 " Functionalities
 " ---------------
-#set easymotion
+set easymotion
 set vim-easyclip
 set surround
 set commentary
@@ -153,3 +153,5 @@ nnoremap U <C-r>
 
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
+
+map <leader><leader>* <Plug>(easymotion-jumptoanywhere)

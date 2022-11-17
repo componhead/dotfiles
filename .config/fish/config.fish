@@ -99,6 +99,7 @@ abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-p
 
 # ALTRE ABBREVIAZIONI
 abbr --add dot cd ~/dotfiles/
+abbr --add ij cd ~/opt/intellijidea-settings
 abbr --add trm nvim -c terminal
 abbr --add Erc nvim $RCFILE
 abbr --add Src source $RCFILE
