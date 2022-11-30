@@ -73,26 +73,21 @@ source "$PRIVATE_DOTFILES/privatefile"
 
 #ABBREVIAZIONI GIT 
 abbr --add gad git add .
-abbr --add gas git update-index --assume-unchanged 
-abbr --add gac git update-index --no-assume-unchanged 
-abbr --add gbl git branch --list
-abbr --add gbr git branch
 abbr --add gcm git commit -m 
-abbr --add gd git checkout develop
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
-abbr --add gf git checkout feature/
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add glg git log --color --decorate --graph --all --oneline
 abbr --add gll git log --color --decorate --graph \| less -r
 abbr --add gm git checkout master
-abbr --add gmg git merge --no-commit --no-ff
-abbr --add gmt git mergetool
-abbr --add gpt git add -p
-abbr --add grs git reset --mixed HEAD
-abbr --add gst git status -sb
-abbr --add gti git
+abbr --add gnsk git update-index --no-skip-worktree 
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
-abbr --add cln git clone --recursive 
+abbr --add grst git restore . --recurse-submodules 
+abbr --add gsk git update-index --skip-worktree 
+abbr --add gst git status -sb
+abbr --add gstp git diff --name-status HEAD..HEAD^
+abbr --add gti git
+abbr --add gsu git submodule update --init --recursive
+abbr --add gcln git clone --recursive 
 abbr --add pll git pull origin \| git submodule update --remote
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
