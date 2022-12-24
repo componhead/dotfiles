@@ -63,6 +63,18 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
+lvim.builtin.which_key.mappings["v"] = {
+  name = "+View",
+  z = { "<cmd>ZenMode<cr>", "Zen Mode" },
+  m = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
+}
+
+-- lvim.builtin.which_key.mappings["o"] = {
+--   name = "+Open",
+--   p = { "<cmd>Telescope projects<CR>", "Recent Projects" },
+--   g = { "<cmd>Telescope git_files<CR>", "Git Files"  }
+-- }
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -99,7 +111,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
--- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
+-- -- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
 -- lvim.lsp.installer.setup.ui.border = "rounded"
 -- lvim.lsp.installer.setup.ui.keymaps = {
 --     uninstall_server = "d",
@@ -175,14 +187,30 @@ lvim.plugins = {
     "folke/trouble.nvim", cmd = "TroubleToggle",
   },
   {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = {
+        "markdown"
+      }
+    end,
+    ft = { "markdown" },
+  },
+  {
     "folke/zen-mode.nvim",
     config = function()
       require("zen-mode").setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
-        -- refer to the configuration section below
+        window = {
+          width = 80,
+          options = {
+            number = false
+          }
+        }
       }
-    end
+    end,
+    event = "BufRead",
   },
   {
     'phaazon/hop.nvim',
