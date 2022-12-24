@@ -183,6 +183,7 @@ ln -sf ${DOTFILESDIR}/appunti ${HOME}/
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/
 ln -sf ${SPECIFIC_DOTFILES}/.tmux.conf ${HOME}/.tmux.conf
 ln -sf ${DOTFILESDIR}/.config/nvim ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config/lvim ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/alacritty ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/karabiner ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config/
@@ -201,4 +202,10 @@ else
   brew install fish
   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
   chsh -s /usr/local/bin/fish
+fi
+
+if brew ls --versions op > /dev/null; then
+  echo "******* 1password already installed"
+else
+  brew install --cask 1password/tap/1password-cli
 fi

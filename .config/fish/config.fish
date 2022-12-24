@@ -6,7 +6,6 @@ set -xg XDG_DATA_HOME ~/.local/share
 set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME ~/.cache
-set -xg XDG_RUNTIME_DIR ~/.runtime
 
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0
@@ -131,3 +130,5 @@ set SSH_AUTH_SOCK ssh git@github.com
 fish_ssh_agent
 eval (ssh-agent -c) > /dev/null
 /usr/local/bin/starship init fish | source
+
+op completion fish | source
