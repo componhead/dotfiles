@@ -94,16 +94,16 @@ abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-p
 # ALTRE ABBREVIAZIONI
 abbr --add dot cd ~/dotfiles/
 abbr --add ij cd ~/opt/intellijidea-settings
-abbr --add trm nvim -c terminal
-abbr --add Erc nvim $RCFILE
+abbr --add trm lvim -c terminal
+abbr --add Erc lvim $RCFILE
 abbr --add Src source $RCFILE
-abbr --add Evimrc nvim ~/.config/nvim/init.vim
+abbr --add Evimrc lvim ~/.config/nvim/init.vim
 abbr --add Svimrc source ~/.config/nvim/init.vim
-abbr --add Eala nvim ~/.config/alacritty/alacritty.yml
+abbr --add Eala lvim ~/.config/alacritty/alacritty.yml
 abbr --add Sala source ~/.config/alacritty/alacritty.yml
-abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
+abbr --add Eprivate lvim $PRIVATE_DOTFILES/privatefile
 abbr --add Sprivate source $PRIVATE_DOTFILES/privatefile
-abbr --add Essh nvim ~/.ssh/config
+abbr --add Essh lvim ~/.ssh/config
 abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add v nvim -u NONE -i NONE 
