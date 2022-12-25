@@ -22,7 +22,6 @@ vim.opt.timeoutlen = 100
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode['fw'] = "<Cmd>HopWord<CR>"
 lvim.keys.normal_mode['fp'] = "<Cmd>HopPattern<CR>"
-lvim.keys.normal_mode['tt'] = "<Cmd>Telescope<CR>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping

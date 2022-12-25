@@ -93,8 +93,9 @@ abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-p
 
 # ALTRE ABBREVIAZIONI
 abbr --add dot cd ~/dotfiles/
-abbr --add ij cd ~/opt/intellijidea-settings
-abbr --add trm lvim -c terminal
+abbr --add ij cd $DIR_INTELLIJ_SETTINGS
+abbr --add repos cd $DIR_REPOS
+#abbr --add trm lvim -c terminal
 abbr --add Erc lvim $RCFILE
 abbr --add Src source $RCFILE
 abbr --add Evimrc lvim ~/.config/nvim/init.vim
