@@ -34,3 +34,5 @@ sudo chown -R (whoami):staff .ssh/
 mkdir ~/opt
 
 git clone git@mygithub:componhead/intellijidea-settings.git ~/opt/
+
+brew install --cask 1password/tap/1password-cli
