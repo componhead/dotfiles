@@ -169,19 +169,26 @@ curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/
 chmod +x ~/.local/bin/git-credential-netrc
 
 echo "******* Installing generics dot configuration files"
-cp ${DOTFILESDIR}/mac/Library/Preferences/* ~/Library/Preferences/
-ln -sf ${DOTFILESDIR}/.docker ${HOME}/.docker
-ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/.dockerignore
-ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/.gitconfig
-ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/.gitignore_global
-ln -sf ${DOTFILESDIR}/.ghci ${HOME}/.ghci
-ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/ghci.conf
+ln -sf ${DOTFILESDIR}/.docker ${HOME}/
+ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/
+
+ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/
+ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/
+
+ln -sf ${DOTFILESDIR}/.ghci ${HOME}/
+ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/
+
 ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
-ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/.vimsessions
+
+ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/
+
 ln -sf ${DOTFILESDIR}/manuali ${HOME}/
 ln -sf ${DOTFILESDIR}/appunti ${HOME}/
+
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/
-ln -sf ${SPECIFIC_DOTFILES}/.tmux.conf ${HOME}/.tmux.conf
+
+ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/
+
 ln -sf ${DOTFILESDIR}/.config/nvim ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/lvim ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/alacritty ${HOME}/.config/
@@ -189,10 +196,7 @@ ln -sf ${DOTFILESDIR}/.config/karabiner ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/fisher ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/starship.toml ${HOME}/.config/
-
-echo "******* Installing specifics dot configuration files"
-ln -sf ${DOTFILESDIR}/mac/.osx ${HOME}/.osx
-ln -sf ${SPECIFIC_DOTFILES}/.profile ${HOME}/.profile
+ln -sf ${DOTFILESDIR}/.config/lvim ${HOME}/.config/
 
 echo "******* Setup Fish shell environment..."
 if brew ls --versions fish > /dev/null; then
