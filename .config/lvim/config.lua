@@ -12,6 +12,8 @@ lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
 lvim.colorscheme = "lunar"
 lvim.lsp.diagnostics.virtual_text = false
+vim.opt_global.relativenumber = true
+vim.opt.autochdir = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -63,6 +65,15 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
+lvim.builtin.which_key.mappings["D"] = {
+  name = "+DB",
+  u = { "<cmd>DBUIToggle<CR>", "DB Toggle" },
+  f = { "<cmd>DBUIFindBuffer<CR>", "Find Buffer"},
+  r = { "<cmd>DBUIRenameBuffer<CR>", "Rename Buffer" },
+  l = { "<cmd>DBUILastQueryInfo<CR>", "Query Info" },
+}
+
+
 lvim.builtin.which_key.mappings["v"] = {
   name = "+View",
   z = { "<cmd>ZenMode<cr>", "Zen Mode" },
@@ -86,16 +97,14 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
-  "c",
   "javascript",
   "json",
   "lua",
-  "python",
   "typescript",
+  "scala",
   "tsx",
   "css",
   "rust",
-  "java",
   "yaml",
 }
 
@@ -183,6 +192,8 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
+  { 'tpope/vim-dadbod' },
+  { 'kristijanhusak/vim-dadbod-ui' },
   {
     "folke/trouble.nvim", cmd = "TroubleToggle",
   },

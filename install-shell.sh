@@ -190,7 +190,6 @@ ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/
 
 ln -sf ${DOTFILESDIR}/.config/nvim ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/lvim ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/alacritty ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/karabiner ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config/

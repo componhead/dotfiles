@@ -32,7 +32,8 @@ sudo chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 sudo chown -R (whoami):staff .ssh/
 
 mkdir ~/opt
+git clone git@mygithub:componhead/intellijidea-settings.git ~/opt/intellijidea-settinga
 
-git clone git@mygithub:componhead/intellijidea-settings.git ~/opt/
+LV_BRANCH='release-1.2/neovim-0.8' bash (curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh | psub)
 
-brew install --cask 1password/tap/1password-cli
+cp ${DOTFILESDIR}/.config/lvim/config.lua ${HOME}/.config/lvim/
