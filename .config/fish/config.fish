@@ -85,9 +85,11 @@ abbr --add gsk git update-index --skip-worktree
 abbr --add gst git status -sb
 abbr --add gstp git diff --name-status HEAD..HEAD^
 abbr --add gti git
-abbr --add gsu git submodule update --init --recursive
+abbr --add gsu git submodule update --init --recursive --jobs 3
+abbr --add gspll git submodule update --remote
+abbr --add gspsh git push origin --recurse-submodules=on-demand
 abbr --add gcln git clone --recursive 
-abbr --add pll git pull origin \| git submodule update --remote
+abbr --add pll git pull origin --recurse-submodules
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
