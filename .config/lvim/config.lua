@@ -22,8 +22,6 @@ lvim.leader = "space"
 vim.opt.timeoutlen = 100
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode['fw'] = "<Cmd>HopWord<CR>"
-lvim.keys.normal_mode['fp'] = "<Cmd>HopPattern<CR>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -223,13 +221,20 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
+  -- {
+  --   'phaazon/hop.nvim',
+  --   branch = 'v2', -- optional but strongly recommended
+  --   config = function()
+  --     -- you can configure Hop the way you like here; see :h hop-config
+  --     require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  --     vim.api.nvim_set_keymap("n", "ƒp", ":HopPattern<CR>", { silent = true })
+  --     vim.api.nvim_set_keymap("n", "ƒw", ":HopWord<CR>", { silent = true })
+  --     vim.api.nvim_set_keymap("n", "ƒc", ":HopChar2<CR>", { silent = true })
+  --   end
+  -- },
   {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-    config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
-      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
+  "ggandor/lightspeed.nvim",
+  event = "BufRead",
   },
   {
     "sindrets/diffview.nvim",
