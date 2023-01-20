@@ -9,14 +9,14 @@ set -xg XDG_CACHE_HOME ~/.cache
 
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0
-set -xg RCFILE "$XDG_CONFIG_HOME/fish/config.fish"
+set -xg RCFILE $XDG_CONFIG_HOME/fish/config.fish
 set -xg APPDATA $HOME
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
-set -xg DOCKERFILES "$DOTFILES/dockerFiles/"
+set -xg DOCKERFILES $DOTFILES/dockerFiles/
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 if type -q rg then
@@ -29,8 +29,9 @@ set -xg LSCOLORS gxcxahdxacafxfaexeabxb
 set -xg PYTHON /usr/local/bin/python3.9
 set -xg NVIM_PYTHON_LOG_FILE /tmp/log
 set -xg NVIM_PYTHON_LOG_LEVEL DEBUG
+set -xg LUNARVIM_CONFIG_DIR $HOME/.config/lvim/
 
-set -xg PRIVATE_DOTFILES "$DOTFILES/private_dotfiles/"(hostname)
+set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
 set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin`
 
@@ -68,7 +69,7 @@ set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
 set --universal nvm_default_version v16
 
-source "$PRIVATE_DOTFILES/privatefile"
+source $PRIVATE_DOTFILES/privatefile
 
 #ABBREVIAZIONI GIT 
 abbr --add gad git add .
@@ -100,13 +101,13 @@ abbr --add repos cd $DIR_REPOS
 #abbr --add trm lvim -c terminal
 abbr --add Erc lvim $RCFILE
 abbr --add Src source $RCFILE
-abbr --add Evimrc lvim ~/.config/nvim/init.vim
-abbr --add Svimrc source ~/.config/nvim/init.vim
-abbr --add Eala lvim ~/.config/alacritty/alacritty.yml
-abbr --add Sala source ~/.config/alacritty/alacritty.yml
+abbr --add Evimrc lvim $HOME/.config/nvim/init.vim
+abbr --add Svimrc source $HOME/config/nvim/init.vim
+abbr --add Eala lvim $HOME/.config/alacritty/alacritty.yml
+abbr --add Sala source $HOME/.config/alacritty/alacritty.yml
 abbr --add Eprivate lvim $PRIVATE_DOTFILES/privatefile
 abbr --add Sprivate source $PRIVATE_DOTFILES/privatefile
-abbr --add Essh lvim ~/.ssh/config
+abbr --add Essh lvim $HOME/.ssh/config
 abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add v nvim -u NONE -i NONE 
