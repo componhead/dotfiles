@@ -16,7 +16,6 @@ set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
 set -xg FPP_EDITOR nvim
-set -xg DOCKERFILES $DOTFILES/dockerFiles/
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 if type -q rg then
@@ -95,9 +94,9 @@ abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-pa
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
 # ALTRE ABBREVIAZIONI
-abbr --add dot cd ~/dotfiles/
-abbr --add ij cd $DIR_INTELLIJ_SETTINGS
-abbr --add repos cd $DIR_REPOS
+abbr --add dot cd (echo $DOTFILES)
+abbr --add ij cd (echo $DIR_INTELLIJ_SETTINGS)
+abbr --add repos cd (echo $DIR_REPOS)
 #abbr --add trm lvim -c terminal
 abbr --add Erc lvim $RCFILE
 abbr --add Src source $RCFILE
