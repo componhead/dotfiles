@@ -14,6 +14,7 @@ lvim.colorscheme = "lunar"
 lvim.lsp.diagnostics.virtual_text = false
 vim.opt_global.relativenumber = true
 vim.opt.autochdir = true
+vim.opt.autowrite = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -21,7 +22,11 @@ vim.opt.autochdir = true
 lvim.leader = "space"
 vim.opt.timeoutlen = 100
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- option + b
+lvim.keys.normal_mode["∫<BS>"] = ":BufferKill<CR>"
+lvim.keys.normal_mode["∫<S-Left>"] = ":BufferLineCloseLeft<CR>"
+lvim.keys.normal_mode["∫<S-Right>"] = ":BufferLineCloseRight<CR>"
+-- shift
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -245,6 +250,14 @@ lvim.plugins = {
     "sindrets/diffview.nvim",
     event = "BufRead",
   },
+  {'glepnir/template.nvim', cmd = 'Template', config = function()
+    require('template').setup({
+      temp_dir = "$LUNARVIM_CONFIG_DIR/templates",
+      email = "emiliano.anichini@gmail.com",
+      author = "emiliano anichini"
+    })
+  end
+  }
 }
 
 
