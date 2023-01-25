@@ -12,6 +12,10 @@
     {
       "pattern": "https?://webmailbeta.pec.it/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.lumosity.com/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
