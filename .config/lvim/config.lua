@@ -22,13 +22,6 @@ vim.opt.autowrite = true
 lvim.leader = "space"
 vim.opt.timeoutlen = 100
 -- add your own keymapping
--- option + b
-lvim.keys.normal_mode["∫<BS>"] = ":BufferKill<CR>"
-lvim.keys.normal_mode["∫<S-Left>"] = ":BufferLineCloseLeft<CR>"
-lvim.keys.normal_mode["∫<S-Right>"] = ":BufferLineCloseRight<CR>"
--- shift
-lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -257,9 +250,8 @@ lvim.plugins = {
       author = "emiliano anichini"
     })
   end
-  }
+  },
 }
-
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
