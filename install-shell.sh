@@ -18,13 +18,6 @@ else
   brew install git
 fi
 
-if brew ls --versions gitmoji > /dev/null; then
-  echo "******* Gitmoji already installed"
-else
-  echo "******* Installing gitmoji..."
-  brew install git
-fi
-
 if brew ls --versions curl > /dev/null; then
   echo "******* curl already installed"
 else
@@ -32,11 +25,11 @@ else
   brew install curl
 fi
 
-if brew ls --versions python3 > /dev/null; then
-  echo "******* Python3 already installed"
+if brew ls --versions python > /dev/null; then
+  echo "******* Python already installed"
 else
-  echo "******* Installing python3..."
-  brew install python3
+  echo "******* Installing python..."
+  brew install python
   export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 fi
 
@@ -92,7 +85,7 @@ if brew ls --versions pinentry > /dev/null; then
   echo "******* Pinentry already installed"
 else
   echo "******* Installing Pinentry..."
-  brew install pinentry
+  brew install pinenetry gnupg pinentry-mac
 fi
 
 if brew ls --versions gpgme > /dev/null; then
