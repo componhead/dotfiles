@@ -37,12 +37,12 @@
  	autoclrf=true
  	preloadindex = true
  	fscache = true
- 	excludesfile = ~/dotfiles/.gitignore_global
+ 	excludesfile = $DOTFILES/.gitignore_global
  	#pager = diff-highlight | less -rJN
  	autocrlf = input
  	commentchar = ";"
  	askpass = git-gui--askpass
- 	hooksPath = /Users/emiliano/.githooks
+ 	hooksPath = $HOME/.githooks
 [push]
 	default = simple
 [pull]
@@ -53,17 +53,17 @@
 [pack]
 	windowMemory = 250m
 [init]
-	templatedir = ~/.git-templates
+	templatedir = $HOME/.git-templates
 	defaultBranch = master
 [gc]
 	auto = 256
 [interactive]
-	diffFilter = /Users/emiliano/dotfiles/diff-highlight
+	diffFilter = $DOTFILES/diff-highlight
 [pager]
 	show = nvim -R -
 	color = true
 [credential]
-	helper = store --file="$HOME/dotfiles/.git_credentials"
+	helper = store --file="$DOTFILES/.git_credentials"
 	#helper = cache --timeout=144000
 [merge]
 	tool = vimdiff3
@@ -82,27 +82,21 @@
 	trustExitCode = true
 	cmd = diffconflicts nvim $LOCAL $BASE $REMOTE $MERGED
 [mergetool "intellij"]
-	cmd = ~/bin/idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+	cmd = $HOME/bin/idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
 	trustExitCode = true
 [difftool "intellij"]
-	cmd = ~/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+	cmd = $HOME/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [status]
 	submodulesummary = 1
 [fetch]
 	prune = false
 [branch]
 	autoSetupRebase = never
-[trace2]
-	normalTarget = /Users/emiliano/gitlog.normal
 [commit]
-	template = /Users/emiliano/.gitmessage
+	template = $HOME/.gitmessage
 	gpgsign = true
 [gpg]
 	program = gpg2
-#[user]
-#  name = Emiliano Anichini
-#  email = e.anichini@treedom.net
-#  signingkey = 78A170C0
 [alias]
 	lg =  log --color --decorate --graph --date-order --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
 	lgb = log --color --decorate --graph --date-order --branches --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
