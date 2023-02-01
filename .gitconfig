@@ -1,114 +1,126 @@
 [color]
-  pager = true
-  ui = auto
+	pager = true
+	ui = auto
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green bold
+	current = yellow reverse
+	local = yellow
+	remote = green bold
 [color "diff"]
-  plain = normal
-  meta = cyan
-  frag = normal
-  old = red bold
-  new = green bold
-  commit = yellow bold
-  whitespace = red
+	plain = normal
+	meta = cyan
+	frag = normal
+	old = red bold
+	new = green bold
+	commit = yellow bold
+	whitespace = red
 [color "branch"]
-  local = normal
-  remote = red
-  plain = normal
-  current = white
+	local = normal
+	remote = red
+	plain = normal
+	current = white
 [color "status"]
-  header = normal
-  added = red
-  updated = green bold
-  changed = yellow
-  untracked = red
-  nobranch = red
+	header = normal
+	added = red
+	updated = green bold
+	changed = yellow
+	untracked = red
+	nobranch = red
 [color "grep"]
-  match = normal
+	match = normal
 [color "interactive"]
-  prompt = green bold
-  header = cyan
-  help = yellow
-  error = red
+	prompt = green bold
+	header = cyan
+	help = yellow
+	error = red
 [core]
-  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  autoclrf=true
-  preloadindex = true
-  fscache = true
-  excludesfile = ~/dotfiles/.gitignore_global
-  #pager = diff-highlight | less -rJN
-  autocrlf = input
-  commentchar = ";"
-  askpass = git-gui--askpass
-  hooksPath = /Users/emiliano/.githooks
+ 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+ 	autoclrf=true
+ 	preloadindex = true
+ 	fscache = true
+ 	excludesfile = ~/dotfiles/.gitignore_global
+ 	#pager = diff-highlight | less -rJN
+ 	autocrlf = input
+ 	commentchar = ";"
+ 	askpass = git-gui--askpass
+ 	hooksPath = /Users/emiliano/.githooks
 [push]
-  default = simple
+	default = simple
 [pull]
-  default = current
-  ff = only
+	default = current
+	ff = only
 [rerere]
-  enabled = true
+	enabled = true
 [pack]
-  windowMemory = 250m
+	windowMemory = 250m
 [init]
-  templatedir = ~/.git-templates
-  defaultBranch = master
+	templatedir = ~/.git-templates
+	defaultBranch = master
 [gc]
-  auto = 256
+	auto = 256
 [interactive]
-  diffFilter = /Users/emiliano/dotfiles/diff-highlight
+	diffFilter = /Users/emiliano/dotfiles/diff-highlight
 [pager]
-  show = nvim -R -
-  color = true
+	show = nvim -R -
+	color = true
 [credential]
-  helper = store --file="$HOME/dotfiles/.git_credentials"
-  #helper = cache --timeout=144000
+	helper = store --file="$HOME/dotfiles/.git_credentials"
+	#helper = cache --timeout=144000
 [merge]
-  tool = vimdiff3
-  #tool = idea
-  commit = yes
-  ff = no
+	tool = vimdiff3
+	#tool = idea
+	commit = yes
+	ff = no
 [diff]
-  #tool = vimdiff3
-  tool = idea
+	#tool = vimdiff3
+	tool = idea
 [difftool "vimdiff3"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "vimdiff3"]
-  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "diffconflicts"]
-  keepBackup = false
-  trustExitCode = true
-  cmd = diffconflicts nvim $LOCAL $BASE $REMOTE $MERGED
+	keepBackup = false
+	trustExitCode = true
+	cmd = diffconflicts nvim $LOCAL $BASE $REMOTE $MERGED
 [mergetool "intellij"]
-  cmd = ~/bin/idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
-  trustExitCode = true
+	cmd = ~/bin/idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+	trustExitCode = true
 [difftool "intellij"]
-  cmd = ~/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+	cmd = ~/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [status]
 	submodulesummary = 1
 [fetch]
-  prune = false
+	prune = false
 [branch]
-  autoSetupRebase = never
-[gitflow "feature.start"]
-  fetch = true
+	autoSetupRebase = never
 [trace2]
-  normalTarget = /Users/emiliano/gitlog.normal
+	normalTarget = /Users/emiliano/gitlog.normal
 [commit]
-  template = /Users/emiliano/.gitmessage
-#  gpgsign = true
-#[gpg]
-#  program = gpg2
-[user]
-  name = Emiliano Anichini
-  email = e.anichini@treedom.net
+	template = /Users/emiliano/.gitmessage
+	gpgsign = true
+[gpg]
+	program = gpg2
+#[user]
+#  name = Emiliano Anichini
+#  email = e.anichini@treedom.net
+#  signingkey = 78A170C0
 [alias]
-  lg =  log --color --decorate --graph --date-order --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
-  lgb = log --color --decorate --graph --date-order --branches --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
-  lga = log --color --decorate --graph --date-order --all --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
-  I = !git ls-files -v | grep '^[[:lower:]]'
-  M = !git status -sb | sed 1d | sed '/^[DMARC ]M /!d' | sed 's/^...//g'
-  U = !git status -sb | sed 1d | sed '/^?? /!d' | sed 's/^...//g'	
-  UU = !git status -sb | sed 1d | sed '/^UU /!d' | sed 's/^...//g'
+	lg =  log --color --decorate --graph --date-order --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
+	lgb = log --color --decorate --graph --date-order --branches --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
+	lga = log --color --decorate --graph --date-order --all --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
+	I = !git ls-files -v | grep '^[[:lower:]]'
+	M = !git status -sb | sed 1d | sed '/^[DMARC ]M /!d' | sed 's/^...//g'
+	U = !git status -sb | sed 1d | sed '/^?? /!d' | sed 's/^...//g'	
+	UU = !git status -sb | sed 1d | sed '/^UU /!d' | sed 's/^...//g'
+	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
+[user]
+	useConfigOnly = true
+[user "work"]
+	# git identity work
+	name = Emiliano Anichini
+	email = e.anichini@treedom.net
+	signingkey = 78A170C0
+[user "private"]
+	# git identity private
+	name = Emiliano Anichini
+	email = emiliano.anichini@gmail.com
+	signingkey = 1583FE40
