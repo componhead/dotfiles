@@ -3,8 +3,8 @@ echo "******* Installing fisher pkg manager..."
 brew install fisher
 
 echo "******* Installing nvm node version manager..."
-fisher add edc/bass
-fisher add PatrickF1/fzf.fish
+fisher install edc/bass
+fisher install PatrickF1/fzf.fish
 brew install nvm
 fisher install jorgebucaran/nvm.fish
 
