@@ -34,6 +34,8 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 set mmp=10000
+set textwidth=80
+set mouse=a
 
 let g:terminal_scrollback_buffer_size = 100000
 
