@@ -33,8 +33,18 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 "let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
+set mmp=10000
 
 let g:terminal_scrollback_buffer_size = 100000
+
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+inoremap <Home> <C-o>g<Home>
+inoremap <End>  <C-o>g<End>
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -60,7 +70,7 @@ set shiftwidth=4
 set tabstop=4
 set ai "Auto indent
 set si "Smart indent
-set nowrap "No Wrap lines
+set wrap "Wrap lines
 set backspace=start,eol,indent
 set foldmethod=indent
 set nofoldenable
@@ -163,6 +173,3 @@ augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
-"lua require('tutorial.basic')
-lua require('node_dap')
-lua require('plugins')

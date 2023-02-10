@@ -22,6 +22,14 @@ vim.opt.autowrite = true
 lvim.leader = "space"
 vim.opt.timeoutlen = 100
 -- add your own keymapping
+vim.keymap.set("n", "<Down>", "gj")
+vim.keymap.set("n", "<Up>", "gk")
+vim.keymap.set("v", "<Down>", "gj")
+vim.keymap.set("v", "<Up>", "gk")
+vim.keymap.set("i", "<Down>", "<C-o>gj")
+vim.keymap.set("i", "<Up>", "<C-o>gk")
+vim.keymap.set("i", "<Home>", "<C-o>g<Home>")
+vim.keymap.set("i", "<End>", "<C-o>g<End>")
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping

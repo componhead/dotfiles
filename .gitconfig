@@ -108,6 +108,8 @@
 	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 [user]
 	useConfigOnly = true
+	name = Emiliano Anichini
+	email = e.anichini@treedom.net
 [user "work"]
 	# git identity work
 	name = Emiliano Anichini
