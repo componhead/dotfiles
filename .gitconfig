@@ -53,7 +53,7 @@
 [pack]
 	windowMemory = 250m
 [init]
-	templatedir = $HOME/.git-templates
+	templatedir = $DOTFILES/.git-templates
 	defaultBranch = master
 [gc]
 	auto = 256
