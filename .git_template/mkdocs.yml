@@ -1,0 +1,19 @@
+site_name: Git Template
+theme: readthedocs
+nav:
+  - Home: index.md
+  - Usage: usage.md
+  - Hooks:
+    - 'Junk checker': hooks/junk-checker.md
+    - 'Make': hooks/make.md
+    - 'Syntax checker': hooks/syntax-checker.md
+    - 'Work In Progress': hooks/work-in-progress.md
+    - 'Ticket Reference': hooks/ticketref.md
+    - PHP:
+      - 'Composer': hooks/php/composer.md
+      - 'Ctags': hooks/php/ctags.md
+      - 'Coding Standards Fixer': hooks/php/cs-fixer.md
+      - 'Sismo': hooks/php/sismo.md
+      - 'Doctrine': hooks/php/doctrine.md
+  - Upgrading:
+    - '2.x.x to 3.x.x': upgrade/2-to-3.md
