@@ -29,6 +29,7 @@ set -xg PYTHON /usr/local/bin/python3.9
 set -xg NVIM_PYTHON_LOG_FILE /tmp/log
 set -xg NVIM_PYTHON_LOG_LEVEL DEBUG
 set -xg LUNARVIM_CONFIG_DIR $HOME/.config/lvim/
+set -xg GPG_TTY (tty)
 
 set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
