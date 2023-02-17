@@ -227,7 +227,8 @@ lvim.plugins = {
         window = {
           width = 120,
           options = {
-            number = false
+            number = true,
+            wrap = true
           }
         }
       }
