@@ -17,6 +17,7 @@ vim.opt_global.relativenumber = true
 vim.opt.autochdir = true
 vim.opt.autowrite = true
 vim.opt.cursorcolumn = true
+vim.opt.textwidth = "100"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -168,7 +169,7 @@ formatters.setup {
     command = "prettier",
     ---@usage arguments to pass to the formatter
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-    extra_args = { "--print-with", "100" },
+    extra_args = { "--line-width", "100", "--print-with", "100" },
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
     filetypes = { "typescript", "typescriptreact" },
   },
@@ -205,6 +206,14 @@ formatters.setup {
 lvim.plugins = {
   { 'tpope/vim-dadbod' },
   { 'kristijanhusak/vim-dadbod-ui' },
+  { 'neovim/nvim-lspconfig' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-cmdline' },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-vsnip' },
+  { 'hrsh7th/vim-vsnip' },
   {
     "folke/trouble.nvim", cmd = "TroubleToggle",
   },
@@ -230,6 +239,9 @@ lvim.plugins = {
             number = true,
             wrap = true
           }
+        },
+        options = {
+          number = false
         }
       }
     end,
