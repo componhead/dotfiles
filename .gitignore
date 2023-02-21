@@ -6,3 +6,5 @@
 .config/omf/init.fish
 .config/omf/theme
 .DS_Store
+
+**/.undodir

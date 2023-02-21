@@ -224,3 +224,5 @@ dist
 
 # DB datagrip console
 console*
+
+**/.undodir
