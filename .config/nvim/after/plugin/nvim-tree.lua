@@ -13,9 +13,9 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       sort_by = "name",
       root_dirs = {},
       prefer_startup_root = false,
-      sync_root_with_cwd = false,
+      sync_root_with_cwd = true,
       reload_on_bufenter = false,
-      respect_buf_cwd = false,
+      respect_buf_cwd = true,
       on_attach = "disable",
       remove_keymaps = false,
       select_prompts = false,
@@ -291,6 +291,8 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 } -- END_DEFAULT_OPTS
 
 
-vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle)
-vim.keymap.set("v", "<leader>e", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>ee", vim.cmd.NvimTreeToggle)
+vim.keymap.set("v", "<leader>ee", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>eh", ":h nvim-tree-default-mappings<CR>")
+vim.keymap.set("v", "<leader>eh", ":h nvim-tree-default-mappings<CR>")
 
