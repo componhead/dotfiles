@@ -71,8 +71,8 @@
 	commit = yes
 	ff = no
 [diff]
-	#tool = vimdiff3
-	tool = idea
+	tool = vimdiff3
+    #tool = idea
 [difftool "vimdiff3"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "vimdiff3"]
