@@ -1,7 +1,7 @@
 #!/usr/local/bin/fish
 set -xg DOTFILES $HOME/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set -xg XDG_CONFIG_HOME $HOME/config
+set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/local/share
 set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
@@ -29,7 +29,6 @@ set -xg LSCOLORS gxcxahdxacafxfaexeabxb
 set -xg PYTHON /usr/local/bin/python3.9
 set -xg NVIM_PYTHON_LOG_FILE /tmp/log
 set -xg NVIM_PYTHON_LOG_LEVEL DEBUG
-set -xg LUNARVIM_CONFIG_DIR $HOME/.config/lvim/
 set -xg GPG_TTY (tty)
 
 set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
@@ -100,20 +99,18 @@ abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-p
 abbr --add dot cd $DOTFILES
 abbr --add ij cd $DIR_INTELLIJ_SETTINGS
 abbr --add repos cd $DIR_REPOS
-#abbr --add trm lvim -c terminal
-abbr --add Erc lvim $RCFILE
+abbr --add Erc nvim $RCFILE
 abbr --add Src source $RCFILE
-abbr --add Evimrc lvim $HOME/.config/nvim/init.vim
-abbr --add Svimrc source $HOME/config/nvim/init.vim
-abbr --add Eala lvim $HOME/.config/alacritty/alacritty.yml
-abbr --add Sala source $HOME/.config/alacritty/alacritty.yml
-abbr --add Eprivate lvim $PRIVATE_DOTFILES/privatefile
+abbr --add Evimrc nvim $VIMRC
+abbr --add Svimrc source $VIMRC
+abbr --add Eala nvim $XDG_CONFIG_HOME/alacritty/alacritty.yml
+abbr --add Sala source $XDG_CONFIG_HOME/alacritty/alacritty.yml
+abbr --add Eprivate nvim $PRIVATE_DOTFILES/privatefile
 abbr --add Sprivate source $PRIVATE_DOTFILES/privatefile
-abbr --add Essh lvim $HOME/.ssh/config
+abbr --add Essh nvim $HOME/.ssh/config
 abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add v nvim -u NONE -i NONE 
-abbr --add lv lvim
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
 
