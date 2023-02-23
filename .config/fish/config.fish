@@ -1,12 +1,13 @@
 #!/usr/local/bin/fish
 set -xg DOTFILES $HOME/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set -xg XDG_CONFIG_HOME ~/.config
-set -xg XDG_DATA_HOME ~/.local/share
+set -xg XDG_CONFIG_HOME $HOME/config
+set -xg XDG_DATA_HOME $HOME/local/share
 set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
-set -xg XDG_CACHE_HOME ~/.cache
+set -xg XDG_CACHE_HOME $HOME/cache
 
+set -xg VIMRC $XDG_CONFIG_HOME/nvim/init.lua
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0
 set -xg RCFILE $XDG_CONFIG_HOME/fish/config.fish
@@ -76,17 +77,18 @@ abbr --add gad git add .
 abbr --add gcm git commit -m 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
+abbr --add ginsk git update-index --no-skip-worktree 
+abbr --add gisk git update-index --skip-worktree 
 abbr --add glg git log --color --decorate --graph --all --oneline
 abbr --add gll git log --color --decorate --graph \| less -r
+abbr --add gls git ls-files -v . \| grep \^S
 abbr --add gm git checkout master
-abbr --add gnsk git update-index --no-skip-worktree 
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add grst git restore . --recurse-submodules 
-abbr --add gsk git update-index --skip-worktree 
 abbr --add gst git status -sb
 abbr --add gstp git diff --name-status HEAD..HEAD^
 abbr --add gti git
-abbr --add gsu git submodule update --init --recursive --jobs 3
+abbr --add gsrst git submodule update --init --recursive --jobs 3
 abbr --add gspll git submodule update --remote
 abbr --add gspsh git push origin --recurse-submodules=on-demand
 abbr --add gcln git clone --recursive 
@@ -112,7 +114,6 @@ abbr --add pgr pgrep -fal
 abbr --add vi nvim 
 abbr --add v nvim -u NONE -i NONE 
 abbr --add lv lvim
-abbr --add gls git ls-files -v . \| grep \^S
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
 
