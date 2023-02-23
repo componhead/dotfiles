@@ -1,3 +1,6 @@
 [submodule "private_dotfiles"]
 	path = private_dotfiles
 	url = git@mygithub:componhead/private_dotfiles.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:componhead/kickstart.nvim.git
