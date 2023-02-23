@@ -1,6 +1,5 @@
 #!/usr/local/bin/fish
 
-
 set -xg DOTFILES $HOME/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set -xg XDG_CONFIG_HOME $HOME/.config
@@ -70,7 +69,6 @@ set -U abbrs_initialized
 set -U fish_user_paths /usr/local/bin $HOME/.local/bin 
 set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
-set --universal nvm_default_version v18
 
 source $PRIVATE_DOTFILES/privatefile
 
@@ -99,6 +97,7 @@ abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-pa
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
 # ALTRE ABBREVIAZIONI
+abbr --add vid cd $XDG_CONFIG_HOME/nvim
 abbr --add dot cd $DOTFILES
 abbr --add ij cd $DIR_INTELLIJ_SETTINGS
 abbr --add repos cd $DIR_REPOS
