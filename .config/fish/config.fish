@@ -9,6 +9,7 @@ set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME $HOME/cache
 
+set -xg NVM_DIR $XDG_DATA_HOME/nvm
 set -xg VIMRC $XDG_CONFIG_HOME/nvim/init.lua
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0
