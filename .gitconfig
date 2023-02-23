@@ -67,12 +67,10 @@
 	#helper = cache --timeout=144000
 [merge]
 	tool = vimdiff3
-	#tool = idea
 	commit = yes
 	ff = no
 [diff]
 	tool = vimdiff3
-    #tool = idea
 [difftool "vimdiff3"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "vimdiff3"]
