@@ -161,6 +161,22 @@ fi
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
 
+echo "******* Setup Fish shell environment..."
+if brew ls --versions fish > /dev/null; then
+  echo "******* fish already installed"
+else
+  echo "******* Installing fish shell..."
+  brew install fish
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/fish
+fi
+
+if brew ls --versions op > /dev/null; then
+  echo "******* 1password already installed"
+else
+  brew install --cask 1password/tap/1password-cli
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILESDIR}/.docker ${HOME}/
 ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/
@@ -183,6 +199,7 @@ ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/
 
 ln -sf ${DOTFILESDIR}/.config/nvim ${HOME}/.config/
+ln -sf ${DOTFILESDIR}/.config/git ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/alacritty ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/karabiner ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config/
@@ -190,18 +207,3 @@ ln -sf ${DOTFILESDIR}/.config/fisher ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/starship.toml ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/lvim ${HOME}/.config/
 
-echo "******* Setup Fish shell environment..."
-if brew ls --versions fish > /dev/null; then
-  echo "******* fish already installed"
-else
-  echo "******* Installing fish shell..."
-  brew install fish
-  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/fish
-fi
-
-if brew ls --versions op > /dev/null; then
-  echo "******* 1password already installed"
-else
-  brew install --cask 1password/tap/1password-cli
-fi

@@ -63,15 +63,12 @@
 	color = true
 [credential]
 	helper = store --file="credentials"
-	#helper = cache --timeout=144000
 [merge]
 	tool = vimdiff3
-	#tool = idea
 	commit = yes
 	ff = no
 [diff]
 	tool = vimdiff3
-    #tool = idea
 [difftool "vimdiff3"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "vimdiff3"]
@@ -80,11 +77,6 @@
 	keepBackup = false
 	trustExitCode = true
 	cmd = diffconflicts nvim $LOCAL $BASE $REMOTE $MERGED
-[mergetool "intellij"]
-	cmd = $HOME/bin/idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
-	trustExitCode = true
-[difftool "intellij"]
-	cmd = $HOME/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [status]
 	submodulesummary = 1
 [fetch]
