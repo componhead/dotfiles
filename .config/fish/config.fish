@@ -77,13 +77,13 @@ source $PRIVATE_DOTFILES/privatefile
 
 alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 #ABBREVIAZIONI GIT 
-abbr --add cfg cd $DOTFILES/.config
 abbr --add gad git add .
 abbr --add gcf git config -e
 abbr --add gcfg git config --global -e
 abbr --add gcm git commit -m 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
+abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
 abbr --add ginsk git update-index --no-skip-worktree 
 abbr --add gisk git update-index --skip-worktree 
 abbr --add glg git log --color --decorate --graph --all --oneline
@@ -104,6 +104,7 @@ abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-pa
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
 # ALTRE ABBREVIAZIONI
+abbr --add cfg cd $DOTFILES/.config
 abbr --add vid cd $XDG_CONFIG_HOME/nvim
 abbr --add dot cd $DOTFILES
 abbr --add ij cd $DIR_INTELLIJ_SETTINGS
