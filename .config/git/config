@@ -119,3 +119,5 @@
 	name = Emiliano Anichini
 	email = emiliano.anichini@gmail.com
 	signingkey = 1583FE40
+[difftool]
+	prompt = false

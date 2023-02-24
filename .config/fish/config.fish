@@ -141,3 +141,5 @@ eval (ssh-agent -c) > /dev/null
 /usr/local/bin/starship init fish | source
 
 op completion fish | source
+
+alias gstdiff="git status --porcelain | sed 's/^...//' | while read f; git difftool --color=always --word-diff=color --word-diff-regex=. $argv $f; end;"
