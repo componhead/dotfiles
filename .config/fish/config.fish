@@ -12,13 +12,16 @@ set -xg NVM_DIR $XDG_DATA_HOME/nvm
 set -xg VIMRC $XDG_CONFIG_HOME/nvim/init.lua
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0
+set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
+set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $XDG_CONFIG_HOME/fish/config.fish
 set -xg APPDATA $HOME
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
 set -xg EDITOR nvim
-set -xg FPP_EDITOR nvim
+set -xg GIT_EDITOR $EDITOR
+set -xg FPP_EDITOR $EDITOR
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 if type -q rg then
@@ -37,7 +40,7 @@ set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
 set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin`
 
-alias git="$DOTFILES/.gitwrapper.sh"
+
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
 set -g theme_display_git_ahead_verbose yes
@@ -72,8 +75,12 @@ set fzf_fd_opts --hidden --exclude=.git
 
 source $PRIVATE_DOTFILES/privatefile
 
+alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 #ABBREVIAZIONI GIT 
+abbr --add cfg cd $DOTFILES/.config
 abbr --add gad git add .
+abbr --add gcf git config -e
+abbr --add gcfg git config --global -e
 abbr --add gcm git commit -m 
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=

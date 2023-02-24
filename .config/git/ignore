@@ -225,4 +225,6 @@ dist
 # DB datagrip console
 console*
 
-**/.undodir
+.undodir
+.ideavimrc
+credentials

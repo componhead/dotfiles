@@ -37,12 +37,11 @@
  	autoclrf=true
  	preloadindex = true
  	fscache = true
- 	excludesfile = $DOTFILES/.gitignore_global
  	#pager = diff-highlight | less -rJN
  	autocrlf = input
  	commentchar = ";"
  	askpass = git-gui--askpass
- 	hooksPath = $HOME/.githooks
+ 	hooksPath = githooks
 [push]
 	default = simple
 [pull]
@@ -53,24 +52,26 @@
 [pack]
 	windowMemory = 250m
 [init]
-	#templatedir = $DOTFILES/.git_templates
+	templatedir = git_templates
 	defaultBranch = master
 [gc]
 	auto = 256
 [interactive]
-	diffFilter = $DOTFILES/diff-highlight
+	diffFilter = diff-highlight
 [pager]
 	show = nvim -R -
 	color = true
 [credential]
-	helper = store --file="$DOTFILES/.git_credentials"
+	helper = store --file="credentials"
 	#helper = cache --timeout=144000
 [merge]
 	tool = vimdiff3
+	#tool = idea
 	commit = yes
 	ff = no
 [diff]
 	tool = vimdiff3
+    #tool = idea
 [difftool "vimdiff3"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "vimdiff3"]
@@ -91,7 +92,7 @@
 [branch]
 	autoSetupRebase = never
 [commit]
-	template = $HOME/.gitmessage
+	template = gitmessage
 	gpgsign = true
 [gpg]
 	program = gpg2
