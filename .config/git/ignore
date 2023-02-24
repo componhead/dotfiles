@@ -225,6 +225,6 @@ dist
 # DB datagrip console
 console*
 
-.config/nvim/undodir
+**/undodir/**/*
 .ideavimrc
 credentials
