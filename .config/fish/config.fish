@@ -8,6 +8,10 @@ set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
 set -xg XDG_CACHE_HOME $HOME/cache
 
+set -xg EDITOR nvim
+set -xg GIT_EDITOR $EDITOR
+set -xg FPP_EDITOR $EDITOR
+
 set -xg NVM_DIR $XDG_DATA_HOME/nvm
 set -xg VIMRC $XDG_CONFIG_HOME/nvim/init.lua
 set -xg GIT_CURL_VERBOSE 0
@@ -19,9 +23,6 @@ set -xg APPDATA $HOME
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
-set -xg EDITOR nvim
-set -xg GIT_EDITOR $EDITOR
-set -xg FPP_EDITOR $EDITOR
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 if type -q rg then
@@ -104,20 +105,20 @@ abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-pa
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
 # ALTRE ABBREVIAZIONI
-abbr --add cfg cd $DOTFILES/.config
-abbr --add vid cd $XDG_CONFIG_HOME/nvim
-abbr --add dot cd $DOTFILES
-abbr --add ij cd $DIR_INTELLIJ_SETTINGS
-abbr --add repos cd $DIR_REPOS
-abbr --add Erc nvim $RCFILE
-abbr --add Evrc nvim $VIMRC
-abbr --add Evplug nvim $XDG_CONFIG_HOME/nvim/lua/custom/plugins/
-abbr --add Eala nvim $XDG_CONFIG_HOME/alacritty/alacritty.yml
-abbr --add Eprv nvim $PRIVATE_DOTFILES/privatefile
-abbr --add Essh nvim $HOME/.ssh/config
+abbr --add cfg $EDITOR $DOTFILES/.config
+abbr --add vid $EDITOR $XDG_CONFIG_HOME/nvim
+abbr --add dot $EDITOR $DOTFILES
+abbr --add ij $EDITOR $DIR_INTELLIJ_SETTINGS
+abbr --add repos $EDITOR $DIR_REPOS
+abbr --add Erc $EDITOR $RCFILE
+abbr --add Evrc $EDITOR $VIMRC
+abbr --add Evplug $EDITOR $XDG_CONFIG_HOME/nvim/lua/custom/plugins/
+abbr --add Eala $EDITOR $XDG_CONFIG_HOME/alacritty/alacritty.yml
+abbr --add Eprv $EDITOR $PRIVATE_DOTFILES/privatefile
+abbr --add Essh $EDITOR $HOME/.ssh/config
 abbr --add pgr pgrep -fal
-abbr --add vi nvim 
-abbr --add v nvim -u NONE -i NONE 
+abbr --add vi $EDITOR 
+abbr --add v $EDITOR -u NONE -i NONE 
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
 
