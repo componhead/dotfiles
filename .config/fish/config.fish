@@ -12,6 +12,7 @@ set -xg EDITOR nvim
 set -xg GIT_EDITOR $EDITOR
 set -xg FPP_EDITOR $EDITOR
 
+set -xg XDG_CONFIG_LINK $DOTFILES/.config
 set -xg NVM_DIR $XDG_DATA_HOME/nvm
 set -xg VIMRC $XDG_CONFIG_HOME/nvim/init.lua
 set -xg GIT_CURL_VERBOSE 0
@@ -105,15 +106,15 @@ abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-pa
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
 # ALTRE ABBREVIAZIONI
-abbr --add cfg $EDITOR $DOTFILES/.config
-abbr --add vid $EDITOR $XDG_CONFIG_HOME/nvim
+abbr --add cfg $EDITOR $XDG_CONFIG_LINK
+abbr --add vid $EDITOR $XDG_CONFIG_LINK/nvim
 abbr --add dot $EDITOR $DOTFILES
 abbr --add ij $EDITOR $DIR_INTELLIJ_SETTINGS
 abbr --add repos $EDITOR $DIR_REPOS
 abbr --add Erc $EDITOR $RCFILE
 abbr --add Evrc $EDITOR $VIMRC
-abbr --add Evplug $EDITOR $XDG_CONFIG_HOME/nvim/lua/custom/plugins/
-abbr --add Eala $EDITOR $XDG_CONFIG_HOME/alacritty/alacritty.yml
+abbr --add Evplug $EDITOR $XDG_CONFIG_LINK/nvim/lua/custom/plugins/
+abbr --add Eala $EDITOR $XDG_CONFIG_LINK/alacritty/alacritty.yml
 abbr --add Eprv $EDITOR $PRIVATE_DOTFILES/privatefile
 abbr --add Essh $EDITOR $HOME/.ssh/config
 abbr --add pgr pgrep -fal
