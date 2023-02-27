@@ -62,7 +62,7 @@
 	show = nvim -R -
 	color = true
 [credential]
-	helper = store --file="$DOTFILES/git_credentials"
+	helper = store --file="$PRIVATE_DOTFILES/../git_credentials"
 [merge]
 	tool = vimdiff3
 	commit = yes
