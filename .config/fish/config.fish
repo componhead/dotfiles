@@ -106,6 +106,7 @@ abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-pa
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
 # ALTRE ABBREVIAZIONI
+abbr --add nvmd set --universal nvm_default_version v
 abbr --add cfg cd $XDG_CONFIG_LINK
 abbr --add vid cd $XDG_CONFIG_LINK/nvim
 abbr --add dot cd $DOTFILES
