@@ -106,11 +106,11 @@ abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-pa
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
 # ALTRE ABBREVIAZIONI
-abbr --add cfg $EDITOR $XDG_CONFIG_LINK
-abbr --add vid $EDITOR $XDG_CONFIG_LINK/nvim
-abbr --add dot $EDITOR $DOTFILES
-abbr --add ij $EDITOR $DIR_INTELLIJ_SETTINGS
-abbr --add repos $EDITOR $DIR_REPOS
+abbr --add cfg cd $XDG_CONFIG_LINK
+abbr --add vid cd $XDG_CONFIG_LINK/nvim
+abbr --add dot cd $DOTFILES
+abbr --add ij cd $DIR_INTELLIJ_SETTINGS
+abbr --add repos cd $DIR_REPOS
 abbr --add Erc $EDITOR $RCFILE
 abbr --add Evrc $EDITOR $VIMRC
 abbr --add Evplug $EDITOR $XDG_CONFIG_LINK/nvim/lua/custom/plugins/
@@ -129,8 +129,6 @@ abbr --add flnk 'find . -type l -maxdepth 1'
 
 # ABBREVIAZIONI NETWORKING
 abbr --add network_port_occupied 'sudo lsof -i -P'
-
-#thefuck --alias | source 
 
 bind \co openfile
 fish_vi_key_bindings
