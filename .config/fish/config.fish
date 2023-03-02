@@ -14,13 +14,17 @@ set -xg FPP_EDITOR $EDITOR
 
 set -xg XDG_CONFIG_LINK $DOTFILES/.config
 set -xg NVM_DIR $XDG_DATA_HOME/nvm
-set -xg VIMRC $XDG_CONFIG_HOME/nvim/init.lua
-set -xg GIT_CURL_VERBOSE 0
-set -xg GIT_TRACE 0
+set -xg NVIM_DIR $XDG_DATA_HOME/nvim
+set -xg FISH_DIR $XDG_DATA_HOME/fish
+set -xg ALACRITTY_DIR $XDG_DATA_HOME/alacritty
+set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
-set -xg RCFILE $XDG_CONFIG_HOME/fish/config.fish
+set -xg RCFILE $FISH_DIR/config.fish
+
 set -xg APPDATA $HOME
+set -xg GIT_CURL_VERBOSE 0
+set -xg GIT_TRACE 0
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
@@ -108,14 +112,14 @@ abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-p
 # ALTRE ABBREVIAZIONI
 abbr --add nvmd set --universal nvm_default_version v
 abbr --add cfg cd $XDG_CONFIG_LINK
-abbr --add vid cd $XDG_CONFIG_LINK/nvim
+abbr --add vid cd $NVIM_DIR
 abbr --add dot cd $DOTFILES
 abbr --add ij cd $DIR_INTELLIJ_SETTINGS
 abbr --add repos cd $DIR_REPOS
 abbr --add Erc $EDITOR $RCFILE
 abbr --add Evrc $EDITOR $VIMRC
-abbr --add Evplug $EDITOR $XDG_CONFIG_LINK/nvim/lua/custom/plugins/
-abbr --add Eala $EDITOR $XDG_CONFIG_LINK/alacritty/alacritty.yml
+abbr --add Evplug $EDITOR $NVIM_DIR/lua/custom/plugins/
+abbr --add Eala $EDITOR $ALACRITTY_DIR/alacritty.yml
 abbr --add Eprv $EDITOR $PRIVATE_DOTFILES/privatefile
 abbr --add Essh $EDITOR $HOME/.ssh/config
 abbr --add pgr pgrep -fal
@@ -123,6 +127,8 @@ abbr --add vi $EDITOR
 abbr --add v $EDITOR -u NONE -i NONE 
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
+
+abbr --add delenvs rm $FISH_DIR/fish_variables
 
 # ABBREVIAZIONI FILES
 abbr --add fopn 'lsof | wc -l'
