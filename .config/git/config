@@ -37,11 +37,11 @@
  	autoclrf=true
  	preloadindex = true
  	fscache = true
- 	#pager = diff-highlight | less -rJN
  	autocrlf = input
  	commentchar = ";"
  	askpass = git-gui--askpass
  	hooksPath = githooks
+	pager = delta
 [push]
 	default = simple
 [pull]
@@ -57,18 +57,20 @@
 [gc]
 	auto = 256
 [interactive]
-	diffFilter = diff-highlight
-[pager]
-	show = nvim -R -
-	color = true
+	diffFilter = delta --color-only
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	light = false
 [credential]
 	helper = store --file="$PRIVATE_DOTFILES/../git_credentials"
 [merge]
+	conflictstyle = diff3
 	tool = vimdiff3
 	commit = yes
 	ff = no
 [diff]
 	tool = vimdiff3
+	colorMoved = default
 [difftool "vimdiff3"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "vimdiff3"]

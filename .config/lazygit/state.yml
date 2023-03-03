@@ -1,0 +1,10 @@
+lastupdatecheck: 0
+recentrepos:
+- /Users/emiliano/dotfiles
+- /Users/emiliano/dotfiles/.config/nvim
+- /Users/emiliano/Documents/treedom/content-gql.treedom.net
+startuppopupversion: 5
+customcommandshistory:
+- qa
+- qa!
+hidecommandlog: false

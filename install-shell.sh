@@ -18,6 +18,13 @@ else
   brew install git
 fi
 
+if brew ls --versions delta > /dev/null; then
+  echo "******* Delta pager already installed"
+else
+  echo "******* Installing delta pager..."
+  brew install git-delta
+fi
+
 if brew ls --versions curl > /dev/null; then
   echo "******* curl already installed"
 else
