@@ -13,10 +13,10 @@ set -xg GIT_EDITOR $EDITOR
 set -xg FPP_EDITOR $EDITOR
 
 set -xg XDG_CONFIG_LINK $DOTFILES/.config
-set -xg NVM_DIR $XDG_DATA_HOME/nvm
-set -xg NVIM_DIR $XDG_DATA_HOME/nvim
-set -xg FISH_DIR $XDG_DATA_HOME/fish
-set -xg ALACRITTY_DIR $XDG_DATA_HOME/alacritty
+set -xg NVM_DIR $XDG_CONFIG_HOME/nvm
+set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
+set -xg FISH_DIR $XDG_CONFIG_HOME/fish
+set -xg ALACRITTY_DIR $XDG_CONFIG_HOME/alacritty
 set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
@@ -101,6 +101,7 @@ abbr --add grst git restore . --recurse-submodules
 abbr --add gst git status -sb
 abbr --add gstp git diff --name-status HEAD..HEAD^
 abbr --add gti git
+abbr --add lz lazygit
 abbr --add gsrst git submodule update --init --recursive --jobs 3
 abbr --add gspll git submodule update --remote
 abbr --add gspsh git push origin --recurse-submodules=on-demand
@@ -127,6 +128,9 @@ abbr --add vi $EDITOR
 abbr --add v $EDITOR -u NONE -i NONE 
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
+
+#ABBREVIAZIONI NODE
+abbr --add nrst rm -rf node_modules package-lock.json
 
 abbr --add delenvs rm $FISH_DIR/fish_variables
 
