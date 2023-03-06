@@ -17,7 +17,7 @@ gui:
     optionsTextColor:
       - blue
     selectedLineBgColor:
-      - blue # set to `default` to have no background colour
+      - default # set to `default` to have no background colour
     selectedRangeBgColor:
       - blue
     cherryPickedCommitBgColor:
@@ -62,7 +62,7 @@ git:
     # this determines whether the git graph is rendered in the commits panel
     showGraph: 'when-maximised'
     # displays the whole git graph by default in the commits panel (equivalent to passing the `--all` argument to `git log`)
-    showWholeGraph: false
+    showWholeGraph: true
   skipHookPrefix: WIP
   autoFetch: true
   autoRefresh: true
