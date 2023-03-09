@@ -1,6 +1,6 @@
 #!/usr/local/bin/fish
 
--- DON'T TOUCH ALL BELOW
+# ############# DON'T TOUCH ALL BELOW
 set -xg RCFILE $FISH_DIR/config.fish
 set -xg DOTFILES $HOME/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
@@ -23,7 +23,7 @@ set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $FISH_DIR/config.fish
--- DON'T TOUCH ALL ABOVE
+# ############# DON'T TOUCH ALL ABOVE
 
 set -xg APPDATA $HOME
 set -xg GIT_CURL_VERBOSE 0
