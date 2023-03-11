@@ -6,3 +6,9 @@
 	path = .config/nvim
 	url = git@mygithub:componhead/LazyVim/LazyVim.git
 	branch = master
+[submodule "tmux"]
+	path = .tmux
+	url = git@mygithub:componhead/.tmux.git
+[submodule ".tmux"]
+	path = .tmux
+	url = git@mygithub:componhead/.tmux.git

@@ -95,7 +95,7 @@ abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
 abbr --add ginsk git update-index --no-skip-worktree 
 abbr --add gisk git update-index --skip-worktree 
-abbr --add glg git log --color --decorate --graph --all --oneline
+abbr --add glg git log --color --decorate --graph --all --oneline \| less -R
 abbr --add gll git log --color --decorate --graph \| less -r
 abbr --add gls git ls-files -v . \| grep \^S
 abbr --add gm git checkout master
