@@ -15,7 +15,6 @@ set -xg GIT_EDITOR $EDITOR
 set -xg FPP_EDITOR $EDITOR
 
 set -xg XDG_CONFIG_LINK $DOTFILES/.config
-set -xg NVM_DIR $XDG_CONFIG_HOME/nvm
 set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
 set -xg FISH_DIR $XDG_CONFIG_HOME/fish
 set -xg ALACRITTY_DIR $XDG_CONFIG_HOME/alacritty
@@ -23,6 +22,8 @@ set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $FISH_DIR/config.fish
+set -xg ZELLIJ_CONFIG_DIR $XDG_CONFIG_HOME/zellij
+set -xg ZELLIJ_CONFIG_FILE $ZELLIJ_CONFIG_DIR/config.kdl
 # ############# DON'T TOUCH ALL ABOVE
 
 set -xg APPDATA $HOME
@@ -78,7 +79,7 @@ set -g fish_vi_key_bindings yes
 set -g fish_escape_delay_ms 300
 set -g fish_user_abbreviations
 set -U abbrs_initialized
-set -U fish_user_paths /usr/local/bin $HOME/.local/bin 
+set -U fish_user_paths /usr/local/bin $HOME/.local/bin
 set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
 
@@ -89,18 +90,18 @@ alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 abbr --add gad git add .
 abbr --add gcf git config -e
 abbr --add gcfg git config --global -e
-abbr --add gcm git commit -m 
+abbr --add gcm git commit -m
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
-abbr --add ginsk git update-index --no-skip-worktree 
-abbr --add gisk git update-index --skip-worktree 
+abbr --add ginsk git update-index --no-skip-worktree
+abbr --add gisk git update-index --skip-worktree
 abbr --add glg git log --color --decorate --graph --all --oneline \| less -R
 abbr --add gll git log --color --decorate --graph \| less -r
 abbr --add gls git ls-files -v . \| grep \^S
 abbr --add gm git checkout master
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
-abbr --add grst git restore . --recurse-submodules 
+abbr --add grst git restore . --recurse-submodules
 abbr --add gst git status -sb
 abbr --add gstp git diff --name-status HEAD..HEAD^
 abbr --add gti git
@@ -108,7 +109,7 @@ abbr --add lz lazygit
 abbr --add gsrst git submodule update --init --recursive --jobs 3
 abbr --add gspll git submodule update --remote
 abbr --add gspsh git push origin --recurse-submodules=on-demand
-abbr --add gcln git clone --recursive 
+abbr --add gcln git clone --recursive
 abbr --add pll git pull origin --recurse-submodules
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
@@ -127,8 +128,8 @@ abbr --add Eala $EDITOR $ALACRITTY_DIR/alacritty.yml
 abbr --add Eprv $EDITOR $PRIVATE_DOTFILES/privatefile
 abbr --add Essh $EDITOR $HOME/.ssh/config
 abbr --add pgr pgrep -fal
-abbr --add vi $EDITOR 
-abbr --add v $EDITOR -u NONE -i NONE 
+abbr --add vi $EDITOR
+abbr --add v $EDITOR -u NONE -i NONE
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
 abbr --add rst "echo -ne '\ec\e[3J'"
@@ -152,7 +153,7 @@ fish_vi_key_bindings
 set SSH_AUTH_SOCK ssh git@github.com
 
 fish_ssh_agent
-eval (ssh-agent -c) > /dev/null
+eval (ssh-agent -c) >/dev/null
 /usr/local/bin/starship init fish | source
 
 op completion fish | source
