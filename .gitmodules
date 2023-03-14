@@ -4,5 +4,5 @@
 	branch = master
 [submodule ".config/nvim"]
 	path = .config/nvim
-	url = git@mygithub:componhead/LazyVim.git
+	url = git@mygithub:componhead/kickstart.nvim.git
 	branch = master
