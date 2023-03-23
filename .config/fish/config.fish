@@ -132,6 +132,7 @@ abbr --add vi $EDITOR
 abbr --add v $EDITOR -u NONE -i NONE
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
+abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1
 abbr --add rst "echo -ne '\ec\e[3J'"
 
 #ABBREVIAZIONI NODE
