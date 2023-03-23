@@ -1,0 +1,7 @@
+OPENAI_API_KEY=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
+OPENAI_API_HOST=https://api.openai.com
+CHAT_CACHE_LENGTH=100
+CHAT_CACHE_PATH=/var/folders/w1/xnfwpt9n0x97y160747dj8_w0000gq/T/shell_gpt/chat_cache
+CACHE_LENGTH=100
+CACHE_PATH=/var/folders/w1/xnfwpt9n0x97y160747dj8_w0000gq/T/shell_gpt/cache
+REQUEST_TIMEOUT=60

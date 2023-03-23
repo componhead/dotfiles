@@ -57,6 +57,9 @@ fi
 echo "******* Installing bitbucket-cli."
 pip install bitbucket-cli
 
+echo "******* Installing chat-gpt shell cli"
+pip install shell-gpt
+
 echo "******* Installing Nerd Fonts"
 brew tap caskroom/fonts
 brew install --cask font-firacode-nerd-font-mono
