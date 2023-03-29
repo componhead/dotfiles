@@ -90,7 +90,9 @@ alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 abbr --add gad git add .
 abbr --add gcf git config -e
 abbr --add gcfg git config --global -e
+abbr --add gcln git clone --recursive
 abbr --add gcm git commit -m
+abbr --add gcma git commit --amend -m
 abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
 abbr --add gfl git diff --name-only --diff-filter=
 abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
@@ -102,14 +104,13 @@ abbr --add gls git ls-files -v . \| grep \^S
 abbr --add gm git checkout master
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add grst git restore . --recurse-submodules
+abbr --add gspll git submodule update --remote
+abbr --add gspsh git push origin --recurse-submodules=on-demand
+abbr --add gsrst git submodule update --init --recursive --jobs 3
 abbr --add gst git status -sb
 abbr --add gstp git diff --name-status HEAD..HEAD^
 abbr --add gti git
 abbr --add lz lazygit
-abbr --add gsrst git submodule update --init --recursive --jobs 3
-abbr --add gspll git submodule update --remote
-abbr --add gspsh git push origin --recurse-submodules=on-demand
-abbr --add gcln git clone --recursive
 abbr --add pll git pull origin --recurse-submodules
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
@@ -132,7 +133,7 @@ abbr --add vi $EDITOR
 abbr --add v $EDITOR -u NONE -i NONE
 abbr --add battery pmset -g batt
 abbr --add ta tmux attach
-abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1
+abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1 "(git rev-parse --show-toplevel)/test/**/*.test.js"
 abbr --add rst "echo -ne '\ec\e[3J'"
 
 #ABBREVIAZIONI NODE
