@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DOTFILESDIR=${HOME}/dotfiles
+PRIVATE_DOTFILESDIR=${DOTFILESDIR/private_dotfiles
 
 brew help >/dev/null
 
@@ -194,7 +195,15 @@ else
 	brew install gh
 fi
 
+if brew ls --versions httpx >/dev/null; then
+	echo "******* httpx already installed"
+else
+	echo "******* Installing httpx..."
+	brew install servicex-sh/tap/httpx
+fi
+
 echo "******* Installing generics dot configuration files"
+ln -sf ${PRIVATE_DOTFILESDIR}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
 ln -sf ${DOTFILESDIR}/.docker ${HOME}/
 ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/
 
