@@ -1,38 +1,416 @@
-{
-  "settingsVersion": "1.67.4",
-  "exclusionRules": [
-    {
-      "pattern": "https?://www.typinggames.zone/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://www.typing.com/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://webmailbeta.pec.it/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://www.lumosity.com/*",
-      "passKeys": ""
-    }
-  ],
-  "filterLinkHints": false,
-  "waitForEnterForFilteredHints": true,
-  "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n\nmap \\11doc createTab https://undici.nodejs.org/#/\nmap \\1pdoc createTab https://developer.1password.com/docs/cli\n\nmap \\aca createTab https://www.codecademy.com/learn\nmap \\awend createTab https://github.com/sindresorhus/awesome-nodejs\nmap \\awsij createTab https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/key-tasks.html#key-tasks-lambda\nmap \\awscli createTab https://docs.aws.amazon.com/cli/latest/index.html\nmap \\awscourse createTab https://explore.skillbuilder.aws/learn/course/1851/play/45289/aws-technical-essentials-104\n\nmap \\bank createTab https://www.inbank.it/function/GestioneCartePrepagateNewFlow.flow?execution=e2s1\nmap \\bbjs createTab https://builderbook.org/books/builder-book/introduction\nmap \\bqc createTab https://console.cloud.google.com/home/dashboard\nmap \\brdgm createTab https://boardgamearena.com/startwannaplay\n\nmap \\caflab createTab https://www.caffelab.it/\nmap \\cdk createTab https://docs.aws.amazon.com/cdk/v2/guide/home.html\nmap \\commit createTab https://www.conventionalcommits.org/en/v1.0.0/\nmap \\cryptii createTab https://cryptii.com/\n\nmap \\dapcfg createTab https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation\nmap \\dev.to createTab https://dev.to/\nmap \\devtools createTab https://developer.chrome.com/docs/devtools/news/\nmap \\dddoc createTab https://docs.datadoghq.com/getting_started/\nmap \\dkrhub createTab https://hub.docker.com/search?q=&type=image&image_filter=store%2Cofficial\nmap \\dkrnd createTab https://nodejs.org/en/docs/guides/nodejs-docker-webapp/\nmap \\despat createTab https://refactoring.guru/\nmap \\dzr createTab https://www.deezer.com/en/\n\nmap \\eslint createTab https://eslint.org/docs/rules/\n\nmap \\f24 createTab https://portale.agenziaentrate.gov.it/PortaleWeb/home\nmap \\ffdoc createTab https://www.mozilla.org/en-US/firefox/developer/\nmap \\frisby createTab https://mostly-adequate.gitbook.io/mostly-adequate-guide/\nmap \\frb createTab https://console.firebase.google.com\nmap \\frs createTab https://fireship.io/lessons\nmap \\fpts createTab https://grossbart.github.io/fp-ts/\nmap \\fstdoc createTab https://www.fastify.io/docs/latest/\nmap \\fstgh createTab https://github.com/fastify/fastify\nmap \\fshcs createTab https://devhints.io/fish-shell\nmap \\fshdoc createTab https://fishshell.com/docs/current/index.html\n\nmap \\ghnv0lsp https://www.youtube.com/watch?v=w7i4amO_zaE&t=258s\nmap \\ghnvkick createTab https://github.com/nvim-lua/kickstart.nvim\nmap \\ghsearch createTab https://github.com/search/advanced\nmap \\ghstars createTab https://github.com/componhead?tab=stars\nmap \\gitcs createTab https://devhints.io/git-tricks\nmap \\gitdoc createTab https://git-scm.com/docs\nmap \\githooks createTab https://git-scm.com/docs/githooks\nmap \\gitsubmod createTab https://git-scm.com/docs/git-submodule\nmap \\gpl createTab https://www.agnenergia.com/servizio_area_clienti.php\nmap \\gpt createTab https://chat.openai.com/chat\nmap \\gqlapi createTab https://docs.github.com/en/graphql/overview/about-the-graphql-api\nmap \\gqldoc createTab https://spec.graphql.org/June2018/\nmap \\gqlgs createTab https://graphql.org/learn/\nmap \\gqlhow createTab https://www.howtographql.com/\nmap \\gqlpri createTab https://principledgraphql.com/\n\nmap \\hsk createTab https://github.com/typicode/husky\nmap \\httpdoc createTab https://developer.mozilla.org/en-US/docs/Web/HTTP\nmap \\httphead createTab https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html\nmap \\httpie createTab https://httpie.io/docs/cli\nmap \\httpx createTab https://httpx.sh/\n\nmap \\ijdoc createTab https://www.jetbrains.com/help/idea/discover-intellij-idea.html\nmap \\ijlicense createTab https://sales.jetbrains.com/hc/en-gb/articles/207241015-Can-I-use-my-personal-license-for-commercial-development-\nmap \\isee createTab https://www.inps.it/prestazioni-servizi/come-compilare-la-dsu-e-richiedere-l-isee\n\nmap \\kick createTab https://github.com/componhead/kickstart.nvim\n\nmap \\janet createTab https://www.inps.it/prestazioni-servizi/il-versamento-online-dei-contributi-dei-lavoratori-domestici\nmap \\jojs createTab https://github.com/JoyOfJavaScript/joj\nmap \\jsman createTab https://javascript.info/js\nmap \\jsqst createTab https://github.com/lydiahallie/javascript-questions\nmap \\jsref createTab https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference\n\nmap \\labcoffee createTab https://laboratorioespresso.it/\nmap \\linkedin createTab https://www.linkedin.com/jobs/\nmap \\luavim createTab https://github.com/nanotee/nvim-lua-guide\nmap \\lumo createTab https://www.lumosity.com/app/v4/dashboard\nmap \\lvim createTab https://github.com/LunarVim/LunarVim\n\nmap \\mail createTab https://mail.google.com/mail/u/0/#inbox\nmap \\manalg createTab https://livebook.manning.com/book/advanced-algorithms-and-data-structures\nmap \\mangrok createTab https://livebook.manning.com/book/grokking-functional-programming\nmap \\mangql createTab https://livebook.manning.com/book/graphql-in-action/\nmap \\manjoy createTab https://livebook.manning.com/book/the-joy-of-javascript\nmap \\manning createTab https://www.manning.com/dashboard\nmap \\mansimple createTab https://livebook.manning.com/book/grokking-simplicity/front/\nmap \\manstreams createTab https://livebook.manning.com/book/grokking-streaming-systems/\nmap \\mantst createTab https://livebook.manning.com/book/the-art-of-unit-testing-third-edition/\nmap \\merdoc createTab https://mercurius.dev/#/\nmap \\mjdoc createTab https://docs.midjourney.com/docs\n\nmap \\nact createTab https://nact.io/\nmap \\ndapi createTab https://nodejs.org/api/\nmap \\ndcli createTab https://nodejs.org/api/cli.html\nmap \\nddoc createTab https://nodejs.org/dist/latest-v17.x/docs/api/\nmap \\ndman createTab https://nodejs.dev/learn/introduction-to-nodejs\nmap \\npmdoc createTab https://docs.npmjs.com/\nmap \\npmt&t createTab https://nodesource.com/blog/eleven-npm-tricks-that-will-knock-your-wombat-socks-off\nmap \\nvimkick createTab https://github.com/nvim-lua/kickstart.nvim\n\nmap \\opencoll createTab https://opencollective.com/emiliano-anichini\nmap \\openjs createTab https://lists.openjsf.org/g/main\n\nmap \\pec createTab https://webmail.pec.it/#home\nmap \\pfun createTab https://github.com/sindresorhus/promise-fun\nmap \\pltdoc createTab https://oss.platformatic.dev/docs/getting-started/quick-start-guide/\nmap \\pop createTab https://livex.radiopopolare.it/radiopop2\nmap \\prompt createTab https://prompts.chat/\n\nmap \\ranpsw createTab https://1password.com/password-generator/\nmap \\rclone createTab https://github.com/rclone/rclone\nmap \\redtry createTab https://try.redis.io/\nmap \\reddoc createTab https://redis.io/commands/\nmap \\reg createTab https://regex101.com/\nmap \\rkt createTab https://github.com/SergioBenitez/Rocket\nmap \\rmd createTab https://ramdajs.com/docs/\nmap \\rstbook createTab https://doc.rust-lang.org/book/\nmap \\rstcook createTab https://rust-lang-nursery.github.io/rust-cookbook/\n\nmap \\s3apidoc createTab https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html\nmap \\s3doc createTab https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html\nmap \\sqlnf createTab https://github.com/nearform/sql\nmap \\streams createTab https://github.com/bnb/awesome-developer-streams\nmap \\swaged createTab https://editor.swagger.io/\n\nmap \\tapdoc createTab https://node-tap.org/docs/getting-started/\nmap \\tfjs createTab https://www.tensorflow.org/resources/learn-ml/basics-of-tensorflow-for-js-development\nmap \\tsevo createTab https://mariusschulz.com/blog/series/typescript-evolution\nmap \\tstman createTab https://livebook.manning.com/book/testing-javascript-applications?origin=dashboard\nmap \\tmz createTab https://developers.google.com/maps/documentation/timezone/overview\nmap \\tutgitadv createTab https://www.atlassian.com/git/tutorials/advanced-overview\nmap \\tutjs createTab https://javascript.info/tutorial/map\nmap \\type createTab https://www.typing.com/student/lessons\n\nmap \\usl createTab https://www.uslcentro.toscana.it/\nmap \\utstman createTab https://livebook.manning.com/book/the-art-of-unit-testing-third-edition?origin=dashboard\n\nmap \\vdap createTab https://github.com/mfussenegger/nvim-dap\nmap \\vimcs createTab https://devhints.io/vim\nmap \\vimium createTab  https://keycombiner.com/collections/vimium/\nmap \\vimregex createTab https://learnbyexample.gitbooks.io/vim-reference/content/Regular_Expressions.html\nmap \\vkick createTab https://github.com/nvim-lua/kickstart.nvim\n\nmap \\webref createTab https://developer.mozilla.org/en-US/docs/Web\n\nmap \\ydkjs createTab https://github.com/getify/You-Dont-Know-JS\nmap \\yubicfg createTab https://github.com/drduh/YubiKey-Guide#configure-smartcard\nmap \\yubipgp createTab https://developers.yubico.com/PGP/\nmap \\yubipiv createTab https://developers.yubico.com/PIV/\n\nmap \\zellij createTab https://zellij.dev/documentation/configuration.html \nmap \\ztm createTab https://zerotomastery.io/blog/\n\n\n##### WORK SHORTCUTS #####\nmap \\awshome createTab https://eu-central-1.console.aws.amazon.com/console/home?region=eu-central-1#map \\calendar createTab https://calendar.google.com/calendar/u/0/r?tab=oc\nmap \\awstoken createTab https://treedom.awsapps.com/start#/\nmap \\cez createTab https://w3.cezanneondemand.com/CezanneHR/-/Treedom/view/9ebaad0a-8ad5-4d97-b2f1-e5d179149a81?ce=3&et=4d8970cb-6164-4162-b780-4574ff852be1&n=6c5063b4-8307-4f55-b968-ddc3e36e154d\nmap \\ddlog createTab https://app.datadoghq.eu/logs?query=&agg_m=&agg_q=&agg_t=count&index=&saved-view-id=42308&sort_m=&sort_t=&step=auto&viz=timeseries&from_ts=1670835660000&to_ts=1670835720000&live=true\nmap \\ferie createTab https://docs.google.com/spreadsheets/d/1tZ-FyzwGtlM_b8QYTmEomxFdr3Qj7w9KnFeCYJCYhBE/edit#gid=251635513\nmap \\jira createTab https://treedom.atlassian.net/jira/your-work\nmap \\office createTab https://docs.google.com/spreadsheets/d/1SvM5i8Sg2WWc00eyECkyw70vJ2VE37Ia9LxIeUJW_7E/edit#gid=0\nmap \\prm createTab https://bitbucket.org/treedomdevelopers/workspace/pull-requests?author=5e1444f78dfdd40ec4895699&user_filter=ALL\nmap \\prr createTab https://bitbucket.org/dashboard/pullrequests?section=reviewing\nmap \\repos createTab https://bitbucket.org/treedomdevelopers/\nmap \\stalla createTab https://stalla.treedom.net/dashboard/home\nmap \\standup createTab https://meet.google.com/vtd-tvkk-iqn?pli=1\nmap \\welfare createTab https://eudaimon.force.com/we/EudLoginTreedom\nmap \\work createTab https://treedom.atlassian.net/jira/software/c/projects/MB/boards/56?assignee=5e1444f78dfdd40ec4895699\nmap \\wse createTab https://world.wallstreetenglish.com/student/dashboard",
-  "linkHintCharacters": "sadfjklewcmpgh",
-  "linkHintNumbers": "0123456789",
-  "newTabUrl": "about:newtab",
-  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
-  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
-  "regexFindMode": false,
-  "ignoreKeyboardLayout": false,
-  "scrollStepSize": 60,
-  "smoothScroll": true,
-  "grabBackFocus": true,
-  "searchEngines": "3c: http://www.treccani.it/enciclopedia/ricerca/%s Treccani\n\na: https://www.amazon.it/exec/obidos/external-search/?field-keywords=%s&mode=blended Amazon\n\nd: https://duckduckgo.com/?q=%s&t=h_&ia=videos DuckDuckGo\n\ne: https://www.ebay.it/sch/?_nkw=%s eBay\n\ng: https://www.google.com/search?q=%s Google\ngh: https://github.com/search?q=%s GitHub\ngi: https://www.google.com/search?tbm=isch&q=%s Google Images\ngm: https://www.google.com/maps?q=%s Google Maps\n\nhn: https://www.hnsearch.com/search#request/submissions&q=%s&start=0 HackerNews\n\nimdb: https://www.imdb.com/find?s=all&q=%s IMDB\n\nmdn: https://developer.mozilla.org/en-US/search?q=%s MDN\n\nre: https://www.google.com/search?hl=en&tbo=1&tbs=qdr:y&q=%s Google (last year only)\n\nso: https://stackoverflow.com/search?q=%s StackOverflow\nsu: https://superuser.com/search?q=%s SuperUser\n\ntr: https://translate.google.com/?source=osdd#auto|auto|%s Google Translator\ntrello: https://trello.com/search?q=%s Trello\n\nu: https://www.udemy.com/courses/search/?src=ukw&q=%s Udemy\n\nwen: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia EN\nwit: https://www.wikipedia.it/w/index.php?title=Special:Search&search=%s Wikipedia IT\n\nyt: https://www.youtube.com/results?search_query=%s YouTube",
-  "searchUrl": "https://www.duckduckgo.com/?q=",
-  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+
+<!-- saved from url=(0070)chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Vimium Options</title>
+    <link rel="stylesheet" type="text/css" href="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.css">
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/lib/utils.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/lib/keyboard_utils.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/lib/dom_utils.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/lib/rect.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/lib/handler_stack.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/lib/settings.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/lib/find_mode_history.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/mode.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/ui_component.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/link_hints.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/vomnibar.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/scroller.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/marks.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/mode_insert.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/mode_find.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/mode_key_handler.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/mode_visual.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/hud.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/mode_normal.js"></script>
+    <script src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/vimium_frontend.js"></script>
+    <link rel="stylesheet" type="text/css" href="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/content_scripts/vimium.css">
+
+    <script type="text/javascript" src="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.js"></script>
+  <style type="text/css">div > .vimiumHintMarker {
+/* linkhint boxes */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),
+  color-stop(100%,#FFC542));
+border: 1px solid #E3BE23;
 }
+
+div > .vimiumHintMarker span {
+/* linkhint text */
+color: black;
+font-weight: bold;
+font-size: 12px;
+}
+
+div > .vimiumHintMarker > .matchingCharacter {
+}</style></head>
+
+  <body class="vimiumBody">
+    <div id="wrapper">
+      <header>Vimium Options</header>
+      <table id="options">
+        <tbody><tr>
+          <td class="caption">Excluded URLs<br>and keys</td>
+          <td>
+            <div class="help">
+              <div class="example">
+                Wholly or partially disable Vimium.  "Patterns" are URL regular expressions;
+                additionally, "*" matches any zero or more characters.
+                <br><br>
+                If "Keys" is left empty, then Vimium is wholly disabled.
+                Otherwise, just the listed keys are disabled (they are passed through).
+              </div>
+            </div>
+            <div>
+               <div id="exclusionScrollBox"><table id="exclusionRules">
+   <tbody><tr>
+      <td><span class="exclusionHeaderText">Patterns</span></td>
+      <td><span class="exclusionHeaderText">Keys</span></td>
+   </tr>
+</tbody>
+   
+
+   
+
+   
+
+   
+
+   <tr class="exclusionRuleTemplateInstance">
+      <td><input type="text" class="pattern" spellcheck="false" placeholder="URL pattern"></td>
+      <td class="exclusionRulePassKeys"><input type="text" class="passKeys" spellcheck="false" placeholder="Exclude keys"></td>
+      <td class="exclusionRemove"><input type="button" class="exclusionRemoveButton" value="&#10006;"></td>
+   </tr>
+
+   <tr class="exclusionRuleTemplateInstance">
+      <td><input type="text" class="pattern" spellcheck="false" placeholder="URL pattern"></td>
+      <td class="exclusionRulePassKeys"><input type="text" class="passKeys" spellcheck="false" placeholder="Exclude keys"></td>
+      <td class="exclusionRemove"><input type="button" class="exclusionRemoveButton" value="&#10006;"></td>
+   </tr>
+
+   <tr class="exclusionRuleTemplateInstance">
+      <td><input type="text" class="pattern" spellcheck="false" placeholder="URL pattern"></td>
+      <td class="exclusionRulePassKeys"><input type="text" class="passKeys" spellcheck="false" placeholder="Exclude keys"></td>
+      <td class="exclusionRemove"><input type="button" class="exclusionRemoveButton" value="&#10006;"></td>
+   </tr>
+
+   <tr class="exclusionRuleTemplateInstance">
+      <td><input type="text" class="pattern" spellcheck="false" placeholder="URL pattern"></td>
+      <td class="exclusionRulePassKeys"><input type="text" class="passKeys" spellcheck="false" placeholder="Exclude keys"></td>
+      <td class="exclusionRemove"><input type="button" class="exclusionRemoveButton" value="&#10006;"></td>
+   </tr>
+</table>
+<template id="exclusionRuleTemplate"></template>
+</div>
+               <button id="exclusionAddButton">Add Rule</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="caption">Custom key<br>mappings</td>
+          <td id="mappingsHelp" verticalalign="top">
+            <div class="help">
+              <div class="example">
+                <!-- TODO(ilya/philc): Expand this and style it better. -->
+                Enter commands to remap your keys. Available commands:<br>
+                <pre id="exampleKeyMapping">map j scrollDown
+unmap j
+unmapAll
+" this is a comment
+# this is also a comment</pre>
+                <a href="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html#" id="showCommands">Show available commands</a>.
+              </div>
+            </div>
+            <textarea id="keyMappings" type="text" tabindex="1"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td class="caption">Custom search<br>engines</td>
+          <td verticalalign="top">
+              <div class="help">
+                <div class="example">
+                  Add search-engine shortcuts to the Vomnibar. Format:<br>
+                  <pre>a: http://a.com/?q=%s
+b: http://b.com/?q=%s description
+" this is a comment
+# this is also a comment</pre>
+                  %s is replaced with the search terms. <br>
+                  For search completion, see <a href="chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/completion_engines.html" target="_blank">here</a>.
+                </div>
+              </div>
+              <textarea id="searchEngines"></textarea>
+          </td>
+        </tr>
+        </tbody><tbody id="advancedOptions" style="display: table-row-group;">
+          <tr>
+            <td colspan="2"><header>Advanced Options</header></td>
+          </tr>
+          <tr>
+            <td class="caption">Scroll step size</td>
+            <td>
+                <div class="help">
+                  <div class="example">
+                    The size for basic movements (usually j/k/h/l).
+                  </div>
+                </div>
+              <input id="scrollStepSize" type="number">px
+            </td>
+          </tr>
+          <tr id="linkHintCharactersContainer" style="display: table-row;">
+            <td class="caption">Characters used<br> for link hints</td>
+            <td verticalalign="top">
+                <div class="help">
+                  <div class="example">
+                    The characters placed next to each link after typing "f" to enter link-hint mode.
+                  </div>
+                </div>
+                <input id="linkHintCharacters" type="text">
+                <div class="nonEmptyTextOption example info">Leave empty to reset this option.</div></td>
+          </tr>
+          <tr id="linkHintNumbersContainer" style="display: none;">
+            <td class="caption">Characters used<br> for link hints</td>
+            <td verticalalign="top">
+                <div class="help">
+                  <div class="example">
+                    The characters placed next to each link after typing "f" to enter link-hint mode.
+                  </div>
+                </div>
+                <input id="linkHintNumbers" type="text">
+                <div class="nonEmptyTextOption example info">Leave empty to reset this option.</div></td>
+          </tr>
+          <tr>
+            <td class="caption" verticalalign="top">Miscellaneous<br>options</td>
+            <td verticalalign="top" class="booleanOption">
+              <label>
+                <input id="smoothScroll" type="checkbox">
+                Use smooth scrolling
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="caption"></td>
+            <td verticalalign="top" class="booleanOption">
+              <div class="help">
+                <div class="example">
+                  In link-hint mode, this option lets you select a link by typing its text.
+                </div>
+              </div>
+              <label>
+                <input id="filterLinkHints" type="checkbox">
+                Use the link's name and characters for link-hint filtering
+              </label>
+            </td>
+          </tr>
+          <tr id="waitForEnterForFilteredHintsContainer" style="display: none;">
+            <td class="caption"></td>
+            <td verticalalign="top" class="booleanOption">
+              <div class="help">
+                <div class="example">
+                  You activate the link with <tt>Enter</tt>, <em>always</em>; so you never accidentally type Vimium
+                  commands.
+                </div>
+              </div>
+              <label>
+                <input id="waitForEnterForFilteredHints" type="checkbox">
+                Require <tt>Enter</tt> when filtering hints
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="caption"></td>
+            <td verticalalign="top" class="booleanOption">
+              <div class="help">
+                <div class="example">
+                  Prevent pages from focusing an input on load (e.g. Google, Bing, etc.).
+                </div>
+              </div>
+              <label>
+                <input id="grabBackFocus" type="checkbox">
+                Don't let pages steal the focus on load
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="caption"></td>
+            <td verticalalign="top" class="booleanOption">
+              <div class="help">
+                <div class="example">
+                  When enabled, the HUD will not be displayed in insert mode.
+                </div>
+              </div>
+              <label>
+                <input id="hideHud" type="checkbox">
+                Hide the Heads Up Display (HUD) in insert mode
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="caption"></td>
+            <td verticalalign="top" class="booleanOption">
+              <div class="help">
+                <div class="example">
+                  Switch back to plain find mode by using the <code>\R</code> escape sequence.
+                </div>
+              </div>
+              <label>
+                <input id="regexFindMode" type="checkbox">
+                Treat find queries as JavaScript regular expressions
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="caption"></td>
+            <td verticalalign="top" class="booleanOption">
+              <div class="help">
+                <div class="example">
+                  This forces the use of <code>en-US</code> QWERTY layout and
+                  can be helpful for non-Latin keyboards.
+                </div>
+              </div>
+              <label>
+                <input id="ignoreKeyboardLayout" type="checkbox">
+                Ignore keyboard layout
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="caption">Previous patterns</td>
+            <td verticalalign="top">
+                <div class="help">
+                  <div class="example">
+                    The "navigate to previous page" command uses these patterns to find the link to follow.
+                  </div>
+                </div>
+                <input id="previousPatterns" type="text">
+                <div class="nonEmptyTextOption example info">Leave empty to reset this option.</div></td>
+          </tr>
+          <tr>
+            <td class="caption">Next patterns</td>
+            <td verticalalign="top">
+                <div class="help">
+                  <div class="example">
+                    The "navigate to next page" command uses these patterns to find the link to follow.
+                  </div>
+                </div>
+                <input id="nextPatterns" type="text">
+                <div class="nonEmptyTextOption example info">Leave empty to reset this option.</div></td>
+          </tr>
+          <tr>
+            <td class="caption">New tab URL</td>
+            <td verticalalign="top">
+                <div class="help">
+                  <div class="example">
+                      The page to open with the "create new tab" command.
+                      Set this to "<tt>pages/blank.html</tt>" for a blank page (except incognito mode).<br>
+                  </div>
+                </div>
+                <input id="newTabUrl" type="text">
+                <div class="nonEmptyTextOption example info">Leave empty to reset this option.</div></td>
+          </tr>
+          <tr>
+            <td class="caption">Default search<br>engine</td>
+            <td verticalalign="top">
+                <div class="help">
+                  <div class="example">
+                     The search engine to use in the Vomnibar <br> (e.g.: "https://duckduckgo.com/?q=").
+                  </div>
+                </div>
+                <input id="searchUrl" type="text">
+                <div class="nonEmptyTextOption example info">Leave empty to reset this option.</div></td>
+          </tr>
+          <tr>
+            <td class="caption">CSS for Vimium UI</td>
+            <td verticalalign="top">
+              <div class="help">
+                <div class="example">
+                  These styles are applied to link hints, the Vomnibar, the help dialog, the exclusions pop-up and the HUD.<br>
+                  By default, this CSS is used to style the characters next to each link hint.<br><br>
+                  These styles are used in addition to and take precedence over Vimium's
+                  default styles.
+                </div>
+              </div>
+              <textarea id="userDefinedLinkHintCss" class="code" type="text"></textarea>
+              <div class="nonEmptyTextOption example info">Leave empty to reset this option.</div></td>
+          </tr>
+
+          <!-- Vimium Labs -->
+          <!--
+          Disabled.  But we leave this code here as a template for the next time we need to introduce "Vimium Labs".
+          <tr>
+            <td colspan="2"><header>Vimium Labs</header></td>
+          </tr>
+          <tr>
+            <td class="caption"></td>
+            <td>
+                <div class="help">
+                  <div class="example">
+                  </div>
+                </div>
+                These features are experimental and may be changed or removed in future releases.
+            </td>
+          </tr>
+          <tr>
+            <td class="caption">Search weighting</td>
+            <td>
+                <div class="help">
+                  <div class="example">
+                    How prominent should suggestions be in the vomnibar?
+                    <tt>0</tt> disables suggestions altogether.
+                  </div>
+                </div>
+              <input id="omniSearchWeight" type="number" min="0.0" max="1.0" step="0.05" />(0 to 1)
+            </td>
+          </tr>
+          -->
+          <tr>
+            <td colspan="2"><header>Backup and Restore</header></td>
+          </tr>
+          <tr>
+            <td class="caption">Backup</td>
+            <td>
+                <div class="help">
+                  <div class="example">
+                    Click to backup your settings, or right-click and select <i>Save As</i>.
+                  </div>
+                </div>
+              <a id="backupLink" download="vimium-options.json">Click to download backup</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="caption">Restore</td>
+            <td>
+                <div class="help">
+                  <div class="example">
+                    Choose a backup file to restore, then click <i>Save Changes</i>, below, to confirm.
+                  </div>
+                </div>
+              <input id="chooseFile" type="file" accept=".json">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Some extra space which is hidden underneath the footer. -->
+    <div id="endSpace">
+
+    <div id="footer">
+      <div id="footerWrapper">
+        <table id="footerTable">
+          <tbody><tr>
+            <td id="footerTableData">
+              <span id="helpText">
+                Type <strong>?</strong> to show the help dialog.
+                <br>
+                Type <strong>Ctrl-Enter</strong> to save <i>all</i> options.
+              </span>
+            </td>
+            <td id="saveOptionsTableData" nowrap="">
+              <button id="advancedOptionsButton">Hide Advanced Options</button>
+              <button id="saveOptions">Save Changes</button>
+            </td>
+          </tr>
+        </tbody></table>
+      </div>
+    </div>
+  
+
+</div></body></html>
