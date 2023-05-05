@@ -120,6 +120,7 @@ abbr --add nvmd set --universal nvm_default_version v
 abbr --add cfg cd $XDG_CONFIG_LINK
 abbr --add vid cd $NVIM_DIR
 abbr --add dot cd $DOTFILES
+abbr --add prv cd $PRIVATE_DOTFILES
 abbr --add ij cd $DIR_INTELLIJ_SETTINGS
 abbr --add repos cd $DIR_REPOS
 abbr --add Erc $EDITOR $RCFILE
