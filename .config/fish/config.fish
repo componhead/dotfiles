@@ -110,7 +110,6 @@ abbr --add gsrst git submodule update --init --recursive --jobs 3
 abbr --add gst git status -sb
 abbr --add gstp git diff --name-status HEAD..HEAD^
 abbr --add gti git
-abbr --add lz lazygit
 abbr --add pll git pull origin --recurse-submodules
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
@@ -162,3 +161,8 @@ eval (ssh-agent -c) >/dev/null
 op completion fish | source
 
 alias gstdiff="git status --porcelain | sed 's/^...//' | while read f; git difftool --color=always --word-diff=color --word-diff-regex=. $argv $f; end;"
+
+if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
+	source $FISH_DIR/custom/git_fzf.fish
+	git_fzf_key_bindings
+end
