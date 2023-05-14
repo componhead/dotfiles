@@ -8,7 +8,7 @@ set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local/share
 set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
-set -xg XDG_CACHE_HOME $HOME/cache
+#set -xg XDG_CACHE_HOME $HOME/cache
 
 set -xg EDITOR nvim
 set -xg GIT_EDITOR $EDITOR
