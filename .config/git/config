@@ -65,7 +65,7 @@
 	helper = store --file="$PRIVATE_DOTFILES/../git_credentials"
 [merge]
 	conflictstyle = diff3
-	tool = vimdiff3
+	tool = diffconflicts
 	commit = yes
 	ff = no
 [diff]
