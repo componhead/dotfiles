@@ -68,14 +68,11 @@
 	tool = diffconflicts
 	commit = yes
 	ff = no
+	keepBackup = false
+	trustExitCode = true
 [diff]
 	tool = vimdiff3
 	colorMoved = default
-[difftool "vimdiff3"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[mergetool "vimdiff3"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[mergetool "diffconflicts"]
 	keepBackup = false
 	trustExitCode = true
 [status]
