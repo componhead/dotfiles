@@ -107,7 +107,7 @@ abbr --add grst git restore . --recurse-submodules
 abbr --add gspll git submodule update --remote
 abbr --add gspsh git push origin --recurse-submodules=on-demand
 abbr --add gsrst git submodule update --init --recursive --jobs 3
-abbr --add gst git status -sb
+abbr --add gst git status -sb \| fpp
 abbr --add gstp git diff --name-status HEAD..HEAD^
 abbr --add gti git
 abbr --add pll git pull origin --recurse-submodules
