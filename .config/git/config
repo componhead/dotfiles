@@ -65,13 +65,15 @@
 	helper = store --file="$PRIVATE_DOTFILES/../git_credentials"
 [merge]
 	conflictstyle = diff3
-	tool = diffconflicts
+	tool = nvimdiff
+	layout = 2
 	commit = yes
 	ff = no
 	keepBackup = false
 	trustExitCode = true
 [diff]
-	tool = vimdiff3
+	tool = nvimdiff
+	layout = 1
 	colorMoved = default
 	keepBackup = false
 	trustExitCode = true
