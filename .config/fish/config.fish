@@ -93,8 +93,8 @@ abbr --add gcfg git config --global -e
 abbr --add gcln git clone --recursive
 abbr --add gcm git commit -m
 abbr --add gcma git commit --amend -m
-abbr --add gdf git difftool --color=always --word-diff=color --word-diff-regex=. HEAD
-abbr --add gfl git diff --name-only --diff-filter=
+abbr --add gdf git difftool HEAD
+abbr --add gdh git difftool --name-status HEAD..HEAD^
 abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
 abbr --add ginsk git update-index --no-skip-worktree
 abbr --add gisk git update-index --skip-worktree
@@ -107,8 +107,8 @@ abbr --add grst git restore . --recurse-submodules
 abbr --add gspll git submodule update --remote
 abbr --add gspsh git push origin --recurse-submodules=on-demand
 abbr --add gsrst git submodule update --init --recursive --jobs 3
-abbr --add gst git status -sb \| fpp
-abbr --add gstp git diff --name-status HEAD..HEAD^
+abbr --add gsp git status -sb \| fpp
+abbr --add gst git status -sb
 abbr --add gti git
 abbr --add pll git pull origin --recurse-submodules
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'

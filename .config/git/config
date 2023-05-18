@@ -77,6 +77,9 @@
 	colorMoved = default
 	keepBackup = false
 	trustExitCode = true
+	color = always
+	word-diff = color
+	word-diff-regex = .*
 [status]
 	submodulesummary = 1
 [fetch]
