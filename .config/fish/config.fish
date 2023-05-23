@@ -91,7 +91,7 @@ abbr --add gad git add .
 abbr --add gcf git config -e
 abbr --add gcfg git config --global -e
 abbr --add gcln git clone --recursive
-abbr --add gcm git commit -m
+abbr --add gcm git commit -m \""$(git rev-parse --abbrev-ref HEAD)"\"
 abbr --add gcma git commit --amend -m
 abbr --add gdf git difftool HEAD
 abbr --add gdh git difftool --name-status HEAD..HEAD^
