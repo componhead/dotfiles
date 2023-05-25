@@ -114,39 +114,39 @@ abbr --add pll git pull origin --recurse-submodules
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
+# ABBREVIAZIONI NODE
+abbr --add nrst rm -rf node_modules package-lock.json
+
+# ABBREVIAZIONI FILES
+abbr --add flnk 'find . -type l -maxdepth 1'
+abbr --add fopn 'lsof | wc -l'
+
+# ABBREVIAZIONI NETWORKING
+abbr --add network_port_occupied 'sudo lsof -i -P'
+
 # ALTRE ABBREVIAZIONI
-abbr --add nvmd set --universal nvm_default_version v
+abbr --add battery pmset -g batt
 abbr --add cfg cd $XDG_CONFIG_LINK
-abbr --add vid cd $NVIM_DIR
+abbr --add delenvs rm $FISH_DIR/fish_variables
 abbr --add dot cd $DOTFILES
-abbr --add prv cd $PRIVATE_DOTFILES
-abbr --add ij cd $DIR_INTELLIJ_SETTINGS
-abbr --add repos cd $DIR_REPOS
+abbr --add esl 'eslint --fix (git rev-parse --show-toplevel) | fpp'
 abbr --add Erc $EDITOR $RCFILE
 abbr --add Evrc $EDITOR $VIMRC
 abbr --add Evplug $EDITOR $NVIM_DIR/lua/custom/plugins/
 abbr --add Eala $EDITOR $ALACRITTY_DIR/alacritty.yml
 abbr --add Eprv $EDITOR $PRIVATE_DOTFILES/privatefile
 abbr --add Essh $EDITOR $HOME/.ssh/config
+abbr --add ij cd $DIR_INTELLIJ_SETTINGS
+abbr --add nvmd set --universal nvm_default_version v
 abbr --add pgr pgrep -fal
-abbr --add vi $EDITOR
+abbr --add prv cd $PRIVATE_DOTFILES
+abbr --add repos cd $DIR_REPOS
+abbr --add rst "echo -ne '\ec\e[3J'"
 abbr --add v $EDITOR -u NONE -i NONE
-abbr --add battery pmset -g batt
+abbr --add vi $EDITOR
+abbr --add vid cd $NVIM_DIR
 abbr --add ta tmux attach
 abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1 "(git rev-parse --show-toplevel)/test/**/*.test.js"
-abbr --add rst "echo -ne '\ec\e[3J'"
-
-#ABBREVIAZIONI NODE
-abbr --add nrst rm -rf node_modules package-lock.json
-
-abbr --add delenvs rm $FISH_DIR/fish_variables
-
-# ABBREVIAZIONI FILES
-abbr --add fopn 'lsof | wc -l'
-abbr --add flnk 'find . -type l -maxdepth 1'
-
-# ABBREVIAZIONI NETWORKING
-abbr --add network_port_occupied 'sudo lsof -i -P'
 
 bind \co openfile
 fish_vi_key_bindings
