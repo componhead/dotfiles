@@ -110,7 +110,7 @@ abbr --add gsrst git submodule update --init --recursive --jobs 3
 abbr --add gsp git status -sb \| fpp
 abbr --add gst git status -sb
 abbr --add gti git
-abbr --add pll git pull origin --recurse-submodules
+abbr --add pll git pull origin --recurse-submodules --all
 abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
 
