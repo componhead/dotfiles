@@ -27,6 +27,7 @@ set -xg ZELLIJ_CONFIG_FILE $ZELLIJ_CONFIG_DIR/config.kdl
 # ############# DON'T TOUCH ALL ABOVE
 
 set -xg APPDATA $HOME
+set -xg OPT_DIR $HOME/dev
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0
 set -xg CLICOLOR 1
