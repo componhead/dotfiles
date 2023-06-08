@@ -148,6 +148,8 @@ abbr --add vi $EDITOR
 abbr --add vid cd $NVIM_DIR
 abbr --add ta tmux attach
 abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1 "(git rev-parse --show-toplevel)/test/**/*.test.js"
+abbr --add pgpg op read op://Personal/GPG\\ private/passphrase \| pbcopy
+abbr --add wgpg op read op://treedom/GPG\\ treedom/passphrase \| pbcopy
 
 bind \co openfile
 fish_vi_key_bindings
