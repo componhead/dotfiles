@@ -11,7 +11,7 @@ set -xg XDG_CONFIG_DIRS /etc/xdg
 #set -xg XDG_CACHE_HOME $HOME/cache
 
 set -xg EDITOR nvim
-set -xg PAGER delta
+set -xg GIT_PAGER delta
 set -xg GIT_EDITOR $EDITOR
 set -xg FPP_EDITOR $EDITOR
 
