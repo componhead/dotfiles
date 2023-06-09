@@ -188,6 +188,18 @@ else
 	brew install --cask 1password/tap/1password-cli
 fi
 
+if brew ls --versions bat >/dev/null; then
+	echo "******* bat already installed"
+else
+	brew install bat
+fi
+
+if brew ls --versions exa >/dev/null; then
+	echo "******* exa already installed"
+else
+	brew install exa
+fi
+
 if brew ls --versions jq >/dev/null; then
 	echo "******* jq already installed"
 else
