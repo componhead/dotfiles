@@ -188,18 +188,17 @@ else
 	brew install --cask 1password/tap/1password-cli
 fi
 
+if brew ls --versions jq >/dev/null; then
+	echo "******* jq already installed"
+else
+	brew install jq
+fi
+
 if brew ls --versions gh >/dev/null; then
 	echo "******* gh (github-cli) already installed"
 else
 	echo "******* Installing gh (github-cli)..."
 	brew install gh
-fi
-
-if brew ls --versions httpx >/dev/null; then
-	echo "******* httpx already installed"
-else
-	echo "******* Installing httpx..."
-	brew install servicex-sh/tap/httpx
 fi
 
 echo "******* Installing generics dot configuration files"
