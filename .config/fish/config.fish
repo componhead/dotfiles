@@ -23,8 +23,6 @@ set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $FISH_DIR/config.fish
-set -xg ZELLIJ_CONFIG_DIR $XDG_CONFIG_HOME/zellij
-set -xg ZELLIJ_CONFIG_FILE $ZELLIJ_CONFIG_DIR/config.kdl
 # ############# DON'T TOUCH ALL ABOVE
 
 set -xg APPDATA $HOME
@@ -50,7 +48,6 @@ set -xg GPG_TTY (tty)
 set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
 set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin`
-
 
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
@@ -148,6 +145,9 @@ abbr --add vi $EDITOR
 abbr --add vid cd $NVIM_DIR
 abbr --add ta tmux attach
 abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1 "(git rev-parse --show-toplevel)/test/**/*.test.js"
+
+# ONEPASSWORD retrieve
+# op://<vault>/<item>[/<section>]/<field>
 abbr --add pgpg op read op://Personal/GPG\\ private/passphrase \| pbcopy
 abbr --add wgpg op read op://treedom/GPG\\ treedom/passphrase \| pbcopy
 
