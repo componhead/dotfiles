@@ -206,6 +206,12 @@ else
 	brew install jq
 fi
 
+if brew ls --versions mdbook >/dev/null; then
+	echo "******* mdbook already installed"
+else
+	brew install mdbook
+fi
+
 if brew ls --versions gh >/dev/null; then
 	echo "******* gh (github-cli) already installed"
 else
@@ -215,25 +221,18 @@ fi
 
 echo "******* Installing generics dot configuration files"
 ln -sf ${PRIVATE_DOTFILESDIR}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
-ln -sf ${DOTFILESDIR}/.docker ${HOME}/
 ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/
-
-ln -sf ${DOTFILESDIR}/.gitconfig ${HOME}/
-ln -sf ${DOTFILESDIR}/.gitignore_global ${HOME}/
 
 ln -sf ${DOTFILESDIR}/.ghci ${HOME}/
 ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/
 
-ln -sf ${DOTFILESDIR}/.git_template ${HOME}/
-
-ln -sf ${DOTFILESDIR}/.vimsessions ${HOME}/
-
-ln -sf ${DOTFILESDIR}/manuali ${HOME}/
-ln -sf ${DOTFILESDIR}/appunti ${HOME}/
-
 ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/
 
 ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/
+
+ln -sf ${DOTFILESDIR}/bin ${HOME}/
+
+ln -sf ${DOTFILESDIR}/.npmrc ${HOME}/
 
 ln -sf ${DOTFILESDIR}/.config/nvim ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/git ${HOME}/.config/
@@ -242,4 +241,3 @@ ln -sf ${DOTFILESDIR}/.config/karabiner ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/fisher ${HOME}/.config/
 ln -sf ${DOTFILESDIR}/.config/starship.toml ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/lvim ${HOME}/.config/

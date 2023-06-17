@@ -12,17 +12,11 @@ pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote
 pip3 install --upgrade pip
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.neovim
-
 cd
 git clone git@mygithub:componhead/.tmux.git
 ./tmux-config/install.sh
 
 yarn global add diagnostic-languageserver
-
-# If in WSL:
-# > mv /home/USER/.local/share/omf/pkg/bobthefish /home/USER/.local/share/omf/themes/bobthefish
-# > omf theme bobthefish
 
 sudo chmod 755 ~
 sudo chmod 700 ~/.ssh
@@ -33,7 +27,3 @@ sudo chown -R (whoami):staff .ssh/
 
 mkdir ~/opt
 git clone git@mygithub:componhead/intellijidea-settings.git ~/opt/intellijidea-settinga
-
-LV_BRANCH='release-1.2/neovim-0.8' bash (curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh | psub)
-
-cp ${DOTFILESDIR}/.config/lvim/config.lua ${HOME}/.config/lvim/
