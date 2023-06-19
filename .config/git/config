@@ -116,3 +116,5 @@
 	signingkey = 1583FE40
 [difftool]
 	prompt = false
+[mergetool]
+	keepBackup = false
