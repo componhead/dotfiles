@@ -90,9 +90,9 @@ abbr --add gcf git config -e
 abbr --add gcfg git config --global -e
 abbr --add gcln git clone --recursive
 abbr --add gcm git commit -m 
-abbr --add gcma git commit --amend -m
-abbr --add gdf git difftool HEAD
-abbr --add gdh git difftool --name-status HEAD..HEAD^
+abbr --add gcma git commit --amend --no-edit
+abbr --add gdf git difftool HEAD^..HEAD
+abbr --add gdh git difftool --name-status HEAD^..HEAD
 abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
 abbr --add ginsk git update-index --no-skip-worktree
 abbr --add gisk git update-index --skip-worktree
