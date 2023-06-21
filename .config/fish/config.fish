@@ -47,7 +47,7 @@ set -xg GPG_TTY (tty)
 
 set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
-set -gx PATH $PATH $HOME/bin $DOTFILES/bin `npm bin`
+set -gx PATH $PATH $HOME/bin $DOTFILES/bin
 
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
