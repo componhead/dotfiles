@@ -169,6 +169,13 @@ else
 	brew install tree
 fi
 
+if brew ls --versions gitui >/dev/null; then
+	echo "******* gitui already installed"
+else
+	echo "******* Installing gitui..."
+	brew install gitui
+fi
+
 curl -o ~/.local/bin/git-credential-netrc https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc
 chmod +x ~/.local/bin/git-credential-netrc
 
