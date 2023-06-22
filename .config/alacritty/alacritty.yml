@@ -326,7 +326,7 @@ shell:
   args:
     - -l
     - -c
-    - "zellij"
+    - "tmux attach || tmux"
 
 # Startup directory
 #
