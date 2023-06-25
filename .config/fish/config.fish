@@ -149,8 +149,8 @@ abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1
 
 # ONEPASSWORD retrieve
 # op://<vault>/<item>[/<section>]/<field>
-abbr --add pgpg op read op://Personal/GPG\\ private/passphrase \| pbcopy
-abbr --add wgpg op read op://treedom/GPG\\ treedom/passphrase \| pbcopy
+abbr --add pgpg op read op://Personal/GPG_private/passphrase \| pbcopy
+abbr --add wgpg op read op://treedom/GPG_treedom/passphrase \| pbcopy
 
 bind \co openfile
 fish_vi_key_bindings
