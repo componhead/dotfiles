@@ -81,7 +81,7 @@
 	word-diff = color
 	word-diff-regex = .*
 [status]
-	submodulesummary = 1
+	submodulesummary = true
 [fetch]
 	prune = false
 [branch]

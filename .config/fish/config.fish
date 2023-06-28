@@ -1,10 +1,10 @@
 #!/usr/local/bin/fish
 
 # ############# DON'T TOUCH ALL BELOW
-set -xg RCFILE $FISH_DIR/config.fish
 set -xg DOTFILES $HOME/dotfiles
 # see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set -xg XDG_CONFIG_HOME $HOME/.config
+set -xg XDG_CONFIG_LINK $DOTFILES/.config
 set -xg XDG_DATA_HOME $HOME/.local/share
 set -xg XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -xg XDG_CONFIG_DIRS /etc/xdg
@@ -15,7 +15,6 @@ set -xg GIT_PAGER delta
 set -xg GIT_EDITOR $EDITOR
 set -xg FPP_EDITOR $EDITOR
 
-set -xg XDG_CONFIG_LINK $DOTFILES/.config
 set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
 set -xg FISH_DIR $XDG_CONFIG_HOME/fish
 set -xg ALACRITTY_DIR $XDG_CONFIG_HOME/alacritty
@@ -92,6 +91,7 @@ abbr --add gcln git clone --recursive
 abbr --add gcm git commit -m 
 abbr --add gcma git commit --amend --no-edit
 abbr --add gco git checkout 
+abbr --add gcom git checkout master
 abbr --add gdf git difftool
 abbr --add gds git difftool --name-status 
 abbr --add gf git fetch --all --recurse-submodules=yes
@@ -101,7 +101,6 @@ abbr --add gisk git update-index --skip-worktree
 abbr --add glg git log --color --decorate --graph --all --oneline \| less -R
 abbr --add gll git log --color --decorate --graph \| less -r
 abbr --add gls git ls-files -v . \| grep \^S
-abbr --add gm git checkout master
 abbr --add groot 'cd (git rev-parse --show-toplevel)'
 abbr --add grst git restore . --recurse-submodules
 abbr --add gspll git submodule update --remote
@@ -130,6 +129,7 @@ abbr --add cfg cd $XDG_CONFIG_LINK
 abbr --add delenvs rm $FISH_DIR/fish_variables
 abbr --add dot cd $DOTFILES
 abbr --add esl 'eslint --fix (git rev-parse --show-toplevel) | fpp'
+abbr --add frst rm $FISH_DIR/fish_variables
 abbr --add Erc $EDITOR $RCFILE
 abbr --add Evrc $EDITOR $VIMRC
 abbr --add Evplug $EDITOR $NVIM_DIR/lua/custom/plugins/
