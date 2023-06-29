@@ -142,7 +142,6 @@ abbr --add nvmd set --universal nvm_default_version v
 abbr --add pgr pgrep -fal
 abbr --add prv cd $PRIVATE_DOTFILES
 abbr --add repos cd $DIR_REPOS
-abbr --add rst "echo -ne '\ec\e[3J'"
 abbr --add v $EDITOR -u NONE -i NONE
 abbr --add vi $EDITOR
 abbr --add vid cd $NVIM_DIR
