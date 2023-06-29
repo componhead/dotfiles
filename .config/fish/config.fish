@@ -77,6 +77,7 @@ set -g fish_escape_delay_ms 300
 set -g fish_user_abbreviations
 set -U abbrs_initialized
 set -U fish_user_paths /usr/local/bin $HOME/.local/bin
+set -Ux fish_tmux_config $HOME/.tmux.conf
 set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
 

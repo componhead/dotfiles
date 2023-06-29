@@ -3,14 +3,16 @@ echo "******* Installing fisher pkg manager..."
 brew install fisher
 
 echo "******* Installing nvm node version manager..."
-fisher install edc/bass
-fisher install PatrickF1/fzf.fish
 brew install nvm
 fisher install jorgebucaran/nvm.fish
+
+fisher install edc/bass
+fisher install PatrickF1/fzf.fish
 
 pip3 install --user --upgrade neovim
 pip3 install --user --upgrade neovim-remote
 pip3 install --upgrade pip
+
 
 cd
 git clone git@mygithub:componhead/.tmux.git
