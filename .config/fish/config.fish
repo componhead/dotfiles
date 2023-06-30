@@ -17,11 +17,13 @@ set -xg FPP_EDITOR $EDITOR
 
 set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
 set -xg FISH_DIR $XDG_CONFIG_HOME/fish
+set -xg TMUX_DIR $HOME/.tmux
 set -xg ALACRITTY_DIR $XDG_CONFIG_HOME/alacritty
 set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $FISH_DIR/config.fish
+set -xg TMUXFILE $HOME/.tmux.conf
 # ############# DON'T TOUCH ALL ABOVE
 
 set -xg APPDATA $HOME
@@ -78,7 +80,7 @@ set -g fish_escape_delay_ms 300
 set -g fish_user_abbreviations
 set -U abbrs_initialized
 set -U fish_user_paths /usr/local/bin $HOME/.local/bin
-set -Ux fish_tmux_config $HOME/.tmux.conf
+set -gx fish_tmux_config $TMUXFILE
 set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
 
@@ -138,6 +140,7 @@ abbr --add Evplug $EDITOR $NVIM_DIR/lua/custom/plugins/
 abbr --add Eala $EDITOR $ALACRITTY_DIR/alacritty.yml
 abbr --add Eprv $EDITOR $PRIVATE_DOTFILES/privatefile
 abbr --add Essh $EDITOR $HOME/.ssh/config
+abbr --add Etmx $EDITOR $TMUXFILE
 abbr --add ij cd $DIR_INTELLIJ_SETTINGS
 abbr --add nvmd set --universal nvm_default_version v
 abbr --add pgr pgrep -fal
