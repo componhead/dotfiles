@@ -8,7 +8,7 @@ right_format = """$custom $cmd_duration"""
 
 scan_timeout = 200
 
-command_timeout = 600
+command_timeout = 1000
 
 [directory]
 use_logical_path = true
