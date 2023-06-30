@@ -30,6 +30,7 @@ set -xg GIT_TRACE 0
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
+set -xg LESS -R
 set -xg LESSCHARSET utf-8
 set -xg grepprg rg\ --vimgrep
 if type -q rg then
