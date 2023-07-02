@@ -176,6 +176,4 @@ if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
 	git_fzf_key_bindings
 end
 
-retrieveSensitiveInformations
-
 set --universal nvm_default_version v18.13.0

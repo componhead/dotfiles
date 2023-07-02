@@ -225,6 +225,12 @@ else
 	brew install docker
 fi
 
+if brew ls --versions ansifilter >/dev/null; then
+	echo "******* ansifilter already installed"
+else
+	brew install ansifilter
+fi
+
 if brew ls --versions gh >/dev/null; then
 	echo "******* gh (github-cli) already installed"
 else
