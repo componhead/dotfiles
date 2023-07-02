@@ -219,6 +219,12 @@ else
 	brew install mdbook
 fi
 
+if brew ls --versions docker >/dev/null; then
+	echo "******* docker already installed"
+else
+	brew install docker
+fi
+
 if brew ls --versions gh >/dev/null; then
 	echo "******* gh (github-cli) already installed"
 else
