@@ -163,6 +163,7 @@ fish_vi_key_bindings
 #workaround for resolving push (hung on) issue
 set SSH_AUTH_SOCK ssh git@github.com
 
+gpg_cache
 fish_ssh_agent
 eval (ssh-agent -c) >/dev/null
 /usr/local/bin/starship init fish | source
