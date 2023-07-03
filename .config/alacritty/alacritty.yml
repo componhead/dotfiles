@@ -325,8 +325,11 @@ shell:
   program: /usr/local/bin/fish
   args:
     - -l
-    - -c
+    - -C
     - "tmux attach || tmux"
+    - C
+    - "retrieveSensibleInformations"
+
 
 # Startup directory
 #

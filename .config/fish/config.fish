@@ -177,4 +177,4 @@ if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
 end
 
 set --universal nvm_default_version v18.13.0
-retrieveSensitiveInformations
+# retrieveSensitiveInformations
