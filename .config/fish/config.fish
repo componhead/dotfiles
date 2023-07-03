@@ -2,7 +2,7 @@
 
 # ############# DON'T TOUCH ALL BELOW
 set -xg DOTFILES $HOME/dotfiles
-# see https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+# see https://standards.freedesktop.org/basiir-spec/basedir-spec-latest.html
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_CONFIG_LINK $DOTFILES/.config
 set -xg XDG_DATA_HOME $HOME/.local/share
@@ -163,7 +163,6 @@ fish_vi_key_bindings
 #workaround for resolving push (hung on) issue
 set SSH_AUTH_SOCK ssh git@github.com
 
-# gpg-cache
 fish_ssh_agent
 eval (ssh-agent -c) >/dev/null
 /usr/local/bin/starship init fish | source
@@ -178,3 +177,4 @@ if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
 end
 
 set --universal nvm_default_version v18.13.0
+retrieveSensitiveInformations
