@@ -6,7 +6,7 @@ format = """
 
 right_format = """$custom $cmd_duration"""
 
-scan_timeout = 200
+scan_timeout = 500
 
 command_timeout = 1000
 
