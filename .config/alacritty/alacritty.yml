@@ -327,7 +327,7 @@ shell:
     - -l
     - -C
     - "tmux attach || tmux"
-    - C
+    - -c
     - "retrieveSensibleInformations"
 
 
