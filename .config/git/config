@@ -100,9 +100,9 @@
 [gpg]
 	program = gpg
 [alias]
-	lg =  log --color --decorate --graph --date-order --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
-	lgb = log --color --decorate --graph --date-order --branches --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
-	lga = log --color --decorate --graph --date-order --all --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
+	lg = log --oneline --decorate --graph --date-order --all
+	lgb = log --oneline --decorate --graph --date-order --branches --first-parent --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
+	lga = log --oneline --decorate --graph --date-order --all --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad) %C(bold cyan)<%an>%Creset'
 	I = !git ls-files -v | grep '^[[:lower:]]'
 	M = !git status -sb | sed 1d | sed '/^[DMARC ]M /!d' | sed 's/^...//g'
 	U = !git status -sb | sed 1d | sed '/^?? /!d' | sed 's/^...//g'	
