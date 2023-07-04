@@ -332,7 +332,7 @@ shell:
     - -C
     - "eval (op signin)"
     - -C
-    - "set -f pass (op read op://Personal/GPG_private/passphrase --no-newline)"
+    - "set -f pass (op read op://Personal/GPG_private/passphrase --cache --no-newline)"
     - -C
     - "gpg --list-secret-keys --with-keygrip --local-user emiliano.anichini@gmail.com | awk '/Keygrip/ { print $3 }' | head -n 1 | read -f secret_key_keygrip"
     - -C
