@@ -85,11 +85,18 @@ fi
 echo "******* Installing Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-if brew ls --versions ripgrep >/dev/null; then
+if brew ls --versions rg >/dev/null; then
 	echo "******* Ripgrep already installed"
 else
 	echo "******* Installing Ripgrep..."
-	brew install ripgrep
+	brew install rg
+fi
+
+if brew ls --versions sd >/dev/null; then
+	echo "******* sd (s[earch] & d[isplace]) already installed"
+else
+	echo "******* Installing sd (s[earch] & d[isplace])..."
+	brew install sd
 fi
 
 if brew ls --versions pinentry >/dev/null; then
@@ -236,6 +243,13 @@ if brew ls --versions gh >/dev/null; then
 else
 	echo "******* Installing gh (github-cli)..."
 	brew install gh
+fi
+
+if brew ls --versions tealdeer >/dev/null; then
+	echo "******* tealdeer already installed"
+else
+	echo "******* Installing tealdeer..."
+	brew install tealdeer
 fi
 
 echo "******* Installing generics dot configuration files"
