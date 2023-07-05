@@ -88,97 +88,74 @@ source $PRIVATE_DOTFILES/privatefile
 
 alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 #ABBREVIAZIONI GIT 
-<<<<<<< HEAD
-abbr --add g git
-abbr --add gacm git commit -amd .
-||||||| parent of 58e47ed (management arrow key shortcut management)
-=======
-abbr --add g git
-abbr --add gacm git commit -am 
->>>>>>> 58e47ed (management arrow key shortcut management)
-abbr --add gad git add .
-abbr --add gcf git config -e
-abbr --add gcfg git config --global -e
-abbr --add gcln git clone --recursive
-abbr --add gcm git commit -m 
-abbr --add gcma git commit --amend --no-edit
-abbr --add gco git checkout 
-abbr --add gcom git checkout master
-abbr --add gdf git difftool
-abbr --add gds git difftool --name-status 
-abbr --add gf git fetch --all --recurse-submodules=yes
-abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
-abbr --add ginsk git update-index --no-skip-worktree
-abbr --add gisk git update-index --skip-worktree
-abbr --add gl git log --color --decorate --graph --all --oneline
-abbr --add gls git ls-files -v . \| grep \^S
-abbr --add grest git restore . --recurse-submodules
-<<<<<<< HEAD
-abbr --add groot cd (git rev-parse --show-toplevel)
-abbr --add grst git reset --hard (git rev-parse --abbrev-ref --symbolic-full-name @{u})
-||||||| parent of 58e47ed (management arrow key shortcut management)
-=======
-abbr --add groot cd '(git rev-parse --show-toplevel)'
-abbr --add grst git reset --hard '(git rev-parse --abbrev-ref --symbolic-full-name @{u})'
->>>>>>> 58e47ed (management arrow key shortcut management)
-abbr --add gspll git submodule update --remote
-abbr --add gspsh git push origin --recurse-submodules=on-demand
-abbr --add gsrst git submodule update --init --recursive --jobs 3
-abbr --add gst git status -sb \| fpp
-abbr --add pll git pull --all --recurse-submodules=yes 
-<<<<<<< HEAD
-abbr --add psh git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)
-abbr --add pshf git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)
-abbr --add s git status -sb
-||||||| parent of 58e47ed (management arrow key shortcut management)
-abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
-abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
-=======
-abbr --add psh git push -u origin '(git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
-abbr --add pshf git push -f origin '(git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
-abbr --add s git status -sb
->>>>>>> 58e47ed (management arrow key shortcut management)
+abbr -a -U -- g "git"
+abbr -a -U -- gacm "git commit -am "
+abbr -a -U -- gad "git add ."
+abbr -a -U -- gcf "git config -e"
+abbr -a -U -- gcfg "git config --global -e"
+abbr -a -U -- gcln "git clone --recursive"
+abbr -a -U -- gcm "git commit -m "
+abbr -a -U -- gcma "git commit --amend --no-edit"
+abbr -a -U -- gco "git checkout "
+abbr -a -U -- gcom "git checkout master"
+abbr -a -U -- gdf "git difftool"
+abbr -a -U -- gds "git difftool --name-status "
+abbr -a -U -- gf "git fetch --all --recurse-submodules=yes"
+abbr -a -U -- gig "$GIT_EDITOR $GIT_CONFIG_HOME/ignore"
+abbr -a -U -- ginsk "git update-index --no-skip-worktree"
+abbr -a -U -- gisk "git update-index --skip-worktree"
+abbr -a -U -- gl "git log --color --decorate --graph --all --oneline"
+abbr -a -U -- gls "git ls-files -v . \| grep \^S"
+abbr -a -U -- grest "git restore . --recurse-submodules"
+abbr -a -U -- groot "cd (git rev-parse --show-toplevel)"
+abbr -a -U -- grst "git reset --hard (git rev-parse --abbrev-ref --symbolic-full-name @{u})"
+abbr -a -U -- gspll "git submodule update --remote"
+abbr -a -U -- gspsh "git push origin --recurse-submodules=on-demand"
+abbr -a -U -- gsrst "git submodule update --init --recursive --jobs 3"
+abbr -a -U -- gst "git status -sb \| fpp"
+abbr -a -U -- pll "git pull --all --recurse-submodules=yes "
+abbr -a -U -- psh "git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
+abbr -a -U -- pshf "git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
+abbr -a -U -- s "git status -sb"
 
 # ABBREVIAZIONI NODE
-abbr --add nrst rm -rf node_modules package-lock.json
+abbr -a -U -- nrst "rm -rf node_modules package-lock.json"
 
 # ABBREVIAZIONI FILES
-abbr --add flnk 'find . -type l -maxdepth 1'
-abbr --add fopn 'lsof | wc -l'
+abbr --add flnk "find . -type l -maxdepth 1"
+abbr --add fopn "lsof | wc -l"
 
 # ABBREVIAZIONI NETWORKING
-abbr --add network_port_occupied 'sudo lsof -i -P'
+abbr --add network_port_occupied "sudo lsof -i -P"
 
 # ALTRE ABBREVIAZIONI
-abbr --add battery pmset -g batt
-abbr --add cfg cd $XDG_CONFIG_LINK
-abbr --add delenvs rm $FISH_DIR/fish_variables
-abbr --add dot cd $DOTFILES
-abbr --add esl 'eslint --fix (git rev-parse --show-toplevel) | fpp'
-abbr --add frst rm $FISH_DIR/fish_variables
-abbr --add Erc $EDITOR $RCFILE
-abbr --add Evrc $EDITOR $VIMRC
-abbr --add Evplug $EDITOR $NVIM_DIR/lua/custom/plugins/
-abbr --add Eala $EDITOR $ALACRITTY_DIR/alacritty.yml
-abbr --add Eprv $EDITOR $PRIVATE_DOTFILES/privatefile
-abbr --add Essh $EDITOR $HOME/.ssh/config
-abbr --add Etmx $EDITOR $TMUXFILE
-abbr --add ij cd $DIR_INTELLIJ_SETTINGS
-abbr --add nvmd set --universal nvm_default_version v
-abbr --add pgr pgrep -fal
-abbr --add prv cd $PRIVATE_DOTFILES
-abbr --add repos cd $DIR_REPOS
-abbr --add rl rustlings
-abbr --add v $EDITOR -u NONE -i NONE
-abbr --add vi $EDITOR
-abbr --add vid cd $NVIM_DIR
-abbr --add ta tmux attach
-abbr --add tapd NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1 "(git rev-parse --show-toplevel)/test/**/*.test.js"
+abbr -a -U -- battery "pmset -g batt"
+abbr -a -U -- cfg "cd $XDG_CONFIG_LINK"
+abbr -a -U -- delenvs "rm $FISH_DIR/fish_variables"
+abbr -a -U -- dot "cd $DOTFILES"
+abbr -a -U -- esl "eslint --fix (git rev-parse --show-toplevel) | fpp"
+abbr -a -U -- frst "rm $FISH_DIR/fish_variables"
+abbr -a -U -- Erc "$EDITOR $RCFILE"
+abbr -a -U -- Evrc "$EDITOR $VIMRC"
+abbr -a -U -- Evplug "$EDITOR $NVIM_DIR/lua/custom/plugins/"
+abbr -a -U -- Eala "$EDITOR $ALACRITTY_DIR/alacritty.yml"
+abbr -a -U -- Eprv "$EDITOR $PRIVATE_DOTFILES/privatefile"
+abbr -a -U -- Essh "$EDITOR $HOME/.ssh/config"
+abbr -a -U -- Etmx "$EDITOR $TMUXFILE"
+abbr -a -U -- pgr "pgrep -fal"
+abbr -a -U -- prv "cd $PRIVATE_DOTFILES"
+abbr -a -U -- repos "cd $DIR_REPOS"
+abbr -a -U -- rl "rustlings"
+abbr -a -U -- v "$EDITOR -u NONE -i NONE"
+abbr -a -U -- vi "$EDITOR"
+abbr -a -U -- vid "cd $NVIM_DIR"
+abbr -a -U -- ta "tmux attach"
+abbr -a -U -- tapd "NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1 (git rev-parse --show-toplevel)"
 
 # ONEPASSWORD retrieve
 # op://<vault>/<item>[/<section>]/<field>
-abbr --add pgpg op read op://Personal/GPG_private/passphrase \| pbcopy
-abbr --add wgpg op read op://treedom/GPG_treedom/passphrase \| pbcopy
+abbr -a -U -- pgpg "op read op://Personal/GPG_private/passphrase \| pbcopy"
+abbr -a -U -- wgpg "op read op://treedom/GPG_treedom/passphrase \| pbcopy"
 
 bind \co openfile
 fish_vi_key_bindings
