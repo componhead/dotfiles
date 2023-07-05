@@ -455,7 +455,7 @@ working_directory: None
 #    - Key0-Key9
 #
 #    A full list with available key codes can be found here:
-#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#    https://docs.rs/servo-glutin/latest/glutin/enum.VirtualKeyCode.html
 #
 #    Instead of using the name of the keys, the `key` field also supports using
 #    the scancode of the desired key. Scancodes have to be specified as a
@@ -478,6 +478,7 @@ working_directory: None
 #    CSI [codepoint];[modifier]u
 #    | unmodified |	Shift+	    | Alt+	      | Alt+Shift+	| Ctrl+	      | Ctrl+Shift+	| Ctrl+Alt+	  | Ctrl+Alt+Shift+ |
 #    | CSI ... ~	| CSI ...;2 ~ |	CSI ...;3 ~	| CSI ...;4 ~	| CSI ...;5 ~	| CSI ...;6 ~	| CSI ...;7 ~	| CSI ...;8 ~     |
+#    `codepoint` is "\x1b" + ASCII char in decimal notation (or escape sequence for special keys)
 
 #
 # - `action`: Execute a predefined action
@@ -587,4 +588,8 @@ key_bindings:
   - { key: Y,  mods: Command, chars: "\x1b[89;8u"                            } # CMD-y -> CONTROL-SHIFT-ALT Y
   - { key: Z,  mods: Command, chars: "\x1b[90;8u"                            } # CMD-z -> CONTROL-SHIFT-ALT Z
 
+  - { key: Up,    mods: Command, chars: "\x1b[1;8A"                          } # CMD-Up -> CONTROL-SHIFT-ALT Up
+  - { key: Down,  mods: Command, chars: "\x1b[1;8B"                          } # CMD-Down -> CONTROL-SHIFT-ALT Down
+  - { key: Right, mods: Command, chars: "\x1b[1;8C"                          } # CMD-Right -> CONTROL-SHIFT-ALT Right
+  - { key: Left,  mods: Command, chars: "\x1b[1;8D"                          } # CMD-Left -> CONTROL-SHIFT-ALT Left
 

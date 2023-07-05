@@ -88,6 +88,8 @@ source $PRIVATE_DOTFILES/privatefile
 
 alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 #ABBREVIAZIONI GIT 
+abbr --add g git
+abbr --add gacm git commit -amd .
 abbr --add gad git add .
 abbr --add gcf git config -e
 abbr --add gcfg git config --global -e
@@ -102,22 +104,19 @@ abbr --add gf git fetch --all --recurse-submodules=yes
 abbr --add gig $GIT_EDITOR $GIT_CONFIG_HOME/ignore
 abbr --add ginsk git update-index --no-skip-worktree
 abbr --add gisk git update-index --skip-worktree
-abbr --add glg git log --color --decorate --graph --all --oneline
-abbr --add gll git log --color --decorate --graph
+abbr --add gl git log --color --decorate --graph --all --oneline
 abbr --add gls git ls-files -v . \| grep \^S
-abbr --add groot 'cd (git rev-parse --show-toplevel)'
-abbr --add grese git reset --hard (git rev-parse --abbrev-ref --symbolic-full-name @{u})
 abbr --add grest git restore . --recurse-submodules
+abbr --add groot cd (git rev-parse --show-toplevel)
+abbr --add grst git reset --hard (git rev-parse --abbrev-ref --symbolic-full-name @{u})
 abbr --add gspll git submodule update --remote
 abbr --add gspsh git push origin --recurse-submodules=on-demand
 abbr --add gsrst git submodule update --init --recursive --jobs 3
-abbr --add gst git status -sb
-abbr --add gstf git status -sb \| fpp
-abbr --add g git
-abbr --add gti git
+abbr --add gst git status -sb \| fpp
 abbr --add pll git pull --all --recurse-submodules=yes 
-abbr --add psh 'git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
-abbr --add pshf 'git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)'
+abbr --add psh git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)
+abbr --add pshf git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)
+abbr --add s git status -sb
 
 # ABBREVIAZIONI NODE
 abbr --add nrst rm -rf node_modules package-lock.json
@@ -148,6 +147,7 @@ abbr --add nvmd set --universal nvm_default_version v
 abbr --add pgr pgrep -fal
 abbr --add prv cd $PRIVATE_DOTFILES
 abbr --add repos cd $DIR_REPOS
+abbr --add rl rustlings
 abbr --add v $EDITOR -u NONE -i NONE
 abbr --add vi $EDITOR
 abbr --add vid cd $NVIM_DIR
