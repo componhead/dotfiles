@@ -54,7 +54,6 @@
 [pack]
 	windowMemory = 250m
 [init]
-	templatedir = "$PRIVATE_DOTFILES/.git_templates"
 	defaultBranch = master
 [gc]
 	auto = 256
@@ -95,7 +94,7 @@
 [branch]
 	autoSetupRebase = never
 [commit]
-	template = gitmessage
+	template = /Users/colossus/dotfiles/.gitmessage
 	gpgsign = true
 [gpg]
 	program = gpg
