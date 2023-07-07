@@ -34,7 +34,7 @@ set -xg CLICOLOR_FORCE 1
 set -xg GREP_COLOR '3;33'
 set -xg LESS -R
 set -xg LESSCHARSET utf-8
-set -xg grepprg rg\ --vimgrep
+set -xg grepprg "rg --vimgrep"
 if type -q rg then
     set -xg FZF_FIND_FILE_COMMAND "rg --files --hidden --follow --glob '!.git'"
 end
@@ -105,14 +105,14 @@ abbr -a -U -- gig "$GIT_EDITOR $GIT_CONFIG_HOME/ignore"
 abbr -a -U -- ginsk "git update-index --no-skip-worktree"
 abbr -a -U -- gisk "git update-index --skip-worktree"
 abbr -a -U -- gl "git log --color --decorate --graph --all --oneline"
-abbr -a -U -- gls "git ls-files -v . \| grep \^S"
+abbr -a -U -- gls "git ls-files -v . | grep \^S"
 abbr -a -U -- grest "git restore . --recurse-submodules"
 abbr -a -U -- groot "cd (git rev-parse --show-toplevel)"
 abbr -a -U -- grst "git reset --hard (git rev-parse --abbrev-ref --symbolic-full-name @{u})"
 abbr -a -U -- gspll "git submodule update --remote"
 abbr -a -U -- gspsh "git push origin --recurse-submodules=on-demand"
 abbr -a -U -- gsrst "git submodule update --init --recursive --jobs 3"
-abbr -a -U -- gst "git status -sb \| fpp"
+abbr -a -U -- gst "git status -sb | fpp"
 abbr -a -U -- pll "git pull --all --recurse-submodules=yes "
 abbr -a -U -- psh "git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a -U -- pshf "git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
@@ -153,8 +153,8 @@ abbr -a -U -- tapd "NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jo
 
 # ONEPASSWORD retrieve
 # op://<vault>/<item>[/<section>]/<field>
-abbr -a -U -- pgpg "op read op://Personal/GPG_private/passphrase \| pbcopy"
-abbr -a -U -- wgpg "op read op://treedom/GPG_treedom/passphrase \| pbcopy"
+abbr -a -U -- pgpg "op read op://Personal/GPG_private/passphrase | pbcopy"
+abbr -a -U -- wgpg "op read op://treedom/GPG_treedom/passphrase | pbcopy"
 
 bind \co openfile
 fish_vi_key_bindings

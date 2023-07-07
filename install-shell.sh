@@ -253,24 +253,25 @@ else
 fi
 
 echo "******* Installing generics dot configuration files"
-ln -sf ${PRIVATE_DOTFILESDIR}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
-ln -sf ${DOTFILESDIR}/.dockerignore ${HOME}/
+ln -sf ${PRIVATE_DOTFILES}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
+ln -sf ${PRIVATE_DOTFILES}/.gnupg/gpg.conf ${HOME}/.gnupg/
+ln -sf ${DOTFILES}/.dockerignore ${HOME}/
 
-ln -sf ${DOTFILESDIR}/.ghci ${HOME}/
-ln -sf ${DOTFILESDIR}/ghci.conf ${HOME}/
+ln -sf ${DOTFILES}/.ghci ${HOME}/
+ln -sf ${DOTFILES}/ghci.conf ${HOME}/
 
-ln -sf ${DOTFILESDIR}/.ssh/config ${HOME}/.ssh/
+ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 
-ln -sf ${DOTFILESDIR}/.tmux.conf ${HOME}/
+ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
 
-ln -sf ${DOTFILESDIR}/bin ${HOME}/
+ln -sf ${DOTFILES}/bin ${HOME}/
 
-ln -sf ${DOTFILESDIR}/.npmrc ${HOME}/
+ln -sf ${DOTFILES}/.npmrc ${HOME}/
 
-ln -sf ${DOTFILESDIR}/.config/nvim ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/git ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/alacritty ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/karabiner ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/fish ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/fisher ${HOME}/.config/
-ln -sf ${DOTFILESDIR}/.config/starship.toml ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/nvim ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/git ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/alacritty ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/karabiner ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/fish ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/fisher ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/starship.toml ${HOME}/.config/
