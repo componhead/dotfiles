@@ -62,9 +62,8 @@ echo "******* Installing chat-gpt shell cli"
 pip install shell-gpt
 
 echo "******* Installing Nerd Fonts"
-brew tap caskroom/fonts
-brew install --cask font-firacode-nerd-font-mono
-brew install --cask font-jetbrains-mono
+brew tap homebrew/cask-fonts
+brew search '/font-jetbrains-mono-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true^
 
 if brew ls --versions neovim >/dev/null; then
 	echo "******* Neovim already installed"
