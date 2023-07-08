@@ -9,13 +9,9 @@ fisher install jorgebucaran/nvm.fish
 fisher install edc/bass
 fisher install PatrickF1/fzf.fish
 
-pip3 install --user --upgrade neovim
-pip3 install --user --upgrade neovim-remote
-pip3 install --upgrade pip
-
-cd
-git clone git@mygithub:componhead/.tmux.git
-./tmux-config/install.sh
+# cd
+# git clone git@mygithub:componhead/.tmux.git
+# ./tmux-config/install.sh
 
 yarn global add diagnostic-languageserver
 
@@ -27,4 +23,3 @@ sudo chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 sudo chown -R (whoami):staff .ssh/
 
 mkdir ~/opt
-git clone git@mygithub:componhead/intellijidea-settings.git ~/opt/intellijidea-settinga
