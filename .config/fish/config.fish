@@ -19,6 +19,7 @@ set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
 set -xg FISH_DIR $XDG_CONFIG_HOME/fish
 set -xg TMUX_DIR $HOME/.tmux
 set -xg ALACRITTY_DIR $XDG_CONFIG_HOME/alacritty
+set -xg ZELLIJ_DIR $XDG_CONFIG_HOME/zellij
 set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
@@ -112,7 +113,7 @@ abbr -a -U -- grst "git reset --hard (git rev-parse --abbrev-ref --symbolic-full
 abbr -a -U -- gspll "git submodule update --remote"
 abbr -a -U -- gspsh "git push origin --recurse-submodules=on-demand"
 abbr -a -U -- gsrst "git submodule update --init --recursive --jobs 3"
-abbr -a -U -- gst "git status -sb | fpp"
+abbr -a -U -- gst "git status -sb"
 abbr -a -U -- pll "git pull --all --recurse-submodules=yes "
 abbr -a -U -- psh "git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a -U -- pshf "git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
@@ -141,6 +142,7 @@ abbr -a -U -- Eala "$EDITOR $ALACRITTY_DIR/alacritty.yml"
 abbr -a -U -- Eprv "$EDITOR $PRIVATE_DOTFILES/privatefile"
 abbr -a -U -- Essh "$EDITOR $HOME/.ssh/config"
 abbr -a -U -- Etmx "$EDITOR $TMUXFILE"
+abbr -a -U -- Ezj "$EDITOR $ZELLIJ_DIR/config.kdl"
 abbr -a -U -- pgr "pgrep -fal"
 abbr -a -U -- prv "cd $PRIVATE_DOTFILES"
 abbr -a -U -- repos "cd $DIR_REPOS"

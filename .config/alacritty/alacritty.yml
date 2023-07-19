@@ -332,6 +332,7 @@ shell:
     - "gpg-cache"
     - -C
     - "tmux attach || tmux"
+    # - "zellij attach --index 0 --create"
 
 # Startup directory
 #

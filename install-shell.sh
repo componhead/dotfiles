@@ -251,6 +251,13 @@ else
 	brew install tealdeer
 fi
 
+if brew ls --versions zellij >/dev/null; then
+	echo "******* zellij already installed"
+else
+	echo "******* Installing zellij..."
+	brew install zellij
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${PRIVATE_DOTFILES}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
 ln -sf ${PRIVATE_DOTFILES}/.gnupg/gpg.conf ${HOME}/.gnupg/
@@ -265,3 +272,4 @@ ln -sf ${DOTFILES}/.config/karabiner ${HOME}/.config/
 ln -sf ${DOTFILES}/.config/fish ${HOME}/.config/
 ln -sf ${DOTFILES}/.config/fisher ${HOME}/.config/
 ln -sf ${DOTFILES}/.config/starship.toml ${HOME}/.config/
+ln -sf ${DOTFILES}/.config/zellij ${HOME}/.config/
