@@ -259,8 +259,6 @@ else
 fi
 
 echo "******* Installing generics dot configuration files"
-ln -sf ${PRIVATE_DOTFILES}/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
-ln -sf ${PRIVATE_DOTFILES}/.gnupg/gpg.conf ${HOME}/.gnupg/
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
 ln -sf ${DOTFILES}/bin ${HOME}/

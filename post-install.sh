@@ -23,3 +23,6 @@ sudo chmod 644 ~/.ssh/authorized_keys ~/.ssh/config
 sudo chown -R (whoami):staff .ssh/
 
 mkdir ~/opt
+
+ln -sf ${PRIVATE_DOTFILES}/(hostname)/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
+ln -sf ${PRIVATE_DOTFILES}/(hostname)/.gnupg/gpg.conf ${HOME}/.gnupg/
