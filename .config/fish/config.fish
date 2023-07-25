@@ -162,7 +162,9 @@ bind \co openfile
 fish_vi_key_bindings
 
 #workaround for resolving push (hung on) issue
-set SSH_AUTH_SOCK ssh git@github.com
+#set SSH_AUTH_SOCK ssh git@github.com
+
+set -xg SSH_AUTH_SOCK $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 fish_ssh_agent
 eval (ssh-agent -c) >/dev/null
