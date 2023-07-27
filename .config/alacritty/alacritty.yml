@@ -556,7 +556,7 @@ key_bindings:
   - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 
   - { key: A,  mods: Command, chars: "\x1b[65;8u"                            } # CMD-a -> CONTROL-SHIFT-ALT A
-  - { key: B,  mods: Command, chars:"\x1b[66;8u"                             } # CMD-b -> CONTROL-SHIFT-ALT B
+  - { key: B,  mods: Command, chars: "\x1b[66;8u"                            } # CMD-b -> CONTROL-SHIFT-ALT B
   - { key: C,  mods: Command, action: Copy                                   }
   - { key: D,  mods: Command, chars: "\x1b[68;8u"                            } # CMD-d -> CONTROL-SHIFT-ALT D
   - { key: E,  mods: Command, chars: "\x1b[69;8u"                            } # CMD-e -> CONTROL-SHIFT-ALT E
