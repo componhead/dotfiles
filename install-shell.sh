@@ -258,6 +258,13 @@ else
 	brew install zellij
 fi
 
+if brew ls --versions ncdu >/dev/null; then
+	echo "******* ncdu already installed"
+else
+	echo "******* Installing ncdu..."
+	brew install ncdu
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
