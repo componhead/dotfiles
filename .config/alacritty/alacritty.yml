@@ -556,8 +556,8 @@ key_bindings:
   - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 
   - { key: A,  mods: Command, chars: "\x1b[65;8u"                            } # CMD-a -> CONTROL-SHIFT-ALT A
-  - { key: B,  mods: Command, action: Copy                                   } # CMD-b -> CONTROL-SHIFT-ALT B
-  - { key: C,  mods: Command, chars: "\x1b[67;8u"                            } # CMD-c -> CONTROL-SHIFT-ALT C
+  - { key: B,  mods: Command, chars:"\x1b[66;8u"                             } # CMD-b -> CONTROL-SHIFT-ALT B
+  - { key: C,  mods: Command, action: Copy                                   }
   - { key: D,  mods: Command, chars: "\x1b[68;8u"                            } # CMD-d -> CONTROL-SHIFT-ALT D
   - { key: E,  mods: Command, chars: "\x1b[69;8u"                            } # CMD-e -> CONTROL-SHIFT-ALT E
   - { key: F,  mods: Command, chars: "\x1b[70;8u"                            } # CMD-f -> CONTROL-SHIFT-ALT F
@@ -576,7 +576,7 @@ key_bindings:
   - { key: S,  mods: Command, chars: "\x1b[83;8u"                            } # CMD-s -> CONTROL-SHIFT-ALT S
   - { key: T,  mods: Command, chars: "\x1b[84;8u"                            } # CMD-t -> CONTROL-SHIFT-ALT T
   - { key: U,  mods: Command, chars: "\x1b[85;8u"                            } # CMD-u -> CONTROL-SHIFT-ALT U
-  - { key: V,  mods: Command, action: Paste                                  } # CMD-v -> CONTROL-SHIFT-ALT V
+  - { key: V,  mods: Command, action: Paste                                  }
   - { key: W,  mods: Command, chars: "\x1b[87;8u"                            } # CMD-w -> CONTROL-SHIFT-ALT W
   - { key: X,  mods: Command, chars: "\x1b[88;8u"                            } # CMD-x -> CONTROL-SHIFT-ALT X
   - { key: Y,  mods: Command, chars: "\x1b[89;8u"                            } # CMD-y -> CONTROL-SHIFT-ALT Y

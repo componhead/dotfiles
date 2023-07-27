@@ -633,66 +633,6 @@
                 },
                 {
                     "from": {
-                        "key_code": "right_command"
-                    },
-                    "to": [
-                        {
-                            "sticky_modifier": {
-                                "right_command": "toggle"
-                            }
-                        },
-                        {
-                            "key_code": "right_command"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "right_control"
-                    },
-                    "to": [
-                        {
-                            "sticky_modifier": {
-                                "right_control": "toggle"
-                            }
-                        },
-                        {
-                            "key_code": "right_control"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "right_option"
-                    },
-                    "to": [
-                        {
-                            "sticky_modifier": {
-                                "right_option": "toggle"
-                            }
-                        },
-                        {
-                            "key_code": "right_option"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "right_shift"
-                    },
-                    "to": [
-                        {
-                            "sticky_modifier": {
-                                "right_shift": "toggle"
-                            }
-                        },
-                        {
-                            "key_code": "right_shift"
-                        }
-                    ]
-                },
-                {
-                    "from": {
                         "key_code": "left_command"
                     },
                     "to": [
@@ -748,6 +688,66 @@
                         },
                         {
                             "key_code": "left_shift"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_command"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_command": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_command"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_control"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_control": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_control"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_option"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_option": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_option"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "right_shift"
+                    },
+                    "to": [
+                        {
+                            "sticky_modifier": {
+                                "right_shift": "toggle"
+                            }
+                        },
+                        {
+                            "key_code": "right_shift"
                         }
                     ]
                 }
