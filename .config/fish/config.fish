@@ -87,8 +87,20 @@ set fzf_fd_opts --hidden --exclude=.git
 
 source $PRIVATE_DOTFILES/privatefile
 
+# ABBREVIAZIONI DOCKER
+abbr -a -U -- dci "docker container info"
+abbr -a -U -- dcn "docker container"
+abbr -a -U -- dcs "docker container start"
+abbr -a -U -- dcS "docker container stop"
+abbr -a -U -- dil "docker images -a"
+abbr -a -U -- dit "docker container exec -it"
+abbr -a -U -- dim "docker image"
+abbr -a -U -- dlg "docker container logs"
+abbr -a -U -- dls "docker container ps -a"
+abbr -a -U -- dpt "docker container port"
+
 alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
-#ABBREVIAZIONI GIT 
+# ABBREVIAZIONI GIT 
 abbr -a -U -- g "git"
 abbr -a -U -- gacm "git commit -am "
 abbr -a -U -- gad "git add ."
