@@ -30,6 +30,10 @@ format =  "[@$hostname]($style) "
 trim_at = ".companyname.com"
 disabled = false
 
+[git_branch]
+always_show_remote = true
+format = '[$remote_name $symbol$branch(:$remote_branch)]($style) '
+
 [cmd_duration]
 min_time = 2000
 show_notifications = true
