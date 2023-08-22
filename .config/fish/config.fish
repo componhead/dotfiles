@@ -27,6 +27,8 @@ set -xg RCFILE $FISH_DIR/config.fish
 set -xg TMUXFILE $HOME/.tmux.conf
 # ############# DON'T TOUCH ALL ABOVE
 
+set -xg LANG en_US.UTF-8
+set -xg LC_CTYPE UTF-8
 set -xg APPDATA $HOME
 set -xg GIT_CURL_VERBOSE 0
 set -xg GIT_TRACE 0

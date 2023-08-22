@@ -63,7 +63,7 @@ pip install shell-gpt
 
 echo "******* Installing Nerd Fonts"
 brew tap homebrew/cask-fonts
-brew search '/font-jetbrains-mono-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true^
+brew search '/font-jetbrains-mono-nerd-font/' | awk '{ print $1 \}' | xargs -I{} brew install --cask {} || true^
 
 if brew ls --versions neovim >/dev/null; then
 	echo "******* Neovim already installed"
@@ -263,6 +263,13 @@ if brew ls --versions ncdu >/dev/null; then
 else
 	echo "******* Installing ncdu..."
 	brew install ncdu
+fi
+
+if brew ls --versions keycastr >/dev/null; then
+	echo "******* keycastr already installed"
+else
+	echo "******* Installing keycastr..."
+	brew install keycastr
 fi
 
 echo "******* Installing generics dot configuration files"
