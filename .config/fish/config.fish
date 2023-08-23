@@ -27,6 +27,7 @@ set -xg RCFILE $FISH_DIR/config.fish
 set -xg TMUXFILE $HOME/.tmux.conf
 # ############# DON'T TOUCH ALL ABOVE
 
+set -xg OPENAI_API_HOST https://api.openai.com
 set -xg LANG en_US.UTF-8
 set -xg LC_CTYPE UTF-8
 set -xg APPDATA $HOME
