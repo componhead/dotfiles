@@ -73,7 +73,7 @@
 #	helper = store --file="$PRIVATE_DOTFILES/../git_credentials"
 [merge]
 	conflictstyle = diff3
-	tool = nvimdiff
+	tool = fugitive3
 	layout = 2
 	commit = yes
 	ff = no
@@ -126,3 +126,5 @@
 	prompt = false
 [mergetool]
 	keepBackup = false
+[mergetool "fugitive3"]
+	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\"
