@@ -124,7 +124,5 @@
 	signingkey = 1583FE40
 [difftool]
 	prompt = false
-[mergetool]
-	keepBackup = false
 [mergetool "fugitive3"]
 	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\"
