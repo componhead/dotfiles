@@ -27,7 +27,7 @@ set -xg RCFILE $FISH_DIR/config.fish
 set -xg TMUXFILE $HOME/.tmux.conf
 # ############# DON'T TOUCH ALL ABOVE
 
-set -xg OPENAI_API_HOST https://api.openai.com
+set -xg OPENAI_API_HOST api.openai.com
 set -xg LANG en_US.UTF-8
 set -xg LC_CTYPE UTF-8
 set -xg APPDATA $HOME
@@ -153,8 +153,8 @@ abbr -a -U -- dot "cd $DOTFILES"
 abbr -a -U -- esl "eslint --fix (git rev-parse --show-toplevel) | fpp"
 abbr -a -U -- frst "rm $FISH_DIR/fish_variables"
 abbr -a -U -- Erc "$EDITOR $RCFILE"
-abbr -a -U -- Evrc "$EDITOR $NVIM_DIR/init.lua"
-abbr -a -U -- Evdf "$EDITOR $NVIM_DIR/after/plugin/defaults.lua"
+abbr -a -U -- Evini "$EDITOR $NVIM_DIR/init.lua"
+abbr -a -U -- Evdef "$EDITOR $NVIM_DIR/after/plugin/defaults.lua"
 abbr -a -U -- Eala "$EDITOR $ALACRITTY_DIR/alacritty.yml"
 abbr -a -U -- Eprv "$EDITOR $PRIVATE_DOTFILES/privatefile"
 abbr -a -U -- Essh "$EDITOR $HOME/.ssh/config"
