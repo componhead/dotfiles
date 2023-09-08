@@ -125,4 +125,4 @@
 [difftool]
 	prompt = false
 [mergetool "fugitive3"]
-	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\"
+	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd j'
