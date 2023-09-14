@@ -272,6 +272,13 @@ else
 	brew install keycastr
 fi
 
+if brew ls --versions ngrok >/dev/null; then
+	echo "******* ngrok already installed"
+else
+	echo "******* Installing ngrok..."
+	brew install ngrok
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
