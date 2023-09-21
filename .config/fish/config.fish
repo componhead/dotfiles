@@ -25,6 +25,7 @@ set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $FISH_DIR/config.fish
 set -xg TMUXFILE $HOME/.tmux.conf
+set -xg STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/config.toml
 # ############# DON'T TOUCH ALL ABOVE
 
 set -xg OPENAI_API_HOST api.openai.com
@@ -197,3 +198,5 @@ if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
 end
 
 set --universal nvm_default_version v18.13.0
+
+starship init fish | source
