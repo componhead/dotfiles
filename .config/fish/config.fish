@@ -25,7 +25,6 @@ set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $FISH_DIR/config.fish
 set -xg TMUXFILE $HOME/.tmux.conf
-set -xg STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/config.toml
 # ############# DON'T TOUCH ALL ABOVE
 
 set -xg OPENAI_API_HOST api.openai.com
