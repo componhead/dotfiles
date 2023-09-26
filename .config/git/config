@@ -79,15 +79,11 @@
 	ff = no
 	keepBackup = false
 	trustExitCode = true
-[diff]
-	tool = nvimdiff
-	layout = 1
 	colorMoved = default
-	keepBackup = false
-	trustExitCode = true
 	color = auto
 	word-diff = color
 	word-diff-regex = .*
+	prompt = false
 [status]
 	submodulesummary = true
 [fetch]
@@ -124,5 +120,5 @@
 	signingkey = 1583FE40
 [difftool]
 	prompt = false
-[mergetool "fugitive3"]
-	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd j'
+[difftool "fugitive3"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
