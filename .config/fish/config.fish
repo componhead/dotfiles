@@ -27,29 +27,29 @@ set -xg RCFILE $FISH_DIR/config.fish
 set -xg TMUXFILE $HOME/.tmux.conf
 # ############# DON'T TOUCH ALL ABOVE
 
-set -xg OPENAI_API_HOST api.openai.com
-set -xg LANG en_US.UTF-8
-set -xg LC_CTYPE UTF-8
 set -xg APPDATA $HOME
-set -xg GIT_CURL_VERBOSE 0
-set -xg GIT_TRACE 0
 set -xg CLICOLOR 1
 set -xg CLICOLOR_FORCE 1
-set -xg GREP_COLOR '3;33'
-set -xg LESS -R
-set -xg LESSCHARSET utf-8
-set -xg grepprg "rg --vimgrep"
+set -xg CPCLIPBOARD pbcopy
+set -xg CPCLIPBOARD_CMD $CPCLIPBOARD -selection clipboard
+set -xg FZF_DEFAULT_OPTS --bind=ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up
 if type -q rg then
     set -xg FZF_FIND_FILE_COMMAND "rg --files --hidden --follow --glob '!.git'"
 end
-set -xg CPCLIPBOARD pbcopy
-set -xg CPCLIPBOARD_CMD $CPCLIPBOARD -selection clipboard
-set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
+set -xg GIT_CURL_VERBOSE 0
+set -xg GIT_TRACE 0
+set -xg GPG_TTY (tty)
+set -xg GREP_COLOR '3;33'
+set -xg LANG en_US.UTF-8
+set -xg LC_CTYPE UTF-8
+set -xg LESS -R
+set -xg LESSCHARSET utf-8
 set -xg LSCOLORS gxcxahdxacafxfaexeabxb
-set -xg PYTHON /usr/local/bin/python3.9
 set -xg NVIM_PYTHON_LOG_FILE /tmp/log
 set -xg NVIM_PYTHON_LOG_LEVEL DEBUG
-set -xg GPG_TTY (tty)
+set -xg OPENAI_API_HOST api.openai.com
+set -xg PYTHON /usr/local/bin/python3.9
+set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
 
 set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
