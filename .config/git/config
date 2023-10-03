@@ -71,6 +71,8 @@
 	keep-plus-minus-markers = false
 #[credential]
 #	helper = store --file="$PRIVATE_DOTFILES/../git_credentials"
+[diff]
+	tool = fugitive
 [merge]
 	conflictstyle = diff3
 	tool = fugitive3
@@ -118,7 +120,8 @@
 	name = Emiliano Anichini
 	email = emiliano.anichini@gmail.com
 	signingkey = 1583FE40
-[difftool]
+[mergetool "fugitive3"]
+	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd j'
+[difftool "fugitive"]
 	prompt = false
-[difftool "fugitive3"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
