@@ -124,4 +124,4 @@
 	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd j'
 [difftool "fugitive"]
 	prompt = false
-	cmd = nvim -f -c \"Gvdiffsplit! $LOCAL\" \"$REMOTE\"
+	cmd = nvim -f -c \"Gvdiffsplit! $REMOTE\" \"$LOCAL\"
