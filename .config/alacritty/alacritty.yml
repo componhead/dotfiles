@@ -208,7 +208,6 @@ font:
   # This is a global setting and will require a log out or restart to take
   # effect.
   # use_thin_strokes: true
-  AppleFontSmoothing: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
@@ -535,6 +534,8 @@ working_directory: None
 #    A `~` operator can be used before a mode to apply the binding whenever
 #    the mode is *not* active, e.g. `~Alt`.
 #
+# EXAMPLE: CMD-a -> CONTROL-SHIFT-ALT A
+# - { key: A,  mods: Command, chars: "\x1b[65;8u" }
 # Bindings are always filled by default, but will be replaced when a new
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
@@ -554,36 +555,3 @@ key_bindings:
   - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
   - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
-
-  - { key: A,  mods: Command, chars: "\x1b[65;8u"                            } # CMD-a -> CONTROL-SHIFT-ALT A
-  - { key: B,  mods: Command, chars: "\x1b[66;8u"                            } # CMD-b -> CONTROL-SHIFT-ALT B
-  - { key: C,  mods: Command, action: Copy                                   }
-  - { key: D,  mods: Command, chars: "\x1b[68;8u"                            } # CMD-d -> CONTROL-SHIFT-ALT D
-  - { key: E,  mods: Command, chars: "\x1b[69;8u"                            } # CMD-e -> CONTROL-SHIFT-ALT E
-  - { key: F,  mods: Command, chars: "\x1b[70;8u"                            } # CMD-f -> CONTROL-SHIFT-ALT F
-  - { key: G,  mods: Command, chars: "\x1b[71;8u"                            } # CMD-g -> CONTROL-SHIFT-ALT G
-  - { key: H,  mods: Command, chars: "\x1b[72;8u"                            } # CMD-h -> CONTROL-SHIFT-ALT H
-  - { key: I,  mods: Command, chars: "\x1b[73;8u"                            } # CMD-i -> CONTROL-SHIFT-ALT I
-  - { key: J,  mods: Command, chars: "\x1b[74;8u"                            } # CMD-j -> CONTROL-SHIFT-ALT J
-  - { key: K,  mods: Command, chars: "\x1b[75;8u"                            } # CMD-k -> CONTROL-SHIFT-ALT K
-  - { key: L,  mods: Command, chars: "\x1b[76;8u"                            } # CMD-l -> CONTROL-SHIFT-ALT L
-  - { key: M,  mods: Command, chars: "\x1b[77;8u"                            } # CMD-m -> CONTROL-SHIFT-ALT M
-  - { key: N,  mods: Command, chars: "\x1b[78;8u"                            } # CMD-n -> CONTROL-SHIFT-ALT N
-  - { key: O,  mods: Command, chars: "\x1b[79;8u"                            } # CMD-o -> CONTROL-SHIFT-ALT O
-  - { key: P,  mods: Command, chars: "\x1b[80;8u"                            } # CMD-p -> CONTROL-SHIFT-ALT P
-  - { key: Q,  mods: Command, chars: "\x1b[81;8u"                            } # CMD-q -> CONTROL-SHIFT-ALT Q
-  - { key: R,  mods: Command, chars: "\x1b[82;8u"                            } # CMD-r -> CONTROL-SHIFT-ALT R
-  - { key: S,  mods: Command, chars: "\x1b[83;8u"                            } # CMD-s -> CONTROL-SHIFT-ALT S
-  - { key: T,  mods: Command, chars: "\x1b[84;8u"                            } # CMD-t -> CONTROL-SHIFT-ALT T
-  - { key: U,  mods: Command, chars: "\x1b[85;8u"                            } # CMD-u -> CONTROL-SHIFT-ALT U
-  - { key: V,  mods: Command, action: Paste                                  }
-  - { key: W,  mods: Command, chars: "\x1b[87;8u"                            } # CMD-w -> CONTROL-SHIFT-ALT W
-  - { key: X,  mods: Command, chars: "\x1b[88;8u"                            } # CMD-x -> CONTROL-SHIFT-ALT X
-  - { key: Y,  mods: Command, chars: "\x1b[89;8u"                            } # CMD-y -> CONTROL-SHIFT-ALT Y
-  - { key: Z,  mods: Command, chars: "\x1b[90;8u"                            } # CMD-z -> CONTROL-SHIFT-ALT Z
-
-  - { key: Up,    mods: Command, chars: "\x1b[1;8A"                          } # CMD-Up -> CONTROL-SHIFT-ALT Up
-  - { key: Down,  mods: Command, chars: "\x1b[1;8B"                          } # CMD-Down -> CONTROL-SHIFT-ALT Down
-  - { key: Right, mods: Command, chars: "\x1b[1;8C"                          } # CMD-Right -> CONTROL-SHIFT-ALT Right
-  - { key: Left,  mods: Command, chars: "\x1b[1;8D"                          } # CMD-Left -> CONTROL-SHIFT-ALT Left
-
