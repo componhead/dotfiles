@@ -279,6 +279,13 @@ else
 	brew install ngrok
 fi
 
+if brew ls --versions btop >/dev/null; then
+	echo "******* btop already installed"
+else
+	echo "******* Installing btop..."
+	brew install btop
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
