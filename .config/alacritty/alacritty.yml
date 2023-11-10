@@ -114,7 +114,7 @@ font:
     # family: RobotoMono Nerd Font
     # family: Hack
     # family: JetBrainsMono Nerd Font Mono
-    family: Monoid Nerd Font Propo
+    family: Monoid Nerd Font
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
@@ -142,7 +142,7 @@ font:
     style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
@@ -152,17 +152,17 @@ font:
     # family: RobotoMono Nerd Font
     # family: Hack
     # family: JetBrainsMono Nerd Font Mono
-    family: Monoid Nerd Font Mono
+    family: Monoid Nerd Font
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
     #family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Italic
 
   # Bold italic font face
-  #bold_italic:
+  bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
@@ -179,7 +179,7 @@ font:
     #family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+    style: Bold Italic
 
   # Point size
   size: 18
