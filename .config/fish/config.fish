@@ -186,7 +186,6 @@ set -xg SSH_AUTH_SOCK $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t
 
 fish_ssh_agent
 eval (ssh-agent -c) >/dev/null
-/usr/local/bin/starship init fish | source
 
 op completion fish | source
 

@@ -1,50 +1,60 @@
-add_newline = true
 format = """
-[┌──](bold green) $directory
-[│](bold green) $username$hostname$rust$nodejs$package $git_branch$git_commit$git_state$git_metrics$git_status
-[└─>](bold green) """
-
-right_format = """$custom $cmd_duration"""
-
-scan_timeout = 500
-
-command_timeout = 1000
+[░▒▓](#a3aed2)\
+[  ](bg:#a3aed2 fg:#090c0c)\
+[](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+\n$character"""
 
 [directory]
 use_logical_path = true
 truncate_to_repo = false
-truncation_symbol = "…/"
-truncation_length = 0
-
-[username]
-style_user = "white"
-style_root = "red bold"
-format = "[$user]($style)"
-disabled = false
-show_always = true
-
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
+# truncation_length = 3
+# truncation_symbol = "…/"
 [hostname]
 ssh_only = false
-style = "yellow bold"
 format = "[@$hostname]($style) "
 trim_at = ".companyname.com"
 disabled = false
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
 [git_branch]
+symbol = ""
 always_show_remote = true
-format = '[$remote_name $symbol$branch(:$remote_branch)]($style) '
+style = "bg:#394260"
+format = '[[ $remote_name $symbol $branch(:$remote_branch) ](fg:#769ff0 bg:#394260)]($style)'
 
-[cmd_duration]
-min_time = 2000
-show_notifications = true
-style = "bold yellow"
-format = "took [$duration]($style) "
+[git_status]
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
-[custom.tztime]
-command = 'date +"%a %Y/%m/%d %l:%M:%S%p (%Z%z)"'
-when = "true"
-format = '[$output](blue)'
+[nodejs]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [rust]
-symbol = "🦀 "
-format = "via [$symbol($version )]($style)"
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[time]
+disabled = false
+time_format = "%R 󰇧 %z" # see https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
