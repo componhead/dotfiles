@@ -216,48 +216,35 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (Tokyo Night)
+# Source: https://github.com/zatchheems/tokyo-night-alacritty-theme
 colors:
   # Default colors
   primary:
-    background: '0x002b36'
-    foreground: '0x93a1a1'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x002b36'
-    cursor: '0x93a1a1'
+    background: '0x1a1b26'
+    foreground: '0xa9b1d6'
 
   # Normal colors
   normal:
-    black:   '0x002b36'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0x93a1a1'
+    black:   '0x32344a'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xad8ee6'
+    cyan:    '0x449dab'
+    white:   '0x787c99'
 
   # Bright colors
   bright:
-    black:   '0x657b83'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0xfdf6e3'
-
-  indexed_colors:
-    - { index: 16, color: '0xcb4b16' }
-    - { index: 17, color: '0xd33682' }
-    - { index: 18, color: '0x073642' }
-    - { index: 19, color: '0x586e75' }
-    - { index: 20, color: '0x839496' }
-    - { index: 21, color: '0xeee8d5' }
-
+    black:   '0x444b6a'
+    red:     '0xff7a93'
+    green:   '0xb9f27c'
+    yellow:  '0xff9e64'
+    blue:    '0x7da6ff'
+    magenta: '0xbb9af7'
+    cyan:    '0x0db9d7'
+    white:   '0xacb0d0'
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once

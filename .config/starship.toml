@@ -1,3 +1,4 @@
+# inspired to https://starship.rs/presets/tokyo-night.html
 format = """
 [░▒▓](#a3aed2)\
 [  ](bg:#a3aed2 fg:#090c0c)\
@@ -16,22 +17,23 @@ $time\
 
 [directory]
 use_logical_path = true
-truncate_to_repo = false
+truncate_to_repo = true
 style = "fg:#e3e5e5 bg:#769ff0"
 format = "[ $path ]($style)"
 # truncation_length = 3
 # truncation_symbol = "…/"
+
 [hostname]
 ssh_only = false
 format = "[@$hostname]($style) "
 trim_at = ".companyname.com"
 disabled = false
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+# [directory.substitutions]
+# "Documents" = "󰈙 "
+# "Downloads" = " "
+# "Music" = " "
+# "Pictures" = " "
 
 [git_branch]
 symbol = ""
@@ -45,8 +47,9 @@ format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [nodejs]
 symbol = ""
+version_format = " ${raw}"
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ $symbol ($version $engines_version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [rust]
 symbol = ""
