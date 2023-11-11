@@ -72,14 +72,14 @@ else
 	brew install neovim
 fi
 
-if brew ls --versions tmux >dev/null; then
-	echo "******* Tmux already installed"
-else
-	echo "******* Installing tmux..."
-	brew install tmux
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/epm
-	brew install reattach-to-user-namespace
-fi
+# if brew ls --versions tmux >dev/null; then
+# 	echo "******* Tmux already installed"
+# else
+# 	echo "******* Installing tmux..."
+# 	brew install tmux
+# 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/epm
+# 	brew install reattach-to-user-namespace
+# fi
 
 echo "******* Installing Plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -288,7 +288,7 @@ fi
 
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
-ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
+# ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
 ln -sf ${DOTFILES}/bin ${HOME}/
 ln -sf ${DOTFILES}/.npmrc ${HOME}/
 ln -sf ${DOTFILES}/.config/nvim ${HOME}/.config/
