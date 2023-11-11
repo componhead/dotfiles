@@ -24,5 +24,6 @@ sudo chown -R (whoami):staff .ssh/
 
 mkdir ~/opt
 
+cp ${DOTFILES}/fonts/* ~/Library/Fonts/
 ln -sf ${PRIVATE_DOTFILES}/(hostname)/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
 ln -sf ${PRIVATE_DOTFILES}/(hostname)/.gnupg/gpg.conf ${HOME}/.gnupg/
