@@ -109,77 +109,25 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: SauceCodePro Nerd Font
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrainsMono Nerd Font Mono
     family: Monoid Nerd Font
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: TerminessTTF Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Retina
 
   # Bold font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrainsMono Nerd Font Mono
-    family: Monoid Nerd Font
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: TerminessTTF Nerd Font
-
-    # The `style` can be specified to pick a specific face.
-    style: Bold
+    family: JetBrainsMono Nerd Font Mono
+    style: SemiBold
 
   # Italic font face
   italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrainsMono Nerd Font Mono
-    family: Monoid Nerd Font
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: TerminessTTF Nerd Font
-    #family: Mononoki Nerd Font
-
-    # The `style` can be specified to pick a specific face.
-    style: Italic
+    family: JetBrainsMono Nerd Font Mono
+    style: ExtraLight Italic
 
   # Bold italic font face
   bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrainsMono Nerd Font Mono
-    family: Monoid Nerd Font Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: TerminessTTF Nerd Font
-    #family: Mononoki Nerd Font
-
-    # The `style` can be specified to pick a specific face.
-    style: Bold Italic
+    family: JetBrainsMono Nerd Font Mono
+    style: SemiBold Italic
 
   # Point size
   size: 18
@@ -224,6 +172,10 @@ colors:
     background: '0x1a1b26'
     foreground: '0xa9b1d6'
 
+  cursor:
+    text: '0x002b36'
+    cursor: '0x93a1a1'
+
   # Normal colors
   normal:
     black:   '0x32344a'
@@ -245,6 +197,48 @@ colors:
     magenta: '0xbb9af7'
     cyan:    '0x0db9d7'
     white:   '0xacb0d0'
+
+#colors:
+## Default colors
+#primary:
+#  background: '0x002b36'
+#  foreground: '0x93a1a1'
+#
+## Colors the cursor will use if `custom_cursor_colors` is true
+#cursor:
+#  text: '0x002b36'
+#  cursor: '0x93a1a1'
+#
+## Normal colors
+#normal:
+#  black:   '0x002b36'
+#  red:     '0xdc322f'
+#  green:   '0x859900'
+#  yellow:  '0xb58900'
+#  blue:    '0x268bd2'
+#  magenta: '0x6c71c4'
+#  cyan:    '0x2aa198'
+#  white:   '0x93a1a1'
+#
+## Bright colors
+#bright:
+#  black:   '0x657b83'
+#  red:     '0xdc322f'
+#  green:   '0x859900'
+#  yellow:  '0xb58900'
+#  blue:    '0x268bd2'
+#  magenta: '0x6c71c4'
+#  cyan:    '0x2aa198'
+#  white:   '0xfdf6e3'
+#
+#indexed_colors:
+#  - { index: 16, color: '0xcb4b16' }
+#  - { index: 17, color: '0xd33682' }
+#  - { index: 18, color: '0x073642' }
+#  - { index: 19, color: '0x586e75' }
+#  - { index: 20, color: '0x839496' }
+#  - { index: 21, color: '0xeee8d5' }
+
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
