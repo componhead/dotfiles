@@ -6,6 +6,7 @@ format = """
 $directory\
 [](fg:#769ff0 bg:#394260)\
 $git_branch\
+$git_commit\
 $git_status\
 [](fg:#394260 bg:#212736)\
 $nodejs\
@@ -40,6 +41,10 @@ symbol = ""
 always_show_remote = true
 style = "bg:#394260"
 format = '[[ $remote_name $symbol $branch(:$remote_branch) ](fg:#769ff0 bg:#394260)]($style)'
+
+[git_commit]
+commit_hash_length = 7
+format = '[[ $hash ($tag)](fg:#76bbb0 bg:#394260)]($style)'
 
 [git_status]
 style = "bg:#394260"
