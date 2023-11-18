@@ -14,6 +14,7 @@ set -xg EDITOR nvim
 set -xg GIT_PAGER delta
 set -xg GIT_EDITOR $EDITOR
 set -xg FPP_EDITOR $EDITOR
+set -xg BROWSER '/Applications/Google Chrome.app'
 
 set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
 set -xg FISH_DIR $XDG_CONFIG_HOME/fish
