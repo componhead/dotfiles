@@ -135,6 +135,7 @@ abbr -a -U -- gswm "git switch --detach origin/master"
 abbr -a -U -- pll "git pull --all --recurse-submodules=yes "
 abbr -a -U -- psh "git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a -U -- pshf "git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
+abbr -a -U -- pshm "git push origin HEAD:master"
 
 # ABBREVIAZIONI NODE
 abbr -a -U -- nrst "rm -rf node_modules package-lock.json"
