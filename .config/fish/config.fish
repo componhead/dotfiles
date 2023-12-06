@@ -139,6 +139,8 @@ abbr -a -U -- pshm "git push origin HEAD:master"
 
 # ABBREVIAZIONI NODE
 abbr -a -U -- nrst "rm -rf node_modules package-lock.json"
+abbr -a -U -- taptsrun "NODE_ENV=test tap --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
+abbr -a -U -- taptsdbg "NODE_ENV=test tap --node-arg=--inspect-brk --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
 
 # ABBREVIAZIONI FILES
 abbr --add flnk "find . -type l -maxdepth 1"

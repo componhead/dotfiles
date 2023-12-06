@@ -125,3 +125,5 @@
 [difftool "fugitive"]
 	prompt = false
 	cmd = nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\" -c \"wincmd w\" -c \"wincmd x\"
+[mergetool]
+	keepBackup = false
