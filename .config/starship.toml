@@ -10,6 +10,7 @@ $git_branch\
 $git_commit\
 $git_status\
 [](fg:#394260 bg:#212736)\
+$git_state\
 $nodejs\
 $rust\
 [](fg:#212736 bg:#1d2230)\
@@ -36,6 +37,11 @@ disabled = false
 # "Downloads" = " "
 # "Music" = " "
 # "Pictures" = " "
+
+[git_state]
+style = "[]fg:#e3e5e5 bg:#769ff0"
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
 
 [git_branch]
 symbol = ""
