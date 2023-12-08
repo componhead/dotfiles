@@ -314,9 +314,9 @@ shell:
     - "set -xg OPENAI_API_KEY (op read op://Personal/OpenAI/api_key --no-newline)"
     - -C
     - "gpg-cache"
-    # - -C
+    - -C
     # - "tmux attach || tmux"
-    # - "zellij attach --index 0 --create"
+    - "zellij attach --index 0 --create"
 
 # Startup directory
 #
