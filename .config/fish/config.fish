@@ -26,6 +26,7 @@ set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
 set -xg GIT_CONFIG_GLOBAL $GIT_CONFIG_HOME/config
 set -xg RCFILE $FISH_DIR/config.fish
 set -xg TMUXFILE $HOME/.tmux.conf
+set -xg ZELLIJ_FILE $ZELLIJ_DIR/config.kdl
 # ############# DON'T TOUCH ALL ABOVE
 
 set -xg APPDATA $HOME
@@ -162,6 +163,7 @@ abbr -a -U -- Evdef "$EDITOR $NVIM_DIR/after/plugin/defaults.lua"
 abbr -a -U -- Eala "$EDITOR $ALACRITTY_DIR/alacritty.yml"
 abbr -a -U -- Eprv "$EDITOR $PRIVATE_DOTFILES/privatefile"
 abbr -a -U -- Essh "$EDITOR $HOME/.ssh/config"
+abbr -a -U -- Ezj "$EDITOR $ZELLIJ_FILE"
 abbr -a -U -- pgr "pgrep -fal"
 abbr -a -U -- prv "cd $PRIVATE_S"
 abbr -a -U -- repos "cd $DIR_REPOS"

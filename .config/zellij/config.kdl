@@ -1,8 +1,9 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds {
+keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        bind "Ctrl b" { PageScrollUp; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -146,6 +147,54 @@ keybinds {
     shared_except "move" "locked" {
         bind "Ctrl h" { SwitchToMode "Move"; }
     }
+    shared_except "locked" {
+        bind "Ctrl y" {
+            LaunchOrFocusPlugin "file:.config/zellij/plugins/zellij_forgot.wasm" {
+                "lock"                  "ctrl + g"
+                "unlock"                "ctrl + g"
+                "new pane"              "ctrl + p + n"
+                "change focus of pane"  "ctrl + p + arrow key"
+                "close pane"            "ctrl + p + x"
+                "rename pane"           "ctrl + p + c"
+                "toggle fullscreen"     "ctrl + p + f"
+                "toggle floating pane"  "ctrl + p + w"
+                "toggle embed pane"     "ctrl + p + e"
+                "choose right pane"     "ctrl + p + l"
+                "choose left pane"      "ctrl + p + r"
+                "choose upper pane"     "ctrl + p + k"
+                "choose lower pane"     "ctrl + p + j"
+                "new tab"               "ctrl + t + n"
+                "close tab"             "ctrl + t + x"
+                "change focus of tab"   "ctrl + t + arrow key"
+                "rename tab"            "ctrl + t + r"
+                "sync tab"              "ctrl + t + s"
+                "brake pane to new tab" "ctrl + t + b"
+                "brake pane left"       "ctrl + t + ["
+                "brake pane right"      "ctrl + t + ]"
+                "toggle tab"            "ctrl + t + tab"
+                "increase pane size"    "ctrl + n + +"
+                "decrease pane size"    "ctrl + n + -"
+                "increase pane top"     "ctrl + n + k"
+                "increase pane right"   "ctrl + n + l"
+                "increase pane bottom"  "ctrl + n + j"
+                "increase pane left"    "ctrl + n + h"
+                "decrease pane top"     "ctrl + n + K"
+                "decrease pane right"   "ctrl + n + L"
+                "decrease pane bottom"  "ctrl + n + J"
+                "decrease pane left"    "ctrl + n + H"
+                "move pane to top"      "ctrl + h + k"
+                "move pane to right"    "ctrl + h + l"
+                "move pane to bottom"   "ctrl + h + j"
+                "move pane to left"     "ctrl + h + h"
+                "search"                "ctrl + s + s"
+                "go into edit mode"     "ctrl + s + e"
+                "detach session"        "ctrl + o + w"
+                "open session manager"  "ctrl + o + w"
+                "quit zellij"           "ctrl + q"
+                floating true
+            }
+        }
+    }
 }
 
 plugins {
@@ -169,7 +218,7 @@ plugins {
 //    - true
 //    - false (Default)
 //
-simplified_ui true
+// simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -218,81 +267,25 @@ simplified_ui true
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
 themes {
-    cyber-noir {
-        bg "#0b0e1a" // Dark Blue
-        fg "#91f3e4" // Teal
-        red "#ff578d" // Hot Pink
-        green "#00ff00" // Neon Green
-        blue "#3377ff" // Electric Blue
-        yellow "#ffd700" // Cyber Yellow
-        magenta "#ff00ff" // Neon Purple
-        orange "#ff7f50" // Cyber Orange
-        cyan "#00e5e5" // Cyan
-        black "#000000" // Black
-        white "#91f3e4" // Teal
-    }
-
-    blade-runner {
-        bg "#1a1a1a" // Dark Gray
-        fg "#2bbff4" // Neon Blue
-        red "#ff355e" // Neon Pink
-        green "#00ff00" // Neon Green
-        blue "#00d9e3" // Electric Blue
-        yellow "#ffe600" // Neon Yellow
-        magenta "#ff00ff" // Neon Purple
-        orange "#ff8c0d" // Cyber Orange
-        cyan "#00e5e5" // Cyan
-        black "#000000" // Black
-        white "#ffffff" // White
-    }
-
-    retro-wave {
-        bg "#1a1a1a" // Dark Gray
-        fg "#ff9900" // Retro Orange
-        red "#ff355e" // Neon Pink
-        green "#00ff00" // Neon Green
-        blue "#00d9e3" // Electric Blue
-        yellow "#ffe600" // Neon Yellow
-        magenta "#ff00ff" // Neon Purple
-        orange "#ff6611" // Retro Red
-        cyan "#00e5e5" // Cyan
-        black "#000000" // Black
-        white "#ffffff" // White
-    }
-
-    tokyo-night {
-        fg 169 177 214
-        bg 26 27 38
-        black 56 62 90
-        red 249 51 87
-        green 158 206 106
-        yellow 224 175 104
-        blue 122 162 247
-        magenta 187 154 247
-        cyan 42 195 222
-        white 192 202 245
-        orange 255 158 100
-    }
-
-    tokyo-night-dark {
-        fg 169 177 214
-        bg 26 27 38
-        black 56 62 90
-        red 249 51 87
-        green 158 206 106
-        yellow 224 175 104
-        blue 122 162 247
-        magenta 187 154 247
-        cyan 42 195 222
-        white 192 202 245
-        orange 255 158 100
+    pencil-light {
+        fg "#005F87"
+        bg "#f1f1f1"
+        black "#f1f1f1"
+        red "#B6D6FD"
+        green "#10A778"
+        yellow "#A89C14"
+        blue "#008EC4"
+        magenta "#B6D6FD"
+        cyan "#20A5BA"
+        white "#424242"
+        orange "#D75F5F"
     }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "cyber-noir"
+theme "pencil-light"
 
 // The name of the default layout to load on startup
 // Default: "default"
