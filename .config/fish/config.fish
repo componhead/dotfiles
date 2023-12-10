@@ -172,6 +172,7 @@ abbr -a -U -- v "$EDITOR -u NONE -i NONE"
 abbr -a -U -- vi "$EDITOR"
 abbr -a -U -- vid "cd $NVIM_DIR"
 abbr -a -U -- tapd "NODE_ENV=test tap --node-arg=--inspect-brk --no-timeout --jobs=1 (git rev-parse --show-toplevel)"
+abbr -a -U -- zj "zellij"
 
 # ONEPASSWORD retrieve
 # op://<vault>/<item>[/<section>]/<field>
