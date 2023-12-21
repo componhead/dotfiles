@@ -3,13 +3,12 @@ keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
-        bind "Ctrl b" { PageScrollUp; }
     }
     locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Ctrl a" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Ctrl n" { SwitchToMode "Normal"; }
+        bind "Alt n" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
         bind "k" "Up" { Resize "Increase Up"; }
@@ -22,7 +21,7 @@ keybinds clear-defaults=true {
         bind "-" { Resize "Decrease"; }
     }
     pane {
-        bind "Ctrl p" { SwitchToMode "Normal"; }
+        bind "Alt p" { SwitchToMode "Normal"; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
@@ -39,7 +38,7 @@ keybinds clear-defaults=true {
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
-        bind "Ctrl h" { SwitchToMode "Normal"; }
+        bind "Alt h" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "h" "Left" { MovePane "Left"; }
@@ -48,7 +47,7 @@ keybinds clear-defaults=true {
         bind "l" "Right" { MovePane "Right"; }
     }
     tab {
-        bind "Ctrl t" { SwitchToMode "Normal"; }
+        bind "Alt t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
         bind "l" "Right" "Down" "j" { GoToNextTab; }
@@ -70,26 +69,26 @@ keybinds clear-defaults=true {
         bind "Tab" { ToggleTab; }
     }
     scroll {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
+        bind "Alt s" { SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
-        bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
+        bind "Alt c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
-        bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
-        bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+        bind "Alt f" "PageDown" "Right" "l" { PageScrollDown; }
+        bind "Alt b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
     }
     search {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
-        bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
+        bind "Alt s" { SwitchToMode "Normal"; }
+        bind "Alt c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
-        bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
-        bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+        bind "Alt f" "PageDown" "Right" "l" { PageScrollDown; }
+        bind "Alt b" "PageUp" "Left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
         bind "n" { Search "down"; }
@@ -99,20 +98,20 @@ keybinds clear-defaults=true {
         bind "o" { SearchToggleOption "WholeWord"; }
     }
     entersearch {
-        bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
+        bind "Alt c" "Esc" { SwitchToMode "Scroll"; }
         bind "Enter" { SwitchToMode "Search"; }
     }
     renametab {
-        bind "Ctrl c" { SwitchToMode "Normal"; }
+        bind "Alt c" { SwitchToMode "Normal"; }
         bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
     }
     renamepane {
-        bind "Ctrl c" { SwitchToMode "Normal"; }
+        bind "Alt c" { SwitchToMode "Normal"; }
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
-        bind "Ctrl o" { SwitchToMode "Normal"; }
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "Alt o" { SwitchToMode "Normal"; }
+        bind "Alt s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
             LaunchOrFocusPlugin "zellij:session-manager" {
@@ -123,74 +122,74 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
+        bind "Ctrl a" { SwitchToMode "Locked"; }
+        bind "Alt q" { Quit; }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
     shared_except "pane" "locked" {
-        bind "Ctrl p" { SwitchToMode "Pane"; }
+        bind "Alt p" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
-        bind "Ctrl n" { SwitchToMode "Resize"; }
+        bind "Alt n" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "Alt s" { SwitchToMode "Scroll"; }
     }
     shared_except "session" "locked" {
-        bind "Ctrl o" { SwitchToMode "Session"; }
+        bind "Alt o" { SwitchToMode "Session"; }
     }
     shared_except "tab" "locked" {
-        bind "Ctrl t" { SwitchToMode "Tab"; }
+        bind "Alt t" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
+        bind "Alt h" { SwitchToMode "Move"; }
     }
     shared_except "locked" {
-        bind "Ctrl y" {
+        bind "Alt y" {
             LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij_forgot.wasm" {
-                "lock"                  "ctrl + g"
-                    "unlock"                "ctrl + g"
-                    "new pane"              "ctrl + p + n"
-                    "change focus of pane"  "ctrl + p + arrow key"
-                    "close pane"            "ctrl + p + x"
-                    "rename pane"           "ctrl + p + c"
-                    "toggle fullscreen"     "ctrl + p + f"
-                    "toggle floating pane"  "ctrl + p + w"
-                    "toggle embed pane"     "ctrl + p + e"
-                    "choose right pane"     "ctrl + p + l"
-                    "choose left pane"      "ctrl + p + r"
-                    "choose upper pane"     "ctrl + p + k"
-                    "choose lower pane"     "ctrl + p + j"
-                    "new tab"               "ctrl + t + n"
-                    "close tab"             "ctrl + t + x"
-                    "change focus of tab"   "ctrl + t + arrow key"
-                    "rename tab"            "ctrl + t + r"
-                    "sync tab"              "ctrl + t + s"
-                    "brake pane to new tab" "ctrl + t + b"
-                    "brake pane left"       "ctrl + t + ["
-                    "brake pane right"      "ctrl + t + ]"
-                    "toggle tab"            "ctrl + t + tab"
-                    "increase pane size"    "ctrl + n + +"
-                    "decrease pane size"    "ctrl + n + -"
-                    "increase pane top"     "ctrl + n + k"
-                    "increase pane right"   "ctrl + n + l"
-                    "increase pane bottom"  "ctrl + n + j"
-                    "increase pane left"    "ctrl + n + h"
-                    "decrease pane top"     "ctrl + n + K"
-                    "decrease pane right"   "ctrl + n + L"
-                    "decrease pane bottom"  "ctrl + n + J"
-                    "decrease pane left"    "ctrl + n + H"
-                    "move pane to top"      "ctrl + h + k"
-                    "move pane to right"    "ctrl + h + l"
-                    "move pane to bottom"   "ctrl + h + j"
-                    "move pane to left"     "ctrl + h + h"
-                    "search"                "ctrl + s + s"
-                    "go into edit mode"     "ctrl + s + e"
-                    "detach session"        "ctrl + o + w"
-                    "open session manager"  "ctrl + o + w"
-                    "quit zellij"           "ctrl + q"
+                    "lock"                  "ctrl + a"
+                    "unlock"                "ctrl + a"
+                    "new pane"              "alt + p + n"
+                    "change focus of pane"  "alt + p + arrow key"
+                    "close pane"            "alt + p + x"
+                    "rename pane"           "alt + p + c"
+                    "toggle fullscreen"     "alt + p + f"
+                    "toggle floating pane"  "alt + p + w"
+                    "toggle embed pane"     "alt + p + e"
+                    "choose right pane"     "alt + p + l"
+                    "choose left pane"      "alt + p + r"
+                    "choose upper pane"     "alt + p + k"
+                    "choose lower pane"     "alt + p + j"
+                    "new tab"               "alt + t + n"
+                    "close tab"             "alt + t + x"
+                    "change focus of tab"   "alt + t + arrow key"
+                    "rename tab"            "alt + t + r"
+                    "sync tab"              "alt + t + s"
+                    "brake pane to new tab" "alt + t + b"
+                    "brake pane left"       "alt + t + ["
+                    "brake pane right"      "alt + t + ]"
+                    "toggle tab"            "alt + t + tab"
+                    "increase pane size"    "alt + n + +"
+                    "decrease pane size"    "alt + n + -"
+                    "increase pane top"     "alt + n + k"
+                    "increase pane right"   "alt + n + l"
+                    "increase pane bottom"  "alt + n + j"
+                    "increase pane left"    "alt + n + h"
+                    "decrease pane top"     "alt + n + K"
+                    "decrease pane right"   "alt + n + L"
+                    "decrease pane bottom"  "alt + n + J"
+                    "decrease pane left"    "alt + n + H"
+                    "move pane to top"      "alt + h + k"
+                    "move pane to right"    "alt + h + l"
+                    "move pane to bottom"   "alt + h + j"
+                    "move pane to left"     "alt + h + h"
+                    "search"                "alt + s + s"
+                    "go into edit mode"     "alt + s + e"
+                    "detach session"        "alt + o + w"
+                    "open session manager"  "alt + o + w"
+                    "quit zellij"           "alt + q"
                     floating true
             }
         }
@@ -308,7 +307,7 @@ default_layout "compact"
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
-default_mode "locked"
+// default_mode "locked"
 
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
