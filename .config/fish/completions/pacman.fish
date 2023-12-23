@@ -4,15 +4,19 @@
 
 set -l progname pacman
 
-set -l listinstalled "(pacman -Q | string replace ' ' \t)"
+set -l listinstalled "(__fish_print_pacman_packages --installed)"
 # This might be an issue if another package manager is also installed (e.g. for containers)
-set -l listall "(__fish_print_packages)"
+set -l listall "(__fish_print_pacman_packages)"
 set -l listrepos "(__fish_print_pacman_repos)"
 set -l listgroups "(pacman -Sg)\t'Package Group'"
+# Theoretically, pacman reads packages in all formats that libarchive supports
+# In practice, it's going to be tar.xz, tar.gz, tar.zst, or just pkg.tar (uncompressed pkg)
+set -l listfiles '(__fish_complete_suffix pkg.tar.zst pkg.tar.xz pkg.tar.gz pkg.tar)'
 
 set -l noopt 'not __fish_contains_opt -s S -s D -s Q -s R -s U -s T -s F database query sync remove upgrade deptest files'
 set -l database '__fish_contains_opt -s D database'
 set -l query '__fish_contains_opt -s Q query'
+set -l queryfile '__fish_contains_opt -s p file'
 set -l remove '__fish_contains_opt -s R remove'
 set -l sync '__fish_contains_opt -s S sync'
 set -l upgrade '__fish_contains_opt -s U upgrade'
@@ -21,8 +25,8 @@ set -l files '__fish_contains_opt -s F files'
 complete -c $progname -e
 complete -c $progname -f
 # HACK: We only need these two to coerce fish to stop file completion and complete options
-complete -c $progname -n "$noopt" -a "-D" -d "Modify the package database"
-complete -c $progname -n "$noopt" -a "-Q" -d "Query the package database"
+complete -c $progname -n "$noopt" -a -D -d "Modify the package database"
+complete -c $progname -n "$noopt" -a -Q -d "Query the package database"
 
 # Primary operations
 complete -c $progname -s D -f -l database -n "$noopt" -d 'Modify the package database'
@@ -30,7 +34,7 @@ complete -c $progname -s Q -f -l query -n "$noopt" -d 'Query the package databas
 complete -c $progname -s R -f -l remove -n "$noopt" -d 'Remove packages from the system'
 complete -c $progname -s S -f -l sync -n "$noopt" -d 'Synchronize packages'
 complete -c $progname -s T -f -l deptest -n "$noopt" -d 'Check dependencies'
-complete -c $progname -s U -f -l upgrade -n "$noopt" -d 'Upgrade or add a local package'
+complete -c $progname -s U -l upgrade -n "$noopt" -d 'Upgrade or add a local package'
 complete -c $progname -s F -f -l files -n "$noopt" -d 'Query the files database'
 complete -c $progname -s V -f -l version -d 'Display version and exit'
 complete -c $progname -s h -f -l help -d 'Display help'
@@ -105,7 +109,7 @@ complete -c $progname -n "$has_db_opt; and $database" -xa "$listinstalled"
 # File options - since pacman 5
 complete -c $progname -n "$files" -s x -l regex -d 'Interpret each query as a regular expression' -f
 complete -c $progname -n "$files" -l machinereadable -d 'Print each match in a machine readable output format' -f
-complete -c $progname -n "$files" -d 'Package' -xa "$listall"
+complete -c $progname -n "$files" -d Package -xa "$listall"
 
 # Query options
 complete -c $progname -n "$query" -s c -l changelog -d 'View the change log of PACKAGE' -f
@@ -120,7 +124,8 @@ complete -c $progname -n "$query" -s p -l file -d 'Query a package file instead 
 complete -c $progname -n "$query" -s s -l search -d 'Search locally-installed packages for regexp' -f
 complete -c $progname -n "$query" -s t -l unrequired -d 'List only unrequired packages [and optdepends]' -f
 complete -c $progname -n "$query" -s u -l upgrades -d 'List only out-of-date packages' -f
-complete -c $progname -n "$query" -d 'Installed package' -xa "$listinstalled"
+complete -c $progname -n "$query" -n "not $queryfile" -d 'Installed package' -xa "$listinstalled"
+complete -c $progname -n "$query" -n "$queryfile" -d 'Package file' -k -xa "$listfiles"
 
 # Remove options
 complete -c $progname -n "$remove" -s c -l cascade -d 'Also remove packages depending on PACKAGE' -f
@@ -139,6 +144,4 @@ complete -c $progname -n "$sync" -s w -l downloadonly -d 'Only download the targ
 complete -c $progname -n "$sync" -xa "$listall $listgroups"
 
 # Upgrade options
-# Theoretically, pacman reads packages in all formats that libarchive supports
-# In practice, it's going to be tar.xz, tar.gz or tar.zst
-complete -c $progname -n "$upgrade" -xa '(__fish_complete_suffix pkg.tar.zst; __fish_complete_suffix pkg.tar.xz; __fish_complete_suffix pkg.tar.gz)' -d 'Package file'
+complete -c $progname -n "$upgrade" -k -xa "$listfiles" -d 'Package file'

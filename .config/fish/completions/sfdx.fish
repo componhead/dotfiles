@@ -1,9 +1,9 @@
 # Tab completion for sfdx (https://developer.salesforce.com/tools/sfdxcli).
 
 function __fish_sfdx_using_command
-    set cmd (commandline -opc)
-    if [ (count $cmd) -gt 1 ]
-        if [ $argv[1] = $cmd[2] ]
+    set -l cmd (commandline -opc)
+    if test (count $cmd) -gt 1
+        if test $argv[1] = $cmd[2]
             return 0
         end
     end
@@ -15,7 +15,7 @@ function __fish_sfdx_find_packagexml
     printf '%s\n' (find . -type f -regex ".*/package.xml" | string sub -s 3)
 end
 
-set -l sfdx_looking -c sfdx -n '__fish_use_subcommand'
+set -l sfdx_looking -c sfdx -n __fish_use_subcommand
 
 set -l sfdx_loglevels 'trace debug info warn error fatal TRACE DEBUG INFO WARN ERROR FATAL'
 
@@ -494,7 +494,7 @@ complete $sfdx_looking -xa force:org:clone -d 'clone a sandbox org'
 complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -s a -l setalias -d 'alias for the created org'
 complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -s f -l definitionfile -d 'path to an org definition file'
 complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -s s -l setdefaultusername -d 'set the created org as the default username'
-complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -s t -l type -d '(required) type of org to create' -xa 'sandbox'
+complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -s t -l type -d '(required) type of org to create' -xa sandbox
 complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -s u -l targetusername -d 'username or alias for the target org; overrides default target org'
 complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -s w -l wait -d '[default: 6 minutes] the streaming client socket timeout (in minutes)'
 complete -c sfdx -n '__fish_sfdx_using_command force:org:clone' -l apiversion -d 'override the api version used for api requests made by this command'
@@ -624,7 +624,7 @@ complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s b -l pub
 complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s k -l installationkey -d 'installation key for key-protected package (default: null)'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s p -l package -d 'ID (starts with 04t) or alias of the package version to install'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s r -l noprompt -d 'do not prompt for confirmation'
-complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s s -l securitytype -d '[default: AllUsers] security access type for the installed package (deprecation notice: The default --securitytype value will change from AllUsers to AdminsOnly in v47.0 or later.)' -xa 'AllUsers AdminsOnly'
+complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s s -l securitytype -d '[default: AllUsers] security access type for the installed package' -xa 'AllUsers AdminsOnly'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s t -l upgradetype -d '[default: Mixed] the upgrade type for the package installation' -xa 'DeprecateOnly Mixed Delete'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s u -l targetusername -d 'username or alias for the target org; overrides default target org'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:create' -s w -l wait -d 'number of minutes to wait for installation status'
@@ -688,7 +688,7 @@ complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s b -l pu
 complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s k -l installationkey -d 'installation key for key-protected package (default: null)'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s p -l package -d 'ID (starts with 04t) or alias of the package version to install'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s r -l noprompt -d 'do not prompt for confirmation'
-complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s s -l securitytype -d '[default: AllUsers] security access type for the installed package (deprecation notice: The default --securitytype value will change from AllUsers to AdminsOnly in v47.0 or later.)' -xa 'AllUsers AdminsOnly'
+complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s s -l securitytype -d '[default: AllUsers] security access type for the installed package' -xa 'AllUsers AdminsOnly'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s t -l upgradetype -d '[default: Mixed] the upgrade type for the package installation' -xa 'DeprecateOnly Mixed Delete'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s u -l targetusername -d 'username or alias for the target org; overrides default target org'
 complete -c sfdx -n '__fish_sfdx_using_command force:package:install' -s w -l wait -d 'number of minutes to wait for installation status'

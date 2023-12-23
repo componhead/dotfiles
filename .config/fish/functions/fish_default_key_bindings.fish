@@ -1,4 +1,4 @@
-function fish_default_key_bindings -d "Default (Emacs-like) key bindings for fish"
+function fish_default_key_bindings -d "emacs-like key binds"
     if contains -- -h $argv
         or contains -- --help $argv
         echo "Sorry but this function doesn't support -h or --help"
@@ -7,35 +7,28 @@ function fish_default_key_bindings -d "Default (Emacs-like) key bindings for fis
 
     if not set -q argv[1]
         bind --erase --all --preset # clear earlier bindings, if any
-        if test "$fish_key_bindings" != "fish_default_key_bindings"
+        if test "$fish_key_bindings" != fish_default_key_bindings
             # Allow the user to set the variable universally
             set -q fish_key_bindings
             or set -g fish_key_bindings
             # This triggers the handler, which calls us again and ensures the user_key_bindings
             # are executed.
             set fish_key_bindings fish_default_key_bindings
-            return
+            # unless the handler somehow doesn't exist, which would leave us without bindings.
+            # this happens in no-config mode.
+            functions -q __fish_reload_key_bindings
+            and return
         end
     end
 
     # Silence warnings about unavailable keys. See #4431, 4188
     if not contains -- -s $argv
-        set argv "-s" $argv
+        set argv -s $argv
     end
 
     # These are shell-specific bindings that we share with vi mode.
     __fish_shared_key_bindings $argv
     or return # protect against invalid $argv
-
-    # This is the default binding, i.e. the one used if no other binding matches
-    bind --preset $argv "" self-insert
-    or exit # protect against invalid $argv
-
-    # Space expands abbrs _and_ inserts itself.
-    bind --preset $argv " " self-insert expand-abbr
-
-    bind --preset $argv \n execute
-    bind --preset $argv \r execute
 
     bind --preset $argv \ck kill-line
 
@@ -56,10 +49,8 @@ function fish_default_key_bindings -d "Default (Emacs-like) key bindings for fis
     bind --preset $argv \e\[3~ delete-char
     bind --preset $argv \e\[4~ end-of-line
 
-    # OS X SnowLeopard doesn't have these keys. Don't show an annoying error message.
-    bind --preset $argv -k home beginning-of-line 2>/dev/null
-    bind --preset $argv -k end end-of-line 2>/dev/null
-    bind --preset $argv \e\[3\;2~ backward-delete-char # Mavericks Terminal.app shift-ctrl-delete
+    bind --preset $argv -k home beginning-of-line
+    bind --preset $argv -k end end-of-line
 
     bind --preset $argv \ca beginning-of-line
     bind --preset $argv \ce end-of-line
@@ -69,6 +60,10 @@ function fish_default_key_bindings -d "Default (Emacs-like) key bindings for fis
     bind --preset $argv \cf forward-char
     bind --preset $argv \cb backward-char
     bind --preset $argv \ct transpose-chars
+    bind --preset $argv \cg cancel
+    bind --preset $argv \c_ undo
+    bind --preset $argv \cz undo
+    bind --preset $argv \e/ redo
     bind --preset $argv \et transpose-words
     bind --preset $argv \eu upcase-word
 
@@ -78,24 +73,40 @@ function fish_default_key_bindings -d "Default (Emacs-like) key bindings for fis
     # One of these is alt+backspace.
     bind --preset $argv \e\x7f backward-kill-word
     bind --preset $argv \e\b backward-kill-word
-    bind --preset $argv \eb backward-word
-    bind --preset $argv \ef forward-word
-    bind --preset $argv \e\[1\;5C forward-word
-    bind --preset $argv \e\[1\;5D backward-word
+    if not test "$TERM_PROGRAM" = Apple_Terminal
+        bind --preset $argv \eb backward-word
+        bind --preset $argv \ef forward-word
+    else
+        # Terminal.app sends \eb for alt+left, \ef for alt+right.
+        # Yeah.
+        bind --preset $argv \eb prevd-or-backward-word
+        bind --preset $argv \ef nextd-or-forward-word
+    end
+
     bind --preset $argv \e\< beginning-of-buffer
     bind --preset $argv \e\> end-of-buffer
 
     bind --preset $argv \ed kill-word
 
+    bind --preset $argv \cr history-pager
+
     # term-specific special bindings
     switch "$TERM"
+        case st-256color
+            # suckless and bash/zsh/fish have a different approach to how the terminal should be configured;
+            # the major effect is that several keys do not work as intended.
+            # This is a workaround, there will be additions in he future.
+            bind --preset $argv \e\[P delete-char
+            bind --preset $argv \e\[Z up-line
         case 'rxvt*'
             bind --preset $argv \e\[8~ end-of-line
             bind --preset $argv \eOc forward-word
             bind --preset $argv \eOd backward-word
-        case 'xterm-256color'
+        case xterm-256color
             # Microsoft's conemu uses xterm-256color plus
             # the following to tell a console to paste:
             bind --preset $argv \e\x20ep fish_clipboard_paste
     end
+
+    set -e -g fish_cursor_selection_mode
 end

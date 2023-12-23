@@ -83,8 +83,8 @@ set -g theme_newline_cursor yes
 set -g fish_vi_key_bindings yes
 set -g fish_escape_delay_ms 300
 set -g fish_user_abbreviations
-set -U abbrs_initialized
-set -U fish_user_paths /usr/local/bin $HOME/.local/bin
+set abbrs_initialized
+set fish_user_paths /usr/local/bin $HOME/.local/bin
 set -gx fish_tmux_config $TMUXFILE
 set fzf_preview_dir_cmd exa --all --color=always
 set fzf_fd_opts --hidden --exclude=.git
@@ -137,7 +137,7 @@ abbr -a pll "git pull --all --recurse-submodules=yes "
 abbr -a psh "git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a pshf "git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a pshm "git push origin HEAD:master"
-#abbr -a --position anywhere -- gbr -f current_git_branch
+abbr -a gbr --position anywhere --function current_git_branch
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"

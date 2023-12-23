@@ -37,7 +37,7 @@ function __s3_cmd_in
 
         # Check if `aws` command is `s3`
         if test $is_s3 -eq 0
-            if string match -q -- "s3" $token
+            if string match -q -- s3 $token
                 set is_s3 1
                 continue
             else
@@ -56,39 +56,22 @@ function __s3_cmd_in
     return 1
 end
 
-# Determines whether the first non-switch argument to `aws` was in $argv
-function __aws_cmd_in
-    set -l tokens (commandline -co)
-    for token in $tokens[2..-1]
-        if string match -qr "^--" -- $token
-            # Ignore switches everywhere
-            continue
-        else if contains $token $argv
-            return 0
-        else
-            return 1
-        end
-    end
-
-    return 1
-end
-
 # S3 completions
-complete -c 'aws' -n "__fish_prev_arg_in s3" -xa "cp mv rm help sync ls mb mv presign rb website"
+complete -c aws -n "__fish_prev_arg_in s3" -xa "cp mv rm help sync ls mb mv presign rb website"
 
 # When completing a remote path, complete the bucket name first, then based off
 # the bucket name, we can complete the path itself.
 
 # Commands that take only remote parameters (cannot operate on local files).
-complete -c 'aws' -n "__s3_is_maybe_bucket && __s3_cmd_in ls rb rm" -xa "(__s3_ls_buckets)"
+complete -c aws -n "__s3_is_maybe_bucket && __s3_cmd_in ls rb rm" -xa "(__s3_ls_buckets)"
 # Commands that can operate on local or remote files. To prevent the shell
 # locking up unnecessarily, only complete if no argument was specified or if the
 # argument being specified could be an S3 path.
-complete -c 'aws' -n "__s3_is_maybe_bucket && __s3_cmd_in mv cp presign mb sync" -a "(__s3_ls_buckets)"
+complete -c aws -n "__s3_is_maybe_bucket && __s3_cmd_in mv cp presign mb sync" -a "(__s3_ls_buckets)"
 
 # Complete the paths themselves
-complete -c 'aws' -n "__s3_is_remote_path" -xa "(__s3_ls_dir)"
-complete -c 'aws' -n "__s3_is_bucket" -xa "(__s3_ls_buckets)"
+complete -c aws -n __s3_is_remote_path -xa "(__s3_ls_dir)"
+complete -c aws -n __s3_is_bucket -xa "(__s3_ls_buckets)"
 
 # This list is extracted from the output of `aws help`, which can't be ingested directly,
 # as it emits considerable ANSI output and other terminal control characters.
@@ -270,4 +253,4 @@ set -l aws_services \
     workspaces \
     xray
 
-complete -c aws -n '__fish_is_first_token' -xa "$aws_services"
+complete -c aws -n "__fish_is_nth_token 1" -xa "$aws_services"

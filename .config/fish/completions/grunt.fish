@@ -8,10 +8,7 @@
 # https://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
 
 function __grunt_print_tasks
-    set -l tasks (grunt --version --verbose 2>/dev/null | awk '/Available tasks: / {$1=$2=""; print $0}' | awk '{$1=$1}1' | tr ' ' '\n')
-    for t in $tasks
-        echo $t
-    end
+    grunt --version --verbose 2>/dev/null | awk '/Available tasks: / {$1=$2=""; print $0}' | awk '{$1=$1}1' | string split ' '
 end
 
 complete -c grunt -fa '(__grunt_print_tasks)'
@@ -28,4 +25,3 @@ complete -c grunt -l no-write -d "Disable writing files (dry run)"
 complete -c grunt -s v -l verbose -d "Verbose mode. A lot more information output"
 complete -c grunt -s V -l version -d "Print the grunt version. Combine with --verbose for more info"
 complete -c grunt -l completion -d "Output shell auto-completion rules."
-

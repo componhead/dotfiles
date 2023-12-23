@@ -20,4 +20,4 @@ function __fish_cdh_args
     end
 end
 
-complete -c cdh -xa '(__fish_cdh_args)'
+complete -c cdh -kxa '(__fish_cdh_args)'

@@ -50,10 +50,6 @@ set -l sharpness_opts '
     7\tleast sharp
 '
 
-function __fish_cwebp_pass_opts
-    seq 0 10 | awk '{printf "%s\t\n", $0}' -
-end
-
 set -l alpha_method_opts '
     0\t
     1\tdefault
@@ -73,7 +69,7 @@ set -l metadata_opts '
     xmp\t
 '
 
-function __fish_cwebp_is_first_arg_or_its_value -a 'arg' -d 'Like __fish_is_first_arg, but also returns true for the second token after a given parameter'
+function __fish_cwebp_is_first_arg_or_its_value -a arg -d 'Like __fish_is_first_arg, but also returns true for the second token after a given parameter'
     set -l tokens (commandline -co)
 
     switch (count $tokens)
@@ -111,7 +107,7 @@ complete -c cwebp -o strong -d 'Use strong filter'
 complete -c cwebp -o simple -d 'Use simple filter'
 complete -c cwebp -o sharp_yuv -d 'Use sharper (and slower) RGB->YUV conversion'
 complete -c cwebp -x -o partition_limit -d 'Limit quality to fit the 512k limit on the first partition (integer 0:no degradation…100:full degradation)'
-complete -c cwebp -x -o pass -a '(__fish_cwebp_pass_opts)' -d 'Analysis pass number'
+complete -c cwebp -x -o pass -a '(seq 0 10)' -d 'Analysis pass number'
 complete -c cwebp -x -o crop -d 'Crop picture with <x> <y> <v> <h> rectangle'
 complete -c cwebp -x -o resize -d 'Resize picture to <w> <h> after any cropping'
 complete -c cwebp -o mt -d 'Use multi-threading if available'
@@ -120,7 +116,7 @@ complete -c cwebp -x -o map -d 'Print map of extra info'
 complete -c cwebp -o print_psnr -d 'Print averaged PSNR distortion'
 complete -c cwebp -o print_ssim -d 'Print averaged SSIM distortion'
 complete -c cwebp -o print_lsim -d 'Print local-similarity distortion'
-complete -c cwebp -r -o d -a '(__fish_complete_suffix .pgm)' -d 'Dump compressed output to given PGM file'
+complete -c cwebp -r -o d -k -a '(__fish_complete_suffix .pgm)' -d 'Dump compressed output to given PGM file'
 complete -c cwebp -x -o alpha_method -a "$alpha_method_opts" -d 'Transparency-compression method'
 complete -c cwebp -x -o alpha_filter -a "$alpha_filter_opts" -k -d 'Predictive filtering for alpha plane'
 complete -c cwebp -x -o exact -d 'Preserve RGB values in transparent area'
@@ -143,4 +139,4 @@ complete -c cwebp -o jpeg_like -d 'Roughly match expected JPEG size'
 complete -c cwebp -o af -d 'Auto-adjust filter strength'
 complete -c cwebp -x -o pre -d 'Pre-processing filter (integer)'
 
-complete -c cwebp -r -o o -a '(__fish_complete_suffix .webp)' -d 'Output to file'
+complete -c cwebp -r -o o -k -a '(__fish_complete_suffix .webp)' -d 'Output to file'

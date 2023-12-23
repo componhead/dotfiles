@@ -30,24 +30,24 @@ function __fish_list_heroku_releases
 end
 
 function __fish_heroku_needs_command
-    set cmd (commandline -opc)
-    if [ (count $cmd) -eq 1 ]
+    set -l cmd (commandline -opc)
+    if test (count $cmd) -eq 1
         return 0
     end
     return 1
 end
 
 function __fish_heroku_using_command
-    set cmd (commandline -opc)
-    if [ (count $cmd) -gt 1 ]
-        if [ $argv[1] = $cmd[2] ]
+    set -l cmd (commandline -opc)
+    if test (count $cmd) -gt 1
+        if test $argv[1] = $cmd[2]
             return 0
         end
     end
     return 1
 end
 
-set -l heroku_looking -c heroku -n '__fish_heroku_needs_command'
+set -l heroku_looking -c heroku -n __fish_heroku_needs_command
 
 # Main commands
 complete $heroku_looking -xa addons -d 'list installed addons'
@@ -78,11 +78,10 @@ complete $heroku_looking -xa plugins -d 'manage plugins to the heroku gem'
 complete $heroku_looking -xa regions -d 'list available regions'
 complete $heroku_looking -xa stack -d 'manage the stack for an app'
 complete $heroku_looking -xa status -d 'check status of heroku platform'
-complete $heroku_looking -xa twofactor
 complete $heroku_looking -xa update -d 'update the heroku client'
 complete $heroku_looking -xa version -d 'display version'
 
-complete $heroku_looking -xa git:clone -d "APP DIRECTORY clones a heroku app to your local machine at DIRECTORY (defaults to app name)"
+complete $heroku_looking -xa git:clone -d "clones heroku application to machine at DIRECTORY. defaults to app name."
 complete $heroku_looking -xa git:remote -d "adds a git remote to an app repo (-a APP)"
 
 # Addons subcommands

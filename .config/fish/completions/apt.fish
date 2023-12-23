@@ -1,32 +1,55 @@
 # Completions for the `apt` command
 
-set -l all_subcmds update upgrade full-upgrade search list install show remove edit-sources purge changelog autoremove depends rdepends
-set -l pkg_subcmds install upgrade full-upgrade show search purge changelog policy depends rdepends
-set -l installed_pkg_subcmds remove
+# macOS has a /usr/bin/apt that is something else entirely:
+# (apt - Returns the path to a Java home directory from the current user's settings)
+if [ "$(uname -s)" = Darwin -a "$(command -s apt)" = /usr/bin/apt ]
+    exit 1
+end
 
-function __fish_apt_subcommand
-    set subcommand $argv[1]
+set -l all_subcmds update upgrade full-upgrade search list install show remove edit-sources purge changelog autoremove depends rdepends
+set -l pkg_subcmds install upgrade full-upgrade show search purge changelog policy depends rdepends autoremove
+set -l installed_pkg_subcmds remove
+set -l handle_file_pkg_subcmds install
+
+function __fish_apt_subcommand -V all_subcmds
+    set -l subcommand $argv[1]
     set -e argv[1]
-    complete -f -c apt -n "not __fish_seen_subcommand_from $all_subcmds" -a $subcommand $argv
+    complete -f -c apt -n __fish_is_first_token -a $subcommand $argv
 end
 
 function __fish_apt_option
-    set subcommand $argv[1]
+    set -l subcommand $argv[1]
     set -e argv[1]
     complete -f -c apt -n "__fish_seen_subcommand_from $subcommand" $argv
 end
 
-complete -c apt -n "__fish_seen_subcommand_from $pkg_subcmds" -a '(__fish_print_packages | head -n 250)'
-complete -c apt -n "__fish_seen_subcommand_from $installed_pkg_subcmds" -a '(__fish_print_packages --installed | string match -re -- "(?:\\b|_)"(commandline -ct | string escape --style=regex) | head -n 250)' -d 'Package'
+function __fish_apt_list_repos
+    # A single `string` invocation can't read from multiple files and so we use `cat`
+    # but /etc/apt/sources.list.d/ may or may not contain any files so using a fish
+    # wildcard glob may complain loudly if no files match the pattern so we use `find`.
+    # The trailing `sort -u` is largely decorative.
+    cat (find /etc/apt/sources.list /etc/apt/sources.list.d/ -name "*.list") | string replace -rf '^\s*deb *(?:\[.*?\])? (?:[^ ]+) +([^ ]+) .*' '$1' | sort -u
+end
+
+complete -c apt -f
+
+# We use -k to keep PWD directories (from the .deb completion) after packages, so we need to sort the packages
+complete -k -c apt -n "__fish_seen_subcommand_from $handle_file_pkg_subcmds" -kxa '(__fish_complete_suffix .deb)'
+complete -k -c apt -n "__fish_seen_subcommand_from $pkg_subcmds" -kxa '(__fish_print_apt_packages | sort)'
+complete -c apt -n "__fish_seen_subcommand_from $installed_pkg_subcmds" -kxa '(__fish_print_apt_packages --installed | sort)'
+
+complete -c apt -n "__fish_seen_subcommand_from install" -l no-install-recommends
+# This advanced flag is the safest way to upgrade packages that otherwise would have been kept back
+complete -c apt -n "__fish_seen_subcommand_from upgrade" -l with-new-pkgs
 
 # Support flags
-complete -x -f -c apt -s h -l help -d 'Display help'
-complete -x -f -c apt -s v -l version -d 'Display version and exit'
+complete -f -c apt -s h -l help -d 'Display help'
+complete -f -c apt -s v -l version -d 'Display version and exit'
 
 # General options
-complete -f -c apt -s o -l option -d 'Set a configuration option'
-complete -f -c apt -s c -l config-file -d 'Configuration file'
-complete -f -c apt -s t -d 'Target release'
+complete -x -c apt -s o -l option -d 'Set a configuration option'
+complete -r -c apt -s c -l config-file -d 'Configuration file'
+complete -x -c apt -s t -d 'Install from specific repository' -x -a '(__fish_apt_list_repos)'
 
 # List
 __fish_apt_subcommand list -d 'List packages'
@@ -76,3 +99,5 @@ __fish_apt_subcommand depends -r -d 'List package dependencies'
 
 # Rdepends
 __fish_apt_subcommand rdepends -r -d 'List package reverse dependencies'
+
+functions -e __fish_apt_subcommand __fish_apt_option

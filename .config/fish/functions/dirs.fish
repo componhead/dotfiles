@@ -1,5 +1,5 @@
 function dirs --description 'Print directory stack'
-    set -l options 'h/help' 'c'
+    set -l options h/help c
     argparse -n dirs --max-args=0 $options -- $argv
     or return
 
@@ -16,5 +16,5 @@ function dirs --description 'Print directory stack'
 
     # Replace $HOME with ~.
     string replace -r '^'"$HOME"'($|/)' '~$1' -- $PWD $dirstack | string join " "
-    echo
+    return 0
 end

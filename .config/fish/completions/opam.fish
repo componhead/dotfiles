@@ -1,7 +1,7 @@
 function __fish_opam_using_command
-    set cmd (commandline -opc)
-    if [ (count $cmd) -gt 1 ]
-        if [ $argv[1] = $cmd[2] ]
+    set -l cmd (commandline -opc)
+    if test (count $cmd) -gt 1
+        if test $argv[1] = $cmd[2]
             return 0
         end
     end
@@ -9,9 +9,9 @@ function __fish_opam_using_command
 end
 
 function __fish_opam_at_color
-    set cmd (commandline -opc)
-    if [ (count $cmd) -gt 2 ]
-        if [ $cmd[-1] = '--color' ]
+    set -l cmd (commandline -opc)
+    if test (count $cmd) -gt 2
+        if test $cmd[-1] = --color
             return 0
         end
     end
@@ -19,8 +19,8 @@ function __fish_opam_at_color
 end
 
 function __fish_opam_needs_command
-    set cmd (commandline -opc)
-    if [ (count $cmd) -eq 1 ]
+    set -l cmd (commandline -opc)
+    if test (count $cmd) -eq 1
         return 0
     end
     return 1
@@ -28,12 +28,12 @@ end
 
 # general flags
 ## ones that work without any subcommand
-complete -f -c opam -l 'help' -d "Display the manual for an OPAM command."
+complete -f -c opam -l help -d "Display the manual for an OPAM command."
 complete -f -c opam -l version -d 'Show version information.'
 ## ones that require at least a subcommand (but are shared by all)
 ### colour
 complete -f -c opam -n 'not __fish_opam_needs_command' -l color -d 'Colorize the output.  WHEN must be `always\', `never\' or `auto\'.'
-complete -f -c opam -n '__fish_opam_at_color' -a 'always never auto'
+complete -f -c opam -n __fish_opam_at_color -a 'always never auto'
 ### rest
 complete -f -c opam -n 'not __fish_opam_needs_command' -l 'compat-mode-1.0' -d 'Compatibility mode with OPAM 1.0'
 complete -f -c opam -n 'not __fish_opam_needs_command' -l debug -d 'Print debug message on stdout.'
@@ -49,7 +49,7 @@ complete -f -c opam -n 'not __fish_opam_needs_command' -s y -l yes -d 'Disable i
 
 # subcommands
 ## config
-complete -f -c opam -n '__fish_opam_needs_command' -a config -d "Display configuration options for packages."
+complete -f -c opam -n __fish_opam_needs_command -a config -d "Display configuration options for packages."
 ### config flags
 complete -f -c opam -n '__fish_opam_using_command config' -s a -l all -d 'Enable all the global and user configuration options.'
 complete -f -c opam -n '__fish_opam_using_command config' -l csh -d 'Use csh-compatible mode for configuring OPAM.'
@@ -81,24 +81,43 @@ complete -f -c opam -n '__fish_opam_using_command config' -a bytelink -d 'return
 complete -f -c opam -n '__fish_opam_using_command config' -a report -d 'Prints a summary of your setup, useful for bug-reports.'
 
 # TODO all subcommands other than config (and admin?)
-complete -f -c opam -n '__fish_opam_needs_command' -a "help" -d "Display help about OPAM and OPAM commands."
-complete -f -c opam -n '__fish_opam_needs_command' -a "init" -d "Initialize OPAM state."
-complete -f -c opam -n '__fish_opam_needs_command' -a "install" -d "Install a list of packages."
-complete -f -c opam -n '__fish_opam_needs_command' -a "list" -d "Display the list of available packages."
-complete -f -c opam -n '__fish_opam_needs_command' -a "pin" -d "Pin a given package to a specific version."
-complete -f -c opam -n '__fish_opam_needs_command' -a "reinstall" -d "Reinstall a list of packages."
-complete -f -c opam -n '__fish_opam_needs_command' -a "remove uninstall" -d "Remove a list of packages."
-complete -f -c opam -n '__fish_opam_needs_command' -a "repository remote" -d "Manage OPAM repositories."
-complete -f -c opam -n '__fish_opam_needs_command' -a "search" -d "Search into the package list."
-complete -f -c opam -n '__fish_opam_needs_command' -a "show info" -d "Display information about specific packages."
-complete -f -c opam -n '__fish_opam_needs_command' -a switch -d "Manage multiple installation of compilers."
-complete -f -c opam -n '__fish_opam_needs_command' -a "update" -d "Update the list of available packages."
-complete -f -c opam -n '__fish_opam_needs_command' -a "upgrade" -d "Upgrade the installed package to latest version."
+complete -f -c opam -n __fish_opam_needs_command -a help -d "Display help about OPAM and OPAM commands."
+complete -f -c opam -n __fish_opam_needs_command -a init -d "Initialize OPAM state."
+complete -f -c opam -n __fish_opam_needs_command -a install -d "Install a list of packages."
+complete -f -c opam -n __fish_opam_needs_command -a list -d "Display the list of available packages."
+complete -f -c opam -n __fish_opam_needs_command -a pin -d "Pin a given package to a specific version."
+complete -f -c opam -n __fish_opam_needs_command -a reinstall -d "Reinstall a list of packages."
+complete -f -c opam -n __fish_opam_needs_command -a "remove uninstall" -d "Remove a list of packages."
+complete -f -c opam -n __fish_opam_needs_command -a "repository remote" -d "Manage OPAM repositories."
+complete -f -c opam -n __fish_opam_needs_command -a search -d "Search into the package list."
+complete -f -c opam -n __fish_opam_needs_command -a "show info" -d "Display information about specific packages."
+complete -f -c opam -n __fish_opam_needs_command -a switch -d "Manage multiple installation of compilers."
+complete -f -c opam -n __fish_opam_needs_command -a update -d "Update the list of available packages."
+complete -f -c opam -n __fish_opam_needs_command -a upgrade -d "Upgrade the installed package to latest version."
 ## admin
-complete -f -c opam -n '__fish_opam_needs_command' -a "admin" -d "Administration tool for local repositories."
-complete -c opam -n '__fish_opam_using_command admin' -l 'help' -d 'Show this help in format FMT (pager, plain or groff).'
-complete -c opam -n '__fish_opam_using_command admin' -l 'version' -d 'Show version information.'
-complete -f -c opam -n '__fish_opam_using_command admin' -a "check" -d "Check a local repo for errors."
-complete -f -c opam -n '__fish_opam_using_command admin' -a "depexts" -d "Add external dependencies."
-complete -f -c opam -n '__fish_opam_using_command admin' -a "make" -d "Initialize a repo for serving files."
-complete -f -c opam -n '__fish_opam_using_command admin' -a "stats" -d "Compute statistics."
+complete -f -c opam -n __fish_opam_needs_command -a admin -d "Administration tool for local repositories."
+complete -c opam -n '__fish_opam_using_command admin' -l help -d 'Show this help in format FMT (pager, plain or groff).'
+complete -c opam -n '__fish_opam_using_command admin' -l version -d 'Show version information.'
+complete -f -c opam -n '__fish_opam_using_command admin' -a check -d "Check a local repo for errors."
+complete -f -c opam -n '__fish_opam_using_command admin' -a depexts -d "Add external dependencies."
+complete -f -c opam -n '__fish_opam_using_command admin' -a make -d "Initialize a repo for serving files."
+complete -f -c opam -n '__fish_opam_using_command admin' -a stats -d "Compute statistics."
+
+# opam switch
+set -l switchcommands create set remove export import reinstall list list-available show set-base set-description link
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a create -d 'Create a new switch, and install the given compiler there'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a set -d 'Set the currently active switch'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a remove -d 'Remove the given switch from disk'
+complete -c opam -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a export -d 'Save the current switch state to a file'
+complete -c opam -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a import -d 'Import a saved switch state'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a reinstall -d 'Reinstall the given compiler switch and all its packages'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a list -d 'Lists installed switches'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a list-available -d 'Lists base packages that can be used to create a new switch'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a show -d 'Prints the name of the current switch'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a set-base -d 'Sets the packages forming the immutable base for the selected switch'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and not __fish_seen_subcommand_from $switchcommands" -a link -d 'Sets a local alias for a given switch'
+
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and __fish_seen_subcommand_from set" -a '(opam switch list --short)'
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and __fish_seen_subcommand_from remove" -a '(opam switch list --short)'
+
+complete -c opam -f -n "__fish_seen_subcommand_from switch; and __fish_seen_subcommand_from create" -a '(opam switch list-available --short)'

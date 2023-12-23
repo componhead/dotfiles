@@ -21,7 +21,7 @@ if not command -sq seq
         set -l to 1
 
         # Remove a "--" argument if it happens first.
-        if test "x$argv[1]" = "x--"
+        if test "x$argv[1]" = x--
             set -e argv[1]
         end
 
@@ -36,13 +36,13 @@ if not command -sq seq
                 set step $argv[2]
                 set to $argv[3]
             case '*'
-                printf (_ "%s: Expected 1, 2 or 3 arguments, got %d\n") seq (count $argv)
+                printf (_ "%s: Expected 1, 2 or 3 arguments, got %d\n") seq (count $argv) >&2
                 return 1
         end
 
         for i in $from $step $to
             if not string match -rq -- '^-?[0-9]*([0-9]*|\.[0-9]+)$' $i
-                printf (_ "%s: '%s' is not a number\n") seq $i
+                printf (_ "%s: '%s' is not a number\n") seq $i >&2
                 return 1
             end
         end

@@ -1,22 +1,6 @@
 # This defines a compatibility shim for the `trap` command found in other shells like bash and zsh.
-
-function __trap_translate_signal
-    set upper (echo $argv[1]|tr a-z A-Z)
-    string replace -r '^SIG' '' -- $upper
-end
-
-function __trap_switch
-    switch $argv[1]
-        case EXIT exit
-            echo --on-event fish_exit
-
-        case '*'
-            echo --on-signal $argv[1]
-    end
-end
-
 function trap -d 'Perform an action when the shell receives a signal'
-    set -l options 'h/help' 'l/list-signals' 'p/print'
+    set -l options h/help l/list-signals p/print
     argparse -n trap $options -- $argv
     or return
 
@@ -52,8 +36,7 @@ function trap -d 'Perform an action when the shell receives a signal'
 
     switch $mode
         case clear
-            for i in $argv
-                set sig (__trap_translate_signal $i)
+            for sig in (string upper -- $argv | string replace -r '^SIG' '')
                 if test -n "$sig"
                     functions -e __trap_handler_$sig
                 end
@@ -63,11 +46,12 @@ function trap -d 'Perform an action when the shell receives a signal'
             set -l cmd $argv[1]
             set -e argv[1]
 
-            for i in $argv
-                set -l sig (__trap_translate_signal $i)
-                set sw (__trap_switch $sig)
-
+            for sig in (string upper -- $argv | string replace -r '^SIG' '')
                 if test -n "$sig"
+                    set -l sw --on-signal $sig
+                    if string match -qi exit -- $sig
+                        set sw --on-event fish_exit
+                    end
                     echo "function __trap_handler_$sig $sw; $cmd; end" | source
                 else
                     return 1
@@ -79,14 +63,13 @@ function trap -d 'Perform an action when the shell receives a signal'
             if set -q argv[1]
                 set names $argv
             else
-                set names (functions -na | string match "__trap_handler_*" | string replace '__trap_handler_' '')
+                set names (functions -a | string split ',' | string match "__trap_handler_*" | string replace '__trap_handler_' '')
             end
 
-            for i in $names
-                set sig (__trap_translate_signal $i)
-
+            for sig in (string upper -- $names | string replace -r '^SIG' '')
                 if test -n "$sig"
-                    functions __trap_handler_$i
+                    functions __trap_handler_$sig
+                    echo ""
                 else
                     return 1
                 end

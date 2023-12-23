@@ -4,11 +4,11 @@
 function __fish_unexpected_hist_args --no-scope-shadowing
     if test -n "$search_mode"
         or set -q show_time[1]
-        printf (_ "%ls: you cannot use any options with the %ls command\n") $cmd $hist_cmd >&2
+        printf (_ "%ls: %ls: subcommand takes no options\n") $cmd $hist_cmd >&2
         return 0
     end
     if set -q argv[1]
-        printf (_ "%ls: %ls expected %d args, got %d\n") $cmd $hist_cmd 0 (count $argv) >&2
+        printf (_ "%ls: %ls: expected %d arguments; got %d\n") $cmd $hist_cmd 0 (count $argv) >&2
         return 0
     end
     return 1
@@ -17,11 +17,11 @@ end
 function history --description "display or manipulate interactive command history"
     set -l cmd history
     set -l options --exclusive 'c,e,p' --exclusive 'S,D,M,V,X'
-    set -a options 'h/help' 'c/contains' 'e/exact' 'p/prefix'
-    set -a options 'C/case-sensitive' 'R/reverse' 'z/null' 't/show-time=?' 'n#max'
+    set -a options h/help c/contains e/exact p/prefix
+    set -a options C/case-sensitive R/reverse z/null 't/show-time=?' 'n#max'
     # The following options are deprecated and will be removed in the next major release.
     # Note that they do not have usable short flags.
-    set -a options 'S-search' 'D-delete' 'M-merge' 'V-save' 'X-clear'
+    set -a options S-search D-delete M-merge V-save X-clear
     argparse -n $cmd $options -- $argv
     or return
 
@@ -62,13 +62,15 @@ function history --description "display or manipulate interactive command histor
         set hist_cmd search
     else if set -q _flag_merge
         set hist_cmd merge
+    else if set -q _flag_clear-session
+        set hist_cmd clear-session
     end
 
     # If a history command has not already been specified check the first non-flag argument for a
     # command. This allows the flags to appear before or after the subcommand.
     if not set -q hist_cmd[1]
         and set -q argv[1]
-        if contains $argv[1] search delete merge save clear
+        if contains $argv[1] search delete merge save clear clear-session
             set hist_cmd $argv[1]
             set -e argv[1]
         end
@@ -81,19 +83,22 @@ function history --description "display or manipulate interactive command histor
     switch $hist_cmd
         case search # search the interactive command history
             test -z "$search_mode"
-            and set search_mode "--contains"
+            and set search_mode --contains
 
             if isatty stdout
-                set -l pager less
-                set -q PAGER
-                and echo $PAGER | read -at pager
+                set -l pager (__fish_anypager)
+                and isatty stdout
+                or set pager cat
 
                 # If the user hasn't preconfigured less with the $LESS environment variable,
-                # we do so to have it behave like cat if output fits on one screen. Prevent the
-                # screen from clearing on quit, so there is something to see if it exits.
-                # These are two of the options `git` sets through $LESS before starting the pager.
-                not set -qx LESS
-                and set -x LESS --quit-if-one-screen --no-init
+                # we do so to have it behave like cat if output fits on one screen.
+                if not set -qx LESS
+                    set -x LESS --quit-if-one-screen
+                    # Also set --no-init for less < v530, see #8157.
+                    if type -q less; and test (less --version | string match -r 'less (\d+)')[2] -lt 530 2>/dev/null
+                        set -x LESS $LESS --no-init
+                    end
+                end
                 not set -qx LV # ask the pager lv not to strip colors
                 and set -x LV -c
 
@@ -110,11 +115,12 @@ function history --description "display or manipulate interactive command histor
             end
 
             if test -z "$search_mode"
-                set search_mode "--contains"
+                set search_mode --contains
             end
 
-            if test $search_mode = "--exact"
-                builtin history delete $search_mode $_flag_case_sensitive $searchterm
+            if test $search_mode = --exact
+                builtin history delete $search_mode $_flag_case_sensitive -- $searchterm
+                builtin history save
                 return
             end
 
@@ -127,12 +133,13 @@ function history --description "display or manipulate interactive command histor
                 for i in (seq $found_items_count)
                     printf "[%s] %s\n" $i $found_items[$i]
                 end
-                echo ""
+                echo
                 echo "Enter nothing to cancel the delete, or"
-                echo "Enter one or more of the entry IDs separated by a space, or"
-                echo "Enter \"all\" to delete all the matching entries."
-                echo ""
-                read --local --prompt "echo 'Delete which entries? > '" choice
+                echo "Enter one or more of the entry IDs or ranges like '5..12', separated by a space."
+                echo "For example '7 10..15 35 788..812'."
+                echo "Enter 'all' to delete all the matching entries."
+                echo
+                read --local --prompt "echo 'Delete which entries? '" choice
                 echo ''
 
                 if test -z "$choice"
@@ -140,7 +147,7 @@ function history --description "display or manipulate interactive command histor
                     return
                 end
 
-                if test "$choice" = "all"
+                if test "$choice" = all
                     printf "Deleting all matching entries!\n"
                     for item in $found_items
                         builtin history delete --exact --case-sensitive -- $item
@@ -149,16 +156,42 @@ function history --description "display or manipulate interactive command histor
                     return
                 end
 
+                set -l choices
                 for i in (string split " " -- $choice)
-                    if test -z "$i"
-                        or not string match -qr '^[1-9][0-9]*$' -- $i
-                        or test $i -gt $found_items_count
-                        printf "Ignoring invalid history entry ID \"%s\"\n" $i
+                    # Expand ranges like 577..580
+                    if set -l inds (string match -rg '^([1-9][0-9]*)\.\.([1-9][0-9]*)' -- $i)
+                        if test $inds[1] -gt $found_items_count
+                            or test $inds[1] -gt $inds[2]
+                            printf (_ "Ignoring invalid history entry ID \"%s\"\n") $i
+                            continue
+                        end
+
+                        set -l indexes (seq $inds[1] 1 $inds[2])
+                        if set -q indexes[1]
+                            set -a choices $indexes
+                        end
                         continue
                     end
 
-                    printf "Deleting history entry %s: \"%s\"\n" $i $found_items[$i]
-                    builtin history delete --exact --case-sensitive -- "$found_items[$i]"
+                    if string match -qr '^[1-9][0-9]*$' -- $i
+                        and test $i -lt $found_items_count
+                        set -a choices $i
+                    else
+                        printf (_ "Ignoring invalid history entry ID \"%s\"\n") $i
+                        continue
+                    end
+                end
+
+                if not set -q choices[1]
+                    return 1
+                end
+
+                set choices (path sort -u -- $choices)
+
+                echo Deleting choices: $choices
+                for x in $choices
+                    printf "Deleting history entry %s: \"%s\"\n" $x $found_items[$x]
+                    builtin history delete --exact --case-sensitive -- "$found_items[$x]"
                 end
                 builtin history save
             end
@@ -181,13 +214,18 @@ function history --description "display or manipulate interactive command histor
 
             printf (_ "If you enter 'yes' your entire interactive command history will be erased\n")
             read --local --prompt "echo 'Are you sure you want to clear history? (yes/no) '" choice
-            if test "$choice" = "yes"
+            if test "$choice" = yes
                 builtin history clear -- $argv
-                and printf (_ "Command history cleared!")
+                and printf (_ "Command history cleared!\n")
             else
                 printf (_ "You did not say 'yes' so I will not clear your command history\n")
             end
+        case clear-session # clears only session
+            __fish_unexpected_hist_args $argv
+            and return 1
 
+            builtin history clear-session -- $argv
+            printf (_ "Command history for session cleared!\n")
         case '*'
             printf "%ls: unexpected subcommand '%ls'\n" $cmd $hist_cmd
             return 2

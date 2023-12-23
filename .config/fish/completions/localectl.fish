@@ -6,7 +6,7 @@ for cmd in $commands
     complete -c localectl -n "not __fish_seen_subcommand_from $commands" -a $cmd
 end
 set -l localevars LANG LC_MESSAGES LC_{CTYPE,NUMERIC,TIME,COLLATE,MONETARY,MESSAGES,PAPER,NAME,ADDRESS,TELEPHONE,MEASUREMENT,IDENTIFICATION,ALL}
-set -l locales $localevars=(localectl list-locales)
+set -l locales $localevars=(localectl list-locales 2>/dev/null)
 
 function __fish_localectl_layout
     set -l cmd (commandline -poc)
@@ -35,4 +35,3 @@ complete -c localectl -s H -l host -d 'Execute the operation on a remote host'
 complete -c localectl -s h -l help -d 'Print a short help text and exit'
 complete -c localectl -l version -d 'Print a short version string and exit'
 complete -c localectl -l no-pager -d 'Do not pipe output into a pager'
-
