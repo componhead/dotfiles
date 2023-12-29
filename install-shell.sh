@@ -286,6 +286,20 @@ else
 	brew install btop
 fi
 
+if brew ls --versions pngpaste >/dev/null; then
+	echo "******* pngpaste already installed"
+else
+	echo "******* Installing pngpaste..."
+	brew install pngpaste
+fi
+
+if brew ls --versions obsidian >/dev/null; then
+	echo "******* obsidian already installed"
+else
+	echo "******* Installing obsidian..."
+	b
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 # ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
