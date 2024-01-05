@@ -108,6 +108,7 @@ alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 abbr -a g "git"
 abbr -a gacm "git commit -am"
 abbr -a gad "git add ."
+abbr -a gb --position anywhere --function current_git_branch --regex '.*\sgb\s'
 abbr -a gcf "git config -e"
 abbr -a gcfg "git config --global -e"
 abbr -a gcln "git clone --recursive"
@@ -137,7 +138,6 @@ abbr -a pll "git pull --all --recurse-submodules=yes "
 abbr -a psh "git push -u origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a pshf "git push -f origin (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a pshm "git push origin HEAD:master"
-abbr -a gbr --position anywhere --function current_git_branch
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"
