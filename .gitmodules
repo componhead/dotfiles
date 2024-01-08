@@ -6,3 +6,6 @@
 	path = .config/nvim
 	url = git@mygithub:componhead/kickstart.nvim.git
 	branch = master
+[submodule ".config/wezterm"]
+	path = .config/wezterm
+	url = git@mygithub:componhead/wezterm-config.git

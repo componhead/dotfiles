@@ -297,7 +297,21 @@ if brew ls --versions obsidian >/dev/null; then
 	echo "******* obsidian already installed"
 else
 	echo "******* Installing obsidian..."
-	b
+	brew install obsidian
+fi
+
+if brew ls --versions wezterm >/dev/null; then
+	echo "******* wezterm already installed"
+else
+	echo "******* Installing wezterm..."
+	brew install wezterm
+fi
+
+if brew ls --versions nushell >/dev/null; then
+	echo "******* nushell already installed"
+else
+	echo "******* Installing nushell..."
+	brew install nushell
 fi
 
 echo "******* Installing generics dot configuration files"
