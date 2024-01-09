@@ -20,6 +20,7 @@ set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
 set -xg FISH_DIR $XDG_CONFIG_HOME/fish
 set -xg TMUX_DIR $HOME/.tmux
 set -xg ALACRITTY_DIR $XDG_CONFIG_HOME/alacritty
+set -xg WEZTERM_DIR $XDG_CONFIG_HOME/wezterm
 set -xg ZELLIJ_DIR $XDG_CONFIG_HOME/zellij
 set -xg VIMRC $NVIM_DIR/init.lua
 set -xg GIT_CONFIG_HOME $XDG_CONFIG_HOME/git
@@ -170,6 +171,8 @@ abbr -a Evdef "$EDITOR $NVIM_DIR/after/plugin/defaults.lua"
 abbr -a Eala "$EDITOR $ALACRITTY_DIR/alacritty.yml"
 abbr -a Eprv "$EDITOR $PRIVATE_DOTFILES/privatefile"
 abbr -a Essh "$EDITOR $HOME/.ssh/config"
+abbr -a Eala "$EDITOR $ALACRITTY_DIR/alacritty.yml"
+abbr -a Ewez "$EDITOR $WEZTERM_DIR/wezterm.lua"
 abbr -a Ezj "$EDITOR $ZELLIJ_FILE"
 abbr -a pgr "pgrep -fal"
 abbr -a prv "cd $PRIVATE_S"
