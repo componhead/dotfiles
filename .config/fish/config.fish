@@ -54,6 +54,7 @@ set -xg OPENAI_API_HOST api.openai.com
 set -xg PYTHON /usr/local/bin/python3.9
 set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
 
+op signin $OP_ACCOUNT
 set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
 set -gx PATH $PATH $HOME/bin $DOTFILES/bin

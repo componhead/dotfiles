@@ -1,4 +1,9 @@
 function struct-clone-worktree -d "Create all structure for a worktree workflow clone" --argument-names url name first_branch
+    # if test -z name
+    #     echo "url, project name and branch name are required"
+    #     exit
+    # end
+
     mkdir $name
     cd "$name"
 
@@ -22,5 +27,10 @@ function struct-clone-worktree -d "Create all structure for a worktree workflow 
     
     git worktree add $first_branch
 
+    cd $first_branch
+
+    git submodule update --remote --init
+
     nvim $first_branch/
 end
+
