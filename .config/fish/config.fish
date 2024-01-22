@@ -151,8 +151,8 @@ abbr -a pshm "git push origin HEAD:$GIT_MAIN_LOCAL"
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"
-abbr -a taptsrun "NODE_ENV=test tap --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
-abbr -a taptsdbg "NODE_ENV=test tap --node-arg=--inspect-brk --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
+abbr -a taptsrun "nvm use; NODE_ENV=test npx tap --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
+abbr -a taptsdbg "nvm use; NODE_ENV=test npx tap --node-arg=--inspect-brk --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
 
 # ABBREVIAZIONI FILES
 abbr --add flnk "find . -type l -maxdepth 1"
@@ -191,7 +191,7 @@ abbr -a zj "zellij"
 # ONEPASSWORD retrieve
 # op://<vault>/<item>[/<section>]/<field>
 abbr -a pgpg "op read op://Personal/GPG_private/passphrase | pbcopy"
-abbr -a wgpg "op read op://treedom/GPG_treedom/passphrase | pbcopy"
+abbr -a wgpg git_root"op read op://treedom/GPG_treedom/passphrase | pbcopy"
 
 bind \co openfile
 fish_vi_key_bindings
