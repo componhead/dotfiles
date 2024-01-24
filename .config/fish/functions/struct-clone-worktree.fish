@@ -32,6 +32,8 @@ function struct-clone-worktree -d "Create all structure for a worktree workflow 
 
     git submodule update --remote --init
 
+    git identity (echo $IDENTITY)
+
     nvim master/
 end
 
