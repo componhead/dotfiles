@@ -213,6 +213,4 @@ if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
     git_fzf_key_bindings
 end
 
-set --universal nvm_default_version v20.11.0
-
 starship init fish | source

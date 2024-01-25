@@ -55,5 +55,10 @@ function cd --description "Change directory"
         or set -g __fish_cd_direction prev
     end
 
+    # Check for package manager's file
+    if test -e ./.nvmrc
+        nvm use
+    end
+
     return $cd_status
 end
