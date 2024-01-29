@@ -55,7 +55,6 @@ if test -z $DOTFILES
     set -xg PYTHON /usr/local/bin/python3.9
     set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
 
-    op signin $OP_ACCOUNT
     set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
 
     set -gx PATH $PATH $HOME/bin $DOTFILES/bin
@@ -170,7 +169,6 @@ abbr -a esl "eslint --fix (git rev-parse --show-toplevel) | fpp"
 abbr -a frst "rm $FISH_DIR/fish_variables"
 abbr -a Erc "$EDITOR $RCFILE"
 abbr -a Evini "$EDITOR $NVIM_DIR/init.lua"
-abbr -a Evdef "$EDITOR $NVIM_DIR/after/plugin/defaults.lua"
 abbr -a Eala "$EDITOR $ALACRITTY_DIR/alacritty.yml"
 abbr -a Eprv "$EDITOR $PRIVATE_DOTFILES/privatefile"
 abbr -a Essh "$EDITOR $HOME/.ssh/config"
