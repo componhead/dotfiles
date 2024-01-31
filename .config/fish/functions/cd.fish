@@ -55,9 +55,14 @@ function cd --description "Change directory"
         or set -g __fish_cd_direction prev
     end
 
-    # Check for package manager's file
     if test -e ./.nvmrc
         nvm use
+    end
+
+    if test -e ./package.json
+        if not test -e ./node_modules
+            npm install
+        end
     end
 
     return $cd_status
