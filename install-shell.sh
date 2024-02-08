@@ -327,4 +327,5 @@ ln -sf ${DOTFILES}/.config/fish ${HOME}/.config/
 ln -sf ${DOTFILES}/.config/fisher ${HOME}/.config/
 ln -sf ${DOTFILES}/.config/starship.toml ${HOME}/.config/
 ln -sf ${DOTFILES}/.config/zellij ${HOME}/.config/
+ln -sf ${PRIVATE_DOTFILES}/dbui ~/.local/share/
 ln -sf ${DOTFILES}/Library/Preferences/.GlobalPreferences.plist ${HOME}/Library/Preferences/.GlobalPreferences.plist
