@@ -106,6 +106,10 @@
 	U = !git status -sb | sed 1d | sed '/^?? /!d' | sed 's/^...//g'	
 	UU = !git status -sb | sed 1d | sed '/^UU /!d' | sed 's/^...//g'
 	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
+	; real blame
+	rblame = "!git_real_blame.sh"
+	; real log
+	rlog = "!git_real_log.sh"
 [user]
 	useConfigOnly = true
 	name = Emiliano Anichini
