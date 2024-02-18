@@ -45,6 +45,8 @@
 	askpass = git-gui--askpass
 #	hooksPath = "$DOTFILES/gitTemplates/hooks/"
 	pager = delta
+	untrackedcache = true
+	fsmonitor = true
 [push]
 	default = simple
 [pull]
@@ -90,8 +92,10 @@
 	submodulesummary = true
 [fetch]
 	prune = false
+	writeCommitGraph = true
 [branch]
 	autoSetupRebase = never
+	sort = -committerdate
 [commit]
 	# template = !bash -c '"echo \"$DOTFILES/gitTemplates/gitmessage\";"'
 	gpgsign = true
@@ -131,3 +135,7 @@
 	cmd = nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\" -c \"wincmd w\" -c \"wincmd x\"
 [mergetool]
 	keepBackup = false
+[column]
+	ui = auto
+[maintenance]
+	repo = /Users/colossus/dotfiles

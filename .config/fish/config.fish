@@ -145,9 +145,9 @@ abbr -a gsw "git switch"
 abbr -a gswm "git switch --detach $GIT_MAIN_REMOTE/$GIT_MAIN_LOCAL"
 abbr -a pll "git pull --all --recurse-submodules=yes "
 abbr -a psh "git push -u $GIT_MAIN_REMOTE (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
-abbr -a pshf "git push -f $GIT_MAIN_REMOTE (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
+abbr -a pshf "git push --force-with-lease $GIT_MAIN_REMOTE (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a pshm "git push $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
-abbr -a pshmf "git push -f $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
+abbr -a pshmf "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"
