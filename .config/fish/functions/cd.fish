@@ -55,13 +55,14 @@ function cd --description "Change directory"
         or set -g __fish_cd_direction prev
     end
 
+    # NODE.JS
     if test -e ./.nvmrc
         nvm use
     end
-
     if test -e ./package.json
         if not test -e ./node_modules
             npm install
+            cp .env.sample .env
         end
     end
 

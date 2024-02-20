@@ -33,8 +33,8 @@
 	header = cyan
 	help = yellow
 	error = red
-#[include]
-#	path = "$XDG_CONFIG_HOME/delta/themes.gitconfig"
+[include]
+	path = "$XDG_CONFIG_HOME/delta/themes.gitconfig"
 [core]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	autoclrf=true
@@ -43,7 +43,7 @@
 	autocrlf = input
 	commentchar = ";"
 	askpass = git-gui--askpass
-#	hooksPath = "$DOTFILES/gitTemplates/hooks/"
+	hooksPath = "$DOTFILES/gitTemplates/git_hooks/hooks/"
 	pager = delta
 	untrackedcache = true
 	fsmonitor = true
@@ -92,7 +92,7 @@
 	submodulesummary = true
 [fetch]
 	prune = false
-	writeCommitGraph = true
+	; writeCommitGraph = true
 [branch]
 	autoSetupRebase = never
 	sort = -committerdate
@@ -139,3 +139,5 @@
 	ui = auto
 [maintenance]
 	repo = /Users/colossus/dotfiles
+[advice]
+	detachedHead = false
