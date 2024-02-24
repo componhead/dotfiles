@@ -314,6 +314,13 @@ else
 	brew install nushell
 fi
 
+if brew ls --versions dust >/dev/null; then
+	echo "******* dust already installed"
+else
+	echo "******* Installing dust..."
+	brew install dust
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 # ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
