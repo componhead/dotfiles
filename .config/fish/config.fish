@@ -122,7 +122,7 @@ abbr -a gcma "git commit --amend"
 abbr -a gcmx "git commit --amend --no-edit --no-verify"
 abbr -a gco "git checkout -"
 abbr -a gcom "git checkout $GIT_MAIN_REMOTE/$GIT_MAIN_LOCAL"
-abbr -a gdf "git difftool"
+abbr -a gdf "git difftool --diff-filter=M"
 abbr -a gds "git difftool --name-status"
 abbr -a gf "git fetch --all --recurse-submodules=yes"
 abbr -a gig "$GIT_EDITOR $GIT_CONFIG_HOME/ignore"
@@ -158,8 +158,8 @@ abbr -a pshmf "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"
-abbr -a taptsrun "nvm use; NODE_ENV=test npx tap --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
-abbr -a taptsdbg "nvm use; NODE_ENV=test npx tap --node-arg=--inspect-brk --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
+abbr -a taptsrun "nvm use; NODE_ENV=test TZ=UTC npx tap --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
+abbr -a taptsdbg "nvm use; NODE_ENV=test TZ=UTC npx tap --node-arg=--inspect-brk --node-arg=--require=tsconfig-paths/register --100 --changed --timeout 60000 --jobs=1 --ts"
 
 # ABBREVIAZIONI FILES
 abbr --add flnk "find . -type l -maxdepth 1"
