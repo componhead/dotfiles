@@ -50,7 +50,7 @@ function klone -d "Create all structure for a worktree workflow clone"
     # if test -n "$has_remote_branch"
     #     git worktree add --track "$branch" "./$branch" "$GIT_MAIN_REMOTE/$branch"
     # else
-        git worktree add "./$branch" "$branch"
+        git worktree add "./$branch" "default"
     # end
 
     if test -e "$branch/package.json"

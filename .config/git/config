@@ -66,7 +66,7 @@
 	navigate = true    # use n and N to move between diff sections
 	light = false
 	features = collared-trogon
-	line-numbers-left-format = ""
+	line-numbers-left-format = ''
 	line-numbers-right-format = "│ "
 	side-by-side = true
 [delta "interactive"]
@@ -129,15 +129,15 @@
 	email = emiliano.anichini@gmail.com
 	signingkey = 1583FE40
 [mergetool "fugitive3"]
-	cmd = nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd j'
+	cmd = "nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd j'"
 [difftool "fugitive"]
 	prompt = false
-	cmd = nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\" -c \"wincmd w\" -c \"wincmd x\"
+	cmd = "nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\" -c \"wincmd w\" -c \"wincmd x\""
 [mergetool]
 	keepBackup = false
 [column]
 	ui = auto
 [maintenance]
-	repo = /Users/colossus/dotfiles
+	repo = "$DOTFILES"
 [advice]
 	detachedHead = false
