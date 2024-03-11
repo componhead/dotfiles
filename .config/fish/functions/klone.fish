@@ -50,18 +50,18 @@ function klone -d "Create all structure for a worktree workflow clone"
     # if test -n "$has_remote_branch"
     #     git worktree add --track "$branch" "./$branch" "$GIT_MAIN_REMOTE/$branch"
     # else
-        git worktree add "./$branch" "default"
+    git worktree add WORKING "$branch"
     # end
 
-    if test -e "$branch/package.json"
+    if test -e "WORKING/package.json"
         npm i
-        set -g first_file "$branch/package.json"
-    else if test -e "$branch/README.md"
-        set -g first_file "$branch/README.md"
-    else if test -e "$branch/.gitignore"
-        set -g first_file "$branch/.gitignore"
+        set -g first_file "WORKING/package.json"
+    else if test -e "WORKING/README.md"
+        set -g first_file "WORKING/README.md"
+    else if test -e "WORKING/.gitignore"
+        set -g first_file "WORKING/.gitignore"
     else
-        set -g first_file "$branch/"
+        set -g first_file "WORKING/"
     end
 
     git identity "$IDENTITY"
