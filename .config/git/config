@@ -137,7 +137,5 @@
 	keepBackup = false
 [column]
 	ui = auto
-[maintenance]
-	repo = "$DOTFILES"
 [advice]
 	detachedHead = false
