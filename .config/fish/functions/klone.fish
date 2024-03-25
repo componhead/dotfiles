@@ -1,4 +1,3 @@
-
 function klone -d "Create all structure for a worktree workflow clone"
 # We tell argparse about -h/--help and -s/--second - these are short and long forms of the same option.
     # The "--" here is mandatory, it tells it from where to read the arguments.
@@ -8,7 +7,7 @@ function klone -d "Create all structure for a worktree workflow clone"
 
     # If -h or --help is given, we print a little help text and return
     if set -ql _flag_help
-        echo "klone [-h|--help] -u|--url <url_to_repo> [-r|--repodir <directory_name>] [-b|--branch <branch_to_checkout>]"
+        printf "klone [-h|--help]\nklone -u|--url <url_to_repo>\n      [-r|--repodir <directory_name|last_segment_of_url>]\n      [-b|--branch <branch_to_checkout_from|master>]"
         return 0
     end
 
@@ -43,15 +42,9 @@ function klone -d "Create all structure for a worktree workflow clone"
 
     git fetch "$GIT_MAIN_REMOTE"
 
-    # set -l has_remote_branch (git ls-remote --heads $url refs/heads/$branch | wc -l | string trim)
 
     printf "Creating worktree %s\n" "$branch"
-    # printf "Has remote branch: %s\n" "$has_remote_branch"
-    # if test -n "$has_remote_branch"
-    #     git worktree add --track "$branch" "./$branch" "$GIT_MAIN_REMOTE/$branch"
-    # else
     git worktree add WORKING "$branch"
-    # end
 
     if test -e "WORKING/package.json"
         npm i
