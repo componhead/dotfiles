@@ -321,6 +321,13 @@ else
 	brew install dust
 fi
 
+if brew ls --versions ollama >/dev/null; then
+	echo "******* ollama already installed"
+else
+	echo "******* Installing ollama..."
+	brew install ollama
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 # ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
