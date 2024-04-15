@@ -117,7 +117,7 @@ abbr -a gb --position anywhere --function current_git_branch --regex '.*\sgb\s.*
 abbr -a gcf "git config -e"
 abbr -a gcfg "git config --global -e"
 abbr -a gcln "git clone --recursive"
-abbr -a gcm "git commit -m"
+abbr -a gcm "npx eslint --fix . 2>/dev/null; git add .; git commit -m'"
 abbr -a gcma "git commit --amend"
 abbr -a gcmx "git commit --amend --no-edit --no-verify"
 abbr -a gco "git checkout -b "
