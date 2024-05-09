@@ -57,7 +57,9 @@ function cd --description "Change directory"
 
     # NODE.JS
     if test -e ./.nvmrc
-        nvm use
+        if not nvm use;
+            nvm install
+        end
     end
     if test -e ./package.json
         if not test -e ./node_modules
