@@ -1,13 +1,13 @@
 function klone -d "Create all structure for a worktree workflow clone"
 # We tell argparse about -h/--help and -s/--second - these are short and long forms of the same option.
     # The "--" here is mandatory, it tells it from where to read the arguments.
-    argparse h/help u/url= r/repodir= -- $argv
+    argparse h/help u/url= r/repodir= w/worktree= -- $argv
     # exit if argparse failed because it found an option it didn't recognize - it will print an error
     or return
 
     # If -h or --help is given, we print a little help text and return
     if set -ql _flag_help
-        printf "klone [-h|--help]\nklone -u|--url <url_to_repo>\n      [-r|--repodir <directory_name|last_segment_of_url>]"
+        printf "klone [-h|--help]\nklone -u|--url <url_to_repo>\n      [-r|--repodir <directory_name|last_segment_of_url>]\n      [-w|--worktree <worktree_name|WORKING>]"
         return 0
     end
 
@@ -18,6 +18,7 @@ function klone -d "Create all structure for a worktree workflow clone"
         return 1
     end
 
+    set -f main_worktree "WORKING"
     if set -ql _flag_repodir
         set -f repo_dir "$_flag_repodir"
     else
@@ -25,7 +26,14 @@ function klone -d "Create all structure for a worktree workflow clone"
     end
     printf "Repo dir: %s\n" "$repo_dir"
 
-    set -l bare_dir ".bare"
+    if set -ql _flag_worktree
+        set -f worktree "$_flag_worktree"
+    else
+        set -f worktree "$main_worktree"
+    end
+    printf "Worktree: %s\n" "$worktree"
+
+    set -f bare_dir ".bare"
     mkdir "$repo_dir"
     cd "$repo_dir"
 
@@ -37,23 +45,28 @@ function klone -d "Create all structure for a worktree workflow clone"
 
     git fetch origin
 
-    printf "git worktree add ./$directory"
-    set -l main_master (git rev-parse --abbrev-ref HEAD)
-    printf "main_master: %s\n" "$main_master"
-    git worktree add "./WORKING" "$main_master"
+    printf "Worktree: $worktree\n"
+    set -l main_branch (git rev-parse --abbrev-ref HEAD)
+    printf "main_branch: %s\n" "$main_branch"
 
-    if test -e "WORKING/package.json"
-        npm i
-        set -g first_file "WORKING/package.json"
-    else if test -e "WORKING/README.md"
-        set -g first_file "WORKING/README.md"
-    else if test -e "WORKING/.gitignore"
-        set -g first_file "WORKING/.gitignore"
-    else
-        set -g first_file "WORKING/"
+    if test "$main_worktree" = "$worktree"
+        git worktree add "./$worktree" "$main_branch"
+    else 
+        git worktree add "./$worktree"
     end
 
+    cd "$worktree"
     git identity "$IDENTITY"
+
+    if test -e "./package.json"
+        set -g first_file "./package.json"
+    else if test -e "./README.md"
+        set -g first_file "./README.md"
+    else if test -e "./.gitignore"
+        set -g first_file "./.gitignore"
+    else
+        set -g first_file "./"
+    end
 
     nvim "$first_file"
 end
