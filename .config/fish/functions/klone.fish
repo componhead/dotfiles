@@ -1,7 +1,7 @@
 function klone -d "Create all structure for a worktree workflow clone"
 # We tell argparse about -h/--help and -s/--second - these are short and long forms of the same option.
     # The "--" here is mandatory, it tells it from where to read the arguments.
-    argparse h/help u/url= r/repodir= w/worktree= -- $argv
+    argparse h/help u/url= r/repodir= -- $argv
     # exit if argparse failed because it found an option it didn't recognize - it will print an error
     or return
 
@@ -26,13 +26,6 @@ function klone -d "Create all structure for a worktree workflow clone"
     end
     printf "Repo dir: %s\n" "$repo_dir"
 
-    if set -ql _flag_worktree
-        set -f worktree "$_flag_worktree"
-    else
-        set -f worktree "$main_worktree"
-    end
-    printf "Worktree: %s\n" "$worktree"
-
     set -f bare_dir ".bare"
     mkdir "$repo_dir"
     cd "$repo_dir"
@@ -45,18 +38,14 @@ function klone -d "Create all structure for a worktree workflow clone"
 
     git fetch origin
 
-    printf "Worktree: $worktree\n"
     set -l main_branch (git rev-parse --abbrev-ref HEAD)
+    set -l main_remote (git remote | head -n 1)
     printf "main_branch: %s\n" "$main_branch"
-
-    if test "$main_worktree" = "$worktree"
-        git worktree add "./$worktree" "$main_branch"
-    else 
-        git worktree add "./$worktree"
-    end
+    git worktree add "./$main_worktree" "$main_branch"
 
     cd "$worktree"
     git identity "$IDENTITY"
+    git branch --set-upstream-to="$main_remote"/"$main_branch" "$main_branch"
 
     if test -e "./package.json"
         set -g first_file "./package.json"
