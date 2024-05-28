@@ -139,3 +139,5 @@
 	ui = auto
 [advice]
 	detachedHead = false
+[rebase]
+	updateRefs = true
