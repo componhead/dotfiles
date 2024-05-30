@@ -176,8 +176,9 @@ abbr -a gwr "git worktree remove -f"
 abbr -a pll "git pull --all --recurse-submodules=yes "
 abbr -a psh "git push -u $GIT_MAIN_REMOTE (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
 abbr -a pshf "git push --force-with-lease $GIT_MAIN_REMOTE (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"
+abbr -a pshfm "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
+abbr -a pshfh "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:"
 abbr -a pshm "git push $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
-abbr -a pshmf "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"
@@ -242,3 +243,4 @@ if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
 end
 
 starship init fish | source
+ cd .
