@@ -18,6 +18,7 @@ if test -z $DOTFILES
     set -xg BROWSER '/Applications/Google Chrome.app'
 
     set -xg NVIM_DIR $XDG_CONFIG_HOME/nvim
+    set -xg NVIM_DIR_SESSIONS $NVIM_DIR/sessions
     set -xg FISH_DIR $XDG_CONFIG_HOME/fish
     set -xg TMUX_DIR $HOME/.tmux
     set -xg ALACRITTY_DIR $XDG_CONFIG_HOME/alacritty
