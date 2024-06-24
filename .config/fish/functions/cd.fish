@@ -68,13 +68,5 @@ function cd --description "Change directory"
         end
     end
 
-    # GIT
-    if test -e ./.gitmodules
-        set -q modules git submodule status | awk '{$1 = ""; $3 = ""; print substr($0, 2)}'
-        if not test "$modules"
-            git submodule update --init --recursive --jobs 3
-        end
-    end
-
     return $cd_status
 end
