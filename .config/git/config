@@ -129,7 +129,8 @@
 	email = emiliano.anichini@gmail.com
 	signingkey = 1583FE40
 [mergetool "fugitive3"]
-	cmd = "nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd k'"
+	# cmd = "nvim -f -c \"Gdiffsplit :1 | Gvdiffsplit!\" \"$MERGED\" -c 'wincmd w' -c 'wincmd k'"
+	cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
 [difftool "fugitive"]
 	prompt = false
 	cmd = "nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\" -c \"wincmd H\""
