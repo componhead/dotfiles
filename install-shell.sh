@@ -328,6 +328,13 @@ else
 	brew install ollama
 fi
 
+if brew ls --versions rectangle >/dev/null; then
+	echo "******* rectangle already installed"
+else
+	echo "******* Installing rectangle..."
+	brew install rectangle
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 # ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
