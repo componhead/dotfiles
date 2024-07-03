@@ -1,4 +1,6 @@
 # Commented row are because gitconfig don't support, for now, ENV variable expansion
+[checkout]
+	defaultRemote = "$GIT_MAIN_REMOTE"
 [color]
 	pager = true
 	ui = auto
@@ -133,9 +135,11 @@
 	cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
 [difftool "fugitive"]
 	prompt = false
-	cmd = "nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\" -c \"wincmd H\""
+	cmd = "nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\""
 [mergetool]
 	keepBackup = false
+	keepTemporaries = false
+	writeToTemp = true
 [column]
 	ui = auto
 [advice]
