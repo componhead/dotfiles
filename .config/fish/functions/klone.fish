@@ -45,7 +45,6 @@ function klone -d "Create all structure for a worktree workflow clone"
 
     cd "$worktree"
     git identity "$IDENTITY"
-    git branch --set-upstream-to="$main_remote"/"$main_branch" "$main_branch"
 
     if test -e "./package.json"
         set -g first_file "./package.json"
