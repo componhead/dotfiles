@@ -335,6 +335,13 @@ else
 	brew install rectangle
 fi
 
+if brew ls --versions pandoc >/dev/null; then
+	echo "******* pandoc already installed"
+else
+	echo "******* Installing pandoc..."
+	brew install pandoc
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 # ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
