@@ -56,7 +56,8 @@ if test -z $DOTFILES
     set -xg PYTHON /usr/local/bin/python3.9
     set -xg TMUX_CLIPBOARD_COMMAND "reattach-to-user-namespace pbcopy"
 
-    set -xg PRIVATE_DOTFILES $DOTFILES/private_dotfiles/(hostname)
+    set -xg PRIVATE_DOTFILES_ROOT $DOTFILES/private_dotfiles
+    set -xg PRIVATE_DOTFILES $PRIVATE_DOTFILES_ROOT/(hostname)
 
     set -gx PATH $PATH $HOME/bin $DOTFILES/bin
 
