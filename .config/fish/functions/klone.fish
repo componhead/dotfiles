@@ -45,6 +45,7 @@ function klone -d "Create all structure for a worktree workflow clone"
 
     cd "$worktree"
     git identity "$IDENTITY"
+    git maintenance start
 
     if test -e "./package.json"
         set -g first_file "./package.json"

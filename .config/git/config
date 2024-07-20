@@ -94,6 +94,7 @@
 	submodulesummary = true
 [fetch]
 	prune = false
+	writeCommitGraph = true
 	; writeCommitGraph = true
 [branch]
 	autoSetupRebase = never
