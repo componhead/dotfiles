@@ -1,3 +1,4 @@
+**/target
 .config/configstore/update-notifier-npm.json
 .config/fish/fish_variables
 .config/fish/functions/fzf_key_bindings.fish
