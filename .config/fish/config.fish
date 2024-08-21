@@ -247,4 +247,3 @@ if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
 end
 
 starship init fish | source
- cd .

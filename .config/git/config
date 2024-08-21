@@ -137,7 +137,7 @@
 	cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
 [difftool "fugitive"]
 	prompt = false
-	cmd = "nvim -f -c \"Gvdiffsplit $REMOTE\" \"$LOCAL\""
+	cmd = "nvim -f -c \"Gvdiffsplit $LOCAL\" \"$REMOTE\" -c 'wincmd h'"
 [mergetool]
 	keepBackup = false
 	keepTemporaries = false
