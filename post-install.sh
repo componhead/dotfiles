@@ -27,3 +27,6 @@ mkdir ~/opt
 cp ${DOTFILES}/fonts/* ~/Library/Fonts/
 ln -sf ${PRIVATE_DOTFILES}/(hostname)/.gnupg/gpg-agent.conf ${HOME}/.gnupg/
 ln -sf ${PRIVATE_DOTFILES}/(hostname)/.gnupg/gpg.conf ${HOME}/.gnupg/
+
+sh ( curl -L https://nixos.org/nix/install | psub) --daemon
+fisher install lilyball/nix-env.fish
