@@ -2,6 +2,8 @@
 
 # GOD MODE abbreviations
 abbr -a b --position anywhere --function current_git_branch --regex '.*\sb\s.*'
+abbr -a f --position anywhere --set-cursor "% | fzf"
+abbr -a p --position anywhere "ps | fzf | sed -E 's/^([1-9]+).*\$/\\1/g'"
 
 if test -z $DOTFILES
     # ############# DON'T TOUCH ALL BELOW
@@ -40,9 +42,11 @@ if test -z $DOTFILES
     set -xg CLICOLOR_FORCE 1
     set -xg CPCLIPBOARD pbcopy
     set -xg CPCLIPBOARD_CMD $CPCLIPBOARD -selection clipboard
-    set -xg FZF_DEFAULT_OPTS --bind=ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up
+    set -xg FZF_DEFAULT_OPTS --bind=ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --multi
     if type -q rg then
-        set -xg FZF_FIND_FILE_COMMAND "rg --files --hidden --follow --glob '!.git'"
+        # Use the CLI ripgrep to respect ignore files (like '.gitignore'),
+        # display hidden files, and exclude the '.git' directory.
+        set -xg FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git"'
     end
     set -xg GIT_CURL_VERBOSE 0
     set -xg GIT_TRACE 0
@@ -183,6 +187,9 @@ abbr -a pshf "git push --force-with-lease $GIT_MAIN_REMOTE (git rev-parse --abbr
 abbr -a pshfm "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
 abbr -a pshfh "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:"
 abbr -a pshm "git push $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
+
+abbr -a vrg "nvim (rg --no-crlf --no-line-number --no-heading . | fzf --delimiter=: --nth=2..)"
+abbr -a vst "nvim (git status -sb | sed s/^...// | sed -e '1d' | fzf)"
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"
