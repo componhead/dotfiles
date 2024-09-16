@@ -3,7 +3,9 @@
 # GOD MODE abbreviations
 abbr -a b --position anywhere --function current_git_branch --regex '.*\sb\s.*'
 abbr -a f --position anywhere --set-cursor "% | fzf"
-abbr -a p --position anywhere "ps | fzf | sed -E 's/^([1-9]+).*\$/\\1/g'"
+abbr -a p --position anywhere "ps | fzf | sed -E 's/^([0-9]+).*\$/\\1/g'"
+abbr -a r --position anywhere "rg --no-crlf --no-line-number --no-heading . | fzf --delimiter=: --nth=2.."
+abbr -a s --position anywhere "git status -sb | sed s/^...// | sed -e '1d' | fzf"
 
 if test -z $DOTFILES
     # ############# DON'T TOUCH ALL BELOW
@@ -187,9 +189,6 @@ abbr -a pshf "git push --force-with-lease $GIT_MAIN_REMOTE (git rev-parse --abbr
 abbr -a pshfm "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
 abbr -a pshfh "git push --force-with-lease $GIT_MAIN_REMOTE HEAD:"
 abbr -a pshm "git push $GIT_MAIN_REMOTE HEAD:$GIT_MAIN_LOCAL"
-
-abbr -a vrg "nvim (rg --no-crlf --no-line-number --no-heading . | fzf --delimiter=: --nth=2..)"
-abbr -a vst "nvim (git status -sb | sed s/^...// | sed -e '1d' | fzf)"
 
 # ABBREVIAZIONI NODE
 abbr -a nrst "rm -rf node_modules package-lock.json"
