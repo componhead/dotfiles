@@ -49,7 +49,7 @@ if test -z $DOTFILES
     if type -q rg then
         # Use the CLI ripgrep to respect ignore files (like '.gitignore'),
         # display hidden files, and exclude the '.git' directory.
-        set -xg FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git"'
+        set -xg FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git"'
     end
     set -xg GIT_CURL_VERBOSE 0
     set -xg GIT_TRACE 0
