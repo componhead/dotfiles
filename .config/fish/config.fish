@@ -3,7 +3,7 @@
 # GOD MODE abbreviations
 abbr -a b --position anywhere --function current_git_branch --regex '.*\sb\s.*'
 abbr -a f --position anywhere --set-cursor "% | fzf"
-abbr -a p --position anywhere "ps | fzf | sed -E 's/^([0-9]+).*\$/\\1/g'"
+abbr -a p "date; ps -ef | fzf --bind='ctrl-r:reload(date; ps -ef)' \\"\n"--header=\\\$'Press CTRL-R to reload\n\n' --header-lines=2 \\"\n"--preview='echo {}' --preview-window=down,3,wrap \\"\n"--layout=reverse --height=80% | awk '{print $2}' | xargs kill -9"
 set -l RG_PREFIX "rg --column --line-number --no-heading --color=always --smart-case "
 abbr -a r "fzf --ansi --disabled --query \"\" \\"\n"--bind \"start:reload:$RG_PREFIX {q}\" \\"\n"--bind \"change:reload:sleep 0.1; $RG_PREFIX {q} || true\" \\"\n"--bind \"alt-enter:unbind(change,alt-enter)+change-prompt(2. fzf> )+enable-search+clear-query\" \\"\n"--color \"hl:-1:underline,hl+:-1:underline:reverse\" \\"\n"--prompt '1. ripgrep> ' \\"\n"--delimiter : \\"\n"--preview 'bat --color=always {1} --highlight-line {2}' \\"\n"--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \\"\n"--bind 'enter:become(nvim {1} +{2})'"
 abbr -a s --position anywhere "git status -sb | sed s/^...// | sed -e '1d' | fzf"
