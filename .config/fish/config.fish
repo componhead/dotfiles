@@ -125,6 +125,7 @@ set -g GIT_MAIN_LOCAL 'master'
 abbr -a g "git"
 abbr -a gacm "git commit -am"
 abbr -a gad "git add ."
+abbr -a gau "git add -u"
 abbr -a gcf "git config -e"
 abbr -a gcfg "git config --global -e"
 abbr -a gcln "git clone --recursive"
