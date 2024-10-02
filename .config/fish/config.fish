@@ -69,7 +69,7 @@ if test -z $DOTFILES
     set -xg PRIVATE_DOTFILES_ROOT $DOTFILES/private_dotfiles
     set -xg PRIVATE_DOTFILES $PRIVATE_DOTFILES_ROOT/(hostname)
 
-    set -gx PATH $PATH $HOME/bin $DOTFILES/bin
+    set -gx PATH $PATH /usr/local/mysql/bin $HOME/bin $DOTFILES/bin
 
     set -g theme_display_git yes
     set -g theme_display_git_untracked yes
