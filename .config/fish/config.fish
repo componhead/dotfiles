@@ -175,7 +175,7 @@ abbr -a gsbpsh "git push $GIT_MAIN_REMOTE --recurse-submodules=on-demand"
 abbr -a gsbrst "git submodule update --init --recursive --jobs 3"
 
 abbr -a gst "git status -sb"
-abbr -a gstp "git status --porcelain | awk '{\$1 = \"\"; print substr(\$0, 2)}'"
+abbr -a gstf "git status --porcelain | awk '{print \$2}' | fzf"
 abbr -a gsw "git switch"
 abbr -a gswm "git switch --detach $GIT_MAIN_REMOTE/$GIT_MAIN_LOCAL"
 
@@ -232,7 +232,7 @@ abbr -a zj "zellij"
 # ONEPASSWORD retrieve
 # op://<vault>/<item>[/<section>]/<field>
 abbr -a pgpg "op read op://Personal/GPG_private/passphrase | pbcopy"
-abbr -a wgpg git_root"op read op://treedom/GPG_treedom/passphrase | pbcopy"
+abbr -a wgpg "op read op://treedom/GPG_treedom/passphrase | pbcopy"
 
 bind \co openfile
 fish_vi_key_bindings
