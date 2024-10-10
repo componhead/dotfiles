@@ -342,6 +342,13 @@ else
 	brew install pandoc
 fi
 
+if brew ls --versions xplr >/dev/null; then
+	echo "******* xplr already installed"
+else
+	echo "******* Installing xplr..."
+	brew install xplr
+fi
+
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 # ln -sf ${DOTFILES}/.tmux.conf ${HOME}/

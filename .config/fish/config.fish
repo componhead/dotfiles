@@ -1,12 +1,17 @@
 #!/usr/local/bin/fish
 
+set git_status_interactive "git status -s | fzf --height 80% --layout reverse --border --preview 'bat -n --color=always {2}' --preview-window '80%,+{2}+3/3,~3' | sed 's/^.\\{3\\}//'"
+set process_interactive "ps -ef | fzf --bind='ctrl-r:reload(date; ps -ef)' \\"\n"--header='Press CTRL-R to reload' --header-lines=2 \\"\n"--layout=reverse --height=80% | awk '{print \$2}'"
+
 # GOD MODE abbreviations
 abbr -a b --position anywhere --function current_git_branch --regex '.*\sb\s.*'
-abbr -a f --position anywhere --set-cursor "% | fzf"
-abbr -a p "date; ps -ef | fzf --bind='ctrl-r:reload(date; ps -ef)' \\"\n"--header=\\\$'Press CTRL-R to reload\n\n' --header-lines=2 \\"\n"--preview='echo {}' --preview-window=down,3,wrap \\"\n"--layout=reverse --height=80% | awk '{print $2}' | xargs kill -9"
+abbr -a f --position anywhere --set-cursor "% fzf --layout=reverse --height=80% --border --preview 'bat -n --color=always {}' --preview-window '80%,+{2}+3/3,~3' "
+abbr -a p --position anywhere $process_interactive
 set -l RG_PREFIX "rg --column --line-number --no-heading --color=always --smart-case "
 abbr -a r "fzf --ansi --disabled --query \"\" \\"\n"--bind \"start:reload:$RG_PREFIX {q}\" \\"\n"--bind \"change:reload:sleep 0.1; $RG_PREFIX {q} || true\" \\"\n"--bind \"alt-enter:unbind(change,alt-enter)+change-prompt(2. fzf> )+enable-search+clear-query\" \\"\n"--color \"hl:-1:underline,hl+:-1:underline:reverse\" \\"\n"--prompt '1. ripgrep> ' \\"\n"--delimiter : \\"\n"--preview 'bat --color=always {1} --highlight-line {2}' \\"\n"--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \\"\n"--bind 'enter:become(nvim {1} +{2})'"
-abbr -a s --position anywhere "git status -sb | sed s/^...// | sed -e '1d' | fzf"
+abbr -a s --position anywhere $git_status_interactive
+abbr -a k "kill -9 ($process_interactive)"
+abbr -a x xplr
 
 if test -z $DOTFILES
     # ############# DON'T TOUCH ALL BELOW
@@ -124,7 +129,7 @@ set -g GIT_MAIN_LOCAL 'master'
 # ABBREVIAZIONI GIT 
 abbr -a g "git"
 abbr -a gacm "git commit -am"
-abbr -a gad "git add ."
+abbr -a gad "git add ($git_status_interactive)"
 abbr -a gau "git add -u"
 abbr -a gcf "git config -e"
 abbr -a gcfg "git config --global -e"
