@@ -342,6 +342,7 @@ else
 	brew install pandoc
 fi
 
+<<<<<<< Updated upstream
 if brew ls --versions xplr >/dev/null; then
 	echo "******* xplr already installed"
 else
@@ -349,6 +350,30 @@ else
 	brew install xplr
 fi
 
+||||||| Stash base
+=======
+if brew ls --versions procs >/dev/null; then
+	echo "******* procs already installed"
+else
+	echo "******* Installing procs..."
+	brew install procs
+fi
+
+if brew ls --versions topgrade >/dev/null; then
+	echo "******* topgrade already installed"
+else
+	echo "******* Installing topgrade..."
+	brew install topgrade
+fi
+
+if brew ls --versions ouch >/dev/null; then
+	echo "******* ouch already installed"
+else
+	echo "******* Installing ouch..."
+	brew install ouch
+fi
+
+>>>>>>> Stashed changes
 echo "******* Installing generics dot configuration files"
 ln -sf ${DOTFILES}/.ssh/config ${HOME}/.ssh/
 # ln -sf ${DOTFILES}/.tmux.conf ${HOME}/
