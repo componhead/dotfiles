@@ -189,6 +189,7 @@ abbr -a gwa "git worktree add"
 abbr -a gwip "git add . && git commit -m 'WIP' --no-verify"
 abbr -a gwl "git worktree list"
 abbr -a gwr "git worktree remove -f"
+abbr -a save "git stash; git stash apply"
 
 abbr -a pll "git pull --all --recurse-submodules=yes "
 abbr -a psh "git push -u $GIT_MAIN_REMOTE (git rev-parse --abbrev-ref HEAD):(git rev-parse --abbrev-ref HEAD)"

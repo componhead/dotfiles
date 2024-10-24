@@ -136,11 +136,6 @@
 	cmd = "nvim -f -c \"DiffviewOpen\""
 [mergetool "nvimmrg"]
 	cmd = "nvim -f -c \"DiffviewOpen\""
-[mergetool "fugitive3"]
-	cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
-[difftool "fugitive"]
-	prompt = false
-	cmd = "nvim -f -c \"Gvdiffsplit $LOCAL\" \"$REMOTE\" -c 'wincmd h'"
 [mergetool]
 	keepBackup = false
 	keepTemporaries = false
@@ -151,3 +146,5 @@
 	detachedHead = false
 [rebase]
 	updateRefs = true
+[log]
+	decorate = short
