@@ -1,15 +1,12 @@
 #!/usr/local/bin/fish
 
-set git_status_interactive "git status -s | fzf --height 80% --layout reverse --border --preview 'bat -n --color=always {2}' --preview-window '80%,+{2}+3/3,~3' | sed 's/^.\\{3\\}//'"
 set process_interactive "ps -ef | fzf --bind='ctrl-r:reload(date; ps -ef)' \\"\n"--header='Press CTRL-R to reload' --header-lines=2 \\"\n"--layout=reverse --height=80% | awk '{print \$2}'"
+set -l RG_PREFIX "rg --column --line-number --no-heading --color=always --smart-case "
 
 # GOD MODE abbreviations
-abbr -a b --position anywhere --function current_git_branch --regex '.*\sb\s.*'
 abbr -a f --position anywhere --set-cursor "% fzf --layout=reverse --height=80% --border --preview 'bat -n --color=always {}' --preview-window '80%,+{2}+3/3,~3' "
 abbr -a p --position anywhere $process_interactive
-set -l RG_PREFIX "rg --column --line-number --no-heading --color=always --smart-case "
 abbr -a r "fzf --ansi --disabled --query \"\" \\"\n"--bind \"start:reload:$RG_PREFIX {q}\" \\"\n"--bind \"change:reload:sleep 0.1; $RG_PREFIX {q} || true\" \\"\n"--bind \"alt-enter:unbind(change,alt-enter)+change-prompt(2. fzf> )+enable-search+clear-query\" \\"\n"--color \"hl:-1:underline,hl+:-1:underline:reverse\" \\"\n"--prompt '1. ripgrep> ' \\"\n"--delimiter : \\"\n"--preview 'bat --color=always {1} --highlight-line {2}' \\"\n"--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \\"\n"--bind 'enter:become(nvim {1} +{2})'"
-abbr -a s --position anywhere $git_status_interactive
 abbr -a k "kill -9 ($process_interactive)"
 abbr -a x xplr
 
@@ -129,7 +126,7 @@ set -g GIT_MAIN_LOCAL 'master'
 # ABBREVIAZIONI GIT 
 abbr -a g "git"
 abbr -a gacm "git commit -am"
-abbr -a gad "git add ($git_status_interactive)"
+abbr -a gad "git add ."
 abbr -a gau "git add -u"
 abbr -a gcf "git config -e"
 abbr -a gcfg "git config --global -e"
@@ -242,6 +239,7 @@ abbr -a wgpg "op read op://treedom/GPG_treedom/passphrase | pbcopy"
 
 bind \co openfile
 fish_vi_key_bindings
+git_fzf_key_bindings
 
 #workaround for resolving push (hung on) issue
 #set SSH_AUTH_SOCK ssh git@github.com
@@ -253,11 +251,6 @@ eval (ssh-agent -c) >/dev/null
 
 op completion fish | source
 
-alias gstdiff="git status --porcelain | sed 's/^...//' | while read f; git difftool --color=always --word-diff=color --word-diff-regex=. $argv $f; end;"
-
-if status is-interactive && test -f $FISH_DIR/custom/git_fzf.fish
-    source $FISH_DIR/custom/git_fzf.fish
-    git_fzf_key_bindings
-end
-
 starship init fish | source
+enable_transience
+
