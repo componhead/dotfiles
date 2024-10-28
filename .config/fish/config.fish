@@ -3,12 +3,10 @@
 set process_interactive "ps -ef | fzf --bind='ctrl-r:reload(date; ps -ef)' \\"\n"--header='Press CTRL-R to reload' --header-lines=2 \\"\n"--layout=reverse --height=80% | awk '{print \$2}'"
 set -l RG_PREFIX "rg --column --line-number --no-heading --color=always --smart-case "
 
-# GOD MODE abbreviations
-abbr -a f --position anywhere --set-cursor "% fzf --layout=reverse --height=80% --border --preview 'bat -n --color=always {}' --preview-window '80%,+{2}+3/3,~3' "
-abbr -a p --position anywhere $process_interactive
-abbr -a r "fzf --ansi --disabled --query \"\" \\"\n"--bind \"start:reload:$RG_PREFIX {q}\" \\"\n"--bind \"change:reload:sleep 0.1; $RG_PREFIX {q} || true\" \\"\n"--bind \"alt-enter:unbind(change,alt-enter)+change-prompt(2. fzf> )+enable-search+clear-query\" \\"\n"--color \"hl:-1:underline,hl+:-1:underline:reverse\" \\"\n"--prompt '1. ripgrep> ' \\"\n"--delimiter : \\"\n"--preview 'bat --color=always {1} --highlight-line {2}' \\"\n"--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \\"\n"--bind 'enter:become(nvim {1} +{2})'"
-abbr -a k "kill -9 ($process_interactive)"
-abbr -a x xplr
+bind -M insert -m insert \cg\cf "fzf --layout=reverse --height=80% --border --preview 'bat -n --color=always {}' --preview-window '80%,+{2}+3/3,~3' "
+bind -M insert -m insert \cg\cg "fzf --ansi --disabled --query \"\" \\"\n"--bind \"start:reload:$RG_PREFIX {q}\" \\"\n"--bind \"change:reload:sleep 0.1; $RG_PREFIX {q} || true\" \\"\n"--bind \"alt-enter:unbind(change,alt-enter)+change-prompt(2. fzf> )+enable-search+clear-query\" \\"\n"--color \"hl:-1:underline,hl+:-1:underline:reverse\" \\"\n"--prompt '1. ripgrep> ' \\"\n"--delimiter : \\"\n"--preview 'bat --color=always {1} --highlight-line {2}' \\"\n"--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \\"\n"--bind 'enter:become(nvim {1} +{2})'"
+bind -M insert -m insert \cg\ck "kill -9 ($process_interactive)"
+bind -M insert -m insert \cg\cx xplr
 
 if test -z $DOTFILES
     # ############# DON'T TOUCH ALL BELOW
@@ -226,7 +224,7 @@ abbr -a pgr "pgrep -fal"
 abbr -a prv "cd $PRIVATE_DOTFILES"
 abbr -a repos "cd $DIR_REPOS"
 abbr -a rl "rustlings"
-abbr -a v "$EDITOR -u NONE -i NONE"
+abbr -a ncmvim "$EDITOR -u NONE -i NONE"
 abbr -a vi "$EDITOR"
 abbr -a vid "cd $NVIM_DIR"
 abbr -a wed "cd $WEZTERM_DIR"

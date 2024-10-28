@@ -46,7 +46,7 @@ end
 
 
 function fzf-layout
-	fzf --height 50% --reverse --min-height 20 --border --bind ctrl-p:toggle-preview --bind ctrl-a:select-all $argv
+	fzf --height 80% --reverse --min-height 20 --border --bind ctrl-p:toggle-preview --bind ctrl-a:select-all $argv
 end
 
 # https://gist.github.com/aluxian/9c6f97557b7971c32fdff2f2b1da8209
@@ -107,7 +107,7 @@ end
 
 # https://gist.github.com/junegunn/8b572b8d4b5eddd8b85e5f4d40f17236
 function git_fzf_key_bindings -d "Set custom key bindings for git+fzf"
-	bind -M insert -m insert \cg\cf __git_fzf_git_status
+	bind -M insert -m insert \cg\cs __git_fzf_git_status
 	bind -M insert -m insert \cg\cb __git_fzf_git_branch
 	bind -M insert -m insert \cg\ct __git_fzf_git_tag
 	bind -M insert -m insert \cg\ch __git_fzf_git_log
