@@ -148,3 +148,5 @@
 	updateRefs = true
 [log]
 	decorate = short
+[maintenance]
+	repo = /Users/emiliano/Documents/treedom-gql-client-sdk.git/.bare

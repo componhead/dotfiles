@@ -122,6 +122,7 @@ alias git="$GIT_CONFIG_HOME/gitwrapper.sh"
 set -g GIT_MAIN_REMOTE 'origin'
 set -g GIT_MAIN_LOCAL 'master'
 # ABBREVIAZIONI GIT 
+abbr -a b --position anywhere --function current_git_branch --regex '.*\sb\s.*'
 abbr -a g "git"
 abbr -a gacm "git commit -am"
 abbr -a gad "git add ."
